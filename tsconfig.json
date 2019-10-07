@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2017",
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "jsx": "react-native",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "src/*": ["src/*", "src/*.android", "src/*.ios"]
+    },
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true
+  },
+  "include": ["src"]
+}
