@@ -1,11 +1,16 @@
 {
   "name": "react-native-urbi-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Urbi's UI library",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "babel src --out-dir dist --extensions '.ts,.tsx' --copy-files && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/urbi-mobility/react-native-urbi-ui.git"
   },
   "dependencies": {
     "react": ">=16.0.0",

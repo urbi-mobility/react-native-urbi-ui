@@ -1,4 +1,4 @@
-# react-native-urbi-ui v0.0.1
+# react-native-urbi-ui v0.0.2
 
 A set of React Native components that compose Urbi's Design System.
 
