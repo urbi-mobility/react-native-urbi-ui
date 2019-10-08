@@ -1,15 +1,17 @@
 {
   "name": "react-native-urbi-ui",
-  "version": "0.0.6",
+  "version": "0.0.5",
   "description": "Urbi's UI library",
   "license": "Apache-2.0",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "babel src --out-dir dist --extensions '.ts,.tsx' --copy-files && tsc || true",
-    "predist": "rm -rf ./dist && npm run build && cp package.json LICENSE README.md dist/ ",
-    "dist": "cd dist && npm publish",
-    "package": "npm run predist && cd dist && npm pack"
+    "predist": "rm -rf ./dist && npm run build && cp package.json dist/ ",
+    "dist": "npm run predist && cd dist && npm pack"
   },
   "repository": {
     "type": "git",

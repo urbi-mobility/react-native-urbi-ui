@@ -1,4 +1,4 @@
-# react-native-urbi-ui
+# react-native-urbi-ui v0.0.3
 
 A set of React Native components that compose Urbi's Design System.
 
@@ -12,7 +12,7 @@ All components/molecules come with their own Typescript definitions.
 
 ## Build
 
-Run `yarn install` to install all dependencies, and `yarn build` to generate the `dist` folder which contains the module. If you want to generate a package with the same structure as the one published on https://www.npmjs.com, run `yarn package`, and find the `react-native-urbi-ui-<version>.tgz` package inside the `dist` folder.
+Run `yarn install` to install all dependencies, and `yarn build` to generate the `dist` folder which contains the module.
 
 ## Warning
 
