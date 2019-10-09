@@ -30,10 +30,14 @@ that way, `tsc` will look for platform-specific definition files, which it would
 
 Run `yarn install` to install all dependencies, and `yarn build` to generate the `dist` folder which contains the module. If you want to generate a package with the same structure as the one published on https://www.npmjs.com, run `yarn package`, and find the `react-native-urbi-ui-<version>.tgz` package inside the `dist` folder.
 
+## Showcase
+
+An example react native app that showcases all components/molecules can be found in the `showcase` folder. To make it work, you first have to build the library by running `yarn build`; then, `cd` into the `showcase` folder, and run:
+
+    yarn install
+    yarn start
+    yarn android # or yarn ios
+
 ## Warning
 
 This is an alpha version of the release, use it at your own risk!
-
-## Coming soon
-
-An example react native app that showcases all components/molecules.

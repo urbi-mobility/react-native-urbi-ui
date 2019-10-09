@@ -1,0 +1,110 @@
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { colors } from 'react-native-urbi-ui/utils/colors';
+import { createAppContainer, NavigationRouteConfig } from 'react-navigation';
+import { createStackNavigator, NavigationStackScreenProps } from 'react-navigation-stack';
+import ButtonList, { toButtonEntries } from './components/ButtonList';
+import BannerSlider from './screens/BannerSlider';
+import ButtonGroup from './screens/ButtonGroup';
+import Buttons from './screens/Buttons';
+import CardHeaders from './screens/CardHeaders';
+import Cards from './screens/Cards';
+import Checkboxes from './screens/Checkboxes';
+import Colors from './screens/Colors';
+import ColumnLayouts from './screens/ColumnLayouts';
+import Components from './screens/Components';
+import Content from './screens/Content';
+import DoubleChoices from './screens/DoubleChoices';
+import IconButtons from './screens/IconButtons';
+import IconGroups from './screens/IconGroups';
+import Images from './screens/Images';
+import ListButtons from './screens/ListButtons';
+import ListItems from './screens/ListItems';
+import Molecules from './screens/Molecules';
+import Notes from './screens/Notes';
+import RadioButtons from './screens/RadioButtons';
+import SelectionHeaders from './screens/SelectionHeaders';
+import Status from './screens/Status';
+import Steppers from './screens/Steppers';
+import Text from './screens/Text';
+import Toggles from './screens/Toggles';
+import Typography from './screens/Typography';
+
+class App extends React.PureComponent<NavigationStackScreenProps> {
+  constructor(props: NavigationStackScreenProps) {
+    super(props);
+    this.navigateTo = this.navigateTo.bind(this);
+  }
+
+  navigateTo(screen: string) {
+    return () => this.props.navigation.navigate(screen);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <ButtonList navigation={this.props.navigation} entries={buttonEntries} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});
+
+const menuEntries = {
+  BannerSlider: BannerSlider,
+  ButtonGroup: ButtonGroup,
+  Buttons: Buttons,
+  Cards: Cards,
+  CardHeaders: CardHeaders,
+  Checkboxes: Checkboxes,
+  Colors: Colors,
+  ColumnLayouts: ColumnLayouts,
+  Components: Components,
+  Content: Content,
+  DoubleChoices: DoubleChoices,
+  IconButtons: IconButtons,
+  IconGroups: IconGroups,
+  Images: Images,
+  ListButtons: ListButtons,
+  ListItems: ListItems,
+  Molecules: Molecules,
+  Notes: Notes,
+  RadioButtons: RadioButtons,
+  SelectionHeaders: SelectionHeaders,
+  Status: Status,
+  Steppers: Steppers,
+  Text: Text,
+  Toggles: Toggles,
+  Typography: Typography,
+};
+
+const buttonEntries = toButtonEntries(['Typography', 'Colors', 'Components', 'Molecules']);
+
+const screens: { [routeName: string]: NavigationRouteConfig<any, any> } = {
+  Home: {
+    screen: App,
+    navigationOptions: () => ({
+      title: 'Urbi Design System Showcase',
+    }),
+  },
+};
+
+Object.entries(menuEntries).forEach(([name, screen]) => {
+  screens[name] = { screen, navigationOptions: () => ({ title: name }) };
+});
+
+const Navigator = createStackNavigator(screens, {
+  initialRouteName: 'Home',
+  defaultNavigationOptions: {
+    headerTintColor: colors.ulisse,
+    headerStyle: { backgroundColor: colors.brand },
+  },
+});
+
+export default createAppContainer(Navigator);
