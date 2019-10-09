@@ -1,7 +1,7 @@
 import React from 'react';
-import { styles } from 'src/molecules/buttons/ButtonStyles';
-import IconButton from 'src/molecules/buttons/iconButtons/IconButton';
-import { IconButtonProps } from 'src/molecules/buttons/types';
+import { styles } from '../../../molecules/buttons/ButtonStyles';
+import IconButton from '../../../molecules/buttons/iconButtons/IconButton';
+import { IconButtonProps } from '../../../molecules/buttons/types';
 
 export const sizes = {
   size: 44,

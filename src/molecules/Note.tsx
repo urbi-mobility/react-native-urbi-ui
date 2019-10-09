@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import MaybeTouchable from 'src/components/MaybeTouchable';
-import { colors } from 'src/utils/colors';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import MaybeTouchable from '../components/MaybeTouchable';
+import { colors } from '../utils/colors';
+import { registeredTextStyle } from '../utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {

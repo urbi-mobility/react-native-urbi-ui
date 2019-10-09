@@ -1,7 +1,7 @@
 import { Dimensions, PixelRatio, Platform } from 'react-native';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from 'src/assets/json/urbi-font.json';
-import { colors } from 'src/utils/colors';
+import icoMoonConfig from '../assets/json/urbi-font.json';
+import { colors } from './colors';
 
 export const onIOS = Platform.OS === 'ios';
 

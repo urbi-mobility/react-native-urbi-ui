@@ -1,7 +1,7 @@
 import { StyleSheet, TextStyle } from 'react-native';
-import { colors } from 'src/utils/colors';
-import { onIOS } from 'src/utils/const';
-import { fontStyles } from 'src/utils/fonts';
+import { colors } from './colors';
+import { onIOS } from './const';
+import { fontStyles } from './fonts';
 
 export type UrbiFontStyles = {
   hero: TextStyle;
@@ -21,7 +21,7 @@ export const textStyle = (style: keyof typeof fontStyles, color: string = colors
 export const registeredTextStyle = (
   style: keyof typeof fontStyles,
   color: string = colors.uma,
-  name: string = style
+  name: string = style as string
 ) => StyleSheet.create({ [name]: textStyle(style, color) })[name];
 
 export const defaultBody = registeredTextStyle('body');

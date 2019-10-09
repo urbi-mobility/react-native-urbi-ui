@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { colors } from 'src/utils/colors';
+import { colors } from '../utils/colors';
 
 const styles = StyleSheet.create({
   Wrapper: {

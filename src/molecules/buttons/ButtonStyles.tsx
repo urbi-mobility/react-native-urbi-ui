@@ -1,5 +1,5 @@
-import { ButtonStyle } from 'src/molecules/buttons/types';
-import { colors } from 'src/utils/colors';
+import { ButtonStyle } from '../../molecules/buttons/types';
+import { colors } from '../../utils/colors';
 
 export const styles = (props: { buttonStyle: ButtonStyle; colorOverride?: string }) => {
   switch (props.buttonStyle) {

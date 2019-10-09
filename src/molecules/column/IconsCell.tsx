@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { RegisteredStyle, StyleSheet, View, ViewStyle } from 'react-native';
-import { IconButtonCompactUnmemoized } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
-import { colors } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
+import { IconButtonCompactUnmemoized } from '../../molecules/buttons/iconButtons/IconButtonCompact';
+import { colors } from '../../utils/colors';
+import { Icon } from '../../utils/const';
 
 export type IconsCellProps = {
   icons: Array<string | ReactElement<typeof IconButtonCompactUnmemoized>>;

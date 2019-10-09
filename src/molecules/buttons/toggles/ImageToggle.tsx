@@ -1,7 +1,7 @@
 import React from 'react';
-import IconButton from 'src/molecules/buttons/iconButtons/IconButton';
+import IconButton from '../../../molecules/buttons/iconButtons/IconButton';
 import IconToggle from './IconToggle';
-import { colors } from 'src/utils/colors';
+import { colors } from '../../../utils/colors';
 
 export const size = 40;
 const innerIconSize = 44; // this way no padding is shown around the image

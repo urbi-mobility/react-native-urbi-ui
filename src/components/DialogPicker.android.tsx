@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import DialogAndroid from 'react-native-dialogs';
-import { DialogPickerProps } from 'src/components/types';
+import { DialogPickerProps } from '../components/types';
 
 class DialogPicker extends React.PureComponent<DialogPickerProps> {
   componentWillReceiveProps(nextProps: DialogPickerProps) {

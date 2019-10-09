@@ -1,20 +1,13 @@
 import React from 'react';
-import {
-  Image,
-  ImageRequireSource,
-  RegisteredStyle,
-  StyleSheet,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native';
-import { IconButtonExtendedProps } from 'src/molecules/buttons/types';
-import { colors } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
+import { Image, ImageRequireSource, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
+import { IconButtonExtendedProps } from '../../../molecules/buttons/types';
+import { colors } from '../../../utils/colors';
+import { Icon } from '../../../utils/const';
 
 class IconButton extends React.PureComponent<IconButtonExtendedProps> {
   styles: {
-    Wrapper: RegisteredStyle<ViewStyle>;
-    Button: RegisteredStyle<ViewStyle>;
+    Wrapper: ViewStyle;
+    Button: ViewStyle;
   };
 
   constructor(props: IconButtonExtendedProps) {

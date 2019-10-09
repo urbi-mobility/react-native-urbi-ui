@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { colors } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
+import { colors } from '../../utils/colors';
+import { Icon } from '../../utils/const';
 
 const styles = StyleSheet.create({
   Touchable: {

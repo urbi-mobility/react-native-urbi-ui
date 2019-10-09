@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
 import { Platform, StyleSheet, Switch, View, ViewStyle } from 'react-native';
-import { ProviderSettings } from 'src/components/ProviderSettings';
-import IconAndLabel from 'src/molecules/content/IconAndLabel';
-import Label from 'src/molecules/content/Label';
-import { colors } from 'src/utils/colors';
-import { onIOS } from 'src/utils/const';
+import { ProviderSettings } from '../components/ProviderSettings';
+import IconAndLabel from '../molecules/content/IconAndLabel';
+import Label from '../molecules/content/Label';
+import { colors } from '../utils/colors';
+import { onIOS } from '../utils/const';
 
 export interface ListItem {
   content:

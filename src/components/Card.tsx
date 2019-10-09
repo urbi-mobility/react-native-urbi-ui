@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import MaybeTouchable from 'src/components/MaybeTouchable';
-import { CardHeaderUnmemoized } from 'src/molecules/card/CardHeader';
-import { BikeImgUnmemoized } from 'src/molecules/img/BikeImg';
-import { VehicleImgUnmemoized } from 'src/molecules/img/VehicleImg';
-import { colors } from 'src/utils/colors';
-import { withPixelDensity } from 'src/utils/functions';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import MaybeTouchable from '../components/MaybeTouchable';
+import { CardHeaderUnmemoized, CardHeaderProps } from '../molecules/card/CardHeader';
+import { BikeImgUnmemoized } from '../molecules/img/BikeImg';
+import { VehicleImgUnmemoized } from '../molecules/img/VehicleImg';
+import { colors } from '../utils/colors';
+import { withPixelDensity } from '../utils/functions';
+import { registeredTextStyle } from '../utils/textStyles';
 
 type CardProps = {
   header: ReactElement<typeof CardHeaderUnmemoized>;
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   HeaderWithImage: {
     marginRight: 8,
     flex: 2,
-  },
+  } as ViewStyle,
 });
 
 const description = registeredTextStyle('body', colors.uma, 'carddescription');
@@ -56,7 +56,9 @@ const logoWrapper = (logo: ImageRequireSource | string) => (
 const getTop = (props: CardProps) =>
   props.image || props.logo ? (
     <View style={styles.Top}>
-      {React.cloneElement(props.header, { style: styles.HeaderWithImage })}
+      {React.cloneElement(props.header, { style: styles.HeaderWithImage } as Partial<
+        CardHeaderProps
+      >)}
       <View style={styles.ImageWrapper}>{props.image || logoWrapper(props.logo!)}</View>
     </View>
   ) : (

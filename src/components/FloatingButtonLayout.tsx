@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react';
 import { EmitterSubscription, Keyboard, StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
-import { ButtonRegularUnmemoized } from 'src/molecules/buttons/ButtonRegular';
-import { colors } from 'src/utils/colors';
-import { onIOS } from 'src/utils/const';
+import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
+import { colors } from '../utils/colors';
+import { onIOS } from '../utils/const';
 
 const BOTTOM_PANEL_HEIGHT = 80;
 const ANDROID_EVT_DURATION = 150;

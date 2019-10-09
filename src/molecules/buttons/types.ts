@@ -1,5 +1,5 @@
 import { ImageRequireSource, RegisteredStyle, ViewStyle } from 'react-native';
-import { fontStyles } from 'src/utils/fonts';
+import { fontStyles } from '../../utils/fonts';
 
 export type ButtonStyle =
   | 'default'

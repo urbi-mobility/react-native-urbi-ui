@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { colors } from 'src/utils/colors';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import { colors } from '../../utils/colors';
+import { registeredTextStyle } from '../../utils/textStyles';
 
 type EndLabelProps = {
   label: string;

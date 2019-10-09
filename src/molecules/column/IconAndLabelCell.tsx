@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { RegisteredStyle, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { IconButtonCompactUnmemoized } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
-import { colors } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import { IconButtonCompactUnmemoized } from '../../molecules/buttons/iconButtons/IconButtonCompact';
+import { colors } from '../../utils/colors';
+import { Icon } from '../../utils/const';
+import { registeredTextStyle } from '../../utils/textStyles';
 
 export type IconAndLabelCellProps = {
   header: string;

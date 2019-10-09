@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import Touchable from 'src/components/Touchable';
-import { CheckboxProps } from 'src/molecules/content/Checkbox';
-import ControlAndLabel from 'src/molecules/content/ControlAndLabel';
-import { colors } from 'src/utils/colors';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import Touchable from '../components/Touchable';
+import { CheckboxProps } from '../molecules/content/Checkbox';
+import ControlAndLabel from '../molecules/content/ControlAndLabel';
+import { colors } from '../utils/colors';
+import { registeredTextStyle } from '../utils/textStyles';
 
 const styles = StyleSheet.create({
   Touchable: {

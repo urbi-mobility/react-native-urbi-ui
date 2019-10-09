@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { ListItemUnmemoized } from 'src/components/ListItem';
-import { ListItemLargeUnmemoized } from 'src/components/ListItemLarge';
-import { StepperUnmemoized } from 'src/molecules/Stepper';
+import { ListItemUnmemoized } from '../components/ListItem';
+import { ListItemLargeUnmemoized } from '../components/ListItemLarge';
+import { StepperUnmemoized } from '../molecules/Stepper';
 
 const styles = StyleSheet.create({
   Wrapper: {

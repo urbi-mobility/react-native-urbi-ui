@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { colors } from 'src/utils/colors';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import { colors } from '../../utils/colors';
+import { registeredTextStyle } from '../../utils/textStyles';
 
 export type LinkProps = {
   text: string;

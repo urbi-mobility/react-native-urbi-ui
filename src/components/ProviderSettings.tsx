@@ -1,8 +1,8 @@
 import React from 'react';
 import { ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
-import { PinType } from 'src/models/vehicles';
-import IconButtonCompact from 'src/molecules/buttons/iconButtons/IconButtonCompact';
-import IconAndLabelOverIcons from 'src/molecules/content/IconAndLabelOverIcons';
+import { PinType } from '../models/vehicles';
+import IconButtonCompact from '../molecules/buttons/iconButtons/IconButtonCompact';
+import IconAndLabelOverIcons from '../molecules/content/IconAndLabelOverIcons';
 
 const styles = StyleSheet.create({
   Wrapper: {

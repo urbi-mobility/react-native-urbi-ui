@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { RegisteredStyle, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { TouchableNativeFeedback } from 'react-native-gesture-handler';
-import PulsatingDots from 'src/molecules/animations/PulsatingDots';
-import { ExtendedButtonProps } from 'src/molecules/buttons/types';
-import { colors } from 'src/utils/colors';
-import { textStyle } from 'src/utils/textStyles';
+import PulsatingDots from '../../molecules/animations/PulsatingDots';
+import { ExtendedButtonProps } from '../../molecules/buttons/types';
+import { colors } from '../../utils/colors';
+import { textStyle } from '../../utils/textStyles';
 
 class Button extends React.PureComponent<ExtendedButtonProps> {
   styles: {
-    Wrapper: RegisteredStyle<ViewStyle>;
-    Button: RegisteredStyle<ViewStyle>;
+    Wrapper: ViewStyle;
+    Button: ViewStyle;
   };
 
   constructor(props: ExtendedButtonProps) {

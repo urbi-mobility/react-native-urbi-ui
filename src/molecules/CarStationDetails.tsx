@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { colors } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import { colors } from '../utils/colors';
+import { Icon } from '../utils/const';
+import { registeredTextStyle } from '../utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { IconAndLabelCellUnmemoized } from 'src/molecules/column/IconAndLabelCell';
-import { IconsCellUnmemoized } from 'src/molecules/column/IconsCell';
-import { LabelCellUnmemoized } from 'src/molecules/column/LabelCell';
+import { IconAndLabelCellUnmemoized } from '../molecules/column/IconAndLabelCell';
+import { IconsCellUnmemoized } from '../molecules/column/IconsCell';
+import { LabelCellUnmemoized } from '../molecules/column/LabelCell';
 
 const styles = StyleSheet.create({
   Wrapper: {

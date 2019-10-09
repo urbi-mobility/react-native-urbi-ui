@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { BikeStationDetailsUnmemoized } from 'src/molecules/BikeStationDetails';
-import { CarStationDetailsUnmemoized } from 'src/molecules/CarStationDetails';
-import { colors } from 'src/utils/colors';
-import { registeredTextStyle } from 'src/utils/textStyles';
+import { BikeStationDetailsUnmemoized } from '../../molecules/BikeStationDetails';
+import { CarStationDetailsUnmemoized } from '../../molecules/CarStationDetails';
+import { colors } from '../../utils/colors';
+import { registeredTextStyle } from '../../utils/textStyles';
 
 export type SelectionProps = {
   title: string;

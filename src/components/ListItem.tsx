@@ -1,20 +1,12 @@
 import React from 'react';
-import {
-  Image,
-  ImageRequireSource,
-  ImageStyle,
-  RegisteredStyle,
-  StyleSheet,
-  View,
-  ViewStyle,
-} from 'react-native';
-import MaybeTouchable from 'src/components/MaybeTouchable';
-import { Icon } from 'src/utils/const';
+import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
+import MaybeTouchable from '../components/MaybeTouchable';
+import { Icon } from '../utils/const';
 
 type Styles = {
-  Wrapper: RegisteredStyle<ViewStyle>;
-  ContentWithEnd: RegisteredStyle<ViewStyle>;
-  Action: RegisteredStyle<ImageStyle>;
+  Wrapper: ViewStyle;
+  ContentWithEnd: ViewStyle;
+  Action: ImageStyle;
 };
 
 const styles: Styles = StyleSheet.create({

@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'src/molecules/buttons/Button';
-import { ButtonProps } from 'src/molecules/buttons/types';
+import Button from '../../molecules/buttons/Button';
+import { ButtonProps } from '../../molecules/buttons/types';
 import { styles } from './ButtonStyles';
 
 export const sizes = {

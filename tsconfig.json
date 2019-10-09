@@ -10,9 +10,6 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "paths": {
-      "src/*": ["src/*", "src/*.android", "src/*.ios"]
-    },
     "resolveJsonModule": true,
     "emitDeclarationOnly": true
   },

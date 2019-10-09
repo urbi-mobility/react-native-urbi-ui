@@ -8,10 +8,10 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { colors } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
-import { textStyle } from 'src/utils/textStyles';
-import { RequireOnlyOne } from 'src/utils/types';
+import { colors } from '../../utils/colors';
+import { Icon } from '../../utils/const';
+import { textStyle } from '../../utils/textStyles';
+import { RequireOnlyOne } from '../../utils/types';
 
 const styles = StyleSheet.create({
   Wrapper: {

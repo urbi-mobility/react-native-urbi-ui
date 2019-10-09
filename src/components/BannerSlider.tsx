@@ -11,9 +11,9 @@ import {
   ViewStyle,
 } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { PageIndicator } from 'src/molecules/PageIndicator';
-import { colors } from 'src/utils/colors';
-import { onIOS, windowWidth } from 'src/utils/const';
+import { PageIndicator } from '../molecules/PageIndicator';
+import { colors } from '../utils/colors';
+import { onIOS, windowWidth } from '../utils/const';
 
 export const bannerHeight = 116;
 

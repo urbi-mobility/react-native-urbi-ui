@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ListItemProps } from 'src/components/ListItem';
+import { ListItemProps } from '../components/ListItem';
 
 const styles = StyleSheet.create({
   Wrapper: {

@@ -8,7 +8,23 @@ Make sure you have all `peerDependencies` installed, and import components/molec
 
     import ButtonCompact from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
 
-All components/molecules come with their own Typescript definitions.
+All components/molecules come with their own Typescript definitions. However, if you're using Typescript, you might want to adjust the `compilerOptions.paths` field inside your `tsconfig.json` to include these lines:
+
+    {
+        "compilerOptions": {
+            /* the rest of your conf here */
+            "paths": {
+                /* your other mapped paths, if any */
+                "react-native-urbi-ui/*": [
+                    "node_modules/react-native-urbi-ui/*",
+                    "node_modules/react-native-urbi-ui/*.android.d.ts",
+                    "node_modules/react-native-urbi-ui/*.ios.d.ts"
+                ]
+            }
+        }
+    }
+
+that way, `tsc` will look for platform-specific definition files, which it wouldn't otherwise.
 
 ## Build
 
