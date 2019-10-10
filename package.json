@@ -9,7 +9,10 @@
     "build": "babel src --out-dir dist --extensions '.ts,.tsx' --copy-files && tsc || true",
     "predist": "rm -rf ./dist && npm run build && cp package.json LICENSE README.md dist/ ",
     "dist": "cd dist && npm publish",
-    "package": "npm run predist && cd dist && npm pack"
+    "package": "npm run predist && cd dist && npm pack",
+    "start": "cd showcase && npm run start",
+    "android": "cd showcase && npm run android",
+    "ios": "cd showcase && npm run ios"
   },
   "repository": {
     "type": "git",

@@ -4,6 +4,7 @@ import IconButton from '../../../molecules/buttons/iconButtons/IconButton';
 import { sizes } from '../../../molecules/buttons/iconButtons/IconButtonRegular';
 import { ToggleProps } from '../../../molecules/buttons/types';
 import { colors } from '../../../utils/colors';
+import { showAlert } from '../../../utils/functions';
 
 type ToggleState = {
   active: boolean;
@@ -12,6 +13,7 @@ type ToggleState = {
 class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
   constructor(props: ToggleProps) {
     super(props);
+    if (props.id === 'thinking') showAlert('initialized');
     const { active } = props;
     this.state = { active };
     this.toggleState = this.toggleState.bind(this);

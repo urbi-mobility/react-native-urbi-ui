@@ -33,6 +33,7 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
         shadowRadius: 2,
         width: size,
         height: size,
+        overflow: 'hidden',
       } as ViewStyle,
     });
     this.getImage = this.getImage.bind(this);

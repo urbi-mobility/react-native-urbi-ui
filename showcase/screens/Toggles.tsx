@@ -3,7 +3,7 @@ import IconToggle from 'react-native-urbi-ui/molecules/buttons/toggles/IconToggl
 import ImageToggle from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
 import { ScrollView } from 'react-native-gesture-handler';
 import FilterGroup from 'react-native-urbi-ui/components/FilterGroup';
-import { onButtonPress, renderComponent, placeholder } from '../utils/ComponentPreview';
+import { onButtonPress, renderComponent, placeholder, boomEmoji } from '../utils/ComponentPreview';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
 
 const onFilterPress = (id: string, active: boolean) => {
@@ -38,6 +38,10 @@ class Toggles extends React.PureComponent<any> {
             setActive={onImageTogglePress}
             active={false}
           />
+        )}
+        {renderComponent(
+          'ImageToggle (square pic)',
+          <ImageToggle id="boom" icon={boomEmoji} setActive={onImageTogglePress} active />
         )}
         {renderComponent(
           'FilterGroup',

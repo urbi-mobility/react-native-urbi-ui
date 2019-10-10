@@ -1,10 +1,11 @@
 import React from 'react';
 import IconButton from '../../../molecules/buttons/iconButtons/IconButton';
-import IconToggle from './IconToggle';
 import { colors } from '../../../utils/colors';
+import { onIOS } from '../../../utils/const';
+import IconToggle from './IconToggle';
 
 export const size = 40;
-const innerIconSize = 44; // this way no padding is shown around the image
+const innerIconSize = onIOS ? 40 : 44; // this way no padding is shown around the image
 
 class ImageToggle extends IconToggle {
   render() {
@@ -14,7 +15,7 @@ class ImageToggle extends IconToggle {
         onPress={this.toggleState}
         // we set a button style, but it's overridden explicitly here
         buttonStyle="default"
-        backgroundColor={active ? colors.ukko : colors.ursula}
+        backgroundColor={active ? colors.transparent : colors.ursula}
         borderColor={active ? colors.ukko : undefined}
         color={active ? colors.ulisse : colors.primary}
         icon={this.props.icon}

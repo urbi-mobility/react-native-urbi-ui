@@ -269,7 +269,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "react-native-urbi-ui-showcase";
 				PRODUCT_NAME = RNUrbiUI;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -288,7 +288,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "react-native-urbi-ui-showcase";
 				PRODUCT_NAME = RNUrbiUI;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
