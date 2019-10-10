@@ -48,6 +48,7 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
       <Image
         source={icon as ImageRequireSource}
         style={{ width: innerIconSize, height: innerIconSize }}
+        resizeMode="contain"
       />
     );
   }
