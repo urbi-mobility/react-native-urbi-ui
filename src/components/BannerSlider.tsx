@@ -27,6 +27,7 @@ type BannerSliderPanelProps = {
 type BannerSliderPanelState = {
   scrollViewWidth: number;
   selectedPage: number;
+  heightImage?: number;
 };
 
 export interface BannerSlideProps {
@@ -63,6 +64,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
     this.onLayout = this.onLayout.bind(this);
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
     this.curryWithPage = this.curryWithPage.bind(this);
+    this.onSetHeight = this.onSetHeight.bind(this);
   }
 
   onLayout(e: LayoutChangeEvent) {
@@ -80,6 +82,15 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
 
   curryWithPage = (index: number) => () => (this.props.onPress ? this.props.onPress(index) : null);
 
+  onSetHeight(newHeight: number) {
+    if (
+      !this.state.heightImage ||
+      (this.state.heightImage && newHeight && newHeight > this.state.heightImage)
+    ) {
+      this.setState({ heightImage: newHeight });
+    }
+    this.props.onSetHeight(newHeight);
+  }
   render() {
     // tslint:disable:jsx-no-multiline-js
     return (
@@ -102,7 +113,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
                   <ScaledImage
                     uri={s.url}
                     width={this.state.scrollViewWidth}
-                    onSetHeight={this.props.onSetHeight}
+                    onSetHeight={this.onSetHeight}
                   />
                 </TouchableWithoutFeedback>
               ))}
@@ -113,7 +124,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
           style={{
             position: 'absolute',
             bottom: 0,
-            top: bannerHeight - 20,
+            top: this.state.heightImage ? this.state.heightImage - 20  : bannerHeight - 20,
             left: 0,
             right: 0,
           }}
