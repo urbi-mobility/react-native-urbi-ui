@@ -12,7 +12,7 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
 
   constructor(props: IconButtonExtendedProps) {
     super(props);
-    const { backgroundColor, buttonStyle, size } = props;
+    const { backgroundColor, buttonStyle, noShadow, size } = props;
     const disabled = buttonStyle === 'disabled';
     this.styles = StyleSheet.create({
       Wrapper: {
@@ -27,9 +27,10 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
         borderColor: disabled ? undefined : props.borderColor,
         borderWidth: disabled ? undefined : props.borderWidth,
         marginBottom: 1,
-        shadowColor: disabled ? undefined : colors.shadowBorder,
-        shadowOffset: disabled ? undefined : { height: 1, width: 0 },
-        shadowOpacity: disabled ? undefined : backgroundColor === colors.transparent ? 0 : 1,
+        shadowColor: disabled || noShadow ? undefined : colors.shadowBorder,
+        shadowOffset: disabled || noShadow ? undefined : { height: 1, width: 0 },
+        shadowOpacity:
+          disabled || noShadow ? undefined : backgroundColor === colors.transparent ? 0 : 1,
         shadowRadius: 2,
         width: size,
         height: size,
@@ -39,7 +40,7 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
     this.getImage = this.getImage.bind(this);
   }
 
-  getImage(icon: string | ImageRequireSource) {
+  getImage(icon: string | ImageRequireSource, opacity: number) {
     const { buttonStyle, color, innerIconSize } = this.props;
     const disabled = buttonStyle === 'disabled';
 
@@ -48,14 +49,14 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
     ) : (
       <Image
         source={icon as ImageRequireSource}
-        style={{ width: innerIconSize, height: innerIconSize }}
+        style={{ width: innerIconSize, height: innerIconSize, opacity }}
         resizeMode="contain"
       />
     );
   }
 
   render() {
-    const { backgroundColor, buttonStyle, icon, onPress, onPressIn, style } = this.props;
+    const { backgroundColor, buttonStyle, icon, onPress, onPressIn, opacity, style } = this.props;
     const disabled = buttonStyle === 'disabled';
 
     return (
@@ -69,7 +70,7 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
           { backgroundColor: disabled ? colors.ursula : backgroundColor },
         ]}
       >
-        {this.getImage(icon)}
+        {this.getImage(icon, opacity || 1)}
       </TouchableOpacity>
     );
   }

@@ -52,11 +52,20 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
   }
 
   render() {
-    const { backgroundColor, buttonStyle, icon, onPress, onPressIn, noShadow, style } = this.props;
+    const {
+      backgroundColor,
+      buttonStyle,
+      icon,
+      onPress,
+      onPressIn,
+      opacity,
+      noShadow,
+      style,
+    } = this.props;
     const disabled = buttonStyle === 'disabled';
     return (
       <View
-        style={[this.styles.Wrapper, style]}
+        style={[this.styles.Wrapper, style, { opacity }]}
         elevation={backgroundColor === colors.transparent || disabled || noShadow ? 0 : 1}
       >
         <TouchableNativeFeedback

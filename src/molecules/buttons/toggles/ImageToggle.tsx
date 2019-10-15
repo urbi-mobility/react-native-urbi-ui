@@ -15,14 +15,14 @@ class ImageToggle extends IconToggle {
         onPress={this.toggleState}
         // we set a button style, but it's overridden explicitly here
         buttonStyle="default"
-        backgroundColor={active ? colors.transparent : colors.ursula}
+        backgroundColor={colors.transparent}
         borderColor={active ? colors.ukko : undefined}
         color={active ? colors.ulisse : colors.primary}
         icon={this.props.icon}
         size={size}
         innerIconSize={innerIconSize}
         noShadow={!active}
-        style={{ opacity: active ? 1 : 0.3, shadowOpacity: active ? 1 : 0 }}
+        opacity={active ? 1 : 0.3}
       />
     );
   }

@@ -52,6 +52,7 @@ export interface IconButtonExtendedProps extends IconButtonProps {
   borderColor?: string;
   borderWidth?: number;
   noShadow?: boolean;
+  opacity?: number;
 }
 
 export interface ToggleProps {
