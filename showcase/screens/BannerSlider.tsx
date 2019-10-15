@@ -3,13 +3,21 @@ import { ScrollView, View } from 'react-native';
 import BannerSliderComp, { bannerHeight } from 'react-native-urbi-ui/components/BannerSlider';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
-class BannerSlider extends React.PureComponent<any> {
+
+type BannerSliderState = {
+  heightImage?: number;
+};
+class BannerSlider extends React.PureComponent<any, BannerSliderState> {
+  constructor(props: any) {
+    super(props);
+    this.state = { heightImage: bannerHeight };
+  }
   render() {
     return (
       <ScrollView>
         {renderComponent(
           'BannerSlider',
-          <View style={{ flex: 1, height: bannerHeight }}>
+          <View style={{ flex: 1, height: this.state.heightImage }}>
             <BannerSliderComp
               pages={[
                 {
@@ -26,6 +34,11 @@ class BannerSlider extends React.PureComponent<any> {
                 },
               ]}
               onPress={onButtonPress}
+              onSetHeight={(newHeight) => {
+                if (this.state.heightImage && newHeight && newHeight > this.state.heightImage) {
+                  this.setState({ heightImage: newHeight });
+                }
+              }}
             />
           </View>
         )}

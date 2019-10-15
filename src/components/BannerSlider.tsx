@@ -21,6 +21,7 @@ type BannerSliderPanelProps = {
   pages: BannerSlideProps[];
   onPress?: (key: number) => any;
   onPageChange?: (selectedIndex: number) => any;
+  onSetHeight?: (key: number) => any;
 };
 
 type BannerSliderPanelState = {
@@ -98,7 +99,11 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
             >
               {this.props.pages.map((s, i) => (
                 <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}`}>
-                  <ScaledImage uri={s.url} width={this.state.scrollViewWidth} />
+                  <ScaledImage
+                    uri={s.url}
+                    width={this.state.scrollViewWidth}
+                    onSetHeight={this.props.onSetHeight}
+                  />
                 </TouchableWithoutFeedback>
               ))}
             </ScrollView>
