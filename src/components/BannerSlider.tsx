@@ -1,20 +1,19 @@
 import React from 'react';
 import {
-    Image,
-    ImageRequireSource,
-    LayoutChangeEvent,
-    NativeScrollEvent,
-    NativeSyntheticEvent,
-    ScrollView,
-    StyleSheet, Text,
-    View,
-    ViewStyle,
+  ImageRequireSource,
+  LayoutChangeEvent,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  StyleSheet,
+  View,
+  ViewStyle,
 } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
 import { onIOS, windowWidth } from '../utils/const';
-import ScaledImage from "./ScaledImage";
+import ScaledImage from './ScaledImage';
 
 export const bannerHeight = 116;
 
@@ -97,16 +96,9 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
               scrollEnabled={!(onIOS && this.props.pages.length === 1)}
               horizontal
             >
-                {this.props.pages.map((s, i) => (
+              {this.props.pages.map((s, i) => (
                 <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}`}>
-                  <ScaledImage uri={s.url} width={this.state.scrollViewWidth}
-                    // style={{
-                    //   width: this.state.scrollViewWidth,
-                    //   height: bannerHeight,
-                    //   resizeMode: 'cover',
-                    // }}
-                    // source={typeof s.url === 'string' ? { uri: s.url } : s.url}
-                  />
+                  <ScaledImage uri={s.url} width={this.state.scrollViewWidth} />
                 </TouchableWithoutFeedback>
               ))}
             </ScrollView>

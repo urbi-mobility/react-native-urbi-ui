@@ -1,12 +1,15 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import BannerSliderComp from 'react-native-urbi-ui/components/BannerSlider';
-import {onButtonPress} from '../utils/ComponentPreview';
+import { ScrollView, View } from 'react-native';
+import BannerSliderComp, { bannerHeight } from 'react-native-urbi-ui/components/BannerSlider';
+import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
 class BannerSlider extends React.PureComponent<any> {
   render() {
     return (
-          <View style={{ flex: 1 , flexDirection: 'column' }}>
+      <ScrollView>
+        {renderComponent(
+          'BannerSlider',
+          <View style={{ flex: 1, height: bannerHeight }}>
             <BannerSliderComp
               pages={[
                 {
@@ -24,8 +27,9 @@ class BannerSlider extends React.PureComponent<any> {
               ]}
               onPress={onButtonPress}
             />
-              <Text style={{color:'red'}}>BannerSlider</Text>
           </View>
+        )}
+      </ScrollView>
     );
   }
 }
