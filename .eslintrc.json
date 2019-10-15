@@ -1,0 +1,27 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "fetch": true
+  },
+  "settings": {
+    "import/resolver": "reactnative"
+  },
+  "extends": [
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "printWidth": 100,
+        "arrowParens": "always"
+      }
+    ]
+  }
+}

@@ -1,6 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, View } from 'react-native';
 import BannerSliderComp, { bannerHeight } from 'react-native-urbi-ui/components/BannerSlider';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
@@ -21,7 +20,7 @@ class BannerSlider extends React.PureComponent<any> {
                 },
                 {
                   url:
-                    'https://s3-eu-west-1.amazonaws.com/static.urbi.co/shop/shopVoucherEmpty.png',
+                    'https://image.shutterstock.com/z/stock-photo-lake-hintersee-in-germany-bavaria-national-park-ramsau-in-alps-beautiful-autumnal-alpine-1494290411.jpg',
                   id: '2',
                   name: 'second',
                 },

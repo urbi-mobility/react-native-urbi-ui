@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   ImageRequireSource,
   LayoutChangeEvent,
   NativeScrollEvent,
@@ -14,6 +13,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
 import { onIOS, windowWidth } from '../utils/const';
+import ScaledImage from './ScaledImage';
 
 export const bannerHeight = 116;
 
@@ -98,14 +98,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
             >
               {this.props.pages.map((s, i) => (
                 <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}`}>
-                  <Image
-                    style={{
-                      width: this.state.scrollViewWidth,
-                      height: bannerHeight,
-                      resizeMode: 'cover',
-                    }}
-                    source={typeof s.url === 'string' ? { uri: s.url } : s.url}
-                  />
+                  <ScaledImage uri={s.url} width={this.state.scrollViewWidth} />
                 </TouchableWithoutFeedback>
               ))}
             </ScrollView>
