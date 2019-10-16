@@ -21,7 +21,7 @@ type BannerSliderPanelProps = {
   pages: BannerSlideProps[];
   onPress?: (key: number) => any;
   onPageChange?: (selectedIndex: number) => any;
-  onSetHeight?: (key: number) => any;
+  onSetHeight?: (height: number) => any;
 };
 
 type BannerSliderPanelState = {
@@ -123,8 +123,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
         <View
           style={{
             position: 'absolute',
-            bottom: 0,
-            top: this.state.imageHeight ? this.state.imageHeight - 20  : bannerHeight - 20,
+            bottom: 10,
             left: 0,
             right: 0,
           }}
