@@ -21,13 +21,12 @@ type BannerSliderPanelProps = {
   pages: BannerSlideProps[];
   onPress?: (key: number) => any;
   onPageChange?: (selectedIndex: number) => any;
-  onSetHeight?: (height: number) => any;
 };
 
 type BannerSliderPanelState = {
   scrollViewWidth: number;
   selectedPage: number;
-  imageHeight?: number;
+  imageHeight: number;
 };
 
 export interface BannerSlideProps {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
 class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSliderPanelState> {
   constructor(props: BannerSliderPanelProps) {
     super(props);
-    this.state = { scrollViewWidth: windowWidth, selectedPage: 0 };
+    this.state = { scrollViewWidth: windowWidth, selectedPage: 0, imageHeight: 0 };
     this.onLayout = this.onLayout.bind(this);
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
     this.curryWithPage = this.curryWithPage.bind(this);
@@ -83,18 +82,16 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
   curryWithPage = (index: number) => () => (this.props.onPress ? this.props.onPress(index) : null);
 
   onSetHeight(newHeight: number) {
-    if (
-      !this.state.imageHeight ||
-      (this.state.imageHeight && newHeight && newHeight > this.state.imageHeight)
-    ) {
+    // we want the slider to be as tall as the tallest of the slides it contains
+    if (newHeight > this.state.imageHeight) {
       this.setState({ imageHeight: newHeight });
     }
-    this.props.onSetHeight(newHeight);
   }
+
   render() {
     // tslint:disable:jsx-no-multiline-js
     return (
-      <View style={styles.Container} elevation={2}>
+      <View style={[styles.Container, { height: this.state.imageHeight }]} elevation={2}>
         <View style={styles.Wrapper}>
           <View style={styles.Content}>
             <ScrollView
