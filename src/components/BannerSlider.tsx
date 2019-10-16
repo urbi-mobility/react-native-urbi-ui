@@ -21,11 +21,13 @@ type BannerSliderPanelProps = {
   pages: BannerSlideProps[];
   onPress?: (key: number) => any;
   onPageChange?: (selectedIndex: number) => any;
+  onSetHeight?: (height: number) => any;
 };
 
 type BannerSliderPanelState = {
   scrollViewWidth: number;
   selectedPage: number;
+  imageHeight?: number;
 };
 
 export interface BannerSlideProps {
@@ -62,6 +64,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
     this.onLayout = this.onLayout.bind(this);
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
     this.curryWithPage = this.curryWithPage.bind(this);
+    this.onSetHeight = this.onSetHeight.bind(this);
   }
 
   onLayout(e: LayoutChangeEvent) {
@@ -79,6 +82,15 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
 
   curryWithPage = (index: number) => () => (this.props.onPress ? this.props.onPress(index) : null);
 
+  onSetHeight(newHeight: number) {
+    if (
+      !this.state.imageHeight ||
+      (this.state.imageHeight && newHeight && newHeight > this.state.imageHeight)
+    ) {
+      this.setState({ imageHeight: newHeight });
+    }
+    this.props.onSetHeight(newHeight);
+  }
   render() {
     // tslint:disable:jsx-no-multiline-js
     return (
@@ -98,7 +110,11 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
             >
               {this.props.pages.map((s, i) => (
                 <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}`}>
-                  <ScaledImage uri={s.url} width={this.state.scrollViewWidth} />
+                  <ScaledImage
+                    uri={s.url}
+                    width={this.state.scrollViewWidth}
+                    onSetHeight={this.onSetHeight}
+                  />
                 </TouchableWithoutFeedback>
               ))}
             </ScrollView>
@@ -107,8 +123,7 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
         <View
           style={{
             position: 'absolute',
-            bottom: 0,
-            top: bannerHeight - 20,
+            bottom: 10,
             left: 0,
             right: 0,
           }}

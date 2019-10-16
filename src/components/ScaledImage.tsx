@@ -5,6 +5,7 @@ type ScaledImageProps = {
   uri: string | ImageRequireSource;
   width?: number;
   height?: number;
+  onSetHeight?: (key: number) => any;
 };
 
 type ScaledImageState = {
@@ -26,10 +27,12 @@ export default class ScaledImage extends React.PureComponent<ScaledImageProps, S
       Image.getSize(
         this.props.uri,
         (width, height) => {
+          let newHeight = height;
           if (this.props.width && !this.props.height) {
+            newHeight = height * (this.props.width / width);
             this.setState({
               width: this.props.width,
-              height: height * (this.props.width / width),
+              height: newHeight,
             });
           } else if (!this.props.width && this.props.height) {
             this.setState({
@@ -39,6 +42,7 @@ export default class ScaledImage extends React.PureComponent<ScaledImageProps, S
           } else {
             this.setState({ width, height });
           }
+          this.props.onSetHeight(newHeight);
         },
         null
       );

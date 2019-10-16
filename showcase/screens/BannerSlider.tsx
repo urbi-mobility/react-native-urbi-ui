@@ -3,13 +3,20 @@ import { ScrollView, View } from 'react-native';
 import BannerSliderComp, { bannerHeight } from 'react-native-urbi-ui/components/BannerSlider';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
-class BannerSlider extends React.PureComponent<any> {
+type BannerSliderState = {
+  imageHeight?: number;
+};
+class BannerSlider extends React.PureComponent<any, BannerSliderState> {
+  constructor(props: any) {
+    super(props);
+    this.state = { imageHeight: bannerHeight };
+  }
   render() {
     return (
       <ScrollView>
         {renderComponent(
           'BannerSlider',
-          <View style={{ flex: 1, height: bannerHeight }}>
+          <View style={{ flex: 1, height: this.state.imageHeight }}>
             <BannerSliderComp
               pages={[
                 {
@@ -20,12 +27,17 @@ class BannerSlider extends React.PureComponent<any> {
                 },
                 {
                   url:
-                    'https://image.shutterstock.com/z/stock-photo-lake-hintersee-in-germany-bavaria-national-park-ramsau-in-alps-beautiful-autumnal-alpine-1494290411.jpg',
+                    'https://s3-eu-west-1.amazonaws.com/static.urbi.co/shop/shopVoucherEmpty.png',
                   id: '2',
                   name: 'second',
                 },
               ]}
               onPress={onButtonPress}
+              onSetHeight={(newHeight) => {
+                if (this.state.imageHeight && newHeight && newHeight > this.state.imageHeight) {
+                  this.setState({ imageHeight: newHeight });
+                }
+              }}
             />
           </View>
         )}
