@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text as TextView, View } from 'react-native';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { createAppContainer, NavigationRouteConfig } from 'react-navigation';
 import { createStackNavigator, NavigationStackScreenProps } from 'react-navigation-stack';
@@ -29,6 +29,7 @@ import Steppers from './screens/Steppers';
 import Text from './screens/Text';
 import Toggles from './screens/Toggles';
 import Typography from './screens/Typography';
+import packageJson from './package.json';
 
 class App extends React.PureComponent<NavigationStackScreenProps> {
   constructor(props: NavigationStackScreenProps) {
@@ -43,7 +44,14 @@ class App extends React.PureComponent<NavigationStackScreenProps> {
   render() {
     return (
       <View style={styles.container}>
-        <ButtonList navigation={this.props.navigation} entries={buttonEntries} />
+        <View style={styles.buttons}>
+          <ButtonList navigation={this.props.navigation} entries={buttonEntries} />
+        </View>
+        <View style={styles.bottomText}>
+          <TextView style={{ textAlign: 'center' }}>
+            react-native-urbi-ui v{packageJson.dependencies['react-native-urbi-ui']}
+          </TextView>
+        </View>
       </View>
     );
   }
@@ -52,7 +60,15 @@ class App extends React.PureComponent<NavigationStackScreenProps> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-between',
     backgroundColor: '#fff',
+  },
+  buttons: {
+    flex: 1,
+  },
+  bottomText: {
+    justifyContent: 'center',
+    marginBottom: 30,
   },
 });
 

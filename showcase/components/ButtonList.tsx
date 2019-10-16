@@ -50,6 +50,7 @@ class ButtonList extends React.PureComponent<ButtonListProps> {
   render() {
     return (
       <FlatList
+        style={{ flex: 1 }}
         data={this.props.entries}
         renderItem={this.renderItem}
         ItemSeparatorComponent={ItemSeparator}
