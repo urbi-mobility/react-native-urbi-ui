@@ -36,14 +36,10 @@ export interface BannerSlideProps {
 }
 const styles = StyleSheet.create({
   Container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
+    alignSelf: 'stretch',
   },
   Wrapper: {
     flex: 1,
-    minHeight: 80,
     backgroundColor: colors.secondary,
     paddingBottom: 0, // this is included in the PageIndicator molecule
     shadowColor: colors.shadowBorder,
