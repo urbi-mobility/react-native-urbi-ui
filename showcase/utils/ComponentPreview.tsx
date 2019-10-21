@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 });
 
 export const renderComponent = (name: string, component: JSX.Element) => (
-  <View key={`comp-${Math.random().toFixed(6)}`} style={styles.Row}>
+  <View key={`comp-${name}`} style={styles.Row}>
     <View style={styles.Component}>{component}</View>
     <View style={styles.Label}>
       <Text style={styles.Text}>{name}</Text>

@@ -7,22 +7,32 @@ import { colors } from '../../../utils/colors';
 
 type ToggleState = {
   active: boolean;
+  pendingUpdates: number;
 };
 
 class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
+  static getDerivedStateFromProps(props: ToggleProps, state: ToggleState) {
+    if (props.managed && state.pendingUpdates === 0 && props.active !== state.active) {
+      return { active: props.active };
+    }
+    return null;
+  }
+
   constructor(props: ToggleProps) {
     super(props);
     const { active } = props;
-    this.state = { active };
+    this.state = { active, pendingUpdates: 0 };
     this.toggleState = this.toggleState.bind(this);
   }
 
   toggleState() {
-    const { active } = this.state;
-    const { id, managed, setActive } = this.props;
-    if (managed && this.props.active !== active) return; // debounce click events
-    // execute the callback after a render() took place, as we want the button to change state
-    this.setState({ active: !active }, () => requestAnimationFrame(() => setActive(id, !active)));
+    const { active, pendingUpdates } = this.state;
+    const { id, setActive } = this.props;
+    const newState = !active;
+    this.setState({ active: newState, pendingUpdates: pendingUpdates + 1 }, () => {
+      setActive(id, newState);
+      this.setState({ pendingUpdates: this.state.pendingUpdates - 1 });
+    });
   }
 
   render() {

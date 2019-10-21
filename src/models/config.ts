@@ -13,6 +13,7 @@ export interface Provider {
   canOpen?: boolean;
   pin?: string;
   img?: string;
+  color?: string;
 }
 
 export interface City {
