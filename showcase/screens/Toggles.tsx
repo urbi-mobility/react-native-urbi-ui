@@ -1,8 +1,8 @@
 import React from 'react';
-import IconToggle from 'react-native-urbi-ui/molecules/buttons/toggles/IconToggle';
-import ImageToggle from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
+import { IconToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/IconToggle';
+import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
 import { ScrollView } from 'react-native-gesture-handler';
-import FilterGroup from 'react-native-urbi-ui/components/FilterGroup';
+import { FilterGroup } from 'react-native-urbi-ui/components/FilterGroup';
 import { onButtonPress, renderComponent, placeholder, boomEmoji } from '../utils/ComponentPreview';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
 

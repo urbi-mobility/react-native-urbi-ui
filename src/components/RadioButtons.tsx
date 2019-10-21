@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import ListItemRadio from '../components/ListItemRadio';
+import { ListItemRadio } from '../components/ListItemRadio';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -21,7 +21,7 @@ type RadioButtonsState = {
   selected: string;
 };
 
-class RadioButtons extends React.PureComponent<RadioButtonsProps, RadioButtonsState> {
+export class RadioButtons extends React.PureComponent<RadioButtonsProps, RadioButtonsState> {
   constructor(props: RadioButtonsProps) {
     super(props);
     this.state = { selected: '' };
@@ -49,5 +49,3 @@ class RadioButtons extends React.PureComponent<RadioButtonsProps, RadioButtonsSt
     );
   }
 }
-
-export default RadioButtons;

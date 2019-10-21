@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import Touchable from '../components/Touchable';
+import { Touchable } from '../components/Touchable';
 import { CheckboxProps } from '../molecules/content/Checkbox';
 import ControlAndLabel from '../molecules/content/ControlAndLabel';
 import { colors } from '../utils/colors';
@@ -52,4 +52,4 @@ export const ListItemCheckboxUnmemoized = (props: ListItemCheckboxProps) => {
   );
 };
 
-export default React.memo(ListItemCheckboxUnmemoized);
+export const ListItemCheckbox = React.memo(ListItemCheckboxUnmemoized);

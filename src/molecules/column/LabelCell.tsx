@@ -34,4 +34,4 @@ export const LabelCellUnmemoized = (props: LabelCellProps) => (
   </View>
 );
 
-export default React.memo(LabelCellUnmemoized);
+export const LabelCell = React.memo(LabelCellUnmemoized);

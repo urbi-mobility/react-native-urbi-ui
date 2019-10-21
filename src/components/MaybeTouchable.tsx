@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
-import Touchable from '../components/Touchable';
+import { Touchable } from '../components/Touchable';
 import { colors } from '../utils/colors';
 import { onIOS } from '../utils/const';
 
@@ -27,7 +27,7 @@ const withStyle = (props: MaybeTouchableProps) =>
     shadowOpacity: props.withShadow ? 1 : undefined,
   } as ViewStyle);
 
-const MaybeTouchable = (props: MaybeTouchableProps) => {
+const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
   if (!props.onPress) {
     return props.margin ? (
       <View style={{ flex: 1, margin: props.margin, marginTop: props.marginTop }}>
@@ -56,4 +56,4 @@ const MaybeTouchable = (props: MaybeTouchableProps) => {
   );
 };
 
-export default React.memo(MaybeTouchable);
+export const MaybeTouchable = React.memo(MaybeTouchableUnmemoized);

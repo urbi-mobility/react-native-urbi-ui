@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import IconButtonCompact from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
-import IconButtonRegular from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
+import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
+import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
 class IconButtons extends React.PureComponent<any> {

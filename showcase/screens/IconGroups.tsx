@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import ImageToggle from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
+import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
   renderComponent,
@@ -9,10 +9,10 @@ import {
   starryEmoji,
   zanyEmoji,
 } from '../utils/ComponentPreview';
-import IconGroup from 'react-native-urbi-ui/components/IconGroup';
+import { IconGroup } from 'react-native-urbi-ui/components/IconGroup';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
 import { ImageRequireSource, View, StyleSheet } from 'react-native';
-import ButtonRegular from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
+import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
 
 const onImageTogglePress = (id: string, active: boolean) =>
   showAlert(`'${id}' is now ${active ? 'active' : 'inactive'}`);

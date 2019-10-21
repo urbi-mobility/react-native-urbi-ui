@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import MaybeTouchable from '../components/MaybeTouchable';
+import { MaybeTouchable } from '../components/MaybeTouchable';
 import { CardHeaderUnmemoized, CardHeaderProps } from '../molecules/card/CardHeader';
 import { BikeImgUnmemoized } from '../molecules/img/BikeImg';
 import { VehicleImgUnmemoized } from '../molecules/img/VehicleImg';
@@ -80,4 +80,4 @@ export const CardUnmemoized = (props: CardProps) => (
   </MaybeTouchable>
 );
 
-export default React.memo(CardUnmemoized);
+export const Card = React.memo(CardUnmemoized);

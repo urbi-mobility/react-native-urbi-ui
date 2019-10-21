@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 const titleStyle = registeredTextStyle('title', colors.uma, 'IconAndDoubleLabel');
 const subtitleStyle = registeredTextStyle('body', colors.uto, 'IconAndDoubleLabelSubtitle');
 
-const IconAndDoubleLabel = (props: LabelProps) => (
+const IconAndDoubleLabelUnmemoized = (props: LabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <View style={styles.ImageWrapper}>
       <Image style={{ width: 40, height: 40 }} source={props.icon} />
@@ -44,4 +44,4 @@ const IconAndDoubleLabel = (props: LabelProps) => (
   </View>
 );
 
-export default React.memo(IconAndDoubleLabel);
+export const IconAndDoubleLabel = React.memo(IconAndDoubleLabelUnmemoized);

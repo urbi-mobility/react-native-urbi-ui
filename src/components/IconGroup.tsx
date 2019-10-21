@@ -8,8 +8,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import ImageToggle, { size as imageButtonSize } from '../molecules/buttons/toggles/ImageToggle';
-import { PageIndicator } from '../molecules/PageIndicator';
+import { ImageToggle, size as imageButtonSize } from '../molecules/buttons/toggles/ImageToggle';
+import { PageIndicatorUnmemoized } from '../molecules/PageIndicator';
 import { onIOS } from '../utils/const';
 
 const minItemPadding = 12;
@@ -47,7 +47,7 @@ type IconGroupState = {
   selectedPage: number;
 };
 
-class IconGroup extends React.PureComponent<IconGroupProps, IconGroupState> {
+export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupState> {
   constructor(props: IconGroupProps) {
     super(props);
     this.state = {
@@ -127,10 +127,8 @@ class IconGroup extends React.PureComponent<IconGroupProps, IconGroupState> {
             {this.addFiller()}
           </ScrollView>
         </View>
-        <PageIndicator pages={this.state.pages} selectedPage={this.state.selectedPage} />
+        <PageIndicatorUnmemoized pages={this.state.pages} selectedPage={this.state.selectedPage} />
       </View>
     );
   }
 }
-
-export default IconGroup;

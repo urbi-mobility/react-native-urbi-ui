@@ -23,4 +23,4 @@ export const StationImgUnmemoized = (props: StationImgProps) => (
   </View>
 );
 
-export default React.memo(StationImgUnmemoized);
+export const StationImg = React.memo(StationImgUnmemoized);

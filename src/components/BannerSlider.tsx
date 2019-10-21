@@ -13,7 +13,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
 import { onIOS, windowWidth } from '../utils/const';
-import ScaledImage from './ScaledImage';
+import { ScaledImage } from './ScaledImage';
 
 export const bannerHeight = 116;
 
@@ -52,7 +52,10 @@ const styles = StyleSheet.create({
   },
 });
 
-class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSliderPanelState> {
+export class BannerSlider extends React.PureComponent<
+  BannerSliderPanelProps,
+  BannerSliderPanelState
+> {
   constructor(props: BannerSliderPanelProps) {
     super(props);
     this.state = { scrollViewWidth: windowWidth, selectedPage: 0, imageHeight: 0 };
@@ -127,5 +130,3 @@ class BannerSlider extends React.PureComponent<BannerSliderPanelProps, BannerSli
     );
   }
 }
-
-export default BannerSlider;

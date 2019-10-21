@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import MaybeTouchable from '../components/MaybeTouchable';
+import { MaybeTouchable } from '../components/MaybeTouchable';
 import { colors } from '../utils/colors';
 import { registeredTextStyle } from '../utils/textStyles';
 
@@ -34,7 +34,7 @@ type NoteProps = {
 
 const textStyle = registeredTextStyle('micro', colors.ughina, 'note');
 
-export const Note = (props: NoteProps) => (
+export const NoteUnmemoized = (props: NoteProps) => (
   <MaybeTouchable onPress={props.onPress} withShadow={false}>
     <View style={styles.Wrapper}>
       {props.icon && <Image style={styles.Image} source={props.icon} />}
@@ -47,4 +47,4 @@ export const Note = (props: NoteProps) => (
   </MaybeTouchable>
 );
 
-export default React.memo(Note);
+export const Note = React.memo(NoteUnmemoized);

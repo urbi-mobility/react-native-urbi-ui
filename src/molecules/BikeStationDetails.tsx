@@ -39,4 +39,4 @@ export const BikeStationDetailsUnmemoized = (props: BikeStationDetailsProps) => 
   </View>
 );
 
-export default React.memo(BikeStationDetailsUnmemoized);
+export const BikeStationDetails = React.memo(BikeStationDetailsUnmemoized);

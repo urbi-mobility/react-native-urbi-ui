@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class CenteredLabel extends React.PureComponent<CenteredLabelProps> {
+export class CenteredLabel extends React.PureComponent<CenteredLabelProps> {
   private textStyle: Array<RegisteredStyle<TextStyle> | TextStyle>;
 
   constructor(props: CenteredLabelProps) {
@@ -40,5 +40,3 @@ class CenteredLabel extends React.PureComponent<CenteredLabelProps> {
     );
   }
 }
-
-export default CenteredLabel;

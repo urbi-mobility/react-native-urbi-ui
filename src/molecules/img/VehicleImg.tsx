@@ -41,4 +41,4 @@ export const VehicleImgUnmemoized = (props: VehicleImgProps) => (
   </View>
 );
 
-export default React.memo(VehicleImgUnmemoized);
+export const VehicleImg = React.memo(VehicleImgUnmemoized);

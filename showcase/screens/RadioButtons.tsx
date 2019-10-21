@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import ListItemRadio from 'react-native-urbi-ui/components/ListItemRadio';
+import { ListItemRadio } from 'react-native-urbi-ui/components/ListItemRadio';
 import RadioButtonsComp from 'react-native-urbi-ui/components/RadioButtons';
 import { onPressNoOp, renderComponent } from '../utils/ComponentPreview';
 

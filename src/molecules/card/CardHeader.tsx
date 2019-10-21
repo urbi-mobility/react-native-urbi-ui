@@ -83,4 +83,4 @@ export const CardHeaderUnmemoized = (props: CardHeaderProps) => (
   </View>
 );
 
-export default React.memo(CardHeaderUnmemoized);
+export const CardHeader = React.memo(CardHeaderUnmemoized);

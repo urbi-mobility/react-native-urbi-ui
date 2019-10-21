@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import DialogAndroid from 'react-native-dialogs';
 import { DialogPickerProps } from '../components/types';
 
-class DialogPicker extends React.PureComponent<DialogPickerProps> {
+export class DialogPicker extends React.PureComponent<DialogPickerProps> {
   componentWillReceiveProps(nextProps: DialogPickerProps) {
     if (!this.props.show && nextProps.show) {
       DialogAndroid.showPicker(nextProps.title, null, {
@@ -25,5 +25,3 @@ class DialogPicker extends React.PureComponent<DialogPickerProps> {
     return <View />;
   }
 }
-
-export default DialogPicker;

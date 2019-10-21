@@ -1,6 +1,6 @@
 import React from 'react';
-import Link, { LinkProps } from '../../molecules/buttons/Link';
+import { Link, LinkProps } from '../../molecules/buttons/Link';
 
-export const LinkCompact = (props: LinkProps) => <Link {...props} compact />;
+export const LinkCompactUnmemoized = (props: LinkProps) => <Link {...props} compact />;
 
-export default React.memo(LinkCompact);
+export const LinkCompact = React.memo(LinkCompactUnmemoized);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import IconButtonCompact from '../molecules/buttons/iconButtons/IconButtonCompact';
+import { IconButtonCompact } from '../molecules/buttons/iconButtons/IconButtonCompact';
 import { colors } from '../utils/colors';
 import { registeredTextStyle } from '../utils/textStyles';
 
@@ -47,4 +47,4 @@ export const StepperUnmemoized = (props: StepperProps) => (
   </View>
 );
 
-export default React.memo(StepperUnmemoized);
+export const Stepper = React.memo(StepperUnmemoized);

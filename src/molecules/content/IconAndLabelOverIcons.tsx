@@ -37,7 +37,7 @@ const getIcon = (icon: string, i: number) => (
   <Icon key={`icon-${i}`} name={icon} size={20} color={colors.ughina} />
 );
 
-const IconAndLabelOverIcons = (props: LabelProps) => (
+const IconAndLabelOverIconsUnmemoized = (props: LabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <View style={styles.ImageWrapper}>
       <Image style={{ width: 40, height: 40 }} source={props.icon} />
@@ -51,4 +51,4 @@ const IconAndLabelOverIcons = (props: LabelProps) => (
   </View>
 );
 
-export default React.memo(IconAndLabelOverIcons);
+export const IconAndLabelOverIcons = React.memo(IconAndLabelOverIconsUnmemoized);

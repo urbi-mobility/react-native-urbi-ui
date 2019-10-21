@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
 import { ListItemProps, renderImageOrIcon } from '../components/ListItem';
-import MaybeTouchable from '../components/MaybeTouchable';
+import { MaybeTouchable } from '../components/MaybeTouchable';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -41,4 +41,4 @@ export const ListItemLargeUnmemoized = (props: ListItemProps) => (
   </MaybeTouchable>
 );
 
-export default React.memo(ListItemLargeUnmemoized);
+export const ListItemLarge = React.memo(ListItemLargeUnmemoized);

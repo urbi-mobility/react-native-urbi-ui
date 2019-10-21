@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native';
-import PulsatingDots from '../../molecules/animations/PulsatingDots';
+import { PulsatingDots } from '../../molecules/animations/PulsatingDots';
 import { ExtendedButtonProps } from '../../molecules/buttons/types';
 import { colors } from '../../utils/colors';
 import { textStyle } from '../../utils/textStyles';
 
-class Button extends React.PureComponent<ExtendedButtonProps> {
+export class Button extends React.PureComponent<ExtendedButtonProps> {
   styles: {
     Button: ViewStyle;
   };
@@ -82,5 +82,3 @@ class Button extends React.PureComponent<ExtendedButtonProps> {
     );
   }
 }
-
-export default Button;

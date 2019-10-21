@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import ListItemCheckbox from 'react-native-urbi-ui/components/ListItemCheckbox';
+import { ListItemCheckbox } from 'react-native-urbi-ui/components/ListItemCheckbox';
 import { renderComponent } from '../utils/ComponentPreview';
 
 type CheckboxesState = {

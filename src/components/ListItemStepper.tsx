@@ -19,11 +19,11 @@ type ListItemStepperProps = {
   stepper: ReactElement<typeof StepperUnmemoized>;
 };
 
-export const ListItemStepper = (props: ListItemStepperProps) => (
+export const ListItemStepperUnmemoized = (props: ListItemStepperProps) => (
   <View style={styles.Wrapper}>
     {props.content}
     {props.stepper}
   </View>
 );
 
-export default React.memo(ListItemStepper);
+export const ListItemStepper = React.memo(ListItemStepperUnmemoized);

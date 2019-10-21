@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import ListButton from 'react-native-urbi-ui/molecules/buttons/ListButton';
+import { ListButton } from 'react-native-urbi-ui/molecules/buttons/ListButton';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 

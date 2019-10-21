@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Touchable from '../../components/Touchable';
-import IconButtonCompact from '../../molecules/buttons/iconButtons/IconButtonCompact';
+import { Touchable } from '../../components/Touchable';
+import { IconButtonCompact } from '../../molecules/buttons/iconButtons/IconButtonCompact';
 import { colors } from '../../utils/colors';
 import { registeredTextStyle } from '../../utils/textStyles';
 
@@ -32,7 +32,7 @@ type ListButtonProps = {
   onDarkBackground?: boolean;
 };
 
-export const ListButton = (props: ListButtonProps) => (
+export const ListButtonUnmemoized = (props: ListButtonProps) => (
   <View style={{ flex: 1 }}>
     <Touchable onPress={props.onPress}>
       <View style={styles.Wrapper}>
@@ -53,4 +53,4 @@ export const ListButton = (props: ListButtonProps) => (
   </View>
 );
 
-export default React.memo(ListButton);
+export const ListButton = React.memo(ListButtonUnmemoized);

@@ -2,7 +2,7 @@ import React from 'react';
 import { ActionSheetIOS, View } from 'react-native';
 import { DialogPickerProps } from '../components/types';
 
-class DialogPicker extends React.PureComponent<DialogPickerProps> {
+export class DialogPicker extends React.PureComponent<DialogPickerProps> {
   constructor(props: DialogPickerProps) {
     super(props);
     this.onItemChosen = this.onItemChosen.bind(this);
@@ -31,5 +31,3 @@ class DialogPicker extends React.PureComponent<DialogPickerProps> {
     return <View />;
   }
 }
-
-export default DialogPicker;

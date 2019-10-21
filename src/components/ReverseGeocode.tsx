@@ -19,7 +19,10 @@ const resolve = async (location: Location) => {
   }
 };
 
-class ReverseGeocoded extends React.PureComponent<ReverseGeocodedProps, ReverseGeocodedState> {
+export class ReverseGeocoded extends React.PureComponent<
+  ReverseGeocodedProps,
+  ReverseGeocodedState
+> {
   constructor(props: ReverseGeocodedProps) {
     super(props);
     this.reverseGeocode = this.reverseGeocode.bind(this);
@@ -39,5 +42,3 @@ class ReverseGeocoded extends React.PureComponent<ReverseGeocodedProps, ReverseG
     return this.props.render(this.state.reverseGeocodedAddress);
   }
 }
-
-export default ReverseGeocoded;

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 const titleStyle = registeredTextStyle('title', colors.uma, 'DoubleLabel');
 const subtitleStyle = registeredTextStyle('body', colors.uto, 'DoubleLabelSubtitle');
 
-const DoubleLabel = (props: LabelProps) => (
+const DoubleLabelUnmemoized = (props: LabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <Text style={titleStyle} numberOfLines={2}>
       {props.label}
@@ -32,4 +32,4 @@ const DoubleLabel = (props: LabelProps) => (
   </View>
 );
 
-export default React.memo(DoubleLabel);
+export const DoubleLabel = React.memo(DoubleLabelUnmemoized);

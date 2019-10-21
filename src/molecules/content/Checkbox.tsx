@@ -48,4 +48,4 @@ export const CheckboxUnmemoized = (props: CheckboxProps) => (
   </View>
 );
 
-export default React.memo(CheckboxUnmemoized);
+export const Checkbox = React.memo(CheckboxUnmemoized);

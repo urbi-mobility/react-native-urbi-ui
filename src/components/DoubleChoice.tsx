@@ -24,7 +24,7 @@ type DoubleChoiceProps = {
 const leftStyle = { flex: 1, marginRight: 10, ...sizes };
 const rightStyle = { flex: 1, marginLeft: 10, ...sizes };
 
-class DoubleChoice extends React.PureComponent<DoubleChoiceProps> {
+export class DoubleChoice extends React.PureComponent<DoubleChoiceProps> {
   render() {
     const { left, right } = this.props;
     return (
@@ -35,5 +35,3 @@ class DoubleChoice extends React.PureComponent<DoubleChoiceProps> {
     );
   }
 }
-
-export default DoubleChoice;

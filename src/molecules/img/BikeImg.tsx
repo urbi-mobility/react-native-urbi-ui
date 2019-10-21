@@ -41,4 +41,4 @@ export const BikeImgUnmemoized = (props: BikeImgProps) => (
   </View>
 );
 
-export default React.memo<BikeImgProps>(BikeImgUnmemoized);
+export const BikeImg = React.memo<BikeImgProps>(BikeImgUnmemoized);

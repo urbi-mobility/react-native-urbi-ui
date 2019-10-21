@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const PanelHandle = () => (
+const PanelHandleUnmemoized = () => (
   <View style={styles.Wrapper}>
     <View style={styles.Handle} />
   </View>
 );
 
-export default React.memo(PanelHandle);
+export const PanelHandle = React.memo(PanelHandleUnmemoized);

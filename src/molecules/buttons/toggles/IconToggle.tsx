@@ -1,6 +1,6 @@
 import React from 'react';
 import { styles } from '../../../molecules/buttons/ButtonStyles';
-import IconButton from '../../../molecules/buttons/iconButtons/IconButton';
+import { IconButton } from '../../../molecules/buttons/iconButtons/IconButton';
 import { sizes } from '../../../molecules/buttons/iconButtons/IconButtonRegular';
 import { ToggleProps } from '../../../molecules/buttons/types';
 import { colors } from '../../../utils/colors';
@@ -10,7 +10,7 @@ type ToggleState = {
   pendingUpdates: number;
 };
 
-class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
+export class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
   static getDerivedStateFromProps(props: ToggleProps, state: ToggleState) {
     if (props.managed && state.pendingUpdates === 0 && props.active !== state.active) {
       return { active: props.active };
@@ -55,5 +55,3 @@ class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
     );
   }
 }
-
-export default IconToggle;

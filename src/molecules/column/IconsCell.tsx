@@ -35,4 +35,4 @@ export const IconsCellUnmemoized = (props: IconsCellProps) => (
   <View style={[styles.Wrapper, props.style]}>{props.icons.map(getIcon)}</View>
 );
 
-export default React.memo(IconsCellUnmemoized);
+export const IconsCell = React.memo(IconsCellUnmemoized);

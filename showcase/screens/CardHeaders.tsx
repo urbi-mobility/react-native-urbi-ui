@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import IconButtonCompact from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
-import CardHeader from 'react-native-urbi-ui/molecules/card/CardHeader';
+import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
+import { CardHeader } from 'react-native-urbi-ui/molecules/card/CardHeader';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { renderComponent } from '../utils/ComponentPreview';
 

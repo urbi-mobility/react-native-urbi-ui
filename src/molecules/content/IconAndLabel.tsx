@@ -48,7 +48,7 @@ const renderImageOrIcon = (
   );
 };
 
-const IconAndLabel = (props: IconAndLabelProps) => {
+export const IconAndLabelUnmemoized = (props: IconAndLabelProps) => {
   const { icon, iconColor, image, label, smallIcon, style } = props;
   const iconSize = smallIcon ? 20 : 40;
   return (
@@ -65,4 +65,4 @@ const IconAndLabel = (props: IconAndLabelProps) => {
   );
 };
 
-export default React.memo(IconAndLabel);
+export const IconAndLabel = React.memo(IconAndLabelUnmemoized);

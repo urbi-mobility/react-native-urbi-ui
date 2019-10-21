@@ -25,11 +25,11 @@ const withStyle = (props: ListItemProps) => {
   });
 };
 
-const ListItemCompact = (props: ListItemProps) => (
+const ListItemCompactUnmemoized = (props: ListItemProps) => (
   <View style={styles.Wrapper}>
     {withStyle(props)}
     {props.end || props.icon || null}
   </View>
 );
 
-export default React.memo(ListItemCompact);
+export const ListItemCompact = React.memo(ListItemCompactUnmemoized);

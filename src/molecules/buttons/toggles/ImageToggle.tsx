@@ -1,13 +1,13 @@
 import React from 'react';
-import IconButton from '../../../molecules/buttons/iconButtons/IconButton';
+import { IconButton } from '../../../molecules/buttons/iconButtons/IconButton';
 import { colors } from '../../../utils/colors';
 import { onIOS } from '../../../utils/const';
-import IconToggle from './IconToggle';
+import { IconToggle } from './IconToggle';
 
 export const size = 40;
 const innerIconSize = onIOS ? 40 : 44; // this way no padding is shown around the image
 
-class ImageToggle extends IconToggle {
+export class ImageToggle extends IconToggle {
   render() {
     const { active } = this.state;
     return (
@@ -27,5 +27,3 @@ class ImageToggle extends IconToggle {
     );
   }
 }
-
-export default ImageToggle;

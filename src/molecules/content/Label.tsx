@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 const textStyle = registeredTextStyle('title', colors.uma, 'Label');
 
-const Label = (props: LabelProps) => (
+export const LabelUnmemoized = (props: LabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <Text style={[textStyle, { color: props.textColor || colors.uma }]} numberOfLines={1}>
       {props.text}
@@ -28,4 +28,4 @@ const Label = (props: LabelProps) => (
   </View>
 );
 
-export default React.memo(Label);
+export const Label = React.memo(LabelUnmemoized);

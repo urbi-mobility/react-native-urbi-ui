@@ -42,4 +42,4 @@ export const SelectionUnmemoized = (props: SelectionProps) => (
   </View>
 );
 
-export default React.memo<SelectionProps>(SelectionUnmemoized);
+export const Selection = React.memo<SelectionProps>(SelectionUnmemoized);

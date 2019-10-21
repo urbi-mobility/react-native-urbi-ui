@@ -1,8 +1,8 @@
 import React from 'react';
 import { ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
 import { PinType } from '../models/vehicles';
-import IconButtonCompact from '../molecules/buttons/iconButtons/IconButtonCompact';
-import IconAndLabelOverIcons from '../molecules/content/IconAndLabelOverIcons';
+import { IconButtonCompact } from '../molecules/buttons/iconButtons/IconButtonCompact';
+import { IconAndLabelOverIcons } from '../molecules/content/IconAndLabelOverIcons';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -40,7 +40,7 @@ const getLoginButton = (props: ProviderSettingsProps) => (
   />
 );
 
-export const ProviderSettings = (props: ProviderSettingsProps) => (
+export const ProviderSettingsUnmemoized = (props: ProviderSettingsProps) => (
   <View style={styles.Wrapper}>
     <IconAndLabelOverIcons
       icon={props.providerLogo}
@@ -54,4 +54,4 @@ export const ProviderSettings = (props: ProviderSettingsProps) => (
   </View>
 );
 
-export default React.memo(ProviderSettings);
+export const ProviderSettings = React.memo(ProviderSettingsUnmemoized);

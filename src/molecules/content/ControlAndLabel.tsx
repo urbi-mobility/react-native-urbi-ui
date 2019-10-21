@@ -1,7 +1,7 @@
 import React from 'react';
 import { RegisteredStyle, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import Checkbox, { ControlProps } from '../../molecules/content/Checkbox';
-import RadioButton from '../../molecules/content/RadioButton';
+import { Checkbox, ControlProps } from '../../molecules/content/Checkbox';
+import { RadioButton } from '../../molecules/content/RadioButton';
 import { colors } from '../../utils/colors';
 import { registeredTextStyle } from '../../utils/textStyles';
 

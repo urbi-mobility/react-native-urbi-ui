@@ -45,4 +45,4 @@ export const RadioButtonUnmemoized = (props: ControlProps) => {
   );
 };
 
-export default React.memo(RadioButtonUnmemoized);
+export const RadioButton = React.memo(RadioButtonUnmemoized);

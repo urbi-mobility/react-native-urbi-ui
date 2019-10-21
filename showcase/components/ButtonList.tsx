@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
-import ListItem from 'react-native-urbi-ui/components/ListItemLarge';
+import { ListItem } from 'react-native-urbi-ui/components/ListItemLarge';
 import Label from 'react-native-urbi-ui/molecules/content/Label';
 import { NavigationStackProp } from 'react-navigation-stack';
 import { View, StyleSheet } from 'react-native';

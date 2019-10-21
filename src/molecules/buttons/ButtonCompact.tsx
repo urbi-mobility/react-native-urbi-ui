@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../molecules/buttons/Button';
+import { Button } from '../../molecules/buttons/Button';
 import { ButtonProps } from '../../molecules/buttons/types';
 import { styles } from './ButtonStyles';
 
@@ -11,8 +11,8 @@ export const sizes = {
   minWidth: 80,
 };
 
-const ButtonCompact = (props: ButtonProps) => (
+const ButtonCompactUnmemoized = (props: ButtonProps) => (
   <Button textStyle="button" isUppercase {...sizes} {...styles(props)} {...props} />
 );
 
-export default React.memo(ButtonCompact);
+export const ButtonCompact = React.memo(ButtonCompactUnmemoized);

@@ -20,11 +20,11 @@ type ButtonAndLabelProps = {
   label: JSX.Element;
 };
 
-export const ButtonAndLabel = (props: ButtonAndLabelProps) => (
+export const ButtonAndLabelUnmemoized = (props: ButtonAndLabelProps) => (
   <View style={styles.Wrapper}>
     {React.cloneElement(props.button, { style: { marginRight: 10 } })}
     {React.cloneElement(props.label, { style: { marginLeft: 10 } })}
   </View>
 );
 
-export default React.memo(ButtonAndLabel);
+export const ButtonAndLabel = React.memo(ButtonAndLabelUnmemoized);

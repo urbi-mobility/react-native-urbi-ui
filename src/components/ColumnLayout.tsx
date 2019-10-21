@@ -51,4 +51,4 @@ export const ColumnLayoutUnmemoized = (props: ColumnLayoutProps) => (
   </View>
 );
 
-export default React.memo(ColumnLayoutUnmemoized);
+export const ColumnLayout = React.memo(ColumnLayoutUnmemoized);

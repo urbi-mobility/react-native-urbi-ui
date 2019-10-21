@@ -10,7 +10,9 @@ This is an alpha version of the release, use it at your own risk!
 
 Make sure you have all `peerDependencies` installed, and import components/molecules from their folders, e.g.:
 
-    import ButtonCompact from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+    import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+
+Every component is exported as either a `React.PureComponent` or as a memoized stateless component (using `React.memo()`). In some cases, unmemoized versions are available, and they're exported using the `Unmemoized` suffix. Those are usually useful when their type is needed in typescript to specify props (e.g., `button: ReactElement<typeof ButtonUnmemoized>)`).
 
 The design system makes use of an icon font which you must include in your app. The font can be installed by copying the `showcase/android/app/src/main/assets/fonts/urbi.ttf` file into your own app's `android/app/src/main/assets/fonts` folder (create it if it doesn't exist), and by adding that same file to your iOS project's resources, making sure it's copied in the `Copy resources` build phase.
 

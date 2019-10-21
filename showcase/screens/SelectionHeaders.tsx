@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import SelectionHeader from 'react-native-urbi-ui/components/SelectionHeader';
+import { SelectionHeader } from 'react-native-urbi-ui/components/SelectionHeader';
 import BikeStationDetails from 'react-native-urbi-ui/molecules/BikeStationDetails';
 import CarStationDetails from 'react-native-urbi-ui/molecules/CarStationDetails';
 import BikeImg, { BikeImgUnmemoized } from 'react-native-urbi-ui/molecules/img/BikeImg';

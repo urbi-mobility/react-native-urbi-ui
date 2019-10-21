@@ -5,7 +5,7 @@ import { IconButtonExtendedProps } from '../../../molecules/buttons/types';
 import { colors } from '../../../utils/colors';
 import { Icon } from '../../../utils/const';
 
-class IconButton extends React.PureComponent<IconButtonExtendedProps> {
+export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
   styles: {
     Wrapper: ViewStyle;
     Button: ViewStyle;
@@ -86,5 +86,3 @@ class IconButton extends React.PureComponent<IconButtonExtendedProps> {
     );
   }
 }
-
-export default IconButton;

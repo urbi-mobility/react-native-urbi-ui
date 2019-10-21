@@ -9,7 +9,7 @@ type TopBarTitleProps = {
   text: string;
 };
 
-const TopBarTitle = (props: TopBarTitleProps) => {
+const TopBarTitleUnmemoized = (props: TopBarTitleProps) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'stretch' }}>
       <Text style={fontStyle}>{props.text}</Text>
@@ -17,4 +17,4 @@ const TopBarTitle = (props: TopBarTitleProps) => {
   );
 };
 
-export default React.memo(TopBarTitle);
+export const TopBarTitle = React.memo(TopBarTitleUnmemoized);

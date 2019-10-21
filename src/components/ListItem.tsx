@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
-import MaybeTouchable from '../components/MaybeTouchable';
+import { MaybeTouchable } from '../components/MaybeTouchable';
 import { Icon } from '../utils/const';
 
 type Styles = {
@@ -71,4 +71,4 @@ export const ListItemUnmemoized = (props: ListItemProps) => (
   </MaybeTouchable>
 );
 
-export default React.memo(ListItemUnmemoized);
+export const ListItem = React.memo(ListItemUnmemoized);

@@ -25,7 +25,7 @@ type SectionsDividersProps = {
   labelColor?: string;
 };
 
-const SectionsDivider = (props: SectionsDividersProps) => {
+const SectionsDividerUnmemoized = (props: SectionsDividersProps) => {
   const { backgroundColor, labelColor } = props;
   const wrapperStyle = backgroundColor ? [styles.Wrapper, { backgroundColor }] : styles.Wrapper;
   return (
@@ -37,4 +37,4 @@ const SectionsDivider = (props: SectionsDividersProps) => {
   );
 };
 
-export default React.memo(SectionsDivider);
+export const SectionsDivider = React.memo(SectionsDividerUnmemoized);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import ButtonCompact from '../molecules/buttons/ButtonCompact';
+import { ButtonCompact } from '../molecules/buttons/ButtonCompact';
 
 type ButtonGroupEntry = {
   onPress: () => any;
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 /**
  * A group of buttons all having the same "priority". See https://zpl.io/bznZYPM
  */
-const ButtonGroup = (props: ButtonGroupProps) => (
+const ButtonGroupUnmemoized = (props: ButtonGroupProps) => (
   <View style={styles.Wrapper}>
     {props.buttons.map((b, i) => (
       <ButtonCompact
@@ -43,4 +43,4 @@ const ButtonGroup = (props: ButtonGroupProps) => (
   </View>
 );
 
-export default React.memo(ButtonGroup);
+export const ButtonGroup = React.memo(ButtonGroupUnmemoized);

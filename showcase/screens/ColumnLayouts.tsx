@@ -1,9 +1,9 @@
 import React from 'react';
-import ColumnLayout from 'react-native-urbi-ui/components/ColumnLayout';
-import IconButtonCompact from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
-import IconAndLabelCell from 'react-native-urbi-ui/molecules/column/IconAndLabelCell';
-import IconsCell from 'react-native-urbi-ui/molecules/column/IconsCell';
-import LabelCell from 'react-native-urbi-ui/molecules/column/LabelCell';
+import { ColumnLayout } from 'react-native-urbi-ui/components/ColumnLayout';
+import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
+import { IconAndLabelCell } from 'react-native-urbi-ui/molecules/column/IconAndLabelCell';
+import { IconsCell } from 'react-native-urbi-ui/molecules/column/IconsCell';
+import { LabelCell } from 'react-native-urbi-ui/molecules/column/LabelCell';
 import { ScrollView } from 'react-native-gesture-handler';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 

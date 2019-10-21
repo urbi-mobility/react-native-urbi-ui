@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerSliderComp from 'react-native-urbi-ui/components/BannerSlider';
+import { BannerSlider as BannerSliderComp } from 'react-native-urbi-ui/components/BannerSlider';
 import { onButtonPress } from '../utils/ComponentPreview';
 import { Text, View } from 'react-native';
 

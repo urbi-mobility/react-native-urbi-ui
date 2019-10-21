@@ -1,16 +1,16 @@
 import React, { ReactElement } from 'react';
 import { Platform, StyleSheet, Switch, View, ViewStyle } from 'react-native';
-import { ProviderSettings } from '../components/ProviderSettings';
-import IconAndLabel from '../molecules/content/IconAndLabel';
-import Label from '../molecules/content/Label';
+import { ProviderSettingsUnmemoized } from '../components/ProviderSettings';
+import { IconAndLabelUnmemoized } from '../molecules/content/IconAndLabel';
+import { LabelUnmemoized } from '../molecules/content/Label';
 import { colors } from '../utils/colors';
 import { onIOS } from '../utils/const';
 
 export interface ListItem {
   content:
-    | ReactElement<typeof IconAndLabel>
-    | ReactElement<typeof Label>
-    | ReactElement<typeof ProviderSettings>;
+    | ReactElement<typeof IconAndLabelUnmemoized>
+    | ReactElement<typeof LabelUnmemoized>
+    | ReactElement<typeof ProviderSettingsUnmemoized>;
   onSwitchToggle: (value: boolean) => any;
   enabled: boolean;
   transitioning?: boolean;
@@ -52,11 +52,11 @@ const getSwitch = (item: ListItem) =>
     ),
   });
 
-export const ListItemSwitch = (item: ListItem) => (
+export const ListItemSwitchUnmemoized = (item: ListItem) => (
   <View style={[styles.Row, { backgroundColor: item.backgroundColor }]}>
     {item.content}
     {getSwitch(item)}
   </View>
 );
 
-export default React.memo(ListItemSwitch);
+export const ListItemSwitch = React.memo(ListItemSwitchUnmemoized);

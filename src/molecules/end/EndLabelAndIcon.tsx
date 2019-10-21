@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 const textStyle = registeredTextStyle('titleBold', colors.uma, 'EndLabelAndIcon');
 
-const EndLabelAndIcon = (props: EndLabelAndIconProps) => (
+const EndLabelAndIconUnmemoized = (props: EndLabelAndIconProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <View style={styles.TextView}>
       <Text style={[textStyle, styles.Text]} numberOfLines={1}>
@@ -47,4 +47,4 @@ const EndLabelAndIcon = (props: EndLabelAndIconProps) => (
   </View>
 );
 
-export default React.memo(EndLabelAndIcon);
+export const EndLabelAndIcon = React.memo(EndLabelAndIconUnmemoized);

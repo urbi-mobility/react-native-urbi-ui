@@ -1,3 +1,3 @@
 import { TouchableOpacity } from 'react-native';
 
-export default TouchableOpacity;
+export const Touchable = TouchableOpacity;

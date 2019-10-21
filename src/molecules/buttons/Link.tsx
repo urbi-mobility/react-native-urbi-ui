@@ -13,7 +13,7 @@ export type LinkProps = {
 const textStyle = registeredTextStyle('titleBold', colors.primary, 'link');
 const textStyleCompact = registeredTextStyle('button', colors.primary, 'link-compact');
 
-export const Link = (props: LinkProps) => (
+export const LinkUnmemoized = (props: LinkProps) => (
   <TouchableOpacity onPress={props.onPress}>
     <Text style={props.compact ? textStyleCompact : textStyle}>
       {props.uppercase ? props.text.toUpperCase() : props.text}
@@ -21,4 +21,4 @@ export const Link = (props: LinkProps) => (
   </TouchableOpacity>
 );
 
-export default React.memo(Link);
+export const Link = React.memo(LinkUnmemoized);

@@ -21,7 +21,7 @@ type ItemSeparatorState = {
   currentBg?: string;
 };
 
-class ItemSeparator extends React.PureComponent<ItemSeparatorProps, ItemSeparatorState> {
+export class ItemSeparator extends React.PureComponent<ItemSeparatorProps, ItemSeparatorState> {
   private animatedBg?: Animated.Value;
   private nextBg?: string;
 
@@ -70,5 +70,3 @@ class ItemSeparator extends React.PureComponent<ItemSeparatorProps, ItemSeparato
     );
   }
 }
-
-export default ItemSeparator;

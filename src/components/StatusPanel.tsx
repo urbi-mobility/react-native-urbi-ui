@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import Touchable from '../components/Touchable';
+import { Touchable } from '../components/Touchable';
 import { Status, StatusProps } from '../molecules/content/Status';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPanelState> {
+export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPanelState> {
   constructor(props: StatusPanelProps) {
     super(props);
     this.state = { scrollViewWidth: windowWidth, selectedPage: 0 };
@@ -91,5 +91,3 @@ class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPanelState
     );
   }
 }
-
-export default StatusPanel;

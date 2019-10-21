@@ -14,7 +14,7 @@ type ScaledImageState = {
   height?: number;
 };
 
-export default class ScaledImage extends React.PureComponent<ScaledImageProps, ScaledImageState> {
+export class ScaledImage extends React.PureComponent<ScaledImageProps, ScaledImageState> {
   constructor(props: ScaledImageProps) {
     super(props);
     if (typeof this.props.uri === 'string') this.state = { source: { uri: this.props.uri } };

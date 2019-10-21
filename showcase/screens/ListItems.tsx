@@ -1,10 +1,10 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import ListItem from 'react-native-urbi-ui/components/ListItem';
-import ListItemCompact from 'react-native-urbi-ui/components/ListItemCompact';
-import ListItemLarge from 'react-native-urbi-ui/components/ListItemLarge';
-import DoubleLabel from 'react-native-urbi-ui/molecules/content/DoubleLabel';
-import IconAndDoubleLabel from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
+import { ListItem } from 'react-native-urbi-ui/components/ListItem';
+import { ListItemCompact } from 'react-native-urbi-ui/components/ListItemCompact';
+import { ListItemLarge } from 'react-native-urbi-ui/components/ListItemLarge';
+import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel';
+import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
 import IconAndLabel from 'react-native-urbi-ui/molecules/content/IconAndLabel';
 import EndDoubleLabel from 'react-native-urbi-ui/molecules/end/EndDoubleLabel';
 import EndDoubleLabelAndIcon from 'react-native-urbi-ui/molecules/end/EndDoubleLabelAndIcon';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
-import DoubleChoice from 'react-native-urbi-ui/components/DoubleChoice';
-import ButtonCompact from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+import { DoubleChoice } from 'react-native-urbi-ui/components/DoubleChoice';
+import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
 
 class DoubleChoices extends React.PureComponent<any> {
   render() {

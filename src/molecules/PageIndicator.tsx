@@ -39,7 +39,7 @@ const createDot = (i: number, props: PageIndicatorProps) => (
   />
 );
 
-export const PageIndicator = (props: PageIndicatorProps) => {
+export const PageIndicatorUnmemoized = (props: PageIndicatorProps) => {
   if (props.pages <= 1) return null;
   return (
     <View style={styles.Wrapper}>
@@ -48,4 +48,4 @@ export const PageIndicator = (props: PageIndicatorProps) => {
   );
 };
 
-export default React.memo(PageIndicator);
+export const PageIndicator = React.memo(PageIndicatorUnmemoized);

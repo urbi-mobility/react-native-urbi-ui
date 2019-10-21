@@ -20,7 +20,7 @@ export interface StatusProps {
 const titleStyle = registeredTextStyle('title', colors.ulisse, 'statustitle');
 const contentStyle = registeredTextStyle('title1', colors.ulisse, 'statustitle');
 
-export const Status = (props: StatusProps) => (
+export const StatusUnmemoized = (props: StatusProps) => (
   <View style={[styles.Wrapper, { minWidth: props.minWidth }]}>
     <Text style={titleStyle} numberOfLines={1}>
       {props.title}
@@ -31,4 +31,4 @@ export const Status = (props: StatusProps) => (
   </View>
 );
 
-export default React.memo(Status);
+export const Status = React.memo(StatusUnmemoized);

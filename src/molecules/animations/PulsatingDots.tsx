@@ -86,7 +86,7 @@ type PulsatingDotsProps = {
   size: number;
 };
 
-class PulsatingDots extends React.PureComponent<PulsatingDotsProps> {
+export class PulsatingDots extends React.PureComponent<PulsatingDotsProps> {
   private scale: Animated.Node<number>;
 
   constructor(props: PulsatingDotsProps) {
@@ -193,5 +193,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default PulsatingDots;

@@ -28,4 +28,4 @@ export const CarStationDetailsUnmemoized = (props: CarStationDetailsProps) => (
   </View>
 );
 
-export default React.memo(CarStationDetailsUnmemoized);
+export const CarStationDetails = React.memo(CarStationDetailsUnmemoized);

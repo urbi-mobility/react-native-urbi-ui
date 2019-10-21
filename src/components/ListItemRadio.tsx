@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import Touchable from '../components/Touchable';
+import { Touchable } from '../components/Touchable';
 import { ControlProps } from '../molecules/content/Checkbox';
 import ControlAndLabel from '../molecules/content/ControlAndLabel';
 
@@ -30,4 +30,4 @@ export const ListItemRadioUnmemoized = (props: ListItemRadioProps) => {
   );
 };
 
-export default React.memo(ListItemRadioUnmemoized);
+export const ListItemRadio = React.memo(ListItemRadioUnmemoized);

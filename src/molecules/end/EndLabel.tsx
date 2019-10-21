@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 const textStyle = registeredTextStyle('titleBold', colors.uma, 'EndLabel');
 
-const EndLabel = (props: EndLabelProps) => (
+const EndLabelUnmemoized = (props: EndLabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <Text
       style={[textStyle, styles.Text, { color: props.textColor || colors.uma }]}
@@ -37,4 +37,4 @@ const EndLabel = (props: EndLabelProps) => (
   </View>
 );
 
-export default React.memo(EndLabel);
+export const EndLabel = React.memo(EndLabelUnmemoized);

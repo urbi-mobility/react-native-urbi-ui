@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import IconButtonRegular from '../molecules/buttons/iconButtons/IconButtonRegular';
-import IconToggle from '../molecules/buttons/toggles/IconToggle';
+import { IconButtonRegular } from '../molecules/buttons/iconButtons/IconButtonRegular';
+import { IconToggle } from '../molecules/buttons/toggles/IconToggle';
 
 type FilterButton = { id: string; icon: string; active?: boolean };
 
@@ -37,7 +37,7 @@ const buttons = (props: FilterGroupProps) =>
     />
   ));
 
-const FilterGroup = (props: FilterGroupProps) => {
+const FilterGroupUnmemoized = (props: FilterGroupProps) => {
   const maxWidth = props.filterButtons.length * (40 + 28) + 40 /* taxi */ + 16 * 2 /* padding */;
   return (
     <View
@@ -50,4 +50,4 @@ const FilterGroup = (props: FilterGroupProps) => {
   );
 };
 
-export default React.memo(FilterGroup);
+export const FilterGroup = React.memo(FilterGroupUnmemoized);

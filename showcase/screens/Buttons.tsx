@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import ButtonCompact from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
-import ButtonRegular from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
-import Link from 'react-native-urbi-ui/molecules/buttons/Link';
-import LinkCompact from 'react-native-urbi-ui/molecules/buttons/LinkCompact';
+import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
+import { Link } from 'react-native-urbi-ui/molecules/buttons/Link';
+import { LinkCompact } from 'react-native-urbi-ui/molecules/buttons/LinkCompact';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
 class Buttons extends React.PureComponent<any> {

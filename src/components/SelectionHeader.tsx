@@ -32,4 +32,4 @@ export const SelectionHeaderUnmemoized = (props: SelectionHeaderProps) => (
   </View>
 );
 
-export default React.memo(SelectionHeaderUnmemoized);
+export const SelectionHeader = React.memo(SelectionHeaderUnmemoized);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../molecules/buttons/Button';
+import { Button } from '../../molecules/buttons/Button';
 import { ButtonProps } from '../../molecules/buttons/types';
 import { styles } from './ButtonStyles';
 
@@ -15,4 +15,4 @@ export const ButtonRegularUnmemoized = (props: ButtonProps) => (
   <Button textStyle="button" isUppercase {...sizes} {...styles(props)} {...props} />
 );
 
-export default React.memo(ButtonRegularUnmemoized);
+export const ButtonRegular = React.memo(ButtonRegularUnmemoized);

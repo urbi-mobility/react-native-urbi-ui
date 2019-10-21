@@ -38,7 +38,7 @@ type FloatingButtonLayoutProps = {
   button: ReactElement<typeof ButtonRegularUnmemoized>;
 };
 
-class FloatingButtonLayout extends React.Component<FloatingButtonLayoutProps> {
+export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutProps> {
   private deltaY: Animated.Value<number>;
   private showListener: EmitterSubscription | undefined;
   private hideListener: EmitterSubscription | undefined;
@@ -120,5 +120,3 @@ class FloatingButtonLayout extends React.Component<FloatingButtonLayoutProps> {
     );
   }
 }
-
-export default FloatingButtonLayout;

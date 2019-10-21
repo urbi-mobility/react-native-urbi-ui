@@ -12,10 +12,10 @@ type ClickableProps = {
   onClick: () => any;
 };
 
-export const Clickable = (props: ClickableProps) => (
+export const ClickableUnmemoized = (props: ClickableProps) => (
   <TouchableOpacity style={styles.Wrapper} onPress={props.onClick}>
     {props.children}
   </TouchableOpacity>
 );
 
-export default React.memo(Clickable);
+export const Clickable = React.memo(ClickableUnmemoized);

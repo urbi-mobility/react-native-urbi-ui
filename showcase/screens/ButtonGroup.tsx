@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import ButtonGroupComp from 'react-native-urbi-ui/components/ButtonGroup';
+import { ButtonGroup as ButtonGroupComp } from 'react-native-urbi-ui/components/ButtonGroup';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
 const buttonGroupButtons = [

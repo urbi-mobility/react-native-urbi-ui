@@ -54,4 +54,4 @@ export const IconAndLabelCellUnmemoized = (props: IconAndLabelCellProps) => (
   </View>
 );
 
-export default React.memo(IconAndLabelCellUnmemoized);
+export const IconAndLabelCell = React.memo(IconAndLabelCellUnmemoized);

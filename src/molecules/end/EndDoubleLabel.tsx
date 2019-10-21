@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 const labelStyle = registeredTextStyle('titleBold', colors.uma, 'EndDoubleLabel');
 const subtitleStyle = registeredTextStyle('body', colors.uto, 'EndDoubleLabelSubtitle');
 
-const EndDoubleLabel = (props: EndDoubleLabelProps) => (
+const EndDoubleLabelUnmemoized = (props: EndDoubleLabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <Text style={[labelStyle, styles.Text]} numberOfLines={1}>
       {props.label}
@@ -37,4 +37,4 @@ const EndDoubleLabel = (props: EndDoubleLabelProps) => (
   </View>
 );
 
-export default React.memo(EndDoubleLabel);
+export const EndDoubleLabel = React.memo(EndDoubleLabelUnmemoized);
