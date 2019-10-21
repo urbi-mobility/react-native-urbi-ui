@@ -11,9 +11,10 @@ export interface Provider {
   canLogin?: boolean;
   canEditPIN?: boolean;
   canOpen?: boolean;
-  pin?: string;
-  img?: string;
   color?: string;
+  hasServiceArea?: boolean;
+  img?: string;
+  pin?: string;
 }
 
 export interface City {
