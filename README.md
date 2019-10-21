@@ -12,6 +12,8 @@ Make sure you have all `peerDependencies` installed, and import components/molec
 
     import ButtonCompact from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
 
+The design system makes use of an icon font which you must include in your app. The font can be installed by copying the `showcase/android/app/src/main/assets/fonts/urbi.ttf` file into your own app's `android/app/src/main/assets/fonts` folder (create it if it doesn't exist), and by adding that same file to your iOS project's resources, making sure it's copied in the `Copy resources` build phase.
+
 All components/molecules come with their own Typescript definitions. However, if you're using Typescript, you might want to adjust the `compilerOptions.paths` field inside your `tsconfig.json` to include these lines:
 
     {
