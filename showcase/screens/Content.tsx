@@ -5,10 +5,10 @@ import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonComp
 import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel';
 import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
 import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
-import IconAndLabelOverIcons from 'react-native-urbi-ui/molecules/content/IconAndLabelOverIcons';
-import Label from 'react-native-urbi-ui/molecules/content/Label';
-import LabelTitle from 'react-native-urbi-ui/molecules/content/LabelTitle';
-import CenteredLabel from 'react-native-urbi-ui/molecules/text/CenteredLabel';
+import { IconAndLabelOverIcons } from 'react-native-urbi-ui/molecules/content/IconAndLabelOverIcons';
+import { Label } from 'react-native-urbi-ui/molecules/content/Label';
+import { LabelTitle } from 'react-native-urbi-ui/molecules/content/LabelTitle';
+import { CenteredLabel } from 'react-native-urbi-ui/molecules/text/CenteredLabel';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { onButtonPress, placeholder, renderComponent } from '../utils/ComponentPreview';
 

@@ -5,11 +5,11 @@ import { ListItemCompact } from 'react-native-urbi-ui/components/ListItemCompact
 import { ListItemLarge } from 'react-native-urbi-ui/components/ListItemLarge';
 import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel';
 import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
-import IconAndLabel from 'react-native-urbi-ui/molecules/content/IconAndLabel';
-import EndDoubleLabel from 'react-native-urbi-ui/molecules/end/EndDoubleLabel';
-import EndDoubleLabelAndIcon from 'react-native-urbi-ui/molecules/end/EndDoubleLabelAndIcon';
-import EndLabel from 'react-native-urbi-ui/molecules/end/EndLabel';
-import EndLabelAndIcon from 'react-native-urbi-ui/molecules/end/EndLabelAndIcon';
+import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
+import { EndDoubleLabel } from 'react-native-urbi-ui/molecules/end/EndDoubleLabel';
+import { EndDoubleLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndDoubleLabelAndIcon';
+import { EndLabel } from 'react-native-urbi-ui/molecules/end/EndLabel';
+import { EndLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndLabelAndIcon';
 import { placeholder, renderComponent } from '../utils/ComponentPreview';
 
 class ListItems extends React.PureComponent<any> {

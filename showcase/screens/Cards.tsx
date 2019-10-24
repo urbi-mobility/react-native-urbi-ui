@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Card } from 'react-native-urbi-ui/components/Card';
 import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
 import { CardHeader } from 'react-native-urbi-ui/molecules/card/CardHeader';
-import VehicleImg from 'react-native-urbi-ui/molecules/img/VehicleImg';
+import { VehicleImg } from 'react-native-urbi-ui/molecules/img/VehicleImg';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import {
   carPlaceholder,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StatusPanel } from 'react-native-urbi-ui/components/StatusPanel';
-import StatusComp from 'react-native-urbi-ui/molecules/content/Status';
+import { Status as StatusComp } from 'react-native-urbi-ui/molecules/content/Status';
 import { onButtonPress, renderComponent } from '../utils/ComponentPreview';
 
 class Status extends React.PureComponent<any> {

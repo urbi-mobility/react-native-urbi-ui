@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { renderComponent, placeholder } from '../utils/ComponentPreview';
-import Note from 'react-native-urbi-ui/molecules/Note';
+import { Note } from 'react-native-urbi-ui/molecules/Note';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
 
 const onNoteTapped = () => showAlert('See? I told ya');

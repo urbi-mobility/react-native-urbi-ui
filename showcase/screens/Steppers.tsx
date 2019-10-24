@@ -2,9 +2,9 @@ import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { placeholder, renderComponent } from '../utils/ComponentPreview';
 import { ListItemStepper } from 'react-native-urbi-ui/components/ListItemStepper';
-import Stepper from 'react-native-urbi-ui/molecules/Stepper';
-import IconAndLabel from 'react-native-urbi-ui/molecules/content/IconAndLabel';
-import ListItem from 'react-native-urbi-ui/components/ListItem';
+import { Stepper } from 'react-native-urbi-ui/molecules/Stepper';
+import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
+import { ListItem } from 'react-native-urbi-ui/components/ListItem';
 import { ListItemLarge } from 'react-native-urbi-ui/components/ListItemLarge';
 
 type SteppersState = {

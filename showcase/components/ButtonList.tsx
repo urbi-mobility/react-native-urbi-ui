@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
-import { ListItem } from 'react-native-urbi-ui/components/ListItemLarge';
-import Label from 'react-native-urbi-ui/molecules/content/Label';
+import { ListItemLarge } from 'react-native-urbi-ui/components/ListItemLarge';
+import { Label } from 'react-native-urbi-ui/molecules/content/Label';
 import { NavigationStackProp } from 'react-navigation-stack';
 import { View, StyleSheet } from 'react-native';
 import { colors } from 'react-native-urbi-ui/utils/colors';
@@ -39,7 +39,7 @@ class ButtonList extends React.PureComponent<ButtonListProps> {
 
   renderItem({ item }: { item: ButtonListEntry }) {
     return (
-      <ListItem
+      <ListItemLarge
         key={`entry-${item.label}`}
         content={<Label text={item.label} />}
         onPress={this.navigateTo(item.toScreen)}

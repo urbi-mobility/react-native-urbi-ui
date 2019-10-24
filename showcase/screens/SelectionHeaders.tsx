@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SelectionHeader } from 'react-native-urbi-ui/components/SelectionHeader';
-import BikeStationDetails from 'react-native-urbi-ui/molecules/BikeStationDetails';
-import CarStationDetails from 'react-native-urbi-ui/molecules/CarStationDetails';
-import BikeImg, { BikeImgUnmemoized } from 'react-native-urbi-ui/molecules/img/BikeImg';
-import Selection from 'react-native-urbi-ui/molecules/img/Selection';
-import StationImg from 'react-native-urbi-ui/molecules/img/StationImg';
-import VehicleImg, { VehicleImgUnmemoized } from 'react-native-urbi-ui/molecules/img/VehicleImg';
-import { renderComponent, carPlaceholder, placeholder } from '../utils/ComponentPreview';
+import { BikeStationDetails } from 'react-native-urbi-ui/molecules/BikeStationDetails';
+import { CarStationDetails } from 'react-native-urbi-ui/molecules/CarStationDetails';
+import { BikeImg, BikeImgUnmemoized } from 'react-native-urbi-ui/molecules/img/BikeImg';
+import { Selection } from 'react-native-urbi-ui/molecules/img/Selection';
+import { StationImg } from 'react-native-urbi-ui/molecules/img/StationImg';
+import { VehicleImg, VehicleImgUnmemoized } from 'react-native-urbi-ui/molecules/img/VehicleImg';
+import { carPlaceholder, placeholder, renderComponent } from '../utils/ComponentPreview';
 
 const renderSelectionHeader = (
   title: string,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
-import CenteredLabel from 'react-native-urbi-ui/molecules/text/CenteredLabel';
+import { CenteredLabel } from 'react-native-urbi-ui/molecules/text/CenteredLabel';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { renderComponent } from '../utils/ComponentPreview';
 
