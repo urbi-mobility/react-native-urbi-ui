@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
-import { PinType } from '../models/vehicles';
+import { PinType } from '../types';
 import { IconButtonCompact } from '../molecules/buttons/iconButtons/IconButtonCompact';
 import { IconAndLabelOverIcons } from '../molecules/content/IconAndLabelOverIcons';
 
