@@ -22,3 +22,13 @@ export const colors = {
   transparent: 'transparent',
   shadowBorder: 'rgba(0, 0, 0, 0.1)',
 };
+
+export const hexToRgba = (hex: string, alpha: number) => {
+  const bigint = parseInt(hex.replace('#', ''), 16);
+  // tslint:disable:no-bitwise
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  // tslint:enable:no-bitwise
+  return `rgba(${[r, g, b, alpha].join(',')})`;
+};
