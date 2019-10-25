@@ -16,6 +16,7 @@ const buttonEntries = toButtonEntries([
   'ColumnLayouts',
   'DoubleChoices',
   'IconGroups',
+  'PurchasePanelScreen',
   'ListItems',
   'RadioButtons',
   'SelectionHeaders',
