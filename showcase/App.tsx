@@ -23,7 +23,7 @@ import ListButtons from './screens/ListButtons';
 import ListItems from './screens/ListItems';
 import Molecules from './screens/Molecules';
 import Notes from './screens/Notes';
-import PurchasePanelScreen from './screens/PurchasePanelScreen';
+import PurchasePanel from './screens/PurchasePanel';
 import RadioButtons from './screens/RadioButtons';
 import SelectionHeaders from './screens/SelectionHeaders';
 import Status from './screens/Status';
@@ -86,7 +86,7 @@ const menuEntries = {
   Content: Content,
   DoubleChoices: DoubleChoices,
   IconButtons: IconButtons,
-  PurchasePanelScreen: PurchasePanelScreen,
+  PurchasePanel: PurchasePanel,
   IconGroups: IconGroups,
   Images: Images,
   ListButtons: ListButtons,
