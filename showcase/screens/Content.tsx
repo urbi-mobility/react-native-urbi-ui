@@ -8,6 +8,7 @@ import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabe
 import { IconAndLabelOverIcons } from 'react-native-urbi-ui/molecules/content/IconAndLabelOverIcons';
 import { Label } from 'react-native-urbi-ui/molecules/content/Label';
 import { LabelTitle } from 'react-native-urbi-ui/molecules/content/LabelTitle';
+import { Purchase } from 'react-native-urbi-ui/molecules/content/Purchase';
 import { CenteredLabel } from 'react-native-urbi-ui/molecules/text/CenteredLabel';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { onButtonPress, placeholder, renderComponent } from '../utils/ComponentPreview';
@@ -25,6 +26,16 @@ class Content extends React.PureComponent<any> {
   render() {
     return (
       <ScrollView>
+        {renderComponent(
+          'Purchase',
+          <Purchase
+            detail={'detail'}
+            price={'€500,00'}
+            oldprice={'oldprice'}
+            onPressIcon={onButtonPress}
+            icon={'fav-small'}
+          />
+        )}
         {renderComponent('Label', <Label text="Hello, I'm a title" />)}
         {renderComponent(
           'Label (long)',

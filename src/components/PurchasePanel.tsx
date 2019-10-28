@@ -1,0 +1,44 @@
+import React, { ReactElement } from 'react';
+import { StyleSheet, View, ViewStyle } from 'react-native';
+import { ButtonCompact } from '../molecules/buttons/ButtonCompact';
+import { PurchaseProps, PurchaseUnmemoized } from '../molecules/content/Purchase';
+import { colors } from '../utils/colors';
+
+const styles = StyleSheet.create({
+  Wrapper: {
+    flex: 1,
+    height: 92,
+    backgroundColor: colors.ulisse,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    shadowOffset: { height: 4, width: 0 },
+    justifyContent: 'center',
+    paddingLeft: 24,
+    paddingRight: 12,
+  },
+  DetailWithButtonWrapper: {
+    flexDirection: 'row',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+});
+
+export type PurchasePanelProps = {
+  label: string;
+  onButtonPress: () => any;
+  purchase: ReactElement<typeof PurchaseUnmemoized>;
+  style?: ViewStyle;
+};
+
+export const PurchasePanelUnmemoized = (props: PurchasePanelProps) => (
+  <View style={[styles.Wrapper, props.style]}>
+    <View style={styles.DetailWithButtonWrapper}>
+      {/* TODO fix this exoteric layout, this magic number makes both sides take up to 50% width */}
+      {React.cloneElement(props.purchase, { style: { minWidth: '18%' } } as Partial<PurchaseProps>)}
+      <ButtonCompact onPress={props.onButtonPress} label={props.label} buttonStyle="primary" />
+    </View>
+  </View>
+);
+
+export const PurchasePanel = React.memo(PurchasePanelUnmemoized);

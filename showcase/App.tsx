@@ -4,6 +4,7 @@ import { colors } from 'react-native-urbi-ui/utils/colors';
 import { createAppContainer, NavigationRouteConfig } from 'react-navigation';
 import { createStackNavigator, NavigationStackScreenProps } from 'react-navigation-stack';
 import ButtonList, { toButtonEntries } from './components/ButtonList';
+import packageJson from './package.json';
 import BannerSlider from './screens/BannerSlider';
 import ButtonGroup from './screens/ButtonGroup';
 import Buttons from './screens/Buttons';
@@ -22,6 +23,7 @@ import ListButtons from './screens/ListButtons';
 import ListItems from './screens/ListItems';
 import Molecules from './screens/Molecules';
 import Notes from './screens/Notes';
+import PurchasePanel from './screens/PurchasePanel';
 import RadioButtons from './screens/RadioButtons';
 import SelectionHeaders from './screens/SelectionHeaders';
 import Status from './screens/Status';
@@ -29,7 +31,6 @@ import Steppers from './screens/Steppers';
 import Text from './screens/Text';
 import Toggles from './screens/Toggles';
 import Typography from './screens/Typography';
-import packageJson from './package.json';
 
 class App extends React.PureComponent<NavigationStackScreenProps> {
   constructor(props: NavigationStackScreenProps) {
@@ -85,6 +86,7 @@ const menuEntries = {
   Content: Content,
   DoubleChoices: DoubleChoices,
   IconButtons: IconButtons,
+  PurchasePanel: PurchasePanel,
   IconGroups: IconGroups,
   Images: Images,
   ListButtons: ListButtons,
