@@ -29,11 +29,11 @@ class Content extends React.PureComponent<any> {
         {renderComponent(
           'Purchase',
           <Purchase
-            detail={'detail'}
-            price={'€500,00'}
-            oldprice={'oldprice'}
-            onPressIcon={onButtonPress}
-            icon={'fav-small'}
+            detail="detail"
+            price="€500,00"
+            oldPrice="oldprice"
+            onPress={onButtonPress}
+            icon="fav-small"
           />
         )}
         {renderComponent('Label', <Label text="Hello, I'm a title" />)}
