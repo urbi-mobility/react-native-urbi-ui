@@ -8,12 +8,12 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { ImageToggle, size as imageButtonSize } from '../molecules/buttons/toggles/ImageToggle';
+import { ImageToggle, size as IMG_BUTTON_SIZE } from '../molecules/buttons/toggles/ImageToggle';
 import { PageIndicatorUnmemoized } from '../molecules/PageIndicator';
 import { onIOS } from '../utils/const';
 
-const minItemPadding = 12;
-const minItemWidth = imageButtonSize + minItemPadding;
+const MIN_ITEM_PADDING = 14;
+const MIN_ITEM_WIDTH = IMG_BUTTON_SIZE + MIN_ITEM_PADDING;
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   Filler: {
     flex: 1,
-    height: imageButtonSize,
+    height: IMG_BUTTON_SIZE,
   } as ViewStyle,
 });
 
@@ -45,17 +45,19 @@ type IconGroupState = {
   iconsPerPage: number;
   scrollViewWidth: number;
   selectedPage: number;
+  offsets: number[];
 };
 
 export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupState> {
   constructor(props: IconGroupProps) {
     super(props);
     this.state = {
-      padding: minItemPadding,
+      padding: MIN_ITEM_PADDING,
       pages: 1,
       iconsPerPage: 5,
       scrollViewWidth: 100,
       selectedPage: 0,
+      offsets: [0],
     };
     this.onLayout = this.onLayout.bind(this);
     this.onScrollEnd = this.onScrollEnd.bind(this);
@@ -63,65 +65,73 @@ export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupStat
 
   addFiller() {
     const { icons } = this.props;
-    const { padding, iconsPerPage } = this.state;
-    if (icons.length % iconsPerPage === 0) return null;
-    const filler = [];
-    for (let i = iconsPerPage - (icons.length % iconsPerPage); i > 1; i--) {
-      filler.push(
-        <View key={`filler-${i}`} style={[styles.Filler, { width: imageButtonSize + padding }]} />
-      );
-    }
-    filler.push(<View key="filler-last" style={[styles.Filler, { width: imageButtonSize }]} />);
-    return filler;
+    const { iconsPerPage, padding, scrollViewWidth } = this.state;
+    const iconsInLastPage = icons.length % iconsPerPage;
+    const filler =
+      iconsInLastPage === 0
+        ? padding
+        : scrollViewWidth - iconsInLastPage * (IMG_BUTTON_SIZE + padding);
+    return <View key="filler" style={[styles.Filler, { width: filler }]} />;
   }
 
   onLayout(e: LayoutChangeEvent) {
     const width = e.nativeEvent.layout.width;
-    // the rightmost item needs no marginRight, try to be optimistic
-    let perPage = Math.ceil(width / minItemWidth);
-    // ...but check that they still fit
-    if (perPage * minItemWidth - minItemPadding > width) {
-      perPage = Math.floor(width / minItemWidth);
+    // we want padding on both sides, so it's one more padding slot than icons
+    const perPage = Math.floor((width - MIN_ITEM_PADDING) / MIN_ITEM_WIDTH);
+    const extraPaddingSpace = width - MIN_ITEM_PADDING - perPage * MIN_ITEM_WIDTH;
+    // divide this extra padding equally among buttons
+    const padding = MIN_ITEM_PADDING + Math.ceil(extraPaddingSpace / perPage);
+    const pages = Math.ceil(this.props.icons.length / perPage);
+    const offsets = [] as number[];
+    for (let i = 0; i < pages; i++) {
+      offsets.push(i * perPage * (padding + IMG_BUTTON_SIZE));
     }
-    const paddingSpace = width - (perPage * minItemWidth - minItemPadding);
-    const padding = minItemPadding + paddingSpace / perPage;
     this.setState({
       iconsPerPage: perPage,
-      pages: Math.ceil(this.props.icons.length / perPage),
       scrollViewWidth: width,
+      pages,
+      offsets,
       padding,
     });
   }
 
   wrapButtons() {
     return this.props.icons.map((icon, i) => (
-      <View key={`icon-${i}`} style={{ marginRight: this.state.padding }}>
+      <View key={`icon-${i}`} style={{ marginLeft: this.state.padding }}>
         {icon}
       </View>
     ));
   }
 
   onScrollEnd(e: NativeSyntheticEvent<NativeScrollEvent>) {
+    const offset = e.nativeEvent.contentOffset.x;
+    const { offsets } = this.state;
+    // these are always going to be tiny, no need for a binary search
+    let lastSmaller = 0;
+    for (let i = 1; i < offsets.length; i++) {
+      if (offset < offsets[i]) {
+        break;
+      }
+      lastSmaller = i;
+    }
     this.setState({
-      selectedPage: Math.floor(e.nativeEvent.contentOffset.x / this.state.scrollViewWidth),
+      selectedPage: lastSmaller,
     });
   }
 
   render() {
-    const snap = this.state.pages < 3;
     return (
       <View style={styles.Wrapper}>
         <View style={styles.ScrollViewWrapper}>
           <ScrollView
             style={styles.ScrollView}
             onLayout={this.onLayout}
-            snapToAlignment={snap ? 'end' : undefined}
-            snapToInterval={snap ? this.state.scrollViewWidth + this.state.padding : undefined}
             showsHorizontalScrollIndicator={false}
             onMomentumScrollEnd={this.onScrollEnd}
+            snapToOffsets={this.state.offsets}
+            decelerationRate={0}
             overScrollMode={onIOS ? undefined : 'never'}
             horizontal
-            pagingEnabled
           >
             {this.wrapButtons()}
             {this.addFiller()}

@@ -1,18 +1,18 @@
 import React, { ReactElement, useState } from 'react';
-import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
+import { ImageRequireSource, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { IconGroup } from 'react-native-urbi-ui/components/IconGroup';
+import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
+import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
+import { showAlert } from 'react-native-urbi-ui/utils/functions';
 import {
-  renderComponent,
-  placeholder,
   boomEmoji,
+  placeholder,
   pukeEmoji,
+  renderComponent,
   starryEmoji,
   zanyEmoji,
 } from '../utils/ComponentPreview';
-import { IconGroup } from 'react-native-urbi-ui/components/IconGroup';
-import { showAlert } from 'react-native-urbi-ui/utils/functions';
-import { ImageRequireSource, View, StyleSheet } from 'react-native';
-import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
 
 const onImageTogglePress = (id: string, active: boolean) =>
   showAlert(`'${id}' is now ${active ? 'active' : 'inactive'}`);
@@ -27,11 +27,15 @@ const iconGroupIcons = [
   imageToggle('third', pukeEmoji),
   imageToggle('fourth', starryEmoji),
   imageToggle('fifth', zanyEmoji),
-  imageToggle('sixth', placeholder),
-  imageToggle('seventh', boomEmoji),
-  imageToggle('eight', pukeEmoji),
-  imageToggle('ninth', starryEmoji),
+  imageToggle('sixth', boomEmoji),
+  imageToggle('seventh', pukeEmoji),
+  imageToggle('eight', starryEmoji),
+  imageToggle('ninth', placeholder),
   imageToggle('tenth', zanyEmoji),
+  imageToggle('eleventh', boomEmoji),
+  imageToggle('twelfth', placeholder),
+  imageToggle('thirteenth', pukeEmoji),
+  imageToggle('fourteenth', starryEmoji),
 ] as Array<ReactElement<typeof ImageToggle>>;
 
 const IconGroups = () => {
@@ -49,9 +53,11 @@ const IconGroups = () => {
 
   return (
     <ScrollView>
-      {renderComponent('IconGroup', <IconGroup icons={iconGroupIcons.slice(0, 10)} />)}
-      {renderComponent('IconGroup (more icons)', <IconGroup icons={iconGroupIcons} />)}
-      {renderComponent('IconGroup (fewer icons)', <IconGroup icons={iconGroupIcons.slice(0, 5)} />)}
+      {renderComponent('IconGroup (8 icons)', <IconGroup icons={iconGroupIcons.slice(0, 8)} />)}
+      {renderComponent('IconGroup (12 icons)', <IconGroup icons={iconGroupIcons.slice(0, 12)} />)}
+      {renderComponent('IconGroup (14 icons)', <IconGroup icons={iconGroupIcons} />)}
+      {renderComponent('IconGroup (6 icons)', <IconGroup icons={iconGroupIcons.slice(0, 6)} />)}
+      {renderComponent('IconGroup (4 icons)', <IconGroup icons={iconGroupIcons.slice(0, 4)} />)}
       {renderComponent(
         'Managed IconGroup',
         <View style={styles.Wrapper}>
