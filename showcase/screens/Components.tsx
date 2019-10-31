@@ -15,6 +15,7 @@ const buttonEntries = toButtonEntries([
   'Checkboxes',
   'ColumnLayouts',
   'DoubleChoices',
+  'Form components',
   'IconGroups',
   'ListItems',
   'PurchasePanel',

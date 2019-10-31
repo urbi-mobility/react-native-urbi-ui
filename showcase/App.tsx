@@ -16,6 +16,7 @@ import ColumnLayouts from './screens/ColumnLayouts';
 import Components from './screens/Components';
 import Content from './screens/Content';
 import DoubleChoices from './screens/DoubleChoices';
+import FormScreen from './screens/FormScreen';
 import IconButtons from './screens/IconButtons';
 import IconGroups from './screens/IconGroups';
 import Images from './screens/Images';
@@ -85,6 +86,7 @@ const menuEntries = {
   Components: Components,
   Content: Content,
   DoubleChoices: DoubleChoices,
+  ['Form components']: FormScreen,
   IconButtons: IconButtons,
   PurchasePanel: PurchasePanel,
   IconGroups: IconGroups,
