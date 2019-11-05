@@ -4,11 +4,11 @@ import { ButtonCompact } from '../molecules/buttons/ButtonCompact';
 import { PurchaseProps, PurchaseUnmemoized } from '../molecules/content/Purchase';
 import { colors } from '../utils/colors';
 
-export const heightPurchasePanel = 92;
+export const purchasePanelHeight = 92;
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
-    height: heightPurchasePanel,
+    height: purchasePanelHeight,
     backgroundColor: colors.ulisse,
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
