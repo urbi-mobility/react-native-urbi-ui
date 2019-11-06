@@ -13,8 +13,15 @@ import UrbiFormComponent, {
 } from './UrbiFormComponent';
 import withUrbiFormWrapper from './WithUrbiFormWrapper';
 
+export type ListItemTextInputPropsType =
+  | 'username'
+  | 'emailAddress'
+  | 'password'
+  | 'pin'
+  | 'telephoneNumber';
+
 interface ListItemTextInputProps extends UrbiFormComponentProps {
-  type: 'username' | 'emailAddress' | 'password' | 'pin' | 'telephoneNumber';
+  type: ListItemTextInputPropsType;
 }
 
 interface ListItemTextInputState extends UrbiFormComponentState {
@@ -87,6 +94,10 @@ class ListItemTextInputComponent extends UrbiFormComponent<
 
   getReturnKeyType() {
     return this.props.context!.getReturnKeyType(this.props.name);
+  }
+
+  renderText(){
+
   }
 
   render() {
