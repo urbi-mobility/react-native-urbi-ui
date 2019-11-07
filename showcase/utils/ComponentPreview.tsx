@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
   Label: { backgroundColor: '#ddd', flex: 1, alignSelf: 'stretch' },
 });
 
-export const renderComponent = (name: string, component: JSX.Element) => (
-  <View key={`comp-${name}`} style={styles.Row}>
+export const renderComponent = (name: string, component: JSX.Element, key?: string) => (
+  <View key={key} style={styles.Row}>
     <View style={styles.Component}>{component}</View>
     <View style={styles.Label}>
       <Text style={styles.Text}>{name}</Text>

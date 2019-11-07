@@ -12,7 +12,11 @@ const textEntries = Object.keys(fontStyles).map((name) => {
 
 class Typography extends React.PureComponent<any> {
   render() {
-    return <ScrollView>{textEntries.map((te) => renderComponent(te.name, te.text))}</ScrollView>;
+    return (
+      <ScrollView>
+        {textEntries.map((te, i) => renderComponent(te.name, te.text, `txt-${i}`))}
+      </ScrollView>
+    );
   }
 }
 

@@ -19,9 +19,9 @@ class Colors extends React.PureComponent<any> {
           renderComponent(
             c,
             <View
-              key={`col-${c}`}
               style={[styles.ColorPreview, { backgroundColor: colors[c as keyof typeof colors] }]}
-            />
+            />,
+            `col-${c}`
           )
         )}
       </ScrollView>
