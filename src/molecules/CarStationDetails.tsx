@@ -6,7 +6,8 @@ import { registeredTextStyle } from '../utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
-    flex: 1,
+    flexGrow: 0,
+    flexShrink: 0,
     flexDirection: 'row',
     alignItems: 'center',
   } as ViewStyle,

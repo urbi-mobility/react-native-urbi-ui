@@ -7,7 +7,14 @@ import { BikeImg, BikeImgUnmemoized } from 'react-native-urbi-ui/molecules/img/B
 import { Selection } from 'react-native-urbi-ui/molecules/img/Selection';
 import { StationImg } from 'react-native-urbi-ui/molecules/img/StationImg';
 import { VehicleImg, VehicleImgUnmemoized } from 'react-native-urbi-ui/molecules/img/VehicleImg';
-import { carPlaceholder, placeholder, renderComponent } from '../utils/ComponentPreview';
+import {
+  bikePlaceholder,
+  carPlaceholder,
+  kickscooterPlaceholder,
+  placeholder,
+  renderComponent,
+  scooterPlaceholder,
+} from '../utils/ComponentPreview';
 
 const renderSelectionHeader = (
   title: string,
@@ -65,7 +72,7 @@ class SelectionHeaders extends React.PureComponent<any> {
         )}
         {renderSelectionHeader(
           'Miles',
-          'AB123CD',
+          'MAX POWER PLATE',
           'Audi A3',
           <VehicleImg image={carPlaceholder} providerLogo={placeholder} />
         )}
@@ -73,19 +80,19 @@ class SelectionHeaders extends React.PureComponent<any> {
           'ofo',
           'Bike with Low steps',
           'OMgoKa',
-          <BikeImg image={carPlaceholder} providerLogo={placeholder} />
+          <BikeImg image={bikePlaceholder} providerLogo={placeholder} />
         )}
         {renderSelectionHeader(
           'Cooltra',
-          '5273KBX',
+          'A super long license plate',
           'Askoll',
-          <VehicleImg image={carPlaceholder} providerLogo={placeholder} />
+          <VehicleImg image={scooterPlaceholder} providerLogo={placeholder} />
         )}
         {renderSelectionHeader(
           'Lime',
           'AA123',
           'Lime-E',
-          <VehicleImg image={carPlaceholder} providerLogo={placeholder} />
+          <VehicleImg image={kickscooterPlaceholder} providerLogo={placeholder} />
         )}
       </ScrollView>
     );

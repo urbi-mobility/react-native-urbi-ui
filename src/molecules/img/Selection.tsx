@@ -16,7 +16,8 @@ export type SelectionProps = {
 
 const styles = StyleSheet.create({
   Wrapper: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
   },
 });
 

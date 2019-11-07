@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     width: 40,
   },
   HeaderWithImage: {
-    marginRight: 8,
-    flex: 2,
+    flexGrow: 1,
+    flexShrink: 0,
   } as ViewStyle,
 });
 

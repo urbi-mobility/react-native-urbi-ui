@@ -43,6 +43,9 @@ export const onPressNoOp = () => null;
 
 export const placeholder = require('../assets/thinking.png');
 export const carPlaceholder = require('../assets/car.png');
+export const bikePlaceholder = require('../assets/ic_bike.png');
+export const kickscooterPlaceholder = require('../assets/ic_kickscooter.png');
+export const scooterPlaceholder = require('../assets/ic_scooter.png');
 export const boomEmoji = require('../assets/boom.png');
 export const pukeEmoji = require('../assets/puke.png');
 export const starryEmoji = require('../assets/starry.png');

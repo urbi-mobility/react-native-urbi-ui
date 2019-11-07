@@ -9,7 +9,9 @@ type BikeImgProps = {
 
 const styles = StyleSheet.create({
   Wrapper: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 0,
+    marginLeft: 8,
     height: 66,
     flexDirection: 'row',
     justifyContent: 'flex-end',

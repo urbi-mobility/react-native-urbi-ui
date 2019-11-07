@@ -7,6 +7,9 @@ type StationImgProps = {
 
 const styles = StyleSheet.create({
   Wrapper: {
+    flexGrow: 1,
+    flexShrink: 0,
+    marginLeft: 8,
     alignItems: 'flex-end',
     justifyContent: 'flex-start',
     height: 66,
