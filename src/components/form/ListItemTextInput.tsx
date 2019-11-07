@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, ViewStyle } from 'react-native';
-import { withFormikControl } from 'react-native-formik';
 import { IconButtonCompact } from '../../molecules/buttons/iconButtons/IconButtonCompact';
 import { ItemSeparator } from '../../molecules/ItemSeparator';
 import { SectionsDivider } from '../../molecules/SectionsDivider';
@@ -12,13 +11,25 @@ import UrbiFormComponent, {
   UrbiFormComponentState,
 } from './UrbiFormComponent';
 import withUrbiFormWrapper from './WithUrbiFormWrapper';
+import { withFormikWrapper } from './Formik';
 
 export type ListItemTextInputPropsType =
-  | 'username'
+  | 'text'
   | 'emailAddress'
   | 'password'
   | 'pin'
   | 'telephoneNumber';
+
+const toTextInputType = (t: ListItemTextInputPropsType) => {
+  switch (t) {
+    case 'text':
+      return 'username';
+    case 'pin':
+      return 'password';
+    default:
+      return t;
+  }
+};
 
 interface ListItemTextInputProps extends UrbiFormComponentProps {
   type: ListItemTextInputPropsType;
@@ -97,8 +108,9 @@ class ListItemTextInputComponent extends UrbiFormComponent<
   }
 
   render() {
-    const { error, label, name, setFieldTouched, setFieldValue, type, value } = this.props;
+    const { error, label, name, setFieldValue, type, value } = this.props;
     const { focused, showPassword } = this.state;
+    const textType = toTextInputType(type);
     return (
       <View style={styles.Wrapper} onLayout={this.onLayout}>
         <SectionsDivider
@@ -115,12 +127,11 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             onChangeText={setFieldValue}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
-            onTouchEnd={setFieldTouched}
             value={value}
             placeholder={label || name}
             placeholderTextColor={colors.ughina}
             keyboardType={type === 'pin' ? 'number-pad' : 'default'}
-            textContentType={type === 'pin' ? 'password' : type}
+            textContentType={textType}
             secureTextEntry={!showPassword}
             underlineColorAndroid="transparent"
             onSubmitEditing={this.onSubmitEditing}
@@ -151,4 +162,4 @@ class ListItemTextInputComponent extends UrbiFormComponent<
   }
 }
 
-export const ListItemTextInput = withFormikControl(withUrbiFormWrapper(ListItemTextInputComponent));
+export const ListItemTextInput = withFormikWrapper(withUrbiFormWrapper(ListItemTextInputComponent));

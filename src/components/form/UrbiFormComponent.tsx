@@ -42,6 +42,7 @@ abstract class UrbiFormComponent<
   }
 
   onBlur() {
+    this.props.setFieldTouched();
     this.props.context!.onBlur(this.props.name);
     this.setState({ focused: false });
   }

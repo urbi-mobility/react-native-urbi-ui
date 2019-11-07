@@ -5,6 +5,8 @@ import { ListItemTextInput } from 'react-native-urbi-ui/components/form/ListItem
 import UrbiForm, { UrbiFormProps } from 'react-native-urbi-ui/components/form/UrbiForm';
 import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
 import { colors } from 'react-native-urbi-ui/utils/colors';
+import { DatePicker } from 'react-native-urbi-ui/components/form/DatePicker';
+import * as yup from 'yup';
 
 type TestFormProps = {
   handleSubmit: (submitted: UsernameAndPassword) => any;
@@ -19,6 +21,11 @@ export type UsernameAndPassword = {
   username: string;
   password: string;
 };
+
+const validationSchema = yup.object().shape({
+  username: yup.string().required('set a username'),
+  password: yup.string().required('set a password'),
+});
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -48,8 +55,9 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
   renderForm(p: UrbiFormProps) {
     return (
       <UrbiForm {...this.props} {...p} scrollViewAnchor={this.state.scrollViewAnchor} autoScroll>
-        <ListItemTextInput name="username" type="username" error="" focusable />
-        <ListItemTextInput name="password" type="password" error="" focusable />
+        <ListItemTextInput name="username" type="text" focusable />
+        <ListItemTextInput name="password" type="password" focusable />
+        <DatePicker mode="date" name="dateOfBirth" focusable />
         <View style={styles.Button}>
           <ButtonCompact buttonStyle="primary" label="submit" onPress={p.handleSubmit} />
         </View>
@@ -60,7 +68,11 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
   render() {
     return (
       <View style={styles.Wrapper} onLayout={this.onLayout}>
-        <Formik initialValues={{ username: '', password: '' }} onSubmit={this.props.handleSubmit}>
+        <Formik
+          initialValues={{ username: '', password: '', dateOfBirth: '2019-11-07T16:48:32.061Z' }}
+          onSubmit={this.props.handleSubmit}
+          validationSchema={validationSchema}
+        >
           {this.renderForm}
         </Formik>
       </View>
