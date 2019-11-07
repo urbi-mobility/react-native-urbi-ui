@@ -96,10 +96,6 @@ class ListItemTextInputComponent extends UrbiFormComponent<
     return this.props.context!.getReturnKeyType(this.props.name);
   }
 
-  renderText(){
-
-  }
-
   render() {
     const { error, label, name, setFieldTouched, setFieldValue, type, value } = this.props;
     const { focused, showPassword } = this.state;
