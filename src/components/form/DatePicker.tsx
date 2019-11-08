@@ -1,18 +1,37 @@
 import React from 'react';
-import { StyleSheet, View, ViewStyle, Text } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { ItemSeparator } from '../../molecules/ItemSeparator';
+// import DateTimePicker from '@react-native-community/datetimepicker';
+import { SectionsDivider } from '../../molecules/SectionsDivider';
+import { colors } from '../../utils/colors';
+import { fontStyles } from '../../utils/fonts';
+import { Touchable } from '../Touchable';
 import { withFormikWrapper } from './Formik';
-import withUrbiFormWrapper from './WithUrbiFormWrapper';
 import UrbiFormComponent, {
   UrbiFormComponentProps,
   UrbiFormComponentState,
 } from './UrbiFormComponent';
-// import DateTimePicker from '@react-native-community/datetimepicker';
-import { Touchable } from '../Touchable';
+import withUrbiFormWrapper from './WithUrbiFormWrapper';
 
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
   } as ViewStyle,
+  DateLabel: {
+    ...fontStyles.title,
+    flex: 1,
+    color: colors.uma,
+    paddingLeft: 20,
+    paddingRight: 12,
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  Error: {
+    ...fontStyles.micro,
+    color: colors.error,
+    paddingLeft: 20,
+    paddingRight: 12,
+  },
 });
 
 interface DatePickerProps extends UrbiFormComponentProps {
@@ -20,7 +39,6 @@ interface DatePickerProps extends UrbiFormComponentProps {
 }
 
 interface DatePickerState extends UrbiFormComponentState {
-  date: Date;
   showPicker: boolean;
 }
 
@@ -33,7 +51,6 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
     this.showPicker = this.showPicker.bind(this);
     this.state = {
       focused: false,
-      date: props.value ? new Date(props.value) : new Date(),
       showPicker: false,
     };
   }
@@ -51,16 +68,33 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
   }
 
   render() {
-    const { mode, value } = this.props;
-    const { showPicker } = this.state;
+    const { error, label, mode, name, value } = this.props;
+    const { focused, showPicker } = this.state;
 
     return (
-      <View style={styles.Wrapper}>
+      <View style={styles.Wrapper} onLayout={this.onLayout}>
+        <SectionsDivider
+          label={label || name}
+          backgroundColor="transparent"
+          labelColor={focused ? colors.primary : colors.ughina}
+        />
         <Touchable onPress={this.showPicker} style={styles.Wrapper}>
-          <Text ref={this.datePicker}>{value}</Text>
+          <Text ref={this.datePicker} style={styles.DateLabel}>
+            {value}
+          </Text>
         </Touchable>
+        <ItemSeparator
+          // tslint:disable-next-line:jsx-no-multiline-js
+          backgroundColor={
+            error ? colors.error : this.state.focused ? colors.primary : colors.ursula
+          }
+          animated
+        />
+        <Text style={styles.Error} numberOfLines={1}>
+          {error ? error.toUpperCase() : undefined}
+        </Text>
         {showPicker && (
-          <Text>hello, I'm a picker</Text>
+          <Text>// TODO show DateTimePicker when we support RN 0.60+</Text>
           // <DateTimePicker value={new Date(value)} mode={mode} onChange={this.onChange} />
         )}
       </View>
