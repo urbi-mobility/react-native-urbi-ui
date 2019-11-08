@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
 });
 
 const small = registeredTextStyle('small', colors.primary, 'detailsmall');
-const micro = registeredTextStyle('micro', colors.uto, 'detailmicro');
-const body = registeredTextStyle('body', colors.brand, 'bodybrand');
+const body = registeredTextStyle('body', colors.uto, 'detailmicro');
+const title1 = registeredTextStyle('title1', colors.brand, 'bodybrand');
+
 
 export type PurchaseProps = {
   detail: string;
@@ -53,10 +54,10 @@ export const PurchaseUnmemoized = (props: PurchaseProps) => (
           </Text>
         </View>
         <View style={styles.DetailWithButtonWrapper}>
-          <Text style={body} numberOfLines={1}>
+          <Text style={title1} numberOfLines={1}>
             {props.price}
           </Text>
-          <Text style={[micro, styles.Struckout]} numberOfLines={1}>
+          <Text style={[body, styles.Struckout]} numberOfLines={1}>
             {props.oldPrice}
           </Text>
         </View>
