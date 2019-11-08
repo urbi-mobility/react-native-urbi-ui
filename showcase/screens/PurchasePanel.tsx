@@ -19,7 +19,7 @@ class PurchasePanel extends React.PureComponent<any> {
                 price="€500,00"
                 oldPrice="oldprice"
                 onPress={onButtonPress}
-                icon="fav-small"
+                icon="up-small"
               />
             }
           />
