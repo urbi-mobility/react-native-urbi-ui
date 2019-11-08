@@ -50,3 +50,6 @@ export const boomEmoji = require('../assets/boom.png');
 export const pukeEmoji = require('../assets/puke.png');
 export const starryEmoji = require('../assets/starry.png');
 export const zanyEmoji = require('../assets/zany.png');
+export const fiftyByFiftyWhitePlaceholder = require('../assets/account.png');
+export const eightyByEightyWhitePlaceholder = require('../assets/accountLarge.png');
+export const userAvaterPlaceholder = require('../assets/avatar.png');

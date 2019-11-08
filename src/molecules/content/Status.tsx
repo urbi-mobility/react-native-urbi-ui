@@ -18,7 +18,7 @@ export interface StatusProps {
 }
 
 const titleStyle = registeredTextStyle('title', colors.ulisse, 'statustitle');
-const contentStyle = registeredTextStyle('title1', colors.ulisse, 'statustitle');
+const contentStyle = registeredTextStyle('title1', colors.ulisse, 'contenttitle');
 
 export const StatusUnmemoized = (props: StatusProps) => (
   <View style={[styles.Wrapper, { minWidth: props.minWidth }]}>

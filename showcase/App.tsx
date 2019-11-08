@@ -24,6 +24,7 @@ import ListButtons from './screens/ListButtons';
 import ListItems from './screens/ListItems';
 import Molecules from './screens/Molecules';
 import Notes from './screens/Notes';
+import ProfileHeaders from './screens/ProfileHeaders';
 import PurchasePanel from './screens/PurchasePanel';
 import RadioButtons from './screens/RadioButtons';
 import SelectionHeaders from './screens/SelectionHeaders';
@@ -95,6 +96,7 @@ const menuEntries = {
   ListItems: ListItems,
   Molecules: Molecules,
   Notes: Notes,
+  ProfileHeaders: ProfileHeaders,
   RadioButtons: RadioButtons,
   SelectionHeaders: SelectionHeaders,
   Status: Status,
