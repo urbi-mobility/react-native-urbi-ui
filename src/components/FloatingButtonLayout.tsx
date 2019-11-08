@@ -36,6 +36,7 @@ type FloatingButtonLayoutProps = {
   children: React.ReactNode;
   backgroundColor?: string;
   button: ReactElement<typeof ButtonRegularUnmemoized>;
+  noGradient?: boolean;
 };
 
 export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutProps> {
@@ -109,12 +110,16 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
             },
           ]}
         >
-          <LinearGradient
-            colors={[colors.zeroAlphaUlisse, colors.ulisse]}
-            style={styles.BottomPanel}
-          >
-            {this.props.button}
-          </LinearGradient>
+          {this.props.noGradient ? (
+            <View style={styles.BottomPanel}>{this.props.button}</View>
+          ) : (
+            <LinearGradient
+              colors={[colors.zeroAlphaUlisse, colors.ulisse]}
+              style={styles.BottomPanel}
+            >
+              {this.props.button}
+            </LinearGradient>
+          )}
         </Animated.View>
       </View>
     );
