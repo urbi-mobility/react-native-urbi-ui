@@ -2,13 +2,14 @@ import React from 'react';
 import { StyleSheet, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../utils/colors';
-import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
+import { statusBarOffset } from '../../utils/const';
 import { MaybeTouchable } from '../MaybeTouchable';
+import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
-    paddingTop: 8,
+    paddingTop: 8 + statusBarOffset + 40,
     paddingRight: 12,
     paddingBottom: 32,
     paddingLeft: 16,
