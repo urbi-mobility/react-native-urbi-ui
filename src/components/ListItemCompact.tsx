@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ListItemProps } from '../components/ListItem';
+import { MaybeTouchable } from './MaybeTouchable';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -26,10 +27,12 @@ const withStyle = (props: ListItemProps) => {
 };
 
 const ListItemCompactUnmemoized = (props: ListItemProps) => (
-  <View style={styles.Wrapper}>
-    {withStyle(props)}
-    {props.end || props.icon || null}
-  </View>
+  <MaybeTouchable onPress={props.onPress}>
+    <View style={styles.Wrapper}>
+      {withStyle(props)}
+      {props.end || props.icon || null}
+    </View>
+  </MaybeTouchable>
 );
 
 export const ListItemCompact = React.memo(ListItemCompactUnmemoized);

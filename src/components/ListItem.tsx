@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
-import { MaybeTouchable } from '../components/MaybeTouchable';
 import { Icon } from '../utils/const';
+import { MaybeTouchable } from './MaybeTouchable';
 
 type Styles = {
   Wrapper: ViewStyle;
