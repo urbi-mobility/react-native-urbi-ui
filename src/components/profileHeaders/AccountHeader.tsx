@@ -2,14 +2,17 @@ import React from 'react';
 import { StyleSheet, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../utils/colors';
-import { statusBarOffset } from '../../utils/const';
+import { onIOS, statusBarOffset } from '../../utils/const';
 import { MaybeTouchable } from '../MaybeTouchable';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
+
+// on iOS we need to rely on a hack inside the view, so we account for the offset there
+export const navigationTopPadding = (onIOS ? 0 : statusBarOffset) + 40;
 
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
-    paddingTop: 8 + statusBarOffset + 40,
+    paddingTop: 8 + navigationTopPadding,
     paddingRight: 12,
     paddingBottom: 32,
     paddingLeft: 16,

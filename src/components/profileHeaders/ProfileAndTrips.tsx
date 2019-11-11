@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { SectionsDivider } from '../../molecules/SectionsDivider';
 import { colors } from '../../utils/colors';
-import { statusBarOffset } from '../../utils/const';
 import { registeredTextStyle } from '../../utils/textStyles';
 import { MaybeTouchable } from '../MaybeTouchable';
+import { navigationTopPadding } from './AccountHeader';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 const paddingStyle = {
@@ -17,7 +17,7 @@ const paddingStyle = {
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
-    paddingTop: 8 + statusBarOffset + 40,
+    paddingTop: 8 + navigationTopPadding,
   } as ViewStyle,
   TopSection: {
     ...paddingStyle,
