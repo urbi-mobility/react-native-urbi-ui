@@ -33,9 +33,10 @@ const styles = StyleSheet.create({
     paddingRight: 12,
   },
 });
+export declare type DatePickerPropsType = 'date' | 'time';
 
 interface DatePickerProps extends UrbiFormComponentProps {
-  mode: 'date' | 'time';
+  mode: DatePickerPropsType;
 }
 
 interface DatePickerState extends UrbiFormComponentState {
