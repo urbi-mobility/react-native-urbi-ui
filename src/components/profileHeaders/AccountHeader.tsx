@@ -7,7 +7,7 @@ import { MaybeTouchable } from '../MaybeTouchable';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 // on iOS we need to rely on a hack inside the view, so we account for the offset there
-export const navigationTopPadding = (onIOS ? 0 : statusBarOffset) + 40;
+export const navigationTopPadding = (onIOS ? 12 : statusBarOffset) + 40;
 
 const styles = StyleSheet.create({
   Wrapper: {

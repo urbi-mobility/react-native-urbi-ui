@@ -5,13 +5,12 @@ import { IconButtonCompactUnmemoized } from '../../molecules/buttons/iconButtons
 import { colors } from '../../utils/colors';
 import { withPixelDensity } from '../../utils/functions';
 import { Touchable } from '../Touchable';
-import { navigationTopPadding } from './AccountHeader';
 
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 8 + navigationTopPadding,
+    paddingTop: 8,
     paddingBottom: 10,
   } as ViewStyle,
   ImageWrapper: {

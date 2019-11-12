@@ -1,6 +1,8 @@
 module.exports = {
-  presets: ['@babel/typescript', '@babel/react'],
+  presets: ['@babel/preset-typescript', '@babel/react'],
   plugins: [
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-nullish-coalescing-operator',
     [
       'module-resolver',
       {

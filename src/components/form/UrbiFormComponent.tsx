@@ -8,6 +8,7 @@ export interface UrbiFormComponentProps {
   focusable: boolean;
   autofocus?: boolean;
   context?: UrbiFormContextType;
+  disabled?: boolean;
   onSubmitEditing?: () => any;
   value?: string;
   setFieldValue?: (value: string) => void;

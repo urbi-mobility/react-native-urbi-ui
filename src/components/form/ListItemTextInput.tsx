@@ -108,7 +108,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
   }
 
   render() {
-    const { error, label, name, setFieldValue, type, value } = this.props;
+    const { disabled, error, label, name, setFieldValue, type, value } = this.props;
     const { focused, showPassword } = this.state;
     const textType = toTextInputType(type);
     return (
@@ -136,6 +136,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             underlineColorAndroid="transparent"
             onSubmitEditing={this.onSubmitEditing}
             returnKeyType={this.getReturnKeyType()}
+            editable={!(disabled ?? false)}
           />
           {(type === 'password' || type === 'pin') && (
             // tslint:disable-next-line:jsx-no-multiline-js
