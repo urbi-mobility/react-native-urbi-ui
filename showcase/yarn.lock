@@ -3853,10 +3853,10 @@ react-native-modalbox@^1.7.1:
     create-react-class "^15.6.0"
     prop-types "^15.5.10"
 
-react-native-reanimated@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.1.0.tgz#ba6864055ec3a206cdd5209a293fe653ce276206"
-  integrity sha512-UGDVNfvuIkMqYUx6aytSzihuzv6sWubn0MQi8dRcw7BjgezhjJnVnJ/NSOcpL3cO+Ld7lFcRX6GKcskwkHdPkw==
+react-native-reanimated@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
+  integrity sha512-tO7nSNNP+iRLVbkcSS5GXyDBb7tSI02+XuRL3/S39EAr35rnvUy2JfeLUQG+fWSObJjnMVhasUDEUwlENk8IXw==
 
 react-native-root-siblings@3.1.7:
   version "3.1.7"
@@ -3885,10 +3885,10 @@ react-native-typography@1.4.1:
   resolved "https://registry.yarnpkg.com/react-native-typography/-/react-native-typography-1.4.1.tgz#2d05cb5935a2f7fdb6b43bbde93d60f1324578e3"
   integrity sha512-dc9Zfs4jUdq4ygx4/KwO6jKTERBu6cRrfPJGntw/pA+D6BMjlWfMNuhZ/69vf4Zpsnt9s4AGe+Z/V1QFYaCXAA==
 
-react-native-urbi-ui@0.0.17:
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.0.17.tgz#9934589bb3eda9bd441e4e0270d0614fdc3fe7f1"
-  integrity sha512-GvSt968zirl3ZM72mgEajxO3ABZXXQ2oziM4bmFNIwmyTaXs82wC7IV7tQk8mLoSGKfbq7nTUX2cisagsnBWBA==
+react-native-urbi-ui@0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.0.20.tgz#58cf663b58f5020afa96d11323f68c019e8e89ef"
+  integrity sha512-8F1CcD7zNVF4nO1ybXAQYQ+R1cthGbd+wXDTqCw26mFUSxvh9XKp50O/0VIPDiq7oso9GH6+aMesvtn/Q1P8QA==
 
 react-native-vector-icons@6.6.0:
   version "6.6.0"

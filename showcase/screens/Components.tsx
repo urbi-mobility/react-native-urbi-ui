@@ -18,6 +18,7 @@ const buttonEntries = toButtonEntries([
   'Form components',
   'IconGroups',
   'ListItems',
+  'Notifications',
   'ProfileHeaders',
   'PurchasePanel',
   'RadioButtons',
