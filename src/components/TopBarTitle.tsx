@@ -7,12 +7,15 @@ const fontStyle = registeredTextStyle('title1', colors.ulisse);
 
 type TopBarTitleProps = {
   text: string;
+  textColor?: string;
 };
 
 const TopBarTitleUnmemoized = (props: TopBarTitleProps) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'stretch' }}>
-      <Text style={fontStyle}>{props.text}</Text>
+      <Text style={props.textColor ? [fontStyle, { color: props.textColor }] : fontStyle}>
+        {props.text}
+      </Text>
     </View>
   );
 };
