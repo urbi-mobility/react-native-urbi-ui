@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import UrbiFormComponent from './UrbiFormComponent';
+import { withPickerValues } from 'react-native-formik';
 
 export type UrbiFormContextType = {
   onSubmitEditing: (submitter: string) => any;
@@ -22,6 +23,7 @@ export const UrbiFormContext = React.createContext({
 
 export type UrbiFormProps = {
   handleSubmit: () => any;
+  values: { [name: string]: any };
   children: Array<React.ReactElement<any>>;
   parentScrollView: React.RefObject<ScrollView>;
   scrollViewAnchor: number;
@@ -46,7 +48,6 @@ class UrbiForm extends React.PureComponent<UrbiFormProps, UrbiFormState, UrbiFor
   constructor(props: UrbiFormProps) {
     super(props);
     let last: string;
-    this.state = { formOffset: 0 };
     props.children
       .filter((element) => element.props.focusable && element.props.name)
       .forEach((element) => {
@@ -55,11 +56,13 @@ class UrbiForm extends React.PureComponent<UrbiFormProps, UrbiFormState, UrbiFor
         if (last) this.nextTable[last] = thisName;
         last = thisName;
       });
+    this.state = { formOffset: 0 };
     this.setComponentRef = this.setComponentRef.bind(this);
     this.onSubmitEditing = this.onSubmitEditing.bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.getReturnKeyType = this.getReturnKeyType.bind(this);
+    this.getValues = this.getValues.bind(this);
   }
 
   setComponentRef(name: string) {
@@ -82,6 +85,10 @@ class UrbiForm extends React.PureComponent<UrbiFormProps, UrbiFormState, UrbiFor
       }
     }
     return undefined;
+  }
+
+  getValues() {
+    return this.props.values;
   }
 
   getReturnKeyType(submitter: string) {
