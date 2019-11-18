@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingRight: 12,
+    paddingLeft: 16,
   } as ViewStyle,
 });
 
