@@ -5,7 +5,6 @@ import { Modal as ModalComponent } from 'react-native-urbi-ui/components/Modal';
 import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
 import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
 import { renderComponent, userAvaterPlaceholder } from '../utils/ComponentPreview';
-import { showAlert } from 'react-native-urbi-ui/utils/functions';
 
 type ModalState = {
   showModal: boolean;
