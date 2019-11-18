@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
 import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
 import { colors } from '../utils/colors';
-import { onIOS } from '../utils/const';
+import { onIOS, tabBarHeight } from '../utils/const';
 
 const BOTTOM_PANEL_HEIGHT = 80;
 const ANDROID_EVT_DURATION = 150;
@@ -37,6 +37,7 @@ type FloatingButtonLayoutProps = {
   backgroundColor?: string;
   button: ReactElement<typeof ButtonRegularUnmemoized>;
   noGradient?: boolean;
+  inModal?: boolean;
 };
 
 export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutProps> {
@@ -73,7 +74,10 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
     if (onIOS || !this.showNotHidden) {
       Animated.timing(this.deltaY, {
         duration: (event && event.duration) || ANDROID_EVT_DURATION,
-        toValue: BOTTOM_PANEL_HEIGHT - event.endCoordinates.height,
+        toValue:
+          BOTTOM_PANEL_HEIGHT -
+          event.endCoordinates.height -
+          (this.props.inModal ? tabBarHeight : 0),
         easing: Easing.linear,
       }).start();
     }
