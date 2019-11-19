@@ -4,6 +4,19 @@ import { IconButtonExtendedProps } from '../../../molecules/buttons/types';
 import { colors } from '../../../utils/colors';
 import { Icon } from '../../../utils/const';
 
+const getEnabledDependentStyles = (props: IconButtonExtendedProps) => {
+  const { backgroundColor, noShadow } = props;
+  const disabled = props.buttonStyle === 'disabled';
+  return {
+    borderColor: disabled ? undefined : props.borderColor,
+    borderWidth: disabled ? undefined : props.borderWidth,
+    shadowColor: disabled || noShadow ? undefined : colors.shadowBorder,
+    shadowOffset: disabled || noShadow ? undefined : { height: 1, width: 0 },
+    shadowOpacity:
+      disabled || noShadow ? undefined : backgroundColor === colors.transparent ? 0 : 1,
+  };
+};
+
 export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
   styles: {
     Wrapper: ViewStyle;
@@ -12,8 +25,7 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
 
   constructor(props: IconButtonExtendedProps) {
     super(props);
-    const { backgroundColor, buttonStyle, noShadow, size } = props;
-    const disabled = buttonStyle === 'disabled';
+    const { size } = props;
     this.styles = StyleSheet.create({
       Wrapper: {
         borderRadius: size / 2,
@@ -21,16 +33,11 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
         height: size,
       } as ViewStyle,
       Button: {
+        ...getEnabledDependentStyles(props),
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: size / 2,
-        borderColor: disabled ? undefined : props.borderColor,
-        borderWidth: disabled ? undefined : props.borderWidth,
         marginBottom: 1,
-        shadowColor: disabled || noShadow ? undefined : colors.shadowBorder,
-        shadowOffset: disabled || noShadow ? undefined : { height: 1, width: 0 },
-        shadowOpacity:
-          disabled || noShadow ? undefined : backgroundColor === colors.transparent ? 0 : 1,
         shadowRadius: 2,
         width: size,
         height: size,
@@ -66,7 +73,10 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
         style={[
           this.styles.Button,
           style,
-          { backgroundColor: disabled ? colors.ursula : backgroundColor },
+          {
+            ...getEnabledDependentStyles(this.props),
+            backgroundColor: disabled ? colors.ursula : backgroundColor,
+          },
         ]}
       >
         {this.getImage(icon, opacity || 1)}

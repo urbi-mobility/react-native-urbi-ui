@@ -12,6 +12,7 @@ type SteppersState = {
   stepper2Value: number;
   stepper3Value: number;
   stepper4Value: number;
+  stepper5Value: number;
 };
 
 class Steppers extends React.PureComponent<any, SteppersState> {
@@ -22,11 +23,12 @@ class Steppers extends React.PureComponent<any, SteppersState> {
       stepper2Value: 3,
       stepper3Value: 3,
       stepper4Value: 0,
+      stepper5Value: 1,
     };
     this.onStepperValueChange = this.onStepperValueChange.bind(this);
   }
 
-  onStepperValueChange(whichStepper: 1 | 2 | 3 | 4) {
+  onStepperValueChange(whichStepper: 1 | 2 | 3 | 4 | 5) {
     // use this silly syntax to make the TS compiler happy
     // see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/26635#issuecomment-400260278
     return (newValue: number) =>
@@ -82,6 +84,15 @@ class Steppers extends React.PureComponent<any, SteppersState> {
             value={this.state.stepper4Value}
             min={0}
             onValueChange={this.onStepperValueChange(4)}
+          />
+        )}
+        {renderComponent(
+          'Stepper (min=1, default=1, max=unbounded)',
+          <Stepper
+            defaultValue={1}
+            value={this.state.stepper5Value}
+            min={1}
+            onValueChange={this.onStepperValueChange(5)}
           />
         )}
       </ScrollView>
