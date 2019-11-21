@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text as TextView, View } from 'react-native';
+import { StyleSheet, Text as TextView, View, YellowBox } from 'react-native';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { createAppContainer, NavigationRouteConfig } from 'react-navigation';
 import { createStackNavigator, NavigationStackScreenProps } from 'react-navigation-stack';
@@ -35,6 +35,9 @@ import Steppers from './screens/Steppers';
 import Text from './screens/Text';
 import Toggles from './screens/Toggles';
 import Typography from './screens/Typography';
+
+// see https://github.com/kmagiera/react-native-gesture-handler/pull/657
+YellowBox.ignoreWarnings(['`-[RCTRootView cancelTouches]`']);
 
 class App extends React.PureComponent<NavigationStackScreenProps> {
   constructor(props: NavigationStackScreenProps) {

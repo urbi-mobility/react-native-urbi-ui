@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { ScrollView, StyleSheet, ViewStyle } from 'react-native';
-import TestForm, { UsernameAndPassword } from '../components/TestForm';
+import TestForm, { FormValues } from '../components/TestForm';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
 
 const styles = StyleSheet.create({
@@ -9,14 +9,21 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const handleSubmit = (up: UsernameAndPassword) =>
-  showAlert(`username: ${up.username}, password: ${up.password}`);
+const handleSubmit = (values: FormValues) =>
+  showAlert(
+    `username: ${values.username}, password: ${values.password}, date of birth: ${values.dateOfBirth}`
+  );
 
 export const FormScreen = () => {
   const scrollView = useRef<ScrollView>(null);
 
   return (
-    <ScrollView ref={scrollView} style={styles.Wrapper}>
+    <ScrollView
+      ref={scrollView}
+      style={styles.Wrapper}
+      keyboardDismissMode="on-drag"
+      keyboardShouldPersistTaps="always"
+    >
       <TestForm handleSubmit={handleSubmit} parentScrollView={scrollView} />
     </ScrollView>
   );

@@ -9,7 +9,7 @@ import { DatePicker } from 'react-native-urbi-ui/components/form/DatePicker';
 import * as yup from 'yup';
 
 type TestFormProps = {
-  handleSubmit: (submitted: UsernameAndPassword) => any;
+  handleSubmit: (submitted: FormValues) => any;
   parentScrollView?: React.RefObject<ScrollView>;
 };
 
@@ -17,9 +17,10 @@ type TestFormState = {
   scrollViewAnchor: number;
 };
 
-export type UsernameAndPassword = {
+export type FormValues = {
   username: string;
   password: string;
+  dateOfBirth: string;
 };
 
 const validationSchema = yup.object().shape({
@@ -57,7 +58,7 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
       <UrbiForm {...this.props} {...p} scrollViewAnchor={this.state.scrollViewAnchor} autoScroll>
         <ListItemTextInput name="username" type="text" focusable />
         <ListItemTextInput name="password" type="password" focusable />
-        <DatePicker mode="date" name="dateOfBirth" focusable />
+        <DatePicker mode="date" name="dateOfBirth" label="date of birth" focusable />
         <View style={styles.Button}>
           <ButtonCompact buttonStyle="primary" label="submit" onPress={p.handleSubmit} />
         </View>

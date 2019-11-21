@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { ItemSeparator } from '../../molecules/ItemSeparator';
-// import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import { SectionsDivider } from '../../molecules/SectionsDivider';
 import { colors } from '../../utils/colors';
 import { fontStyles } from '../../utils/fonts';
@@ -50,6 +50,7 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
     super(props);
     this.onChange = this.onChange.bind(this);
     this.showPicker = this.showPicker.bind(this);
+    this.hidePicker = this.hidePicker.bind(this);
     this.state = {
       focused: false,
       showPicker: false,
@@ -60,7 +61,12 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
     this.setState({ showPicker: true });
   }
 
-  onChange(_: any, date: Date) {
+  hidePicker() {
+    this.setState({ showPicker: false });
+  }
+
+  onChange(date: Date) {
+    this.hidePicker();
     this.props.setFieldValue(date.toISOString());
   }
 
@@ -94,10 +100,13 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
         <Text style={styles.Error} numberOfLines={1}>
           {error ? error.toUpperCase() : undefined}
         </Text>
-        {showPicker && (
-          <Text>// TODO show DateTimePicker when we support RN 0.60+</Text>
-          // <DateTimePicker value={new Date(value)} mode={mode} onChange={this.onChange} />
-        )}
+        <DateTimePickerModal
+          isVisible={showPicker}
+          mode={mode}
+          date={new Date(value)}
+          onConfirm={this.onChange}
+          onCancel={this.hidePicker}
+        />
       </View>
     );
   }
