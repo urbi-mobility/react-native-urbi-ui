@@ -5,7 +5,6 @@ import { SectionsDivider } from '../../molecules/SectionsDivider';
 import { colors } from '../../utils/colors';
 import { registeredTextStyle } from '../../utils/textStyles';
 import { MaybeTouchable } from '../MaybeTouchable';
-import { navigationTopPadding } from './AccountHeader';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 const paddingStyle = {
@@ -17,7 +16,7 @@ const paddingStyle = {
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
-    paddingTop: 8 + navigationTopPadding,
+    paddingTop: 8,
   } as ViewStyle,
   TopSection: {
     ...paddingStyle,

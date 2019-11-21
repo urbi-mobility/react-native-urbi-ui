@@ -1,20 +1,30 @@
 import React from 'react';
-import { StyleSheet, ViewStyle } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { StyleSheet, View, ViewStyle } from 'react-native';
 import { colors } from '../../utils/colors';
-import { onIOS, statusBarOffset } from '../../utils/const';
 import { MaybeTouchable } from '../MaybeTouchable';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
-// on iOS we need to rely on a hack inside the view, so we account for the offset there
-export const navigationTopPadding = (onIOS ? 12 : statusBarOffset) + 40;
+export const headerShadowStyle = {
+  marginBottom: 8,
+  shadowRadius: 4,
+  shadowOffset: { height: 2, width: 0 },
+  shadowColor: colors.shadowBorder,
+  shadowOpacity: 1,
+};
+
+export const headerHeight = 120; // TODO fix this with flex, it's padding + Status.height + margin
 
 const styles = StyleSheet.create({
   Wrapper: {
-    flex: 1,
-    paddingTop: 8 + navigationTopPadding,
-    paddingRight: 12,
+    ...headerShadowStyle,
+    height: headerHeight,
+  },
+  ContentWrapper: {
+    flexGrow: 1,
+    backgroundColor: colors.ulisse,
+    paddingTop: 40,
     paddingBottom: 32,
+    paddingRight: 12,
     paddingLeft: 16,
   } as ViewStyle,
 });
@@ -24,11 +34,13 @@ interface AccountHeaderProps extends ImageAndStatusProps {
 }
 
 export const AccountHeaderUnmemoized = (props: AccountHeaderProps) => (
-  <MaybeTouchable onPress={props.onPress}>
-    <LinearGradient style={styles.Wrapper} colors={[colors.secondary, colors.uma]}>
-      <ImageAndStatus {...props} />
-    </LinearGradient>
-  </MaybeTouchable>
+  <View style={styles.Wrapper}>
+    <MaybeTouchable onPress={props.onPress}>
+      <View style={styles.ContentWrapper}>
+        <ImageAndStatus {...props} />
+      </View>
+    </MaybeTouchable>
+  </View>
 );
 
 export const AccountHeader = React.memo(AccountHeaderUnmemoized);

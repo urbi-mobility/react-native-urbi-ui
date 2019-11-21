@@ -1,17 +1,20 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import { IconButtonCompactUnmemoized } from '../../molecules/buttons/iconButtons/IconButtonCompact';
 import { colors } from '../../utils/colors';
 import { withPixelDensity } from '../../utils/functions';
 import { Touchable } from '../Touchable';
+import { headerShadowStyle, headerHeight } from 'src/components/profileHeaders/AccountHeader';
 
 const styles = StyleSheet.create({
   Wrapper: {
-    flex: 1,
+    ...headerShadowStyle,
+    flexGrow: 1,
     alignItems: 'center',
-    paddingTop: 8,
-    paddingBottom: 10,
+    backgroundColor: colors.ulisse,
+    paddingTop: 13,
+    paddingBottom: 23,
+    height: headerHeight, // TODO fix this with flex, it's padding + Status.height + margin
   } as ViewStyle,
   ImageWrapper: {
     width: 80,
@@ -31,7 +34,7 @@ type ProfilePicProps = {
 };
 
 export const ProfilePicUnmemoized = (props: ProfilePicProps) => (
-  <LinearGradient style={styles.Wrapper} colors={[colors.secondary, colors.uma]}>
+  <View style={styles.Wrapper}>
     <Touchable onPress={props.onPress}>
       <View style={styles.ImageWrapper}>
         <Image
@@ -44,7 +47,7 @@ export const ProfilePicUnmemoized = (props: ProfilePicProps) => (
         <View style={styles.Button}>{props.button}</View>
       </View>
     </Touchable>
-  </LinearGradient>
+  </View>
 );
 
 export const ProfilePic = React.memo(ProfilePicUnmemoized);
