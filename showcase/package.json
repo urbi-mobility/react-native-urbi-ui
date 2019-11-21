@@ -5,10 +5,11 @@
     "ios": "react-native run-ios"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^2.1.0",
     "@types/yup": "^0.26.24",
     "formik": "^2.0.3",
-    "react": "16.8.3",
-    "react-native": "0.59.10",
+    "react": "16.9.0",
+    "react-native": "0.61.4",
     "react-native-dialogs": "1.0.5",
     "react-native-formik": "^1.7.7",
     "react-native-gesture-handler": "1.3.0",
