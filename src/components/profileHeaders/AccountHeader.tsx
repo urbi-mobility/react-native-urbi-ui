@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { colors } from '../../utils/colors';
-import { MaybeTouchable } from '../MaybeTouchable';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
+import { Touchable } from '../Touchable';
 
 export const headerShadowStyle = {
+  backgroundColor: colors.ulisse,
   marginBottom: 8,
   shadowRadius: 4,
   shadowOffset: { height: 2, width: 0 },
@@ -12,18 +13,14 @@ export const headerShadowStyle = {
   shadowOpacity: 1,
 };
 
-export const headerHeight = 120; // TODO fix this with flex, it's padding + Status.height + margin
+export const headerHeight = 112; // TODO fix this with flex, it's padding + Status.height + margin
 
 const styles = StyleSheet.create({
-  Wrapper: {
-    ...headerShadowStyle,
-    height: headerHeight,
-  },
+  Wrapper: headerShadowStyle,
   ContentWrapper: {
-    flexGrow: 1,
+    height: headerHeight,
     backgroundColor: colors.ulisse,
-    paddingTop: 40,
-    paddingBottom: 32,
+    paddingVertical: 32,
     paddingRight: 12,
     paddingLeft: 16,
   } as ViewStyle,
@@ -34,12 +31,12 @@ interface AccountHeaderProps extends ImageAndStatusProps {
 }
 
 export const AccountHeaderUnmemoized = (props: AccountHeaderProps) => (
-  <View style={styles.Wrapper}>
-    <MaybeTouchable onPress={props.onPress}>
+  <View style={styles.Wrapper} elevation={5}>
+    <Touchable onPress={props.onPress}>
       <View style={styles.ContentWrapper}>
         <ImageAndStatus {...props} />
       </View>
-    </MaybeTouchable>
+    </Touchable>
   </View>
 );
 

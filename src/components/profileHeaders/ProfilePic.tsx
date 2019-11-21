@@ -34,7 +34,7 @@ type ProfilePicProps = {
 };
 
 export const ProfilePicUnmemoized = (props: ProfilePicProps) => (
-  <View style={styles.Wrapper}>
+  <View style={styles.Wrapper} elevation={5}>
     <Touchable onPress={props.onPress}>
       <View style={styles.ImageWrapper}>
         <Image
