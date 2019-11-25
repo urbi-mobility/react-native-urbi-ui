@@ -8,7 +8,7 @@ export class DialogPicker extends React.PureComponent<DialogPickerProps> {
     this.onItemChosen = this.onItemChosen.bind(this);
   }
 
-  componentWillReceiveProps(nextProps: DialogPickerProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: DialogPickerProps) {
     if (!this.props.show && nextProps.show) {
       ActionSheetIOS.showActionSheetWithOptions(
         {

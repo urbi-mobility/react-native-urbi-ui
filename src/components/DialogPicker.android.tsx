@@ -4,7 +4,7 @@ import DialogAndroid from 'react-native-dialogs';
 import { DialogPickerProps } from '../components/types';
 
 export class DialogPicker extends React.PureComponent<DialogPickerProps> {
-  componentWillReceiveProps(nextProps: DialogPickerProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: DialogPickerProps) {
     if (!this.props.show && nextProps.show) {
       DialogAndroid.showPicker(nextProps.title, null, {
         items: nextProps.options,

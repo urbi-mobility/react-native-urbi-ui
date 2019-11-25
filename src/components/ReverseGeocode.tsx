@@ -34,7 +34,7 @@ export class ReverseGeocoded extends React.PureComponent<
     resolve(location).then((reverseGeocodedAddress) => this.setState({ reverseGeocodedAddress }));
   }
 
-  componentWillReceiveProps(nextProps: ReverseGeocodedProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: ReverseGeocodedProps) {
     this.reverseGeocode(nextProps.location);
   }
 

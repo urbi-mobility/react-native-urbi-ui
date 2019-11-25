@@ -55,7 +55,7 @@ export class StickyNotification extends React.PureComponent<
     this.state = { show: false };
   }
 
-  componentWillReceiveProps(nextProps: StickyNotificationProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: StickyNotificationProps) {
     if (!this.state.show && nextProps.show && this.view.current) {
       this.setState({ show: true });
       this.view.current.animateNextTransition();

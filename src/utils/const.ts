@@ -5,7 +5,7 @@ import { colors } from './colors';
 
 export const onIOS = Platform.OS === 'ios';
 
-export const screenTopMargin = onIOS ? 0 : 20;
+export const screenTopMargin = 0; // since RNN v3
 
 export const wrapperStyle = {
   flex: 1,

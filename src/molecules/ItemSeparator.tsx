@@ -34,7 +34,7 @@ export class ItemSeparator extends React.PureComponent<ItemSeparatorProps, ItemS
     this.getAnimatedBg = this.getAnimatedBg.bind(this);
   }
 
-  componentWillReceiveProps(nextProps: ItemSeparatorProps) {
+  UNSAFE_componentWillReceiveProps(nextProps: ItemSeparatorProps) {
     if (
       nextProps.animated &&
       this.props.backgroundColor !== nextProps.backgroundColor &&
