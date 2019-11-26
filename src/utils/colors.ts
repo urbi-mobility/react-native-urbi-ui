@@ -18,7 +18,6 @@ export const colors = {
   ursula: '#c5ced3',
   ukko: '#f7f8fa',
   ulisse: '#ffffff',
-
   zeroAlphaUlisse: 'rgba(255, 255, 255, 0)',
   transparent: 'transparent',
   shadowBorder: 'rgba(0, 0, 0, 0.1)',
