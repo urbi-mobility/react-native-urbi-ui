@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { colors } from '../../utils/colors';
-import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
+import { onIOS } from '../../utils/const';
 import { Touchable } from '../Touchable';
+import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 export const headerShadowStyle = {
   backgroundColor: colors.ulisse,
-  marginBottom: 8,
+  marginBottom: onIOS ? 6 : 0,
   shadowRadius: 4,
   shadowOffset: { height: 2, width: 0 },
   shadowColor: colors.shadowBorder,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { colors } from '../utils/colors';
 import { registeredTextStyle } from '../utils/textStyles';
 
@@ -10,10 +10,23 @@ type TopBarTitleProps = {
   textColor?: string;
 };
 
+const styles = StyleSheet.create({
+  Wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+  },
+  Text: {
+    ...fontStyle,
+    textAlignVertical: 'center',
+  },
+});
+
 const TopBarTitleUnmemoized = (props: TopBarTitleProps) => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'stretch' }}>
-      <Text style={props.textColor ? [fontStyle, { color: props.textColor }] : fontStyle}>
+    <View style={styles.Wrapper}>
+      <Text style={props.textColor ? [styles.Text, { color: props.textColor }] : styles.Text}>
         {props.text}
       </Text>
     </View>
