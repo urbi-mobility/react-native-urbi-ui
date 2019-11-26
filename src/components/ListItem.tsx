@@ -40,6 +40,7 @@ export type ListItemProps = {
   end?: JSX.Element;
   onPress?: () => any;
   iconColor?: string;
+  backgroundColor?: string;
 };
 
 const Content = (props: ListItemProps) => {
@@ -60,7 +61,7 @@ export const renderImageOrIcon = (
 };
 
 export const ListItemUnmemoized = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress}>
+  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
     <View style={styles.Wrapper}>
       {Content(props)}
       {props.icon

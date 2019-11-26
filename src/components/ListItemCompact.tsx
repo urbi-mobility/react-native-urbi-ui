@@ -27,7 +27,7 @@ const withStyle = (props: ListItemProps) => {
 };
 
 const ListItemCompactUnmemoized = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress}>
+  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
     <View style={styles.Wrapper}>
       {withStyle(props)}
       {props.end || props.icon || null}

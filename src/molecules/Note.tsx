@@ -30,12 +30,13 @@ type NoteProps = {
   text: string;
   onPress?: () => any;
   onDarkBg?: boolean;
+  backgroundColor?: string;
 };
 
 const textStyle = registeredTextStyle('micro', colors.ughina, 'note');
 
 export const NoteUnmemoized = (props: NoteProps) => (
-  <MaybeTouchable onPress={props.onPress} withShadow={false}>
+  <MaybeTouchable onPress={props.onPress} withShadow={false} backgroundColor={props.backgroundColor}>
     <View style={styles.Wrapper}>
       {props.icon && <Image style={styles.Image} source={props.icon} />}
       <Text
