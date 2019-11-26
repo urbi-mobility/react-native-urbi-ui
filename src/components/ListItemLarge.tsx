@@ -30,7 +30,7 @@ const withStyle = (props: ListItemProps) => {
 };
 
 export const ListItemLargeUnmemoized = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress}>
+  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
     <View style={styles.Wrapper}>
       {withStyle(props)}
       {props.icon
