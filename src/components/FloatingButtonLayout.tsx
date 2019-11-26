@@ -1,5 +1,12 @@
 import React, { ReactElement } from 'react';
-import { EmitterSubscription, Keyboard, StyleSheet, View } from 'react-native';
+import {
+  Dimensions,
+  EmitterSubscription,
+  Keyboard,
+  KeyboardEvent,
+  StyleSheet,
+  View,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
 import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
@@ -7,7 +14,7 @@ import { colors } from '../utils/colors';
 import { onIOS, tabBarHeight } from '../utils/const';
 
 const BOTTOM_PANEL_HEIGHT = 80;
-const ANDROID_EVT_DURATION = 150;
+const ANDROID_EVT_DURATION = 100;
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -53,7 +60,7 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
     this.onKeyboardHide = this.onKeyboardHide.bind(this);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.showListener = Keyboard.addListener(
       onIOS ? 'keyboardWillShow' : 'keyboardDidShow',
       this.onKeyboardShow
@@ -64,31 +71,31 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
     );
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     if (this.showListener) this.showListener.remove();
     if (this.hideListener) this.hideListener.remove();
     this.showNotHidden = 0;
   }
 
-  onKeyboardShow(event: any) {
+  onKeyboardShow(event: KeyboardEvent) {
     if (onIOS || !this.showNotHidden) {
       Animated.timing(this.deltaY, {
-        duration: (event && event.duration) || ANDROID_EVT_DURATION,
+        duration: event?.duration || ANDROID_EVT_DURATION,
         toValue:
-          BOTTOM_PANEL_HEIGHT -
-          event.endCoordinates.height -
-          (this.props.inModal ? tabBarHeight : 0),
+          event.endCoordinates.screenY -
+          Dimensions.get('window').height +
+          (onIOS ? 0 : tabBarHeight),
         easing: Easing.linear,
       }).start();
     }
     this.showNotHidden++;
   }
 
-  onKeyboardHide(event: any) {
+  onKeyboardHide(event: KeyboardEvent) {
     this.showNotHidden--;
     if (onIOS || !this.showNotHidden) {
       Animated.timing(this.deltaY, {
-        duration: (event && event.duration) || ANDROID_EVT_DURATION,
+        duration: event?.duration || ANDROID_EVT_DURATION,
         toValue: 0,
         easing: Easing.linear,
       }).start();

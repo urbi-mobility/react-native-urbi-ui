@@ -58,7 +58,7 @@ export class TopNotifications extends React.PureComponent<{}, TopNotificationsSt
     this.hide = this.hide.bind(this);
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     if (this.state.hideTimeout) clearTimeout(this.state.hideTimeout);
   }
 

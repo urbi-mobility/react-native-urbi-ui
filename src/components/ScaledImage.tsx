@@ -20,7 +20,7 @@ export class ScaledImage extends React.PureComponent<ScaledImageProps, ScaledIma
     if (typeof this.props.uri === 'string') this.state = { source: { uri: this.props.uri } };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (this.props.height && this.props.width) {
       this.setState({ width: this.props.width, height: this.props.height });
     } else if (typeof this.props.uri === 'string') {
