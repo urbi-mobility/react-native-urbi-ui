@@ -19,6 +19,7 @@
     "url": "https://github.com/urbi-mobility/react-native-urbi-ui.git"
   },
   "peerDependencies": {
+    "date-fns": "^2.8.0",
     "formik": "^2.0.3",
     "react": ">=16.0.0",
     "react-native": ">=0.60.0",
@@ -44,6 +45,7 @@
     "@types/react-native": "^0.60.23",
     "@types/react-native-vector-icons": "^6.4.4",
     "babel-plugin-module-resolver": "^3.2.0",
+    "date-fns": "^2.8.1",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
@@ -60,8 +62,5 @@
     "react-native-typography": "^1.4.1",
     "react-native-vector-icons": "^6.6.0",
     "typescript": "^3.7.2"
-  },
-  "dependencies": {
-    "date-fns": "^2.8.1"
   }
 }

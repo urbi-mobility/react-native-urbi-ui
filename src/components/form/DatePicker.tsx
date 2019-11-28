@@ -36,13 +36,19 @@ const styles = StyleSheet.create({
   },
 });
 
-export declare type DatePickerPropsType = 'date' | 'time';
+export type DatePickerPropsType = 'date' | 'time';
+
+export type SupportedLocale = 'de' | 'en' | 'es' | 'fr' | 'it';
+
+const supportedLocales = new Set(['de', 'en', 'es', 'fr', 'it']);
+
+export const isSupportedLocale = (l: string): l is SupportedLocale => supportedLocales.has(l);
 
 const locales = { de, en: enUS, es, fr, it };
 
 interface DatePickerProps extends UrbiFormComponentProps<Date> {
   mode: DatePickerPropsType;
-  locale: 'de' | 'en' | 'es' | 'fr' | 'it';
+  locale: SupportedLocale;
 }
 
 interface DatePickerState extends UrbiFormComponentState {
