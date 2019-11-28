@@ -2,7 +2,7 @@ import React from 'react';
 import { LayoutChangeEvent } from 'react-native';
 import { UrbiFormContextType } from './UrbiForm';
 
-export interface UrbiFormComponentProps {
+export interface UrbiFormComponentProps<V> {
   name: string;
   label?: string; // if not set, name will be used
   focusable: boolean;
@@ -10,8 +10,8 @@ export interface UrbiFormComponentProps {
   context?: UrbiFormContextType;
   disabled?: boolean;
   onSubmitEditing?: () => any;
-  value?: string;
-  setFieldValue?: (value: string) => void;
+  value?: V;
+  setFieldValue?: (value: V) => void;
   error?: string;
   setFieldTouched?: () => void;
   getReturnKeyType?: () => string;
@@ -22,7 +22,8 @@ export interface UrbiFormComponentState {
 }
 
 abstract class UrbiFormComponent<
-  T extends UrbiFormComponentProps,
+  V,
+  T extends UrbiFormComponentProps<V>,
   S extends UrbiFormComponentState
 > extends React.PureComponent<T, S> {
   public y?: number;

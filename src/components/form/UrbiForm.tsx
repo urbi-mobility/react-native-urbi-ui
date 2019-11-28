@@ -7,8 +7,8 @@ export type UrbiFormContextType = {
   onSubmitEditing: (submitter: string) => any;
   onFocus: (fieldName: string, y?: number) => any;
   onBlur: (fieldName: string) => any;
-  refs: { [name: string]: React.RefObject<UrbiFormComponent<any, any>> };
-  setRef: (name: string) => React.RefObject<UrbiFormComponent<any, any>>;
+  refs: { [name: string]: React.RefObject<UrbiFormComponent<any, any, any>> };
+  setRef: (name: string) => React.RefObject<UrbiFormComponent<any, any, any>>;
   getReturnKeyType: (name: string) => 'done' | 'next';
 };
 
@@ -17,7 +17,7 @@ export const UrbiFormContext = React.createContext({
   onFocus: (_: string, __?: number) => undefined,
   onBlur: (_: string) => undefined,
   refs: {},
-  setRef: (_: string) => React.createRef<UrbiFormComponent<any, any>>(),
+  setRef: (_: string) => React.createRef<UrbiFormComponent<any, any, any>>(),
   getReturnKeyType: ((_: string) => 'next') as UrbiFormContextType['getReturnKeyType'],
 });
 
@@ -42,7 +42,7 @@ class UrbiForm extends React.PureComponent<UrbiFormProps, UrbiFormState, UrbiFor
     [name: string]: string;
   } = {};
   private references: {
-    [name: string]: React.RefObject<UrbiFormComponent<any, any>>;
+    [name: string]: React.RefObject<UrbiFormComponent<any, any, any>>;
   } = {};
 
   constructor(props: UrbiFormProps) {
@@ -68,7 +68,7 @@ class UrbiForm extends React.PureComponent<UrbiFormProps, UrbiFormState, UrbiFor
   setComponentRef(name: string) {
     let ref = this.references[name];
     if (!ref) {
-      ref = React.createRef<UrbiFormComponent<any, any>>();
+      ref = React.createRef<UrbiFormComponent<any, any, any>>();
     }
     this.references[name] = ref;
     return ref;

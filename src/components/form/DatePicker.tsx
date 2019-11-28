@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+import { de, enUS, es, fr, it } from 'date-fns/locale';
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { ItemSeparator } from '../../molecules/ItemSeparator';
@@ -33,17 +35,21 @@ const styles = StyleSheet.create({
     paddingRight: 12,
   },
 });
+
 export declare type DatePickerPropsType = 'date' | 'time';
 
-interface DatePickerProps extends UrbiFormComponentProps {
+const locales = { de, en: enUS, es, fr, it };
+
+interface DatePickerProps extends UrbiFormComponentProps<Date> {
   mode: DatePickerPropsType;
+  locale: 'de' | 'en' | 'es' | 'fr' | 'it';
 }
 
 interface DatePickerState extends UrbiFormComponentState {
   showPicker: boolean;
 }
 
-class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerState> {
+class DatePickerComponent extends UrbiFormComponent<Date, DatePickerProps, DatePickerState> {
   private datePicker: React.RefObject<Text>;
 
   constructor(props: DatePickerProps) {
@@ -67,15 +73,15 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
 
   onChange(date: Date) {
     this.hidePicker();
-    this.props.setFieldValue(date.toISOString());
+    this.props.setFieldValue(date);
   }
 
   focus() {
-    this.datePicker.current!.focus();
+    if (this.datePicker.current) this.datePicker.current!.focus();
   }
 
   render() {
-    const { error, label, mode, name, value } = this.props;
+    const { error, label, locale, mode, name, value } = this.props;
     const { focused, showPicker } = this.state;
 
     return (
@@ -87,7 +93,7 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
         />
         <Touchable onPress={this.showPicker} style={styles.Wrapper}>
           <Text ref={this.datePicker} style={styles.DateLabel}>
-            {value}
+            {format(value, mode === 'date' ? 'PP' : 'p', { locale: locales[locale] })}
           </Text>
         </Touchable>
         <ItemSeparator
@@ -103,7 +109,7 @@ class DatePickerComponent extends UrbiFormComponent<DatePickerProps, DatePickerS
         <DateTimePickerModal
           isVisible={showPicker}
           mode={mode}
-          date={new Date(value)}
+          date={value}
           onConfirm={this.onChange}
           onCancel={this.hidePicker}
         />

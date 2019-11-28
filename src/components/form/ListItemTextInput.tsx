@@ -31,7 +31,7 @@ const toTextInputType = (t: ListItemTextInputPropsType) => {
   }
 };
 
-interface ListItemTextInputProps extends UrbiFormComponentProps {
+interface ListItemTextInputProps extends UrbiFormComponentProps<string> {
   type: ListItemTextInputPropsType;
   placeholder?: string;
 }
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
 });
 
 class ListItemTextInputComponent extends UrbiFormComponent<
+  string,
   ListItemTextInputProps,
   ListItemTextInputState
 > {

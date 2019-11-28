@@ -20,7 +20,7 @@ type TestFormState = {
 export type FormValues = {
   username: string;
   password: string;
-  dateOfBirth: string;
+  dateOfBirth: Date;
 };
 
 const validationSchema = yup.object().shape({
@@ -58,7 +58,7 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
       <UrbiForm {...this.props} {...p} scrollViewAnchor={this.state.scrollViewAnchor} autoScroll>
         <ListItemTextInput name="username" type="text" focusable />
         <ListItemTextInput name="password" type="password" focusable />
-        <DatePicker mode="date" name="dateOfBirth" label="date of birth" focusable />
+        <DatePicker mode="date" name="dateOfBirth" label="date of birth" locale="en" focusable />
         <View style={styles.Button}>
           <ButtonCompact buttonStyle="primary" label="submit" onPress={p.handleSubmit} />
         </View>
@@ -70,7 +70,7 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
     return (
       <View style={styles.Wrapper} onLayout={this.onLayout}>
         <Formik
-          initialValues={{ username: '', password: '', dateOfBirth: '2019-11-07T16:48:32.061Z' }}
+          initialValues={{ username: '', password: '', dateOfBirth: new Date('1984-02-24') }}
           onSubmit={this.props.handleSubmit}
           validationSchema={validationSchema}
         >
