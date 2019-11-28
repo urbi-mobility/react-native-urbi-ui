@@ -1,0 +1,62 @@
+import React from 'react';
+import { ScrollView } from 'react-native-gesture-handler';
+import { PaymentPanel as PaymentPanelComponent } from 'react-native-urbi-ui/components/PaymentPanel';
+import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
+import { onButtonPress, placeholder, renderComponent } from '../utils/ComponentPreview';
+
+type PaymentPanelState = {
+  showPanel: boolean;
+};
+
+class PaymentPanel extends React.PureComponent<any, PaymentPanelState> {
+  constructor(props: any) {
+    super(props);
+    this.state = { showPanel: false };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
+  hideModal() {
+    this.setState({ showPanel: false });
+  }
+
+  showModal() {
+    this.setState({ showPanel: true });
+  }
+
+  render() {
+    return (
+      <>
+        <PaymentPanelComponent
+          show={this.state.showPanel}
+          cancel="cancel"
+          onCancelPress={this.hideModal}
+          paymentTitle="Payment method"
+          title="YOUR ORDER"
+          nameShop="Item name goes here"
+          buttonTitle="CONFIRM AND PAY"
+          buttonOnPress={onButtonPress}
+          price="20.90€"
+          cardProperty={{
+            haveCard: true,
+            imageCard: placeholder,
+            labelCard: 'Insert Card',
+            onCardPress: onButtonPress,
+          }}
+        />
+        <ScrollView>
+          {renderComponent(
+            'PaymentPanel',
+            <ButtonRegular
+              buttonStyle="primary"
+              label="show PaymentPanel"
+              onPress={this.showModal}
+            />
+          )}
+        </ScrollView>
+      </>
+    );
+  }
+}
+
+export default PaymentPanel;

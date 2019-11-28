@@ -26,6 +26,7 @@ import Modal from './screens/Modal';
 import Molecules from './screens/Molecules';
 import Notes from './screens/Notes';
 import Notifications from './screens/Notifications';
+import PaymentPanel from './screens/PaymentPanel';
 import ProfileHeaders from './screens/ProfileHeaders';
 import PurchasePanel from './screens/PurchasePanel';
 import RadioButtons from './screens/RadioButtons';
@@ -100,6 +101,7 @@ const menuEntries = {
   ListButtons: ListButtons,
   ListItems: ListItems,
   Modal: Modal,
+  PaymentPanel: PaymentPanel,
   Molecules: Molecules,
   Notes: Notes,
   Notifications: Notifications,
