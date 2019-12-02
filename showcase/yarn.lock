@@ -4111,7 +4111,7 @@ react-native-typography@1.4.1:
   resolved "https://registry.yarnpkg.com/react-native-typography/-/react-native-typography-1.4.1.tgz#2d05cb5935a2f7fdb6b43bbde93d60f1324578e3"
   integrity sha512-dc9Zfs4jUdq4ygx4/KwO6jKTERBu6cRrfPJGntw/pA+D6BMjlWfMNuhZ/69vf4Zpsnt9s4AGe+Z/V1QFYaCXAA==
 
-react-native-urbi-ui@0.1.4:
+react-native-urbi-ui@0.1.5:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.1.4.tgz#434ce516dddb1e617969016e01b488e065a41e1a"
   integrity sha512-TzFciQFG+x8wIBt0DNH6pnLpYsuJY8o04YpSFU7opT5zRtVF9RW7vqxWyzr+OTI+PfL1FKopuoF3yBRMqbueJA==

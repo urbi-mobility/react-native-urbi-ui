@@ -5,10 +5,11 @@ import { ProfileAndTrips } from 'react-native-urbi-ui/components/profileHeaders/
 import { ProfilePic } from 'react-native-urbi-ui/components/profileHeaders/ProfilePic';
 import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
 import { Status } from 'react-native-urbi-ui/molecules/content/Status';
+import { colors } from 'react-native-urbi-ui/utils/colors';
 import { onPressShowNotYet } from 'react-native-urbi-ui/utils/functions';
 import {
-  eightyByEightyWhitePlaceholder,
   fiftyByFiftyWhitePlaceholder,
+  placeholder,
   renderComponent,
   userAvaterPlaceholder,
 } from '../utils/ComponentPreview';
@@ -20,31 +21,55 @@ class ProfileHeaders extends React.PureComponent<any> {
         {renderComponent(
           'AccountHeader (before verification)',
           <AccountHeader
-            image={fiftyByFiftyWhitePlaceholder}
-            status={<Status title="Hey there!" content="Create your profile" />}
+            image={placeholder}
+            status={
+              <Status
+                title="Hey there!"
+                content="Create your profile"
+                titleColor={colors.uma}
+                contentColor={colors.brand}
+              />
+            }
             onPress={onPressShowNotYet}
+            flexExpand
           />
         )}
         {renderComponent(
           'AccountHeader (before verification)',
           <AccountHeader
             image={userAvaterPlaceholder}
-            status={<Status title="Hey Name!" content="Have a good day!" />}
+            status={
+              <Status
+                title="Hey Name!"
+                content="Have a good day!"
+                titleColor={colors.uma}
+                contentColor={colors.brand}
+              />
+            }
             onPress={onPressShowNotYet}
+            flexExpand
           />
         )}
         {renderComponent(
           'AccountHeader (with wallet)',
           <AccountHeader
             image={userAvaterPlaceholder}
-            status={<Status title="Hey Name!" content="€20 credit in your wallet" />}
+            status={
+              <Status
+                title="Hey Name!"
+                content="€20 credit in your wallet"
+                titleColor={colors.uma}
+                contentColor={colors.brand}
+              />
+            }
             onPress={onPressShowNotYet}
+            flexExpand
           />
         )}
         {renderComponent(
           'ProfilePic',
           <ProfilePic
-            image={eightyByEightyWhitePlaceholder}
+            image={userAvaterPlaceholder}
             button={
               <IconButtonCompact
                 buttonStyle="default"
@@ -53,6 +78,7 @@ class ProfileHeaders extends React.PureComponent<any> {
               />
             }
             onPress={onPressShowNotYet}
+            flexExpand
           />
         )}
         {renderComponent(

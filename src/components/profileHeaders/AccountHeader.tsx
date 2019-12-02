@@ -7,7 +7,7 @@ import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 export const headerShadowStyle = {
   backgroundColor: colors.ulisse,
-  marginBottom: onIOS ? 6 : 0,
+  marginBottom: onIOS ? 8 : 0,
   shadowRadius: 4,
   shadowOffset: { height: 2, width: 0 },
   shadowColor: colors.shadowBorder,
@@ -29,10 +29,11 @@ const styles = StyleSheet.create({
 
 interface AccountHeaderProps extends ImageAndStatusProps {
   onPress: () => any;
+  flexExpand?: boolean;
 }
 
 export const AccountHeaderUnmemoized = (props: AccountHeaderProps) => (
-  <View style={styles.Wrapper} elevation={5}>
+  <View style={props.flexExpand ? [styles.Wrapper, { flex: 1 }] : styles.Wrapper} elevation={5}>
     <Touchable onPress={props.onPress}>
       <View style={styles.ContentWrapper}>
         <ImageAndStatus {...props} />

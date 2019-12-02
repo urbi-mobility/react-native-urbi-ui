@@ -31,10 +31,11 @@ type ProfilePicProps = {
   image: ImageRequireSource | string;
   button: React.ReactElement<typeof IconButtonCompactUnmemoized>;
   onPress: () => any;
+  flexExpand?: boolean;
 };
 
 export const ProfilePicUnmemoized = (props: ProfilePicProps) => (
-  <View style={styles.Wrapper} elevation={5}>
+  <View style={props.flexExpand ? [styles.Wrapper, { flex: 1 }] : styles.Wrapper} elevation={5}>
     <Touchable onPress={props.onPress}>
       <View style={styles.ImageWrapper}>
         <Image
