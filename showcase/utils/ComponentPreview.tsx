@@ -39,6 +39,8 @@ export const onButtonPress = onPress(
   'This is a Toast on Android'
 );
 
+export const sleep = (millis: number) => new Promise((resolve) => setTimeout(resolve, millis));
+
 export const onPressNoOp = () => null;
 
 export const placeholder = require('../assets/thinking.png');
