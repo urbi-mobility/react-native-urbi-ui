@@ -11,6 +11,7 @@ import Buttons from './screens/Buttons';
 import CardHeaders from './screens/CardHeaders';
 import Cards from './screens/Cards';
 import Checkboxes from './screens/Checkboxes';
+import Chips from './screens/Chips';
 import Colors from './screens/Colors';
 import ColumnLayouts from './screens/ColumnLayouts';
 import Components from './screens/Components';
@@ -88,6 +89,7 @@ const menuEntries = {
   Cards: Cards,
   CardHeaders: CardHeaders,
   Checkboxes: Checkboxes,
+  Chips: Chips,
   Colors: Colors,
   ColumnLayouts: ColumnLayouts,
   Components: Components,
