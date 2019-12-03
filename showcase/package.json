@@ -10,7 +10,7 @@
     "date-fns": "^2.8.1",
     "formik": "^2.0.3",
     "react": "16.9.0",
-    "react-native": "0.61.4",
+    "react-native": "0.61.5",
     "react-native-dialogs": "1.0.5",
     "react-native-formik": "^1.7.7",
     "react-native-gesture-handler": "^1.5.1",
