@@ -11,6 +11,7 @@ import {
   placeholder,
   renderComponent,
 } from '../utils/ComponentPreview';
+import { Chip } from 'react-native-urbi-ui/molecules/Chip';
 
 type CardsState = {
   toggles: { [toggleKey: string]: boolean };
@@ -122,6 +123,35 @@ class Cards extends React.PureComponent<any, CardsState> {
             onPress={onButtonPress}
             image={<VehicleImg image={carPlaceholder} providerLogo={placeholder} />}
             description="Come with me, and you'll be, in a world of pure imagination"
+          />
+        )}
+        {renderComponent(
+          'Card (with status and logo)',
+          <Card
+            header={
+              <CardHeader
+                topLabel={<Chip label="active now" bgState="success" />}
+                title="Daily ticket"
+                bigLabel="80 min left"
+              />
+            }
+            logo={placeholder}
+            onPress={onButtonPress}
+          />
+        )}
+        {renderComponent(
+          'Card (with status and logo)',
+          <Card
+            header={
+              <CardHeader
+                topLabel={<Chip label="expired" bgState="error" />}
+                title="Milan airport shuttle"
+                bigLabel="12/12/2019 @3:30PM"
+              />
+            }
+            logo={placeholder}
+            onPress={onButtonPress}
+            description="Milan Centrale > Malpensa T1 &amp; T2"
           />
         )}
       </ScrollView>

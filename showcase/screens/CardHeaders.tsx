@@ -4,6 +4,7 @@ import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconBu
 import { CardHeader } from 'react-native-urbi-ui/molecules/card/CardHeader';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { renderComponent } from '../utils/ComponentPreview';
+import { Chip } from 'react-native-urbi-ui/molecules/Chip';
 
 type CardHeadersState = {
   toggles: { [toggleKey: string]: boolean };
@@ -43,6 +44,14 @@ class CardHeaders extends React.PureComponent<any, CardHeadersState> {
             bigLabel="GRATIS"
             struckout="8,66€"
             highlightBigLabel
+          />
+        )}
+        {renderComponent(
+          'CardHeader (with chip)',
+          <CardHeader
+            topLabel={<Chip label="active now" bgState="success" />}
+            title="Single ride 90 min"
+            bigLabel="20 min left"
           />
         )}
         {renderComponent(

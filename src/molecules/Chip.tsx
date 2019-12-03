@@ -5,8 +5,7 @@ import { colors } from 'src/utils/colors';
 
 const styles = StyleSheet.create({
   Wrapper: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: 'flex-start', // the only way to make sure that the element won't grow
     paddingHorizontal: 4,
     borderRadius: 7,
     height: 14,

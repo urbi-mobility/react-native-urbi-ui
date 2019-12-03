@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { IconButtonCompactUnmemoized } from '../../molecules/buttons/iconButtons/IconButtonCompact';
 import { colors } from '../../utils/colors';
 import { registeredTextStyle } from '../../utils/textStyles';
+import { IconButtonCompactUnmemoized } from '../buttons/iconButtons/IconButtonCompact';
+import { Chip } from '../Chip';
 
 export type CardHeaderProps = {
-  topLabel: string;
+  topLabel: string | ReactElement<typeof Chip>;
   title: string;
   bigLabel: string;
   icon?: ReactElement<typeof IconButtonCompactUnmemoized>;
@@ -25,12 +26,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   TopLabel: {
+    ...micro,
     marginBottom: 4,
   },
   TitleWithIconWrapper: {
     flexDirection: 'row',
   },
   TitleWithIcon: {
+    ...title,
     marginLeft: 4,
   },
   BigLabelWithStruckoutWrapper: {
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
     alignItems: 'baseline',
   } as ViewStyle,
   Struckout: {
+    ...strikeout,
     marginLeft: 8,
     textDecorationLine: 'line-through',
   },
@@ -47,7 +51,7 @@ const getTitle = (props: CardHeaderProps) =>
   props.icon ? (
     <View style={styles.TitleWithIconWrapper}>
       {props.icon}
-      <Text style={[title, styles.TitleWithIcon]} numberOfLines={1}>
+      <Text style={styles.TitleWithIcon} numberOfLines={1}>
         {props.title}
       </Text>
     </View>
@@ -63,7 +67,7 @@ const getBigLabel = (props: CardHeaderProps) =>
       <Text style={props.highlightBigLabel ? title1Brand : title1} numberOfLines={1}>
         {props.bigLabel}
       </Text>
-      <Text style={[strikeout, styles.Struckout]} numberOfLines={1}>
+      <Text style={styles.Struckout} numberOfLines={1}>
         {props.struckout}
       </Text>
     </View>
@@ -74,10 +78,14 @@ const getBigLabel = (props: CardHeaderProps) =>
   );
 
 export const CardHeaderUnmemoized = (props: CardHeaderProps) => (
-  <View style={[styles.Wrapper, props.style]}>
-    <Text style={[micro, styles.TopLabel]} numberOfLines={1}>
-      {props.topLabel}
-    </Text>
+  <View style={props.style ? [styles.Wrapper, props.style] : styles.Wrapper}>
+    {typeof props.topLabel === 'string' ? (
+      <Text style={styles.TopLabel} numberOfLines={1}>
+        {props.topLabel}
+      </Text>
+    ) : (
+      props.topLabel
+    )}
     {getTitle(props)}
     {getBigLabel(props)}
   </View>
