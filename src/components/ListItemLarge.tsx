@@ -1,10 +1,10 @@
 import React from 'react';
 import { ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
-import { ListItemProps, renderImageOrIcon } from '../components/ListItem';
+import { ListItemProps, renderImageOrIcon, maybeAddSeparator } from '../components/ListItem';
 import { MaybeTouchable } from '../components/MaybeTouchable';
 
 const styles = StyleSheet.create({
-  Wrapper: {
+  ListItemWrapper: {
     height: 70,
     paddingTop: 12,
     paddingBottom: 12,
@@ -29,9 +29,9 @@ const withStyle = (props: ListItemProps) => {
   });
 };
 
-export const ListItemLargeUnmemoized = (props: ListItemProps) => (
+const renderListItem = (props: ListItemProps) => (
   <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
-    <View style={styles.Wrapper}>
+    <View style={styles.ListItemWrapper}>
       {withStyle(props)}
       {props.icon
         ? renderImageOrIcon(props.size ? props.size : 20, props.icon, props.iconColor)
@@ -40,5 +40,8 @@ export const ListItemLargeUnmemoized = (props: ListItemProps) => (
     </View>
   </MaybeTouchable>
 );
+
+export const ListItemLargeUnmemoized = (props: ListItemProps) =>
+  maybeAddSeparator(props, renderListItem);
 
 export const ListItemLarge = React.memo(ListItemLargeUnmemoized);

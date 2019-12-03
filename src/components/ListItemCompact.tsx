@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ListItemProps } from '../components/ListItem';
+import { ListItemProps, maybeAddSeparator } from '../components/ListItem';
 import { MaybeTouchable } from './MaybeTouchable';
 
 const styles = StyleSheet.create({
-  Wrapper: {
+  ListItemWrapper: {
     height: 40,
     paddingTop: 4,
     paddingRight: 12,
@@ -26,13 +26,16 @@ const withStyle = (props: ListItemProps) => {
   });
 };
 
-const ListItemCompactUnmemoized = (props: ListItemProps) => (
+const renderListItem = (props: ListItemProps) => (
   <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
-    <View style={styles.Wrapper}>
+    <View style={styles.ListItemWrapper}>
       {withStyle(props)}
       {props.end || props.icon || null}
     </View>
   </MaybeTouchable>
 );
+
+const ListItemCompactUnmemoized = (props: ListItemProps) =>
+  maybeAddSeparator(props, renderListItem);
 
 export const ListItemCompact = React.memo(ListItemCompactUnmemoized);

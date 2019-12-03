@@ -24,6 +24,14 @@ class ListItems extends React.PureComponent<any> {
           />
         )}
         {renderComponent(
+          'ListItem (with separator)',
+          <ListItem
+            content={<IconAndLabel image={placeholder} label="Hello, I'm a title" />}
+            end={<EndLabel label="label" />}
+            withSeparator
+          />
+        )}
+        {renderComponent(
           'ListItem (with long EndLabel)',
           <ListItem
             content={<IconAndLabel image={placeholder} label="Hello, I'm a title" />}
@@ -98,42 +106,23 @@ class ListItems extends React.PureComponent<any> {
           />
         )}
         {renderComponent(
+          'ListItemCompact (with separator)',
+          <ListItemCompact
+            content={<IconAndLabel image={placeholder} label="Hello, I'm a title" smallIcon />}
+            end={<EndLabel label="label" />}
+            withSeparator
+          />
+        )}
+        {renderComponent(
           'ListItemLarge',
           <ListItemLarge content={<DoubleLabel label="Hello, I'm a title" subtitle="Body" />} />
         )}
         {renderComponent(
-          'ListItemLarge (w/IconAndDoubleLabel)',
-          <ListItemLarge
-            content={
-              <IconAndDoubleLabel icon={placeholder} label="Hello, I'm a title" subtitle="Body" />
-            }
-          />
-        )}
-        {renderComponent(
-          'ListItemLarge (w/EndDoubleLabelAndIcon)',
+          'ListItemLarge (with separator)',
           <ListItemLarge
             content={<DoubleLabel label="Hello, I'm a title" subtitle="Body" />}
-            end={
-              <EndDoubleLabelAndIcon
-                label="hello, I'm a very long label"
-                subtitle="and I'm an even longer subtitle"
-                icon={placeholder}
-              />
-            }
+            withSeparator
           />
-        )}
-        {renderComponent(
-          'ListItemLarge (w/action)',
-          <ListItemLarge
-            content={
-              <IconAndDoubleLabel icon={placeholder} label="Hello, I'm a title" subtitle="Body" />
-            }
-            icon={placeholder}
-          />
-        )}
-        {renderComponent(
-          'ListItemLarge',
-          <ListItemLarge content={<DoubleLabel label="Hello, I'm a title" subtitle="Body" />} />
         )}
         {renderComponent(
           'ListItemLarge (w/IconAndLabel)',
@@ -167,6 +156,16 @@ class ListItems extends React.PureComponent<any> {
               <IconAndDoubleLabel icon={placeholder} label="Hello, I'm a title" subtitle="Body" />
             }
             icon={placeholder}
+          />
+        )}
+        {renderComponent(
+          'ListItemLarge (w/action and separator)',
+          <ListItemLarge
+            content={
+              <IconAndDoubleLabel icon={placeholder} label="Hello, I'm a title" subtitle="Body" />
+            }
+            icon={placeholder}
+            withSeparator
           />
         )}
       </ScrollView>
