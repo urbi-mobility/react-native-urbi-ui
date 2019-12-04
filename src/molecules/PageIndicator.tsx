@@ -43,7 +43,9 @@ export const PageIndicatorUnmemoized = (props: PageIndicatorProps) => {
   if (props.pages <= 1) return null;
   return (
     <View style={styles.Wrapper}>
-      {Array.from(new Array(props.pages)).map((_, i) => createDot(i, props))}
+      {Array(props.pages)
+        .fill(0)
+        .map((_, i) => createDot(i, props))}
     </View>
   );
 };

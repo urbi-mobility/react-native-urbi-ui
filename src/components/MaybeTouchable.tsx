@@ -29,25 +29,31 @@ const withStyle = (props: MaybeTouchableProps) =>
   } as ViewStyle);
 
 const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
-  if (!props.onPress) {
-    return props.margin ? (
-      <View style={{ flex: 1, margin: props.margin, marginTop: props.marginTop }}>
-        {props.children}
-      </View>
+  const { backgroundColor, children, margin, marginTop, onPress } = props;
+
+  if (!onPress) {
+    return margin ? (
+      <View style={{ flex: 1, margin, marginTop, backgroundColor }}>{children}</View>
+    ) : backgroundColor ? (
+      React.cloneElement(children, { style: { ...(children.props.style ?? {}), backgroundColor } })
     ) : (
-      props.children
+      children
     );
   }
+
   const touchable = (
-    <Touchable style={(onIOS && withStyle(props)) || { flex: 1 }} onPress={props.onPress}>
-      {props.children}
+    <Touchable
+      style={(onIOS && withStyle(props)) || { flex: 1, backgroundColor }}
+      onPress={onPress}
+    >
+      {children}
     </Touchable>
   );
+
   if (!props.withShadow) {
-    return (
-      <View style={{ flex: 1, margin: props.margin, marginTop: props.marginTop }}>{touchable}</View>
-    );
+    return <View style={{ flex: 1, margin, marginTop, backgroundColor }}>{touchable}</View>;
   }
+
   return onIOS ? (
     touchable
   ) : (

@@ -24,9 +24,11 @@ const styles = StyleSheet.create({
 
 const withStyle = (props: ListItemProps) => {
   const { icon, content, end } = props;
-  return React.cloneElement(content, {
-    style: end || icon ? styles.ContentWithEnd : null,
-  });
+  return end || icon
+    ? React.cloneElement(content, {
+        style: styles.ContentWithEnd,
+      })
+    : content;
 };
 
 const renderListItem = (props: ListItemProps) => (
