@@ -27,6 +27,9 @@ import Modal from './screens/Modal';
 import Molecules from './screens/Molecules';
 import Notes from './screens/Notes';
 import Notifications from './screens/Notifications';
+import Onboarding from './screens/Onboarding';
+import Onboarding2 from './screens/Onboarding2';
+import OnboardingSinglePage from './screens/OnboardingSingle';
 import PaymentPanel from './screens/PaymentPanel';
 import ProfileHeaders from './screens/ProfileHeaders';
 import PurchasePanel from './screens/PurchasePanel';
@@ -107,6 +110,9 @@ const menuEntries = {
   Molecules: Molecules,
   Notes: Notes,
   Notifications: Notifications,
+  Onboarding: Onboarding,
+  ['Onboarding (2 screens)']: Onboarding2,
+  ['Onboarding (single page)']: OnboardingSinglePage,
   ProfileHeaders: ProfileHeaders,
   RadioButtons: RadioButtons,
   SelectionHeaders: SelectionHeaders,

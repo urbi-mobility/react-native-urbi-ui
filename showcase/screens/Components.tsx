@@ -20,6 +20,7 @@ const buttonEntries = toButtonEntries([
   'ListItems',
   'Modal',
   'Notifications',
+  'Onboarding',
   'PaymentPanel',
   'ProfileHeaders',
   'PurchasePanel',

@@ -6,6 +6,7 @@ import {
   KeyboardEvent,
   StyleSheet,
   View,
+  ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
@@ -16,16 +17,13 @@ import { onIOS, tabBarHeight } from '../utils/const';
 const BOTTOM_PANEL_HEIGHT = 80;
 const ANDROID_EVT_DURATION = 100;
 
-const styles = StyleSheet.create({
-  Wrapper: {
-    flex: 1,
-  },
+export const bottomPanelStyles = {
   FloatingBottomPanel: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-  },
+  } as ViewStyle,
   BottomPanel: {
     flex: 0,
     flexDirection: 'row',
@@ -36,6 +34,13 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
     paddingLeft: 40,
     paddingRight: 40,
+  } as ViewStyle,
+};
+
+const styles = StyleSheet.create({
+  ...bottomPanelStyles,
+  Wrapper: {
+    flex: 1,
   },
 });
 
