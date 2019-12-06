@@ -144,7 +144,7 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
                     />
                   }
                   icon="disclosure-small"
-                  backgroundColor={colors.ukko}
+                  backgroundColor={colors.ulisse}
                 />
               </View>
               <View style={styles.Footer}>

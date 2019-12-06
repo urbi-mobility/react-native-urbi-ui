@@ -33,7 +33,7 @@ export type PurchasePanelProps = {
 };
 
 export const PurchasePanelUnmemoized = (props: PurchasePanelProps) => (
-  <View style={[styles.Wrapper, props.style]}>
+  <View style={[styles.Wrapper, props.style]} elevation={5}>
     <View style={styles.DetailWithButtonWrapper}>
       {/* TODO fix this exoteric layout, this magic number makes both sides take up to 50% width */}
       {React.cloneElement(props.purchase, { style: { minWidth: '18%' } } as Partial<PurchaseProps>)}
