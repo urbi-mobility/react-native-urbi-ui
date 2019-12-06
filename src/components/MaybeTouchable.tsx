@@ -17,7 +17,11 @@ type MaybeTouchableProps = {
 const withStyle = (props: MaybeTouchableProps) =>
   ({
     flex: 1,
-    backgroundColor: props.backgroundColor ?? props.onPress ? colors.ulisse : undefined,
+    backgroundColor: props.backgroundColor
+      ? props.backgroundColor
+      : props.onPress
+      ? colors.ulisse
+      : undefined,
     borderRadius: props.borderRadius,
     margin: props.margin,
     marginTop: props.marginTop,
