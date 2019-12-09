@@ -11,7 +11,7 @@ export const sizes = {
   minWidth: 80,
 };
 
-const ButtonCompactUnmemoized = (props: ButtonProps) => (
+export const ButtonCompactUnmemoized = (props: ButtonProps) => (
   <Button textStyle="button" isUppercase {...sizes} {...styles(props)} {...props} />
 );
 

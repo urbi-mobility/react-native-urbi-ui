@@ -71,13 +71,22 @@ const getBottom = (desc: string) => (
   </Text>
 );
 
-export const CardUnmemoized = (props: CardProps) => (
-  <MaybeTouchable onPress={props.onPress} borderRadius={10} margin={12} marginTop={0} withShadow>
-    <View style={styles.Wrapper}>
-      {getTop(props)}
-      {props.description && getBottom(props.description!)}
-    </View>
-  </MaybeTouchable>
-);
+export const CardUnmemoized = (props: CardProps) => {
+  const withShadow = props.onPress !== undefined;
+  return (
+    <MaybeTouchable
+      onPress={props.onPress}
+      borderRadius={10}
+      margin={12}
+      marginTop={0}
+      withShadow={withShadow}
+    >
+      <View style={styles.Wrapper}>
+        {getTop(props)}
+        {props.description && getBottom(props.description!)}
+      </View>
+    </MaybeTouchable>
+  );
+};
 
 export const Card = React.memo(CardUnmemoized);
