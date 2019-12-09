@@ -127,7 +127,7 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
             onLayout={this.onLayout}
             onMomentumScrollEnd={this.onScrollEnd}
             showsHorizontalScrollIndicator={false}
-            decelerationRate={0}
+            decelerationRate="fast"
             snapToInterval={pageWidth}
             snapToAlignment="start"
             horizontal

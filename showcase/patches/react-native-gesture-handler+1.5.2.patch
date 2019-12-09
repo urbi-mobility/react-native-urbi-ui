@@ -1,0 +1,166 @@
+diff --git a/node_modules/react-native-gesture-handler/android/build/generated/source/buildConfig/androidTest/debug/com/swmansion/gesturehandler/react/test/BuildConfig.java b/node_modules/react-native-gesture-handler/android/build/generated/source/buildConfig/androidTest/debug/com/swmansion/gesturehandler/react/test/BuildConfig.java
+new file mode 100644
+index 0000000..dc64a01
+--- /dev/null
++++ b/node_modules/react-native-gesture-handler/android/build/generated/source/buildConfig/androidTest/debug/com/swmansion/gesturehandler/react/test/BuildConfig.java
+@@ -0,0 +1,13 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.swmansion.gesturehandler.react.test;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String APPLICATION_ID = "com.swmansion.gesturehandler.react.test";
++  public static final String BUILD_TYPE = "debug";
++  public static final String FLAVOR = "";
++  public static final int VERSION_CODE = 1;
++  public static final String VERSION_NAME = "1.0";
++}
+diff --git a/node_modules/react-native-gesture-handler/android/build/generated/source/buildConfig/debug/com/swmansion/gesturehandler/react/BuildConfig.java b/node_modules/react-native-gesture-handler/android/build/generated/source/buildConfig/debug/com/swmansion/gesturehandler/react/BuildConfig.java
+new file mode 100644
+index 0000000..bd6dac7
+--- /dev/null
++++ b/node_modules/react-native-gesture-handler/android/build/generated/source/buildConfig/debug/com/swmansion/gesturehandler/react/BuildConfig.java
+@@ -0,0 +1,18 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.swmansion.gesturehandler.react;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String LIBRARY_PACKAGE_NAME = "com.swmansion.gesturehandler.react";
++  /**
++   * @deprecated APPLICATION_ID is misleading in libraries. For the library package name use LIBRARY_PACKAGE_NAME
++   */
++  @Deprecated
++  public static final String APPLICATION_ID = "com.swmansion.gesturehandler.react";
++  public static final String BUILD_TYPE = "debug";
++  public static final String FLAVOR = "";
++  public static final int VERSION_CODE = 1;
++  public static final String VERSION_NAME = "1.0";
++}
+diff --git a/node_modules/react-native-gesture-handler/android/lib/src/main/java/com/swmansion/gesturehandler/NativeViewGestureHandler.java b/node_modules/react-native-gesture-handler/android/lib/src/main/java/com/swmansion/gesturehandler/NativeViewGestureHandler.java
+index ca69016..0a38f5b 100644
+--- a/node_modules/react-native-gesture-handler/android/lib/src/main/java/com/swmansion/gesturehandler/NativeViewGestureHandler.java
++++ b/node_modules/react-native-gesture-handler/android/lib/src/main/java/com/swmansion/gesturehandler/NativeViewGestureHandler.java
+@@ -5,6 +5,8 @@ import android.view.MotionEvent;
+ import android.view.View;
+ import android.view.ViewGroup;
+ 
++import com.swmansion.gesturehandler.react.RNGestureHandlerButtonViewManager;
++
+ public class NativeViewGestureHandler extends GestureHandler<NativeViewGestureHandler> {
+ 
+   private boolean mShouldActivateOnStart;
+@@ -34,6 +36,18 @@ public class NativeViewGestureHandler extends GestureHandler<NativeViewGestureHa
+     return super.shouldRequireToWaitForFailure(handler);
+   }
+ 
++  private boolean isPreventedFromBeginning() {
++    // RNGestureHandlerButtonViewManager is connected with logic
++    // related to handling exclusive touches which should prevent
++    // another buttons from beginning gesture recognition.
++    View view = getView();
++    if (view instanceof RNGestureHandlerButtonViewManager.ButtonViewGroup) {
++      // setting flag for an exclusive touch for buttons
++      return !((RNGestureHandlerButtonViewManager.ButtonViewGroup) view).setResponder();
++    }
++    return false;
++  }
++
+   @Override
+   public boolean shouldRecognizeSimultaneously(GestureHandler handler) {
+     if (handler instanceof NativeViewGestureHandler) {
+@@ -53,7 +67,7 @@ public class NativeViewGestureHandler extends GestureHandler<NativeViewGestureHa
+     int otherState = handler.getState();
+ 
+     if (state == STATE_ACTIVE && otherState == STATE_ACTIVE && canBeInterrupted) {
+-      // if both handlers are active and the current handler can be interruped it we return `false`
++      // if both handlers are active and the current handler can be interrupted it we return `false`
+       // as it means the other handler has turned active and returning `true` would prevent it from
+       // interrupting the current handler
+       return false;
+@@ -85,8 +99,9 @@ public class NativeViewGestureHandler extends GestureHandler<NativeViewGestureHa
+       } else if (tryIntercept(view, event)) {
+         view.onTouchEvent(event);
+         activate();
+-      } else if (state != STATE_BEGAN) {
++      } else if (state != STATE_BEGAN && !isPreventedFromBeginning()) {
+         begin();
++
+       }
+     } else if (state == STATE_ACTIVE) {
+       view.onTouchEvent(event);
+diff --git a/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/RNGestureHandlerButtonViewManager.java b/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/RNGestureHandlerButtonViewManager.java
+index fd625bd..c44aff2 100644
+--- a/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/RNGestureHandlerButtonViewManager.java
++++ b/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/RNGestureHandlerButtonViewManager.java
+@@ -21,7 +21,7 @@ import com.facebook.react.uimanager.annotations.ReactProp;
+ public class RNGestureHandlerButtonViewManager extends
+         ViewGroupManager<RNGestureHandlerButtonViewManager.ButtonViewGroup> {
+ 
+-  static class ButtonViewGroup extends ViewGroup {
++  public static class ButtonViewGroup extends ViewGroup {
+ 
+     static TypedValue sResolveOutValue = new TypedValue();
+     static ButtonViewGroup sResponder;
+@@ -32,6 +32,7 @@ public class RNGestureHandlerButtonViewManager extends
+     boolean mUseForeground = false;
+     boolean mUseBorderless = false;
+     float mBorderRadius = 0;
++    private boolean mExclusive = true;
+     boolean mNeedBackgroundUpdate = false;
+ 
+ 
+@@ -50,6 +51,10 @@ public class RNGestureHandlerButtonViewManager extends
+       mNeedBackgroundUpdate = true;
+     }
+ 
++    public void setExclusive(boolean exclusive) {
++      mExclusive = exclusive;
++    }
++
+     public void setRippleColor(Integer color) {
+       mRippleColor = color;
+       mNeedBackgroundUpdate = true;
+@@ -167,14 +172,20 @@ public class RNGestureHandlerButtonViewManager extends
+       }
+     }
+ 
++    public boolean setResponder() {
++      if (sResponder == null) {
++        if (mExclusive) {
++          sResponder = this;
++        }
++        return true;
++      }
++      return false;
++    }
++
+     @Override
+     public void setPressed(boolean pressed) {
+-      if (pressed && sResponder == null) {
+-        // first button to be pressed grabs button responder
+-        sResponder = this;
+-      }
+-      if (!pressed || sResponder == this) {
+-        // we set pressed state only for current responder
++      if (!pressed || sResponder == this || (sResponder == null && !mExclusive)) {
++        // we set pressed state only for current responder if exclusive
+         super.setPressed(pressed);
+       }
+       if (!pressed && sResponder == this) {
+@@ -225,6 +236,11 @@ public class RNGestureHandlerButtonViewManager extends
+     view.setRippleColor(rippleColor);
+   }
+ 
++  @ReactProp(name = "exclusive", defaultBoolean = true)
++  public void setExclusive(ButtonViewGroup view, boolean exclusive) {
++    view.setExclusive(exclusive);
++  }
++
+   @Override
+   protected void onAfterUpdateTransaction(ButtonViewGroup view) {
+     view.updateBackground();

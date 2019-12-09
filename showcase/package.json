@@ -14,7 +14,7 @@
     "react-native": "0.61.5",
     "react-native-dialogs": "1.0.5",
     "react-native-formik": "^1.7.7",
-    "react-native-gesture-handler": "^1.5.1",
+    "react-native-gesture-handler": "^1.5.2",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-modal-datetime-picker": "8.x.x",
     "react-native-reanimated": "^1.4.0",

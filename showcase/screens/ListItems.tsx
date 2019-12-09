@@ -11,6 +11,11 @@ import { EndDoubleLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndDou
 import { EndLabel } from 'react-native-urbi-ui/molecules/end/EndLabel';
 import { EndLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndLabelAndIcon';
 import { placeholder, renderComponent } from '../utils/ComponentPreview';
+import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
+import { showLongAlert, showAlert } from 'react-native-urbi-ui/utils/functions';
+
+const onListItemPress = () => setTimeout(() => showAlert('clicked on list item 200ms ago', 200));
+const onButtonPress = () => showLongAlert('clicked on button');
 
 class ListItems extends React.PureComponent<any> {
   render() {
@@ -166,6 +171,14 @@ class ListItems extends React.PureComponent<any> {
             }
             icon={placeholder}
             withSeparator
+          />
+        )}
+        {renderComponent(
+          'ListItem (with 2 events)',
+          <ListItem
+            content={<IconAndLabel image={placeholder} label="Click me" />}
+            end={<IconButtonRegular icon="car" buttonStyle="default" onPress={onButtonPress} />}
+            onPress={onListItemPress}
           />
         )}
       </ScrollView>

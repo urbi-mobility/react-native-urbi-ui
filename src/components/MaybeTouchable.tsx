@@ -17,11 +17,7 @@ type MaybeTouchableProps = {
 const withStyle = (props: MaybeTouchableProps) =>
   ({
     flex: 1,
-    backgroundColor: props.backgroundColor
-      ? props.backgroundColor
-      : props.onPress
-      ? colors.ulisse
-      : undefined,
+    backgroundColor: props.backgroundColor ?? props.onPress ? colors.ulisse : undefined,
     borderRadius: props.borderRadius,
     margin: props.margin,
     marginTop: props.marginTop,
@@ -32,16 +28,23 @@ const withStyle = (props: MaybeTouchableProps) =>
     shadowOpacity: props.withShadow ? 1 : undefined,
   } as ViewStyle);
 
+const childrenWithBackground = (props: MaybeTouchableProps) => {
+  const { backgroundColor, children } = props;
+  return backgroundColor
+    ? React.cloneElement(children, { style: { ...(children.props.style ?? {}), backgroundColor } })
+    : children;
+};
+
 const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
-  const { backgroundColor, children, margin, marginTop, onPress } = props;
+  const { backgroundColor, margin, marginTop, onPress } = props;
 
   if (!onPress) {
     return margin ? (
-      <View style={{ flex: 1, margin, marginTop, backgroundColor }}>{children}</View>
-    ) : backgroundColor ? (
-      React.cloneElement(children, { style: { ...(children.props.style ?? {}), backgroundColor } })
+      <View style={{ flex: 1, margin, marginTop, backgroundColor }}>
+        {childrenWithBackground(props)}
+      </View>
     ) : (
-      children
+      childrenWithBackground(props)
     );
   }
 
@@ -50,7 +53,7 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
       style={(onIOS && withStyle(props)) || { flex: 1, backgroundColor }}
       onPress={onPress}
     >
-      {children}
+      {childrenWithBackground(props)}
     </Touchable>
   );
 
