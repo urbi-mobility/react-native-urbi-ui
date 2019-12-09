@@ -12,8 +12,10 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   CardInner: {
     flex: 1,
+    borderRadius: 10,
     backgroundColor: colors.ulisse,
     padding: 20,
+    overflow: 'hidden',
   },
   CodeWrapper: {
     flex: 1,
