@@ -83,7 +83,7 @@ class DatePickerComponent extends UrbiFormComponent<Date, DatePickerProps, DateP
   }
 
   focus() {
-    if (this.datePicker.current) this.datePicker.current!.focus();
+    this.showPicker();
   }
 
   render() {
