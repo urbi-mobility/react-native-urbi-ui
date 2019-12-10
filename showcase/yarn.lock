@@ -4273,6 +4273,11 @@ react-lifecycles-compat@^3.0.2:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-device-info@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.3.1.tgz#d764732c4841b6b6c2f42516e8840075717ea88a"
+  integrity sha512-e/fRDoah+HxItscOJTGJY8zyVKmBUdf53VWIDGLGV4VVZ0mfzIQ2uo0ULGri0vjGUYqgyqgnW3jybPSznMxKcA==
+
 react-native-dialogs@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/react-native-dialogs/-/react-native-dialogs-1.0.5.tgz#b64e8d00e8942009861f432d2cce930e84db8737"
@@ -4350,7 +4355,7 @@ react-native-typography@1.4.1:
   resolved "https://registry.yarnpkg.com/react-native-typography/-/react-native-typography-1.4.1.tgz#2d05cb5935a2f7fdb6b43bbde93d60f1324578e3"
   integrity sha512-dc9Zfs4jUdq4ygx4/KwO6jKTERBu6cRrfPJGntw/pA+D6BMjlWfMNuhZ/69vf4Zpsnt9s4AGe+Z/V1QFYaCXAA==
 
-react-native-urbi-ui@0.1.9:
+react-native-urbi-ui@0.1.10:
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.1.9.tgz#bfeb85aace1feb390a291b8ec6a2598918f6a208"
   integrity sha512-JaFmP+m8sfU+a/fXz8OCFWfOrPjTxbNdHmEOtXnFTm7jg77Dd7FQn8u9i64VBEnLVDSj49mxzshjTVpe+tlN1g==

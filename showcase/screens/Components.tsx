@@ -15,6 +15,7 @@ const buttonEntries = toButtonEntries([
   'Checkboxes',
   'ColumnLayouts',
   'DoubleChoices',
+  'Floating button layout',
   'Form components',
   'IconGroups',
   'ListItems',

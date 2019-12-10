@@ -14,7 +14,7 @@ import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
 import { colors } from '../utils/colors';
 import { onIOS, tabBarHeight } from '../utils/const';
 
-const BOTTOM_PANEL_HEIGHT = 80;
+export const BOTTOM_PANEL_HEIGHT = 80;
 const ANDROID_EVT_DURATION = 100;
 
 export const bottomPanelStyles = {
@@ -49,14 +49,18 @@ type FloatingButtonLayoutProps = {
   backgroundColor?: string;
   button: ReactElement<typeof ButtonRegularUnmemoized>;
   noGradient?: boolean;
-  inModal?: boolean;
+  countBottomTabs?: boolean;
+  fixedPosition?: boolean;
+  onIphoneX?: boolean;
 };
+
+const gradientColors = [colors.zeroAlphaUlisse, colors.ulisse];
 
 export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutProps> {
   private deltaY: Animated.Value<number>;
   private showListener: EmitterSubscription | undefined;
   private hideListener: EmitterSubscription | undefined;
-  private showNotHidden = 0;
+  private pendingShowEvents = 0;
 
   constructor(props: FloatingButtonLayoutProps) {
     super(props);
@@ -79,26 +83,30 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   UNSAFE_componentWillUnmount() {
     if (this.showListener) this.showListener.remove();
     if (this.hideListener) this.hideListener.remove();
-    this.showNotHidden = 0;
+    this.pendingShowEvents = 0;
   }
 
   onKeyboardShow(event: KeyboardEvent) {
-    if (onIOS || !this.showNotHidden) {
+    const { fixedPosition, countBottomTabs } = this.props;
+    if (!fixedPosition && (onIOS || !this.pendingShowEvents)) {
+      const newDeltaY =
+        event.endCoordinates.screenY -
+        Dimensions.get('window').height +
+        (onIOS || !countBottomTabs ? 0 : tabBarHeight);
+
       Animated.timing(this.deltaY, {
         duration: event?.duration || ANDROID_EVT_DURATION,
-        toValue:
-          event.endCoordinates.screenY -
-          Dimensions.get('window').height +
-          (onIOS ? 0 : tabBarHeight),
+        toValue: newDeltaY,
         easing: Easing.linear,
       }).start();
     }
-    this.showNotHidden++;
+    this.pendingShowEvents++;
   }
 
   onKeyboardHide(event: KeyboardEvent) {
-    this.showNotHidden--;
-    if (onIOS || !this.showNotHidden) {
+    this.pendingShowEvents--;
+    const { fixedPosition } = this.props;
+    if (fixedPosition && (onIOS || !this.pendingShowEvents)) {
       Animated.timing(this.deltaY, {
         duration: event?.duration || ANDROID_EVT_DURATION,
         toValue: 0,
@@ -108,32 +116,40 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   }
 
   render() {
+    const { backgroundColor, button, children, fixedPosition, noGradient, onIphoneX } = this.props;
+    const animatedViewStyle =
+      fixedPosition && !onIphoneX ? styles.FloatingBottomPanel : [styles.FloatingBottomPanel];
+
+    if (onIphoneX) {
+      (animatedViewStyle as ViewStyle[]).push({ bottom: 34 });
+    }
+
+    if (!fixedPosition) {
+      (animatedViewStyle as ViewStyle[]).push({
+        transform: [{ translateY: (this.deltaY as unknown) as number }],
+      });
+    }
+
     return (
       <View
-        style={[
-          styles.Wrapper,
-          {
-            backgroundColor: this.props.backgroundColor || undefined,
-          },
-        ]}
+        style={
+          backgroundColor
+            ? [
+                styles.Wrapper,
+                {
+                  backgroundColor,
+                },
+              ]
+            : styles.Wrapper
+        }
       >
-        {this.props.children}
-        <Animated.View
-          style={[
-            styles.FloatingBottomPanel,
-            {
-              transform: [{ translateY: (this.deltaY as unknown) as number }],
-            },
-          ]}
-        >
-          {this.props.noGradient ? (
-            <View style={styles.BottomPanel}>{this.props.button}</View>
+        {children}
+        <Animated.View style={animatedViewStyle}>
+          {noGradient ? (
+            <View style={styles.BottomPanel}>{button}</View>
           ) : (
-            <LinearGradient
-              colors={[colors.zeroAlphaUlisse, colors.ulisse]}
-              style={styles.BottomPanel}
-            >
-              {this.props.button}
+            <LinearGradient colors={gradientColors} style={styles.BottomPanel}>
+              {button}
             </LinearGradient>
           )}
         </Animated.View>

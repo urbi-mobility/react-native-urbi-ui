@@ -17,6 +17,7 @@ import ColumnLayouts from './screens/ColumnLayouts';
 import Components from './screens/Components';
 import Content from './screens/Content';
 import DoubleChoices from './screens/DoubleChoices';
+import FloatingButtonLayout from './screens/FloatingButtonLayout';
 import FormScreen from './screens/FormScreen';
 import IconButtons from './screens/IconButtons';
 import IconGroups from './screens/IconGroups';
@@ -98,6 +99,7 @@ const menuEntries = {
   Components: Components,
   Content: Content,
   DoubleChoices: DoubleChoices,
+  ['Floating button layout']: FloatingButtonLayout,
   ['Form components']: FormScreen,
   IconButtons: IconButtons,
   PurchasePanel: PurchasePanel,
