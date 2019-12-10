@@ -15,6 +15,7 @@ import { colors } from '../utils/colors';
 import { onIOS, tabBarHeight } from '../utils/const';
 
 export const BOTTOM_PANEL_HEIGHT = 80;
+export const IPHONE_X_SAFE_AREA_HEIGHT = 34;
 const ANDROID_EVT_DURATION = 100;
 
 export const bottomPanelStyles = {
@@ -106,7 +107,7 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   onKeyboardHide(event: KeyboardEvent) {
     this.pendingShowEvents--;
     const { fixedPosition } = this.props;
-    if (fixedPosition && (onIOS || !this.pendingShowEvents)) {
+    if (!fixedPosition && (onIOS || !this.pendingShowEvents)) {
       Animated.timing(this.deltaY, {
         duration: event?.duration || ANDROID_EVT_DURATION,
         toValue: 0,
@@ -117,18 +118,17 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
 
   render() {
     const { backgroundColor, button, children, fixedPosition, noGradient, onIphoneX } = this.props;
-    const animatedViewStyle =
-      fixedPosition && !onIphoneX ? styles.FloatingBottomPanel : [styles.FloatingBottomPanel];
-
-    if (onIphoneX) {
-      (animatedViewStyle as ViewStyle[]).push({ bottom: 34 });
-    }
-
-    if (!fixedPosition) {
-      (animatedViewStyle as ViewStyle[]).push({
-        transform: [{ translateY: (this.deltaY as unknown) as number }],
-      });
-    }
+    const animatedViewStyle = fixedPosition
+      ? styles.FloatingBottomPanel
+      : [
+          styles.FloatingBottomPanel,
+          {
+            transform: [{ translateY: (this.deltaY as unknown) as number }],
+          },
+        ];
+    const bottomPanelStyle = onIphoneX
+      ? [styles.BottomPanel, { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_SAFE_AREA_HEIGHT }]
+      : styles.BottomPanel;
 
     return (
       <View
@@ -146,9 +146,9 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
         {children}
         <Animated.View style={animatedViewStyle}>
           {noGradient ? (
-            <View style={styles.BottomPanel}>{button}</View>
+            <View style={bottomPanelStyle}>{button}</View>
           ) : (
-            <LinearGradient colors={gradientColors} style={styles.BottomPanel}>
+            <LinearGradient colors={gradientColors} style={bottomPanelStyle}>
               {button}
             </LinearGradient>
           )}
