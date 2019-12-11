@@ -1,24 +1,28 @@
 import React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
 import {
-  View,
-  StyleSheet,
-  ImageRequireSource,
-  LayoutChangeEvent,
   Dimensions,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
   Image,
+  ImageRequireSource,
+  ImageStyle,
+  LayoutChangeEvent,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  StyleSheet,
   Text,
   TextStyle,
-  ImageStyle,
+  View,
   ViewStyle,
 } from 'react-native';
-import { bottomPanelStyles } from '../components/FloatingButtonLayout';
+import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors } from '../utils/colors';
+import {
+  bottomPanelStyles,
+  BOTTOM_PANEL_HEIGHT,
+  IPHONE_X_SAFE_AREA_HEIGHT,
+} from '../components/FloatingButtonLayout';
 import { ButtonRegular } from '../molecules/buttons/ButtonRegular';
 import { PageIndicator } from '../molecules/PageIndicator';
+import { colors } from '../utils/colors';
 import { registeredTextStyle } from '../utils/textStyles';
 
 export const onboardingStyles = {
@@ -69,6 +73,7 @@ export type OnboardingPage = {
 type OnboardingProps = {
   cta: CTA;
   pages: OnboardingPage[];
+  onIphoneX: boolean;
   titleStyle?: TextStyle;
   contentStyle?: TextStyle;
 };
@@ -115,7 +120,7 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
   }
 
   render() {
-    const { pages } = this.props;
+    const { onIphoneX, pages } = this.props;
     const { currentPageIndex, pageWidth } = this.state;
     const currentPage = pages[currentPageIndex];
 
@@ -145,7 +150,14 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
           )}
           <LinearGradient
             colors={[colors.zeroAlphaUlisse, colors.ulisse]}
-            style={bottomPanelStyles.BottomPanel}
+            style={
+              onIphoneX
+                ? [
+                    bottomPanelStyles.BottomPanel,
+                    { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_SAFE_AREA_HEIGHT },
+                  ]
+                : bottomPanelStyles.BottomPanel
+            }
           >
             <ButtonRegular
               buttonStyle="primary"

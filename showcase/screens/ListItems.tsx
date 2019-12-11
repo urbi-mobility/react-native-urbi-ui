@@ -14,7 +14,7 @@ import { placeholder, renderComponent } from '../utils/ComponentPreview';
 import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
 import { showLongAlert, showAlert } from 'react-native-urbi-ui/utils/functions';
 
-const onListItemPress = () => setTimeout(() => showAlert('clicked on list item 200ms ago', 200));
+const onListItemPress = () => setTimeout(() => showAlert('clicked on list item 200ms ago'), 200);
 const onButtonPress = () => showLongAlert('clicked on button');
 
 class ListItems extends React.PureComponent<any> {

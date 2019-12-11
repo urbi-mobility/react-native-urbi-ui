@@ -1,7 +1,7 @@
 import React from 'react';
 import OnboardingSinglePage from 'react-native-urbi-ui/components/OnboardingSinglePage';
 import { clientIpsum } from '../utils/LoremIpsum';
-import { OnboardingProps } from './Onboarding';
+import { OnboardingProps, onIphoneX } from './Onboarding';
 
 const page = {
   title: "Look at me, I'm a title spanning two lines. Spiffy, uh?",
@@ -15,6 +15,7 @@ class Onboarding extends React.PureComponent<OnboardingProps> {
       <OnboardingSinglePage
         cta={{ label: 'done!', onPress: () => this.props.navigation.navigate('Components') }}
         page={page}
+        onIphoneX={onIphoneX}
       />
     );
   }

@@ -1,12 +1,6 @@
 import React from 'react';
 import OnboardingComponent from 'react-native-urbi-ui/components/Onboarding';
-import { onButtonPress } from '../utils/ComponentPreview';
-import { OnboardingProps } from './Onboarding';
-
-const cta1 = {
-  label: 'check last',
-  onPress: onButtonPress,
-};
+import { OnboardingProps, onIphoneX } from './Onboarding';
 
 const pages = [
   {
@@ -32,6 +26,7 @@ class Onboarding extends React.PureComponent<OnboardingProps> {
           onPress: () => this.props.navigation.navigate('Onboarding (single page)'),
         }}
         pages={pages}
+        onIphoneX={onIphoneX}
       />
     );
   }

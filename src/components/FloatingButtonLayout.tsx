@@ -49,10 +49,10 @@ type FloatingButtonLayoutProps = {
   children: React.ReactNode;
   backgroundColor?: string;
   button: ReactElement<typeof ButtonRegularUnmemoized>;
+  onIphoneX: boolean;
   noGradient?: boolean;
   countBottomTabs?: boolean;
   fixedPosition?: boolean;
-  onIphoneX?: boolean;
 };
 
 const gradientColors = [colors.zeroAlphaUlisse, colors.ulisse];
