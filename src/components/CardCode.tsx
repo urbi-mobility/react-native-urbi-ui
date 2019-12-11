@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.ulisse,
     padding: 20,
+    paddingBottom: 0,
     overflow: 'hidden',
   },
   CodeWrapper: {
