@@ -28,7 +28,7 @@ type OnboardingSinglePageProps = {
   contentStyle?: TextStyle;
 };
 
-const OnboardingSinglePageUnmemoized = (props: OnboardingSinglePageProps) => (
+const OnboardingSingleUnmemoized = (props: OnboardingSinglePageProps) => (
   <View style={styles.Wrapper}>
     <ScrollView style={styles.Wrapper} contentContainerStyle={styles.ScrollView}>
       {renderOnboardingPage(props.page, 0)}
@@ -51,4 +51,4 @@ const OnboardingSinglePageUnmemoized = (props: OnboardingSinglePageProps) => (
   </View>
 );
 
-export default React.memo(OnboardingSinglePageUnmemoized);
+export const OnboardingSinglePage = React.memo(OnboardingSingleUnmemoized);

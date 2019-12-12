@@ -102,7 +102,7 @@ export const renderOnboardingPage = (page: OnboardingPage, index: number, maxWid
   );
 };
 
-class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
+export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
   constructor(props: OnboardingProps) {
     super(props);
     this.state = { currentPageIndex: 0, pageWidth: Dimensions.get('window').width };
@@ -170,5 +170,3 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
     );
   }
 }
-
-export default Onboarding;
