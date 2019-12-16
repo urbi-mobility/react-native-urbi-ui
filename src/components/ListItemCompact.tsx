@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ListItemProps, maybeAddSeparator } from '../components/ListItem';
+import { ListItemProps, maybeAddSeparator, renderImageOrIcon } from '../components/ListItem';
 import { MaybeTouchable } from './MaybeTouchable';
 
 const styles = StyleSheet.create({
@@ -30,7 +30,9 @@ const renderListItem = (props: ListItemProps) => (
   <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
     <View style={styles.ListItemWrapper}>
       {withStyle(props)}
-      {props.end || props.icon || null}
+      {props.end || props.icon
+        ? renderImageOrIcon(props.size ?? 20, props.icon, props.iconColor)
+        : null}
     </View>
   </MaybeTouchable>
 );
