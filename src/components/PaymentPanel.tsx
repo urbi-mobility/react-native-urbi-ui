@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
   } as TextStyle,
   PaymentMethodWrapper: {
     flexGrow: 1,
+    flexShrink: 1,
   },
   Footer: {
     flexGrow: 0,
@@ -145,7 +146,7 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
               <Text style={styles.TitleOrder}>{props.nameShop}</Text>
               <Text style={styles.PriceOrder}>{props.price}</Text>
               <SectionsDivider label={props.paymentTitle} backgroundColor={colors.ulisse} />
-              <View style={{ flexGrow: 1 }}>
+              <View style={styles.PaymentMethodWrapper}>
                 <ListItem
                   onPress={props.cardProperty.onCardPress}
                   content={
