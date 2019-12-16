@@ -32,7 +32,7 @@ const withStyle = (props: ListItemProps) => {
 };
 
 const renderListItem = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
+  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor} exactHeight={70}>
     <View style={styles.ListItemWrapper}>
       {withStyle(props)}
       {props.icon

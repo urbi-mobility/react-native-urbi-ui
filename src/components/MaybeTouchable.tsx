@@ -13,6 +13,7 @@ type MaybeTouchableProps = {
   marginBottom?: number;
   withShadow?: boolean;
   backgroundColor?: string;
+  exactHeight?: number;
 };
 
 const withStyle = (props: MaybeTouchableProps) =>
@@ -38,7 +39,15 @@ const childrenWithBackground = (props: MaybeTouchableProps) => {
 };
 
 const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
-  const { backgroundColor, margin, marginTop, marginBottom, onPress, withShadow } = props;
+  const {
+    backgroundColor,
+    exactHeight,
+    margin,
+    marginTop,
+    marginBottom,
+    onPress,
+    withShadow,
+  } = props;
 
   if (!onPress) {
     return margin ? (
@@ -52,7 +61,16 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
 
   const touchable = (
     <Touchable
-      style={(onIOS && withStyle(props)) || { flex: 1, backgroundColor }}
+      style={
+        (onIOS && withStyle(props)) || exactHeight
+          ? {
+              flexBasis: exactHeight,
+              flexGrow: 1,
+              flexShrink: 0,
+              backgroundColor,
+            }
+          : { flex: 1, backgroundColor }
+      }
       onPress={onPress}
     >
       {childrenWithBackground(props)}
@@ -61,7 +79,17 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
 
   if (!props.withShadow) {
     return (
-      <View style={{ flex: 1, margin, marginTop, marginBottom, backgroundColor }}>{touchable}</View>
+      <View
+        style={{
+          flexGrow: 1,
+          margin,
+          marginTop,
+          marginBottom,
+          backgroundColor,
+        }}
+      >
+        {touchable}
+      </View>
     );
   }
 

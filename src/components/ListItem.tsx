@@ -18,6 +18,7 @@ const styles: Styles = StyleSheet.create({
   },
   ListItemWrapper: {
     height: 56,
+    minHeight: 56,
     paddingTop: 8,
     paddingBottom: 8,
     paddingRight: 12,
@@ -60,9 +61,11 @@ export type ListItemProps = {
 
 const Content = (props: ListItemProps) => {
   const { icon, content, end } = props;
-  return React.cloneElement(content, {
-    style: end || icon ? styles.ContentWithEnd : null,
-  });
+  return end || icon
+    ? React.cloneElement(content, {
+        style: end || icon ? styles.ContentWithEnd : null,
+      })
+    : content;
 };
 
 export const renderImageOrIcon = (
@@ -76,7 +79,7 @@ export const renderImageOrIcon = (
 };
 
 const renderListItem = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
+  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor} exactHeight={56}>
     <View style={styles.ListItemWrapper}>
       {Content(props)}
       {props.icon

@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
   Wrapper: {
     minHeight: 40,
     flexDirection: 'row',
-    flex: 1,
+    flexGrow: 1,
+    flexBasis: 40,
+    flexShrink: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },

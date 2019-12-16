@@ -15,7 +15,7 @@ import { IconAndLabel } from '../molecules/content/IconAndLabel';
 import { SectionsDivider } from '../molecules/SectionsDivider';
 import { colors } from '../utils/colors';
 import { textStyle as makeTextStyle } from '../utils/textStyles';
-import { ListItemLarge } from './ListItemLarge';
+import { ListItem } from './ListItem';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -32,13 +32,23 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
+    height: 380,
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
     shadowOffset: { height: 4, width: 0 },
     backgroundColor: colors.ulisse,
   } as ViewStyle,
-  Cancel: {
+  LoadingWrapper: {
+    paddingTop: 150,
+    paddingBottom: 150,
+    marginLeft: 20,
+    marginRight: 20,
+    alignItems: 'center',
+  } as ViewStyle,
+  ContentWrapper: {
     flex: 1,
+  },
+  Cancel: {
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     margin: 12,
@@ -47,6 +57,7 @@ const styles = StyleSheet.create({
     ...makeTextStyle('title', colors.uma),
     marginLeft: 16,
     marginRight: 12,
+    marginBottom: 4,
   } as TextStyle,
   PriceOrder: {
     ...makeTextStyle('hero', colors.uma),
@@ -54,18 +65,16 @@ const styles = StyleSheet.create({
     marginRight: 12,
     marginBottom: 12,
   } as TextStyle,
-  ContainerCenter: {
-    paddingTop: 150,
-    paddingBottom: 150,
-    marginLeft: 20,
-    marginRight: 20,
-    alignItems: 'center',
-  } as ViewStyle,
-  Footer: {
+  PaymentMethodWrapper: {
     flex: 1,
-    alignItems: 'center',
+  },
+  Footer: {
+    flexGrow: 0,
+    flexBasis: 56,
+    flexShrink: 0,
     justifyContent: 'center',
     marginBottom: 24,
+    paddingHorizontal: 40,
   } as ViewStyle,
 });
 
@@ -113,40 +122,30 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
       {props.show && (
         <View style={styles.WrapperChild}>
           {props.loading ? (
-            <View style={styles.ContainerCenter}>
+            <View style={styles.LoadingWrapper}>
               <ActivityIndicator size="large" color={colors.brand} />
             </View>
           ) : (
-            <View>
+            <View style={styles.ContentWrapper}>
               <View style={styles.Cancel}>
                 <LinkCompact text={props.cancel} onPress={props.onCancelPress} uppercase />
               </View>
-              <SectionsDivider
-                label={props.title}
-                labelColor={colors.ughina}
-                backgroundColor={colors.ulisse}
-              />
+              <SectionsDivider label={props.title} backgroundColor={colors.ulisse} />
               <Text style={styles.TitleOrder}>{props.nameShop}</Text>
               <Text style={styles.PriceOrder}>{props.price}</Text>
-              <View style={{ flex: 1 }}>
-                <SectionsDivider
-                  label={props.paymentTitle}
-                  labelColor={colors.ughina}
-                  backgroundColor={colors.ulisse}
-                />
-                <ListItemLarge
-                  onPress={props.cardProperty.onCardPress}
-                  content={
-                    <IconAndLabel
-                      image={props.cardProperty.imageCard}
-                      label={props.cardProperty.labelCard}
-                      labelColor={colors.uma}
-                    />
-                  }
-                  icon="disclosure-small"
-                  backgroundColor={colors.ulisse}
-                />
-              </View>
+              <SectionsDivider label={props.paymentTitle} backgroundColor={colors.ulisse} />
+              <ListItem
+                onPress={props.cardProperty.onCardPress}
+                content={
+                  <IconAndLabel
+                    image={props.cardProperty.imageCard}
+                    label={props.cardProperty.labelCard}
+                    labelColor={colors.uma}
+                  />
+                }
+                backgroundColor={colors.ulisse}
+                icon="disclosure-small"
+              />
               <View style={styles.Footer}>
                 <ButtonRegular
                   buttonStyle="primary"
