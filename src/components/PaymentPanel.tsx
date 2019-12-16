@@ -144,7 +144,7 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
               <Text style={styles.TitleOrder}>{props.nameShop}</Text>
               <Text style={styles.PriceOrder}>{props.price}</Text>
               <SectionsDivider label={props.paymentTitle} backgroundColor={colors.ulisse} />
-              <View style={styles.PaymentMethodWrapper}>
+              <View style={{ flexGrow: 1 }}>
                 <ListItem
                   onPress={props.cardProperty.onCardPress}
                   content={

@@ -81,7 +81,7 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
     return (
       <View
         style={{
-          flexGrow: props.exactHeight ? 0 : 1,
+          flexGrow: 1,
           justifyContent: 'flex-start',
           margin,
           marginTop,
