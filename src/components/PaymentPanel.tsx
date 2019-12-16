@@ -101,6 +101,7 @@ type PaymentPanelProps = {
   cancel: string;
   buttonOnPress: () => any;
   onIphoneX: boolean;
+  countBottomTabs?: boolean;
 };
 
 const transition = (
@@ -126,7 +127,7 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
       {props.show && (
         <View
           style={
-            props.onIphoneX
+            props.onIphoneX && !props.countBottomTabs
               ? [styles.WrapperChild, { height: 380 + IPHONE_X_HOME_AREA_HEIGHT }]
               : styles.WrapperChild
           }
@@ -160,7 +161,7 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
               </View>
               <View
                 style={
-                  props.onIphoneX
+                  props.onIphoneX && !props.countBottomTabs
                     ? [
                         styles.Footer,
                         { marginBottom: footerMarginBottom + IPHONE_X_HOME_AREA_HEIGHT },
