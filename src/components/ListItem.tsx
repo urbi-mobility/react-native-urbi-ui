@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
+import { colors } from 'src/utils/colors';
 import { Icon } from '../utils/const';
 import { MaybeTouchable } from './MaybeTouchable';
-import { colors } from 'src/utils/colors';
 
 type Styles = {
   Wrapper: ViewStyle;
@@ -63,7 +63,7 @@ const Content = (props: ListItemProps) => {
   const { icon, content, end } = props;
   return end || icon
     ? React.cloneElement(content, {
-        style: end || icon ? styles.ContentWithEnd : null,
+        style: styles.ContentWithEnd,
       })
     : content;
 };

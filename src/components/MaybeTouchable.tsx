@@ -62,14 +62,15 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
   const touchable = (
     <Touchable
       style={
-        (onIOS && withStyle(props)) || exactHeight
+        (onIOS && withStyle(props)) ||
+        (exactHeight
           ? {
               flexBasis: exactHeight,
               flexGrow: 1,
               flexShrink: 0,
               backgroundColor,
             }
-          : { flex: 1, backgroundColor }
+          : { flex: 1, backgroundColor })
       }
       onPress={onPress}
     >
@@ -81,7 +82,7 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
     return (
       <View
         style={{
-          flexGrow: 1,
+          flex: 1,
           justifyContent: 'flex-start',
           margin,
           marginTop,
