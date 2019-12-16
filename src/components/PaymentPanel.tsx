@@ -14,8 +14,11 @@ import { LinkCompact } from '../molecules/buttons/LinkCompact';
 import { IconAndLabel } from '../molecules/content/IconAndLabel';
 import { SectionsDivider } from '../molecules/SectionsDivider';
 import { colors } from '../utils/colors';
+import { IPHONE_X_HOME_AREA_HEIGHT } from '../utils/const';
 import { textStyle as makeTextStyle } from '../utils/textStyles';
 import { ListItem } from './ListItem';
+
+const footerMarginBottom = 24;
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -66,14 +69,14 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   } as TextStyle,
   PaymentMethodWrapper: {
-    flex: 1,
+    flexGrow: 1,
   },
   Footer: {
     flexGrow: 0,
     flexBasis: 56,
     flexShrink: 0,
     justifyContent: 'center',
-    marginBottom: 24,
+    marginBottom: footerMarginBottom,
     paddingHorizontal: 40,
   } as ViewStyle,
 });
@@ -97,6 +100,7 @@ type PaymentPanelProps = {
   buttonTitle: string;
   cancel: string;
   buttonOnPress: () => any;
+  onIphoneX: boolean;
 };
 
 const transition = (
@@ -120,7 +124,13 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
       elevation={5}
     >
       {props.show && (
-        <View style={styles.WrapperChild}>
+        <View
+          style={
+            props.onIphoneX
+              ? [styles.WrapperChild, { height: 380 + IPHONE_X_HOME_AREA_HEIGHT }]
+              : styles.WrapperChild
+          }
+        >
           {props.loading ? (
             <View style={styles.LoadingWrapper}>
               <ActivityIndicator size="large" color={colors.brand} />
@@ -134,19 +144,30 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
               <Text style={styles.TitleOrder}>{props.nameShop}</Text>
               <Text style={styles.PriceOrder}>{props.price}</Text>
               <SectionsDivider label={props.paymentTitle} backgroundColor={colors.ulisse} />
-              <ListItem
-                onPress={props.cardProperty.onCardPress}
-                content={
-                  <IconAndLabel
-                    image={props.cardProperty.imageCard}
-                    label={props.cardProperty.labelCard}
-                    labelColor={colors.uma}
-                  />
+              <View style={styles.PaymentMethodWrapper}>
+                <ListItem
+                  onPress={props.cardProperty.onCardPress}
+                  content={
+                    <IconAndLabel
+                      image={props.cardProperty.imageCard}
+                      label={props.cardProperty.labelCard}
+                      labelColor={colors.uma}
+                    />
+                  }
+                  backgroundColor={colors.ulisse}
+                  icon="disclosure-small"
+                />
+              </View>
+              <View
+                style={
+                  props.onIphoneX
+                    ? [
+                        styles.Footer,
+                        { marginBottom: footerMarginBottom + IPHONE_X_HOME_AREA_HEIGHT },
+                      ]
+                    : styles.Footer
                 }
-                backgroundColor={colors.ulisse}
-                icon="disclosure-small"
-              />
-              <View style={styles.Footer}>
+              >
                 <ButtonRegular
                   buttonStyle="primary"
                   label={props.buttonTitle}

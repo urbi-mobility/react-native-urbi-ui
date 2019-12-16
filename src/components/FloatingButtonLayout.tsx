@@ -12,10 +12,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
 import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
 import { colors } from '../utils/colors';
-import { onIOS, tabBarHeight } from '../utils/const';
+import { IPHONE_X_HOME_AREA_HEIGHT, onIOS, tabBarHeight } from '../utils/const';
 
 export const BOTTOM_PANEL_HEIGHT = 80;
-export const IPHONE_X_SAFE_AREA_HEIGHT = 34;
 const ANDROID_EVT_DURATION = 100;
 
 export const bottomPanelStyles = {
@@ -127,7 +126,7 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
           },
         ];
     const bottomPanelStyle = onIphoneX
-      ? [styles.BottomPanel, { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_SAFE_AREA_HEIGHT }]
+      ? [styles.BottomPanel, { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT }]
       : styles.BottomPanel;
 
     return (

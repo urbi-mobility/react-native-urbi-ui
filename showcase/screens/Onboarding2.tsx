@@ -1,6 +1,7 @@
 import React from 'react';
-import OnboardingComponent from 'react-native-urbi-ui/components/Onboarding';
-import { OnboardingProps, onIphoneX } from './Onboarding';
+import { Onboarding as OnboardingComponent } from 'react-native-urbi-ui/components/Onboarding';
+import { OnboardingProps } from './Onboarding';
+import { onIphoneX } from '../utils/const';
 
 const pages = [
   {

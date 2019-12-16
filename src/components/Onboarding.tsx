@@ -15,11 +15,8 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import {
-  bottomPanelStyles,
-  BOTTOM_PANEL_HEIGHT,
-  IPHONE_X_SAFE_AREA_HEIGHT,
-} from '../components/FloatingButtonLayout';
+import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
+import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from '../components/FloatingButtonLayout';
 import { ButtonRegular } from '../molecules/buttons/ButtonRegular';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
@@ -154,7 +151,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
               onIphoneX
                 ? [
                     bottomPanelStyles.BottomPanel,
-                    { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_SAFE_AREA_HEIGHT },
+                    { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT },
                   ]
                 : bottomPanelStyles.BottomPanel
             }

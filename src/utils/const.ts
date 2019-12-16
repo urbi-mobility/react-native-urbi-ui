@@ -17,6 +17,8 @@ export const windowWidth = Dimensions.get('window').width;
 
 export const tabBarHeight = onIOS ? 48 + (windowHeight > 800 ? 34 : 0) : 56;
 
+export const IPHONE_X_HOME_AREA_HEIGHT = 34;
+
 export const Icon = createIconSetFromIcoMoon(icoMoonConfig);
 
 const pixelRatio = PixelRatio.get();

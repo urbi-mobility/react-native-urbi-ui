@@ -1,8 +1,7 @@
 import React from 'react';
-import OnboardingComponent from 'react-native-urbi-ui/components/Onboarding';
+import { Onboarding as OnboardingComponent } from 'react-native-urbi-ui/components/Onboarding';
 import { NavigationStackProp } from 'react-navigation-stack';
-import { Platform } from 'react-native';
-import { hasNotch } from 'react-native-device-info';
+import { onIphoneX } from '../utils/const';
 
 const pages = [
   {
@@ -16,8 +15,6 @@ const pages = [
 export type OnboardingProps = {
   navigation: NavigationStackProp;
 };
-
-export const onIphoneX = Platform.OS === 'ios' && hasNotch();
 
 class Onboarding extends React.PureComponent<OnboardingProps> {
   render() {

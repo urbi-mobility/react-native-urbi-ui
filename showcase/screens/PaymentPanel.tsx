@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { PaymentPanel as PaymentPanelComponent } from 'react-native-urbi-ui/components/PaymentPanel';
 import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
+import { onIphoneX } from '../utils/const';
 import { onButtonPress, placeholder, renderComponent, sleep } from '../utils/ComponentPreview';
 
 type PaymentPanelState = {
@@ -53,6 +54,7 @@ class PaymentPanel extends React.PureComponent<any, PaymentPanelState> {
             labelCard: 'Insert Card',
             onCardPress: onButtonPress,
           }}
+          onIphoneX={onIphoneX}
         />
         <ScrollView>
           {renderComponent(

@@ -1,7 +1,8 @@
 import React from 'react';
-import OnboardingSinglePage from 'react-native-urbi-ui/components/OnboardingSinglePage';
+import { OnboardingSinglePage } from 'react-native-urbi-ui/components/OnboardingSinglePage';
 import { clientIpsum } from '../utils/LoremIpsum';
-import { OnboardingProps, onIphoneX } from './Onboarding';
+import { OnboardingProps } from './Onboarding';
+import { onIphoneX } from '../utils/const';
 
 const page = {
   title: "Look at me, I'm a title spanning two lines. Spiffy, uh?",

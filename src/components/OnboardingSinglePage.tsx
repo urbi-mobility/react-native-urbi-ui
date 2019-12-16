@@ -2,11 +2,8 @@ import React from 'react';
 import { StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
-import {
-  bottomPanelStyles,
-  BOTTOM_PANEL_HEIGHT,
-  IPHONE_X_SAFE_AREA_HEIGHT,
-} from '../components/FloatingButtonLayout';
+import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
+import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from '../components/FloatingButtonLayout';
 import { ButtonRegular } from '../molecules/buttons/ButtonRegular';
 import { colors } from '../utils/colors';
 import { CTA, OnboardingPage, renderOnboardingPage } from './Onboarding';
@@ -40,7 +37,7 @@ const OnboardingSingleUnmemoized = (props: OnboardingSinglePageProps) => (
           props.onIphoneX
             ? [
                 bottomPanelStyles.BottomPanel,
-                { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_SAFE_AREA_HEIGHT },
+                { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT },
               ]
             : bottomPanelStyles.BottomPanel
         }
