@@ -156,7 +156,7 @@ index fd625bd..c44aff2 100644
      view.setRippleColor(rippleColor);
    }
  
-+  @ReactProp(name = "exclusive", defaultBoolean = true)
++  @ReactProp(name = "exclusive", defaultBoolean = false)
 +  public void setExclusive(ButtonViewGroup view, boolean exclusive) {
 +    view.setExclusive(exclusive);
 +  }

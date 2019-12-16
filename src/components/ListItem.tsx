@@ -55,6 +55,7 @@ export type ListItemProps = {
   iconColor?: string;
   backgroundColor?: string;
   withSeparator?: boolean;
+  exclusive?: boolean;
 };
 
 const Content = (props: ListItemProps) => {

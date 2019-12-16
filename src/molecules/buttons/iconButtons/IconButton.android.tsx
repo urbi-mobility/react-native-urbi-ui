@@ -55,6 +55,7 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
     const {
       backgroundColor,
       buttonStyle,
+      exclusive,
       icon,
       onPress,
       onPressIn,
@@ -62,13 +63,22 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
       noShadow,
       style,
     } = this.props;
+
     const disabled = buttonStyle === 'disabled';
+
+    // this is to avoid this  beautiful TS error:
+    // Property 'exclusive' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<TouchableNativeFeedback> & Readonly<TouchableNativeFeedbackProps> & Readonly<...>'
+    // it's a prop added via a patch to react-native-gesture-handler, see https://github.com/software-mansion/react-native-gesture-handler/issues/784 and
+    // https://github.com/Microsoft/TypeScript/issues/15463
+    const propsFromPatch = { exclusive };
+
     return (
       <View
         style={[this.styles.Wrapper, style, { opacity }]}
         elevation={backgroundColor === colors.transparent || disabled || noShadow ? 0 : 1}
       >
         <TouchableNativeFeedback
+          {...propsFromPatch}
           onPress={disabled ? undefined : onPress}
           onPressIn={disabled ? undefined : onPressIn}
         >
