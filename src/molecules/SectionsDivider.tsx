@@ -9,15 +9,13 @@ const styles = StyleSheet.create({
     height: 40,
   },
   Label: {
+    ...registeredTextStyle('small', colors.ughina, 'SectionsDivider'),
     marginLeft: 16,
     marginRight: 7,
     marginBottom: 12,
     marginTop: 14,
   },
 });
-
-const textStyle = registeredTextStyle('small', colors.uto, 'SectionsDivider');
-const labelStyle = [styles.Label, textStyle];
 
 type SectionsDividersProps = {
   label: string;
@@ -30,7 +28,7 @@ const SectionsDividerUnmemoized = (props: SectionsDividersProps) => {
   const wrapperStyle = backgroundColor ? [styles.Wrapper, { backgroundColor }] : styles.Wrapper;
   return (
     <View style={wrapperStyle}>
-      <Text style={[labelStyle, labelColor ? { color: labelColor } : undefined]}>
+      <Text style={labelColor ? [styles.Label, { color: labelColor }] : styles.Label}>
         {props.label.toUpperCase()}
       </Text>
     </View>
