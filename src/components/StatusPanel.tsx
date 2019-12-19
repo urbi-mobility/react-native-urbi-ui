@@ -12,9 +12,8 @@ import { Touchable } from '../components/Touchable';
 import { Status, StatusProps } from '../molecules/content/Status';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
-import { onIOS, windowWidth } from '../utils/const';
+import { windowWidth } from '../utils/const';
 import { shallowEqual } from '../utils/functions';
-
 type StatusPanelProps = {
   pages: StatusProps[];
   onPress?: () => any;
@@ -86,7 +85,7 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
   }
 
   onMomentumScrollEnd(e: NativeSyntheticEvent<NativeScrollEvent>) {
-    const selectedPage = Math.floor(e.nativeEvent.contentOffset.x / this.state.scrollViewWidth);
+    const selectedPage = Math.ceil(e.nativeEvent.contentOffset.x / this.state.scrollViewWidth);
     this.setState({ selectedPage });
     if (this.props.onPageChange) {
       this.props.onPageChange(selectedPage);
@@ -97,25 +96,26 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
     // tslint:disable:jsx-no-multiline-js
     return (
       <View style={styles.Wrapper} elevation={2}>
-        <Touchable onPress={this.props.onPress}>
-          <View style={styles.Content}>
-            <ScrollView
-              ref={this.scrollView}
-              onLayout={this.onLayout}
-              snapToAlignment="end"
-              snapToInterval={this.state.scrollViewWidth}
-              showsHorizontalScrollIndicator={false}
-              onMomentumScrollEnd={this.onMomentumScrollEnd}
-              decelerationRate="fast"
-              overScrollMode={onIOS ? undefined : 'never'}
-              horizontal
-            >
-              {this.props.pages.map((s, i) => (
+        <View style={styles.Content}>
+          <ScrollView
+            ref={this.scrollView}
+            onLayout={this.onLayout}
+            snapToAlignment="end"
+            snapToInterval={this.state.scrollViewWidth}
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={this.onMomentumScrollEnd}
+            decelerationRate="fast"
+            overScrollMode="never"
+            disableIntervalMomentum
+            horizontal
+          >
+            {this.props.pages.map((s, i) => (
+              <Touchable key={i} onPress={this.props.onPress}>
                 <Status key={`page-${i}`} {...s} minWidth={this.state.scrollViewWidth} />
-              ))}
-            </ScrollView>
-          </View>
-        </Touchable>
+              </Touchable>
+            ))}
+          </ScrollView>
+        </View>
         <PageIndicator pages={this.props.pages.length} selectedPage={this.state.selectedPage} />
       </View>
     );
