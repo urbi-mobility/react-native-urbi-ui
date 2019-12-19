@@ -98,7 +98,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
   }
 
   focus() {
-    this.textInput.current!.focus();
+    if (this.textInput.current) this.textInput.current.focus();
   }
 
   togglePassword() {

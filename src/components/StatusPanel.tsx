@@ -13,6 +13,7 @@ import { Status, StatusProps } from '../molecules/content/Status';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
 import { onIOS, windowWidth } from '../utils/const';
+import { shallowEqual } from '../utils/functions';
 
 type StatusPanelProps = {
   pages: StatusProps[];
@@ -44,11 +45,39 @@ const styles = StyleSheet.create({
 });
 
 export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPanelState> {
+  private scrollView: React.RefObject<ScrollView>;
+
   constructor(props: StatusPanelProps) {
     super(props);
+    this.scrollView = React.createRef();
     this.state = { scrollViewWidth: windowWidth, selectedPage: 0 };
     this.onLayout = this.onLayout.bind(this);
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
+  }
+
+  componentDidUpdate(prevProps: StatusPanelProps, prevState: StatusPanelState) {
+    const sv = this.scrollView.current;
+    if (this.props.pages.length !== prevProps.pages.length && sv) {
+      let selectedPage: number;
+      if (this.props.pages.length > prevProps.pages.length) {
+        selectedPage = this.props.pages.length - 1;
+      } else {
+        const prevSelectedPage = prevProps.pages[prevState.selectedPage];
+        if (shallowEqual(prevSelectedPage, this.props.pages[this.state.selectedPage])) {
+          // no need to change page then
+          return;
+        }
+        // a page with a lower index than selectedPage disappeared, shift left
+        selectedPage = this.state.selectedPage - 1;
+      }
+      requestAnimationFrame(() => {
+        sv.scrollTo({ x: this.state.scrollViewWidth * selectedPage });
+        this.setState({ selectedPage });
+        if (this.props.onPageChange) {
+          this.props.onPageChange(selectedPage);
+        }
+      });
+    }
   }
 
   onLayout(e: LayoutChangeEvent) {
@@ -71,6 +100,7 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
         <Touchable onPress={this.props.onPress}>
           <View style={styles.Content}>
             <ScrollView
+              ref={this.scrollView}
               onLayout={this.onLayout}
               snapToAlignment="end"
               snapToInterval={this.state.scrollViewWidth}
