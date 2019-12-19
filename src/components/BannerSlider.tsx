@@ -19,6 +19,7 @@ export const bannerHeight = 116;
 
 type BannerSliderPanelProps = {
   pages: BannerSlideProps[];
+  autoSwipeSeconds?: number;
   onPress?: (key: number) => any;
   onPageChange?: (selectedIndex: number) => any;
 };
@@ -56,13 +57,43 @@ export class BannerSlider extends React.PureComponent<
   BannerSliderPanelProps,
   BannerSliderPanelState
 > {
+  private autoSwipeTimeoutHandle: number;
+  private scrollView: React.RefObject<ScrollView>;
+
   constructor(props: BannerSliderPanelProps) {
     super(props);
     this.state = { scrollViewWidth: windowWidth, selectedPage: 0, imageHeight: 0 };
+    this.autoSwipeTimeoutHandle = 0;
+    this.scrollView = React.createRef();
     this.onLayout = this.onLayout.bind(this);
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
     this.curryWithPage = this.curryWithPage.bind(this);
     this.onSetHeight = this.onSetHeight.bind(this);
+    this.maybeScheduleAutoSwipe = this.maybeScheduleAutoSwipe.bind(this);
+  }
+
+  componentDidMount() {
+    this.maybeScheduleAutoSwipe();
+  }
+
+  componentWillUnmount() {
+    if (this.autoSwipeTimeoutHandle) clearTimeout(this.autoSwipeTimeoutHandle);
+  }
+
+  maybeScheduleAutoSwipe() {
+    if (this.props.autoSwipeSeconds) {
+      this.autoSwipeTimeoutHandle = setTimeout(() => {
+        requestAnimationFrame(() => {
+          const sv = this.scrollView.current;
+          if (sv) {
+            const selectedPage = (this.state.selectedPage + 1) % this.props.pages.length;
+            sv.scrollTo({ x: this.state.scrollViewWidth * selectedPage, animated: true });
+            this.setState({ selectedPage });
+            this.maybeScheduleAutoSwipe();
+          }
+        });
+      }, this.props.autoSwipeSeconds * 1000);
+    }
   }
 
   onLayout(e: LayoutChangeEvent) {
@@ -71,10 +102,14 @@ export class BannerSlider extends React.PureComponent<
   }
 
   onMomentumScrollEnd(e: NativeSyntheticEvent<NativeScrollEvent>) {
-    const selectedPage = Math.floor(e.nativeEvent.contentOffset.x / this.state.scrollViewWidth);
+    const selectedPage = Math.ceil(e.nativeEvent.contentOffset.x / this.state.scrollViewWidth);
     this.setState({ selectedPage });
     if (this.props.onPageChange) {
       this.props.onPageChange(selectedPage);
+    }
+    if (this.autoSwipeTimeoutHandle) {
+      clearTimeout(this.autoSwipeTimeoutHandle);
+      this.maybeScheduleAutoSwipe();
     }
   }
 
@@ -94,13 +129,15 @@ export class BannerSlider extends React.PureComponent<
         <View style={styles.Wrapper}>
           <View style={styles.Content}>
             <ScrollView
+              ref={this.scrollView}
               onLayout={this.onLayout}
               snapToAlignment="end"
               snapToInterval={this.state.scrollViewWidth}
               showsHorizontalScrollIndicator={false}
               onMomentumScrollEnd={this.onMomentumScrollEnd}
               decelerationRate="fast"
-              overScrollMode={onIOS ? undefined : 'never'}
+              disableIntervalMomentum
+              overScrollMode={'never'}
               scrollEnabled={!(onIOS && this.props.pages.length === 1)}
               horizontal
             >
