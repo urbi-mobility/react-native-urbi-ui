@@ -41,6 +41,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  Touchable: {
+    height: 48,
+  },
 });
 
 export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPanelState> {
@@ -93,7 +96,6 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
   }
 
   render() {
-    // tslint:disable:jsx-no-multiline-js
     return (
       <View style={styles.Wrapper} elevation={2}>
         <View style={styles.Content}>
@@ -110,7 +112,7 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
             horizontal
           >
             {this.props.pages.map((s, i) => (
-              <Touchable key={i} onPress={this.props.onPress}>
+              <Touchable key={i} style={styles.Touchable} onPress={this.props.onPress}>
                 <Status key={`page-${i}`} {...s} minWidth={this.state.scrollViewWidth} />
               </Touchable>
             ))}
