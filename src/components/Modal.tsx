@@ -59,7 +59,7 @@ type ModalProps = {
 
 export const ModalUnmemoized = (props: ModalProps) =>
   props.show ? (
-    <View style={styles.Wrapper} elevation={5}>
+    <View style={styles.Wrapper}>
       <View style={styles.Modal}>
         <View style={styles.UpperWrapper}>
           {props.image && (
