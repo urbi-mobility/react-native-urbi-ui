@@ -17,7 +17,6 @@ export interface ButtonProps {
   colorOverride?: string;
   onPressIn?: () => any;
   loading?: boolean;
-  exclusive?: boolean;
 }
 
 export interface ExtendedButtonProps extends ButtonProps {
@@ -43,7 +42,6 @@ export interface IconButtonProps {
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   colorOverride?: string;
   onPressIn?: () => any;
-  exclusive?: boolean;
 }
 
 export interface IconButtonExtendedProps extends IconButtonProps {

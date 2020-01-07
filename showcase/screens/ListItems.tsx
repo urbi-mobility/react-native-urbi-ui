@@ -182,16 +182,8 @@ class ListItems extends React.PureComponent<any> {
           'ListItem (with 2 events)',
           <ListItem
             content={<IconAndLabel image={placeholder} label="Click me" />}
-            end={
-              <IconButtonRegular
-                icon="car"
-                buttonStyle="default"
-                onPress={onButtonPress}
-                exclusive
-              />
-            }
+            end={<IconButtonRegular icon="car" buttonStyle="default" onPress={onButtonPress} />}
             onPress={onListItemPress}
-            exclusive
           />
         )}
       </ScrollView>
