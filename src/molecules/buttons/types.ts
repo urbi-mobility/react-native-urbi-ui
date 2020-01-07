@@ -42,6 +42,7 @@ export interface IconButtonProps {
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   colorOverride?: string;
   onPressIn?: () => any;
+  iconSizeOverride?: number;
 }
 
 export interface IconButtonExtendedProps extends IconButtonProps {

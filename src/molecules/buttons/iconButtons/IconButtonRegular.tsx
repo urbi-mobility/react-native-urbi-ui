@@ -8,8 +8,11 @@ export const sizes = {
   innerIconSize: 40,
 };
 
+const getSize = (props: IconButtonProps) =>
+  props.iconSizeOverride ? { size: sizes.size, innerIconSize: props.iconSizeOverride } : sizes;
+
 const IconButtonRegularUnmemoized = (props: IconButtonProps) => (
-  <IconButton icon={props.icon} {...styles(props)} {...sizes} {...props} />
+  <IconButton icon={props.icon} {...styles(props)} {...getSize(props)} {...props} />
 );
 
 export const IconButtonRegular = React.memo(IconButtonRegularUnmemoized);
