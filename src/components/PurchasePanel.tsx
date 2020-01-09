@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.ulisse,
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
+    shadowColor: colors.uma,
+    shadowOpacity: 1.0,
     shadowOffset: { height: 4, width: 0 },
     justifyContent: 'center',
     paddingLeft: 24,
