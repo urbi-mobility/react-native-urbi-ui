@@ -65,6 +65,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
       loading,
       loadingColor,
       loadingSize,
+      onLongPress,
       onPress,
       onPressIn,
       style,
@@ -77,6 +78,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
         elevation={backgroundColor === colors.transparent || disabled ? 0 : 2}
       >
         <TouchableNativeFeedback
+          onLongPress={disabled ? undefined : onLongPress}
           onPress={disabled ? undefined : onPress}
           onPressIn={disabled ? undefined : onPressIn}
         >

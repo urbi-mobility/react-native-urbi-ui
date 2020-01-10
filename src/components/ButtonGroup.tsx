@@ -4,6 +4,7 @@ import { ButtonCompact } from '../molecules/buttons/ButtonCompact';
 
 type ButtonGroupEntry = {
   onPress: () => any;
+  onLongPress?: () => any;
   label: string;
   active: boolean;
 };
@@ -37,6 +38,7 @@ const ButtonGroupUnmemoized = (props: ButtonGroupProps) => (
         buttonStyle={b.active ? 'brand' : 'primary'}
         style={i === props.buttons.length - 1 ? undefined : styles.WithMargin}
         label={b.label}
+        onLongPress={b.onLongPress}
         onPress={b.onPress}
       />
     ))}

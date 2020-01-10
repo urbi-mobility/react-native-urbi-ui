@@ -48,7 +48,7 @@ class Toggles extends React.PureComponent<any> {
           <FilterGroup
             filterButtons={categoryFilters}
             onFilterToggle={onFilterPress}
-            onSettingsClicked={onButtonPress}
+            onLastButtonClick={onButtonPress}
           />
         )}
       </ScrollView>

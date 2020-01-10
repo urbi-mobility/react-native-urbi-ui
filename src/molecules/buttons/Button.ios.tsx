@@ -59,6 +59,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
       buttonStyle,
       isUppercase,
       label,
+      onLongPress,
       onPress,
       onPressIn,
       style,
@@ -67,6 +68,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
 
     return (
       <TouchableOpacity
+        onLongPress={disabled || loading ? undefined : onLongPress}
         onPressIn={disabled || loading ? undefined : onPressIn}
         onPress={disabled || loading ? undefined : onPress}
         style={[this.styles.Button, style, this.getDisabledDependentButtonStyles()]}

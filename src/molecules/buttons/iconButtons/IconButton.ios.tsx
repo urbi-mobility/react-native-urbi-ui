@@ -62,11 +62,21 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
   }
 
   render() {
-    const { backgroundColor, buttonStyle, icon, onPress, onPressIn, opacity, style } = this.props;
+    const {
+      backgroundColor,
+      buttonStyle,
+      icon,
+      onLongPress,
+      onPress,
+      onPressIn,
+      opacity,
+      style,
+    } = this.props;
     const disabled = buttonStyle === 'disabled';
 
     return (
       <TouchableOpacity
+        onLongPress={disabled ? undefined : onLongPress}
         onPress={disabled ? undefined : onPress}
         onPressIn={disabled ? undefined : onPressIn}
         // tslint:disable-next-line:jsx-no-multiline-js

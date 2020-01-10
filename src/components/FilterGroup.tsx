@@ -8,7 +8,7 @@ type FilterButton = { id: string; icon: string; active?: boolean };
 type FilterGroupProps = {
   filterButtons: FilterButton[];
   onFilterToggle: (id: string, active: boolean) => void;
-  onSettingsClicked: () => void;
+  onLastButtonClick: () => void;
   style?: ViewStyle;
   managed?: boolean; // whether the state of filters is managed through props
 };
@@ -45,7 +45,7 @@ const FilterGroupUnmemoized = (props: FilterGroupProps) => {
       style={[styles.Wrapper, props.style, { maxWidth }]}
     >
       {buttons(props)}
-      <IconButtonRegular buttonStyle="primary" icon="taxi" onPress={props.onSettingsClicked} />
+      <IconButtonRegular buttonStyle="primary" icon="taxi" onPress={props.onLastButtonClick} />
     </View>
   );
 };

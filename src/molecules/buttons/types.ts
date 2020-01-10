@@ -15,6 +15,7 @@ export interface ButtonProps {
   buttonStyle: ButtonStyle;
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   colorOverride?: string;
+  onLongPress?: () => any;
   onPressIn?: () => any;
   loading?: boolean;
 }
@@ -41,6 +42,7 @@ export interface IconButtonProps {
   buttonStyle: ButtonStyle;
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   colorOverride?: string;
+  onLongPress?: () => any;
   onPressIn?: () => any;
   iconSizeOverride?: number;
 }
