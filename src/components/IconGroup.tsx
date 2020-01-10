@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
 
 type IconGroupProps = {
   icons: Array<ReactElement<typeof ImageToggle>>;
+  scrollViewWidth?: number;
 };
 
 type IconGroupState = {
@@ -59,6 +60,9 @@ export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupStat
       selectedPage: 0,
       offsets: [0],
     };
+    if (props.scrollViewWidth) {
+      this.state = { ...this.state, ...this.fitWidth(props.scrollViewWidth) };
+    }
     this.onLayout = this.onLayout.bind(this);
     this.onScrollEnd = this.onScrollEnd.bind(this);
   }
@@ -76,6 +80,10 @@ export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupStat
 
   onLayout(e: LayoutChangeEvent) {
     const width = e.nativeEvent.layout.width;
+    this.setState(this.fitWidth(width));
+  }
+
+  fitWidth(width: number) {
     // we want padding on both sides, so it's one more padding slot than icons
     const perPage = Math.floor((width - MIN_ITEM_PADDING) / MIN_ITEM_WIDTH);
     const extraPaddingSpace = width - MIN_ITEM_PADDING - perPage * MIN_ITEM_WIDTH;
@@ -86,13 +94,13 @@ export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupStat
     for (let i = 0; i < pages; i++) {
       offsets.push(i * perPage * (padding + IMG_BUTTON_SIZE));
     }
-    this.setState({
+    return {
       iconsPerPage: perPage,
       scrollViewWidth: width,
       pages,
       offsets,
       padding,
-    });
+    };
   }
 
   wrapButtons() {
@@ -125,7 +133,7 @@ export class IconGroup extends React.PureComponent<IconGroupProps, IconGroupStat
         <View style={styles.ScrollViewWrapper}>
           <ScrollView
             style={styles.ScrollView}
-            onLayout={this.onLayout}
+            onLayout={this.props.scrollViewWidth ? undefined : this.onLayout}
             showsHorizontalScrollIndicator={false}
             onMomentumScrollEnd={this.onScrollEnd}
             snapToOffsets={this.state.offsets}
