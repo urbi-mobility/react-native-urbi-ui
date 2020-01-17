@@ -82,6 +82,10 @@ class ProfileHeaders extends React.PureComponent<any> {
           />
         )}
         {renderComponent(
+          'ProfilePic without button or onPress',
+          <ProfilePic image={userAvaterPlaceholder} flexExpand />
+        )}
+        {renderComponent(
           'ProfileAndTrips',
           <ProfileAndTrips
             image={fiftyByFiftyWhitePlaceholder}
