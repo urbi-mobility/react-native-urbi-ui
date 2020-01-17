@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, TextInput, View, ViewStyle, KeyboardTypeOptions } from 'react-native';
 import { IconButtonCompact } from '../../molecules/buttons/iconButtons/IconButtonCompact';
 import { ItemSeparator } from '../../molecules/ItemSeparator';
 import { SectionsDivider } from '../../molecules/SectionsDivider';
@@ -73,6 +73,14 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
+const keyboardTypes: { [t in ListItemTextInputPropsType]: KeyboardTypeOptions } = {
+  text: 'default',
+  emailAddress: 'email-address',
+  password: 'default',
+  pin: 'number-pad',
+  telephoneNumber: 'phone-pad',
+};
+
 class ListItemTextInputComponent extends UrbiFormComponent<
   string,
   ListItemTextInputProps,
@@ -132,7 +140,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             value={value}
             placeholder={placeholder || label || name}
             placeholderTextColor={colors.ughina}
-            keyboardType={type === 'pin' ? 'number-pad' : 'default'}
+            keyboardType={keyboardTypes[type]}
             textContentType={textType}
             secureTextEntry={!showPassword}
             underlineColorAndroid="transparent"
