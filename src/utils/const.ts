@@ -1,5 +1,6 @@
-import { Dimensions, PixelRatio, Platform } from 'react-native';
+import { Dimensions, PixelRatio, Platform, StatusBar } from 'react-native';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
+import { hasNotch } from 'react-native-device-info';
 import icoMoonConfig from '../assets/json/urbi-font.json';
 import { colors } from './colors';
 
@@ -12,9 +13,12 @@ export const wrapperStyle = {
   backgroundColor: colors.ulisse,
 };
 
-export const windowHeight = Dimensions.get('window').height;
+export const windowHeight = onIOS
+  ? Dimensions.get('window').height
+  : hasNotch()
+  ? Dimensions.get('screen').height - StatusBar.currentHeight
+  : Dimensions.get('window').height;
 export const windowWidth = Dimensions.get('window').width;
-
 export const tabBarHeight = onIOS ? 48 + (windowHeight > 800 ? 34 : 0) : 56;
 
 export const IPHONE_X_HOME_AREA_HEIGHT = 34;
