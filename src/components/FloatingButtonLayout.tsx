@@ -12,7 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
 import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
 import { colors } from '../utils/colors';
-import { IPHONE_X_HOME_AREA_HEIGHT, onIOS, tabBarHeight } from '../utils/const';
+import { IPHONE_X_HOME_AREA_HEIGHT, onIOS, getTabBarHeight } from '../utils/const';
 
 export const BOTTOM_PANEL_HEIGHT = 80;
 const ANDROID_EVT_DURATION = 100;
@@ -49,6 +49,7 @@ type FloatingButtonLayoutProps = {
   backgroundColor?: string;
   button: ReactElement<typeof ButtonRegularUnmemoized>;
   onIphoneX: boolean;
+  hasNotch: boolean;
   noGradient?: boolean;
   countBottomTabs?: boolean;
   fixedPosition?: boolean;
@@ -87,12 +88,12 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   }
 
   onKeyboardShow(event: KeyboardEvent) {
-    const { fixedPosition, countBottomTabs } = this.props;
+    const { fixedPosition, countBottomTabs, hasNotch } = this.props;
     if (!fixedPosition && (onIOS || !this.pendingShowEvents)) {
       const newDeltaY =
         event.endCoordinates.screenY -
         Dimensions.get('window').height +
-        (onIOS || !countBottomTabs ? 0 : tabBarHeight);
+        (onIOS || !countBottomTabs ? 0 : getTabBarHeight(hasNotch));
 
       Animated.timing(this.deltaY, {
         duration: event?.duration || ANDROID_EVT_DURATION,

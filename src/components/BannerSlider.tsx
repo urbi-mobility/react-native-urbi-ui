@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Dimensions,
   ImageRequireSource,
   LayoutChangeEvent,
   NativeScrollEvent,
@@ -12,7 +13,7 @@ import {
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
-import { onIOS, windowWidth } from '../utils/const';
+import { onIOS } from '../utils/const';
 import { ScaledImage } from './ScaledImage';
 
 export const bannerHeight = 116;
@@ -62,7 +63,11 @@ export class BannerSlider extends React.PureComponent<
 
   constructor(props: BannerSliderPanelProps) {
     super(props);
-    this.state = { scrollViewWidth: windowWidth, selectedPage: 0, imageHeight: 0 };
+    this.state = {
+      scrollViewWidth: Dimensions.get('window').width,
+      selectedPage: 0,
+      imageHeight: 0,
+    };
     this.autoSwipeTimeoutHandle = 0;
     this.scrollView = React.createRef();
     this.onLayout = this.onLayout.bind(this);
