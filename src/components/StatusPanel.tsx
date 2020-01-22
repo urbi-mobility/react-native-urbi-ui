@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Dimensions,
   LayoutChangeEvent,
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -12,7 +13,6 @@ import { Touchable } from '../components/Touchable';
 import { Status, StatusProps } from '../molecules/content/Status';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
-import { windowWidth } from '../utils/const';
 import { shallowEqual } from '../utils/functions';
 type StatusPanelProps = {
   pages: StatusProps[];
@@ -52,7 +52,7 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
   constructor(props: StatusPanelProps) {
     super(props);
     this.scrollView = React.createRef();
-    this.state = { scrollViewWidth: windowWidth, selectedPage: 0 };
+    this.state = { scrollViewWidth: Dimensions.get('window').width, selectedPage: 0 };
     this.onLayout = this.onLayout.bind(this);
     this.onMomentumScrollEnd = this.onMomentumScrollEnd.bind(this);
   }

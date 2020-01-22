@@ -1,5 +1,6 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { hasNotch } from 'react-native-device-info';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import {
   BOTTOM_PANEL_HEIGHT,
@@ -45,6 +46,7 @@ class FloatingButtonLayout extends React.PureComponent<any> {
       <FloatingButtonLayoutComp
         button={<ButtonRegular buttonStyle="primary" onPress={onButtonPress} label="action" />}
         onIphoneX={onIphoneX}
+        hasNotch={hasNotch()}
         fixedPosition={this.fixed}
       >
         <ScrollView

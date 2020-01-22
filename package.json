@@ -1,6 +1,6 @@
 {
   "name": "react-native-urbi-ui",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Urbi's UI library",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -63,7 +63,5 @@
     "react-native-vector-icons": "^6.6.0",
     "typescript": "^3.7.2"
   },
-  "dependencies": {
-    "react-native-device-info": "^5.4.1"
-  }
+  "dependencies": {}
 }
