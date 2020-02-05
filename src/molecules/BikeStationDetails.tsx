@@ -30,7 +30,7 @@ export const BikeStationDetailsUnmemoized = (props: BikeStationDetailsProps) => 
   <View style={styles.Wrapper}>
     <Icon style={styles.FirstIcon} name="bike-station-small" size={20} color={colors.primary} />
     <Text style={textStyle}>{props.bikes}</Text>
-    {props.freeParkingSpots !== undefined && (
+    {props.freeParkingSpots !== undefined && props.freeParkingSpots > -1 && (
       <View style={styles.Wrapper}>
         <Icon style={styles.SecondIcon} name="racks-small" size={20} color={colors.primary} />
         <Text style={textStyle}>{props.freeParkingSpots}</Text>

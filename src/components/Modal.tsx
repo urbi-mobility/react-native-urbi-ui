@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { StyleSheet, View, ViewStyle, ImageRequireSource, Image, Text } from 'react-native';
 import { DoubleChoice } from './DoubleChoice';
 import { colors } from '../utils/colors';
 import { withPixelDensity } from '../utils/functions';
 import { registeredTextStyle } from '../utils/textStyles';
+import { Button } from 'src/molecules/buttons/Button';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
   },
   BottomWrapper: {
     minHeight: 60,
+    alignItems: 'center',
   },
   ImageWrapper: {
     marginBottom: 16,
@@ -54,7 +56,7 @@ type ModalProps = {
   image?: ImageRequireSource | string;
   title: string;
   text: string;
-  actions: React.ReactElement<typeof DoubleChoice>;
+  actions: ReactElement<typeof DoubleChoice> | ReactElement<typeof Button>;
 };
 
 export const ModalUnmemoized = (props: ModalProps) =>

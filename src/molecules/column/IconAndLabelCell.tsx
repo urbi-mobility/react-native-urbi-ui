@@ -9,6 +9,7 @@ export type IconAndLabelCellProps = {
   header: string;
   label: string;
   icon: string | ReactElement<typeof IconButtonCompactUnmemoized>;
+  iconColor?: string;
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
 };
 
@@ -33,7 +34,7 @@ const labelStyle = registeredTextStyle('title', colors.uma, 'categoryLabel');
 
 const getIcon = (props: IconAndLabelCellProps) =>
   typeof props.icon === 'string' ? (
-    <Icon name={props.icon} size={20} color={colors.primary} />
+    <Icon name={props.icon} size={20} color={props.iconColor ?? colors.primary} />
   ) : (
     props.icon
   );
