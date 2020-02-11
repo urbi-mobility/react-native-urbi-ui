@@ -1,11 +1,15 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { LayoutChangeEvent, ScrollView, StyleSheet, View } from 'react-native';
+import { DatePicker } from 'react-native-urbi-ui/components/form/DatePicker';
 import { ListItemTextInput } from 'react-native-urbi-ui/components/form/ListItemTextInput';
-import UrbiForm, { UrbiFormProps } from 'react-native-urbi-ui/components/form/UrbiForm';
+import { RadioButtonsForm } from 'react-native-urbi-ui/components/form/RadioButtonsForm';
+import UrbiForm, {
+  SubmitButtonStyle,
+  UrbiFormProps,
+} from 'react-native-urbi-ui/components/form/UrbiForm';
 import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
 import { colors } from 'react-native-urbi-ui/utils/colors';
-import { DatePicker } from 'react-native-urbi-ui/components/form/DatePicker';
 import * as yup from 'yup';
 
 type TestFormProps = {
@@ -21,12 +25,28 @@ export type FormValues = {
   username: string;
   password: string;
   dateOfBirth: Date;
+  gender?: 'm' | 'f' | 'non_binary';
 };
 
 const validationSchema = yup.object().shape({
   username: yup.string().required('set a username'),
   password: yup.string().required('set a password'),
 });
+
+const genderButtons = [
+  {
+    id: 'm',
+    label: 'Male',
+  },
+  {
+    id: 'f',
+    label: 'Female',
+  },
+  {
+    id: 'non_binary',
+    label: 'Third gender / non binary',
+  },
+];
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -35,10 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingBottom: 10,
   },
-  Button: {
-    marginTop: 10,
-    alignItems: 'center',
-  },
+  Button: SubmitButtonStyle,
 });
 
 class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
@@ -59,6 +76,7 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
         <ListItemTextInput name="username" type="text" focusable />
         <ListItemTextInput name="password" type="password" focusable />
         <DatePicker mode="date" name="dateOfBirth" label="date of birth" locale="en" focusable />
+        <RadioButtonsForm name="gender" label="gender" buttons={genderButtons} focusable />
         <View style={styles.Button}>
           <ButtonCompact buttonStyle="primary" label="submit" onPress={p.handleSubmit} />
         </View>

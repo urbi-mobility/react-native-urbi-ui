@@ -1,16 +1,16 @@
+import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { ItemSeparator } from '../../molecules/ItemSeparator';
+import { SectionsDivider } from '../../molecules/SectionsDivider';
+import { colors } from '../../utils/colors';
+import { fontStyles } from '../../utils/fonts';
+import { ListItemRadio } from '../ListItemRadio';
+import { withFormikWrapper } from './Formik';
 import UrbiFormComponent, {
   UrbiFormComponentProps,
   UrbiFormComponentState,
 } from './UrbiFormComponent';
-import { ListItemRadio } from '../ListItemRadio';
-import React from 'react';
-import { ItemSeparator } from '../../molecules/ItemSeparator';
-import { colors } from '../../utils/colors';
-import { fontStyles } from '../../utils/fonts';
-import { withFormikWrapper } from './Formik';
 import withUrbiFormWrapper from './WithUrbiFormWrapper';
-import {SectionsDivider} from "../../molecules/SectionsDivider";
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -25,18 +25,19 @@ const styles = StyleSheet.create({
 });
 
 type RadioButton = {
+  id: string;
   label: string;
   subtitle?: string;
 };
 
 interface RadioButtonsProps extends UrbiFormComponentProps<string> {
   buttons: RadioButton[];
-  defaultSelectedIndex?: string;
+  defaultSelectedIndex?: number;
   onButtonSelected?: (selectedName: string) => any;
 }
 
 interface RadioButtonsState extends UrbiFormComponentState {
-  selectedName: string;
+  selectedIndex?: number;
 }
 
 class RadioButtonsFormComponent extends UrbiFormComponent<
@@ -50,7 +51,7 @@ class RadioButtonsFormComponent extends UrbiFormComponent<
     this.radio = React.createRef<View>();
     this.state = {
       focused: false,
-      selectedName: this.props.defaultSelectedIndex,
+      selectedIndex: this.props.defaultSelectedIndex,
     };
     this.onRadioSelect = this.onRadioSelect.bind(this);
   }
@@ -61,37 +62,27 @@ class RadioButtonsFormComponent extends UrbiFormComponent<
 
   onRadioSelect(id: string) {
     const selectedIndex = parseInt(id, 10);
-    const label = this.props.buttons[selectedIndex].label;
-    this.setState({ selectedName: label });
-    if (this.props.onButtonSelected) this.props.onButtonSelected(label);
-    this.props.setFieldValue(label);
+    const selectedId = this.props.buttons[selectedIndex].id;
+    this.setState({ selectedIndex });
+    if (this.props.onButtonSelected) this.props.onButtonSelected(selectedId);
+    this.props.setFieldValue(selectedId);
   }
 
   render() {
-    const { error } = this.props;
+    const { error, label, name } = this.props;
     return (
       <View style={styles.Wrapper} ref={this.radio} onLayout={this.onLayout}>
-        <SectionsDivider
-            label={this.props.label}
-            backgroundColor="transparent"
-        />
+        <SectionsDivider label={label ?? name} backgroundColor="transparent" />
         {this.props.buttons.map((b, i) => (
           <ListItemRadio
             key={`opt-${i}`}
             id={i.toString()}
             label={b.label}
             subtitle={b.subtitle}
-            selected={this.state.selectedName === b.label}
+            selected={this.state.selectedIndex === i}
             onPress={this.onRadioSelect}
           />
         ))}
-        <ItemSeparator
-          // tslint:disable-next-line:jsx-no-multiline-js
-          backgroundColor={
-            error ? colors.error : this.state.focused ? colors.primary : colors.ursula
-          }
-          animated
-        />
         <Text style={styles.Error} numberOfLines={1}>
           {error ? error.toUpperCase() : undefined}
         </Text>

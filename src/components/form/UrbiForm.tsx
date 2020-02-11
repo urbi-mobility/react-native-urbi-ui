@@ -1,7 +1,6 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, ViewStyle } from 'react-native';
 import UrbiFormComponent from './UrbiFormComponent';
-import { withPickerValues } from 'react-native-formik';
 
 export type UrbiFormContextType = {
   onSubmitEditing: (submitter: string) => any;
@@ -36,6 +35,13 @@ type UrbiFormState = {
 };
 
 const nextSubmit = 'submitUrbiForm';
+
+export const SubmitButtonStyle: ViewStyle = {
+  flexDirection: 'row',
+  flex: 1,
+  justifyContent: 'center',
+  marginTop: 10,
+};
 
 class UrbiForm extends React.PureComponent<UrbiFormProps, UrbiFormState, UrbiFormContextType> {
   private nextTable: {

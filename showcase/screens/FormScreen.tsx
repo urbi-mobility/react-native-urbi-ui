@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 
 const handleSubmit = (values: FormValues) =>
   showAlert(
-    `username: ${values.username}, password: ${values.password}, date of birth: ${values.dateOfBirth}`
+    `username: ${values.username}, password: ${values.password}, date of birth: ${values.dateOfBirth}, gender: ${values.gender}`
   );
 
 export const FormScreen = () => {
