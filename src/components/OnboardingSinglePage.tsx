@@ -18,33 +18,40 @@ const styles = StyleSheet.create({
 });
 
 type OnboardingSinglePageProps = {
-  cta: CTA;
+  cta?: CTA;
   page: OnboardingPage;
   onIphoneX: boolean;
   titleStyle?: TextStyle;
   contentStyle?: TextStyle;
+  titleLowercase?: boolean;
 };
 
 const OnboardingSingleUnmemoized = (props: OnboardingSinglePageProps) => (
   <View style={styles.Wrapper}>
     <ScrollView style={styles.Wrapper} contentContainerStyle={styles.ScrollView}>
-      {renderOnboardingPage(props.page, 0)}
+      {renderOnboardingPage(props.page, 0, props.titleLowercase)}
     </ScrollView>
-    <View style={bottomPanelStyles.FloatingBottomPanel}>
-      <LinearGradient
-        colors={[colors.zeroAlphaUlisse, colors.ulisse]}
-        style={
-          props.onIphoneX
-            ? [
-                bottomPanelStyles.BottomPanel,
-                { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT },
-              ]
-            : bottomPanelStyles.BottomPanel
-        }
-      >
-        <ButtonRegular buttonStyle="primary" label={props.cta.label} onPress={props.cta.onPress} />
-      </LinearGradient>
-    </View>
+    {props.cta && (
+      <View style={bottomPanelStyles.FloatingBottomPanel}>
+        <LinearGradient
+          colors={[colors.zeroAlphaUlisse, colors.ulisse]}
+          style={
+            props.onIphoneX
+              ? [
+                  bottomPanelStyles.BottomPanel,
+                  { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT },
+                ]
+              : bottomPanelStyles.BottomPanel
+          }
+        >
+          <ButtonRegular
+            buttonStyle={props.cta.style ?? 'primary'}
+            label={props.cta.label}
+            onPress={props.cta.onPress}
+          />
+        </LinearGradient>
+      </View>
+    )}
   </View>
 );
 

@@ -18,6 +18,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
 import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from '../components/FloatingButtonLayout';
 import { ButtonRegular } from '../molecules/buttons/ButtonRegular';
+import { ButtonStyle } from '../molecules/buttons/types';
 import { PageIndicator } from '../molecules/PageIndicator';
 import { colors } from '../utils/colors';
 import { registeredTextStyle } from '../utils/textStyles';
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
 export type CTA = {
   label: string;
   onPress: () => any;
+  style?: ButtonStyle;
 };
 
 export type OnboardingPage = {
@@ -68,11 +70,12 @@ export type OnboardingPage = {
 };
 
 type OnboardingProps = {
-  cta: CTA;
+  cta?: CTA;
   pages: OnboardingPage[];
   onIphoneX: boolean;
   titleStyle?: TextStyle;
   contentStyle?: TextStyle;
+  titleLowercase?: boolean;
 };
 
 type OnboardingState = {
@@ -80,7 +83,12 @@ type OnboardingState = {
   pageWidth: number;
 };
 
-export const renderOnboardingPage = (page: OnboardingPage, index: number, maxWidth?: number) => {
+export const renderOnboardingPage = (
+  page: OnboardingPage,
+  index: number,
+  titleLowercase: boolean | undefined,
+  maxWidth?: number
+) => {
   const { width, height } = Image.resolveAssetSource(page.image);
   return (
     <View key={index} style={[styles.Wrapper, { width: maxWidth }]}>
@@ -92,7 +100,7 @@ export const renderOnboardingPage = (page: OnboardingPage, index: number, maxWid
         />
       </View>
       <Text style={styles.Title} numberOfLines={2}>
-        {page.title.toUpperCase()}
+        {titleLowercase ? page.title : page.title.toUpperCase()}
       </Text>
       <Text style={styles.Content}>{page.content}</Text>
     </View>
@@ -117,7 +125,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
   }
 
   render() {
-    const { onIphoneX, pages } = this.props;
+    const { cta, onIphoneX, pages, titleLowercase } = this.props;
     const { currentPageIndex, pageWidth } = this.state;
     const currentPage = pages[currentPageIndex];
 
@@ -134,10 +142,10 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
             snapToAlignment="start"
             horizontal
           >
-            {pages.map((p, i) => renderOnboardingPage(p, i, pageWidth))}
+            {pages.map((p, i) => renderOnboardingPage(p, i, titleLowercase, pageWidth))}
           </ScrollView>
         ) : (
-          renderOnboardingPage(currentPage, 0)
+          renderOnboardingPage(currentPage, 0, titleLowercase)
         )}
         <View style={bottomPanelStyles.FloatingBottomPanel}>
           {pages.length > 1 && (
@@ -145,23 +153,25 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
               <PageIndicator pages={pages.length} selectedPage={currentPageIndex} />
             </View>
           )}
-          <LinearGradient
-            colors={[colors.zeroAlphaUlisse, colors.ulisse]}
-            style={
-              onIphoneX
-                ? [
-                    bottomPanelStyles.BottomPanel,
-                    { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT },
-                  ]
-                : bottomPanelStyles.BottomPanel
-            }
-          >
-            <ButtonRegular
-              buttonStyle="primary"
-              label={this.props.cta.label}
-              onPress={this.props.cta.onPress}
-            />
-          </LinearGradient>
+          {cta && (
+            <LinearGradient
+              colors={[colors.zeroAlphaUlisse, colors.ulisse]}
+              style={
+                onIphoneX
+                  ? [
+                      bottomPanelStyles.BottomPanel,
+                      { height: BOTTOM_PANEL_HEIGHT + IPHONE_X_HOME_AREA_HEIGHT },
+                    ]
+                  : bottomPanelStyles.BottomPanel
+              }
+            >
+              <ButtonRegular
+                buttonStyle={cta.style ?? 'primary'}
+                label={cta.label}
+                onPress={cta.onPress}
+              />
+            </LinearGradient>
+          )}
         </View>
       </View>
     );

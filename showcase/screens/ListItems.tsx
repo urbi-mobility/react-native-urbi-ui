@@ -15,6 +15,7 @@ import { placeholder, renderComponent } from '../utils/ComponentPreview';
 import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
 import { showLongAlert, showAlert } from 'react-native-urbi-ui/utils/functions';
 import { Label } from 'react-native-urbi-ui/molecules/content/Label';
+import { colors } from 'react-native-urbi-ui/utils/colors';
 
 const onListItemPress = () => setTimeout(() => showAlert('clicked on list item 200ms ago'), 200);
 const onButtonPress = () => showLongAlert('clicked on button');
@@ -40,6 +41,10 @@ class ListItems extends React.PureComponent<any> {
         {renderComponent(
           'ListItemPlaceholder compact (two lines)',
           <ListItemPlaceholder lines={2} variant="compact" />
+        )}
+        {renderComponent(
+          'ListItemPlaceholder (color prop)',
+          <ListItemPlaceholder lines={1} placeholderColor={colors.brand} />
         )}
         {renderComponent(
           'ListItem',
