@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ViewStyle } from 'react-native';
 import { ListItemProps, maybeAddSeparator, renderImageOrIcon } from '../components/ListItem';
 import { MaybeTouchable } from './MaybeTouchable';
 
-const styles = StyleSheet.create({
+export const ListItemCompactStyles = {
   ListItemWrapper: {
     height: 40,
     paddingTop: 4,
@@ -14,10 +14,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
+  } as ViewStyle,
   ContentWithEnd: { flex: 3, marginRight: 8 },
   ContentWithAction: { marginRight: 8 },
-});
+};
+
+const styles = StyleSheet.create(ListItemCompactStyles);
 
 const withStyle = (props: ListItemProps) => {
   const { icon, content, end } = props;

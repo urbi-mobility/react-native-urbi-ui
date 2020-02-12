@@ -4,15 +4,7 @@ import { colors } from 'src/utils/colors';
 import { Icon } from '../utils/const';
 import { MaybeTouchable } from './MaybeTouchable';
 
-type Styles = {
-  Wrapper: ViewStyle;
-  ListItemWrapper: ViewStyle;
-  ContentWithEnd: ViewStyle;
-  Action: ImageStyle;
-  Separator: ViewStyle;
-};
-
-const styles: Styles = StyleSheet.create({
+export const ListItemStyles = {
   Wrapper: {
     flex: 1,
   },
@@ -27,12 +19,12 @@ const styles: Styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
+  } as ViewStyle,
   ContentWithEnd: {
     flex: 1,
     marginRight: 8,
     minWidth: '60%',
-  },
+  } as ViewStyle,
   End: { marginRight: 12 },
   Action: {
     width: 20,
@@ -45,7 +37,9 @@ const styles: Styles = StyleSheet.create({
     marginRight: 12,
     borderRadius: 0.5,
   },
-});
+};
+
+const styles = StyleSheet.create(ListItemStyles);
 
 export type ListItemProps = {
   size?: number;

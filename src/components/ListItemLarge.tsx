@@ -3,7 +3,7 @@ import { ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
 import { ListItemProps, renderImageOrIcon, maybeAddSeparator } from '../components/ListItem';
 import { MaybeTouchable } from '../components/MaybeTouchable';
 
-const styles = StyleSheet.create({
+export const ListItemLargeStyles = {
   ListItemWrapper: {
     height: 70,
     paddingTop: 12,
@@ -20,7 +20,9 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   } as ImageStyle,
-});
+};
+
+const styles = StyleSheet.create(ListItemLargeStyles);
 
 const withStyle = (props: ListItemProps) => {
   const { icon, content, end } = props;

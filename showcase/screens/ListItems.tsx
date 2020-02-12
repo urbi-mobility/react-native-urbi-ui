@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { ListItem } from 'react-native-urbi-ui/components/ListItem';
 import { ListItemCompact } from 'react-native-urbi-ui/components/ListItemCompact';
 import { ListItemLarge } from 'react-native-urbi-ui/components/ListItemLarge';
+import { ListItemPlaceholder } from 'react-native-urbi-ui/components/ListItemPlaceholder';
 import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel';
 import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
 import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
@@ -22,6 +23,24 @@ class ListItems extends React.PureComponent<any> {
   render() {
     return (
       <ScrollView>
+        {renderComponent('ListItemPlaceholder', <ListItemPlaceholder lines={1} />)}
+        {renderComponent('ListItemPlaceholder (two lines)', <ListItemPlaceholder lines={2} />)}
+        {renderComponent(
+          'ListItemPlaceholder large',
+          <ListItemPlaceholder lines={1} variant="large" />
+        )}
+        {renderComponent(
+          'ListItemPlaceholder large (two lines)',
+          <ListItemPlaceholder lines={2} variant="large" />
+        )}
+        {renderComponent(
+          'ListItemPlaceholder compact',
+          <ListItemPlaceholder lines={1} variant="compact" />
+        )}
+        {renderComponent(
+          'ListItemPlaceholder compact (two lines)',
+          <ListItemPlaceholder lines={2} variant="compact" />
+        )}
         {renderComponent(
           'ListItem',
           <ListItem
