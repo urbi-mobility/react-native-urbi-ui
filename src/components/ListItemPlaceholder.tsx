@@ -34,13 +34,13 @@ const stylesRegular = StyleSheet.create({
   LineOne: {
     backgroundColor: colors.ukko,
     width: 200,
-    height: 18,
-    marginBottom: 4,
+    height: 16,
+    marginBottom: 8,
   },
   LineTwo: {
     backgroundColor: colors.ukko,
-    width: 200,
-    height: 18,
+    width: 130,
+    height: 10,
   },
 });
 
@@ -61,13 +61,13 @@ const stylesCompact = StyleSheet.create({
   LineOne: {
     backgroundColor: colors.ukko,
     width: 200,
-    height: 14,
-    marginBottom: 4,
+    height: 10,
+    marginBottom: 6,
   },
   LineTwo: {
     backgroundColor: colors.ukko,
-    width: 200,
-    height: 14,
+    width: 130,
+    height: 8,
   },
 });
 
