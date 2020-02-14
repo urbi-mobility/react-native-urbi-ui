@@ -3,6 +3,9 @@ import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } fr
 import { withPixelDensity } from '../../utils/functions';
 
 export type VehicleImgProps = {
+  /**
+   * The resource to use as image, or a URL that points at the image to be used.
+   */
   image: ImageRequireSource | string;
   providerLogo: ImageRequireSource;
 };

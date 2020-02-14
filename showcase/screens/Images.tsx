@@ -3,8 +3,14 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { BikeImg } from 'react-native-urbi-ui/molecules/img/BikeImg';
 import { Selection } from 'react-native-urbi-ui/molecules/img/Selection';
 import { StationImg } from 'react-native-urbi-ui/molecules/img/StationImg';
+import { TransitImg } from 'react-native-urbi-ui/molecules/img/TransitImg';
 import { VehicleImg } from 'react-native-urbi-ui/molecules/img/VehicleImg';
-import { carPlaceholder, placeholder, renderComponent } from '../utils/ComponentPreview';
+import {
+  carPlaceholder,
+  placeholder,
+  renderComponent,
+  transitProviderLogoPlaceholder,
+} from '../utils/ComponentPreview';
 
 class Images extends React.PureComponent<any> {
   render() {
@@ -24,6 +30,10 @@ class Images extends React.PureComponent<any> {
         )}
         {renderComponent('BikeImg', <BikeImg image={carPlaceholder} providerLogo={placeholder} />)}
         {renderComponent('StationImg', <StationImg providerLogo={placeholder} />)}
+        {renderComponent(
+          'TransitImg',
+          <TransitImg image={placeholder} providerLogo={transitProviderLogoPlaceholder} />
+        )}
       </ScrollView>
     );
   }
