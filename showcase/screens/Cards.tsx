@@ -6,6 +6,7 @@ import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonComp
 import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
 import { CardHeader } from 'react-native-urbi-ui/molecules/card/CardHeader';
 import { Chip } from 'react-native-urbi-ui/molecules/Chip';
+import { TransitImg } from 'react-native-urbi-ui/molecules/img/TransitImg';
 import { VehicleImg } from 'react-native-urbi-ui/molecules/img/VehicleImg';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
@@ -14,6 +15,7 @@ import {
   onButtonPress,
   placeholder,
   renderComponent,
+  transitProviderLogoPlaceholder,
 } from '../utils/ComponentPreview';
 import { longishLegalParagraph } from '../utils/LoremIpsum';
 
@@ -129,6 +131,37 @@ class Cards extends React.PureComponent<any, CardsState> {
             onPress={onButtonPress}
             image={<VehicleImg image={carPlaceholder} providerLogo={placeholder} />}
             description="Come with me, and you'll be, in a world of pure imagination"
+          />
+        )}
+        {renderComponent(
+          'Card (with TransitImg)',
+          <Card
+            header={
+              <CardHeader
+                topLabel="REGISTRATION AND A LOT OF OTHER BENEFITS"
+                title="Miles"
+                bigLabel="GRATIS"
+                struckout="8,66€"
+                highlightBigLabel
+              />
+            }
+            onPress={onButtonPress}
+            image={<TransitImg image={placeholder} providerLogo={transitProviderLogoPlaceholder} />}
+          />
+        )}
+        {renderComponent(
+          'Card (with TransitImg, non clickable)',
+          <Card
+            header={
+              <CardHeader
+                topLabel="REGISTRATION AND A LOT OF OTHER BENEFITS"
+                title="Miles"
+                bigLabel="GRATIS"
+                struckout="8,66€"
+                highlightBigLabel
+              />
+            }
+            image={<TransitImg image={placeholder} providerLogo={transitProviderLogoPlaceholder} />}
           />
         )}
         {renderComponent(
