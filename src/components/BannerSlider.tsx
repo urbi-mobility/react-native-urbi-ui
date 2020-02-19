@@ -147,7 +147,7 @@ export class BannerSlider extends React.PureComponent<
               horizontal
             >
               {this.props.pages.map((s, i) => (
-                <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}`}>
+                <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}-${s.id}`}>
                   <ScaledImage
                     uri={s.url}
                     width={this.state.scrollViewWidth}
