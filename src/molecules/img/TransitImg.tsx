@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     marginLeft: 8,
     height: 66,
-    width: 120,
+    maxWidth: 120,
   } as ViewStyle,
   Transit: {
     height: 40,
