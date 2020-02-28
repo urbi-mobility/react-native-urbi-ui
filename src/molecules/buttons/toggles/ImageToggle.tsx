@@ -1,11 +1,9 @@
 import React from 'react';
 import { IconButton } from '../../../molecules/buttons/iconButtons/IconButton';
 import { colors } from '../../../utils/colors';
-import { onIOS } from '../../../utils/const';
 import { IconToggle } from './IconToggle';
 
 export const size = 40;
-const innerIconSize = onIOS ? 40 : 44; // this way no padding is shown around the image
 
 export class ImageToggle extends IconToggle {
   render() {
@@ -20,7 +18,7 @@ export class ImageToggle extends IconToggle {
         color={active ? colors.ulisse : colors.primary}
         icon={this.props.icon}
         size={size}
-        innerIconSize={innerIconSize}
+        innerIconSize={size}
         noShadow={!active}
         opacity={active ? 1 : 0.3}
       />

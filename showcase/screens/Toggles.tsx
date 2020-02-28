@@ -1,10 +1,18 @@
 import React from 'react';
-import { IconToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/IconToggle';
-import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
+import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { FilterGroup } from 'react-native-urbi-ui/components/FilterGroup';
-import { onButtonPress, renderComponent, placeholder, boomEmoji } from '../utils/ComponentPreview';
+import { IconToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/IconToggle';
+import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
+import { colors } from 'react-native-urbi-ui/utils/colors';
 import { showAlert } from 'react-native-urbi-ui/utils/functions';
+import {
+  boomEmoji,
+  emovIcon,
+  onButtonPress,
+  placeholder,
+  renderComponent,
+} from '../utils/ComponentPreview';
 
 const onFilterPress = (id: string, active: boolean) => {
   categoryFilters.find((f) => f.id === id)!.active = active;
@@ -21,6 +29,23 @@ const categoryFilters = [
   { id: 'bike', icon: 'bike', active: true },
   { id: 'public_transport', icon: 'public_transport', active: true },
 ];
+
+const styles = StyleSheet.create({
+  WithWhiteBackground: {
+    flex: 1,
+    backgroundColor: colors.ulisse,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5,
+    margin: 5,
+  },
+});
+
+const ToggleWithBackground = (
+  <View style={styles.WithWhiteBackground}>
+    <ImageToggle id="emov" icon={emovIcon} setActive={onImageTogglePress} active={false} />
+  </View>
+);
 
 class Toggles extends React.PureComponent<any> {
   render() {
@@ -39,6 +64,7 @@ class Toggles extends React.PureComponent<any> {
             active={false}
           />
         )}
+        {renderComponent('ImageToggle (inside white bg container)', ToggleWithBackground)}
         {renderComponent(
           'ImageToggle (square pic)',
           <ImageToggle id="boom" icon={boomEmoji} setActive={onImageTogglePress} active />

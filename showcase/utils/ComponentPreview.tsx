@@ -56,3 +56,4 @@ export const fiftyByFiftyWhitePlaceholder = require('../assets/account.png');
 export const eightyByEightyWhitePlaceholder = require('../assets/accountLarge.png');
 export const userAvaterPlaceholder = require('../assets/avatar.png');
 export const transitProviderLogoPlaceholder = require('../assets/transit_provider.png');
+export const emovIcon = require('../assets/ic_emov.png');
