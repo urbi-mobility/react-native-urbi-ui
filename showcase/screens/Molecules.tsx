@@ -18,6 +18,7 @@ const buttonEntries = toButtonEntries([
   'Images',
   'ListButtons',
   'Notes',
+  'Sliders',
   'Steppers',
   'Text',
   'Toggles',

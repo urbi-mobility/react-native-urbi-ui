@@ -36,6 +36,7 @@ import ProfileHeaders from './screens/ProfileHeaders';
 import PurchasePanel from './screens/PurchasePanel';
 import RadioButtons from './screens/RadioButtons';
 import SelectionHeaders from './screens/SelectionHeaders';
+import Sliders from './screens/Sliders';
 import Status from './screens/Status';
 import Steppers from './screens/Steppers';
 import Text from './screens/Text';
@@ -118,6 +119,7 @@ const menuEntries = {
   ProfileHeaders: ProfileHeaders,
   RadioButtons: RadioButtons,
   SelectionHeaders: SelectionHeaders,
+  Sliders: Sliders,
   Status: Status,
   Steppers: Steppers,
   Text: Text,
