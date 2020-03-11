@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type SliderProps = {
+export type SliderProps = {
   initialValue: number;
   min: number;
   max: number;

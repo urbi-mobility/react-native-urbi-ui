@@ -35,11 +35,15 @@ export const SlidersUnmemoized = () => {
         />
       )}
       {renderComponent(
-        'ListItemSlider',
+        'ListItemSlider (min 100, max 500, step 10, initial 250)',
         <ListItemSlider
-          slider={
-            <Slider min={0} max={500} step={10} initialValue={250} onChange={onSliderChange} />
-          }
+          sliderProps={{
+            min: 100,
+            max: 500,
+            step: 10,
+            initialValue: 250,
+            onChange: onSliderChange,
+          }}
           endLabelTitle={endLabelTitle}
           endLabelSubtitle="Radius"
         />

@@ -5,7 +5,9 @@ import { registeredTextStyle } from '../../utils/textStyles';
 
 type EndDoubleLabelProps = {
   label: string;
+  labelColor?: keyof typeof colors;
   subtitle: string;
+  subtitleColor?: keyof typeof colors;
   style?: ViewStyle;
 };
 
@@ -23,15 +25,31 @@ const styles = StyleSheet.create({
   },
 });
 
-const labelStyle = registeredTextStyle('titleBold', colors.uma, 'EndDoubleLabel');
-const subtitleStyle = registeredTextStyle('body', colors.uto, 'EndDoubleLabelSubtitle');
+const labelStyle = {
+  ...registeredTextStyle('titleBold', colors.uma, 'EndDoubleLabel'),
+  ...styles.Text,
+};
+const subtitleStyle = {
+  ...registeredTextStyle('body', colors.uto, 'EndDoubleLabelSubtitle'),
+  ...styles.Text,
+};
 
 const EndDoubleLabelUnmemoized = (props: EndDoubleLabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
-    <Text style={[labelStyle, styles.Text]} numberOfLines={1}>
+    <Text
+      style={props.labelColor ? [labelStyle, { color: colors[props.labelColor] }] : labelStyle}
+      numberOfLines={1}
+    >
       {props.label}
     </Text>
-    <Text style={[subtitleStyle, styles.Text]} numberOfLines={1}>
+    <Text
+      style={
+        props.subtitleColor
+          ? [subtitleStyle, { color: colors[props.subtitleColor] }]
+          : subtitleStyle
+      }
+      numberOfLines={1}
+    >
       {props.subtitle}
     </Text>
   </View>
