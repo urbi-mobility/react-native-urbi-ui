@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { SliderProps, Slider } from 'src/molecules/Slider';
 import { EndDoubleLabel } from 'src/molecules/end/EndDoubleLabel';
-import { colors } from 'src/utils/colors';
+import { Slider, SliderProps } from 'src/molecules/Slider';
+import { onIOS } from 'src/utils/const';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -10,15 +10,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 70,
     alignItems: 'center',
-    paddingLeft: 16,
+    paddingLeft: onIOS ? 16 : 1,
     paddingRight: 12,
   } as ViewStyle,
   Slider: {
     flex: 1,
-    marginRight: 8,
+    marginRight: onIOS ? 8 : 0,
   },
   Label: {
     flexGrow: 0,
+    width: 58,
   },
 });
 
@@ -26,6 +27,14 @@ type ListItemSliderProps = {
   sliderProps: SliderProps;
   endLabelTitle: string;
   endLabelSubtitle: string;
+  /**
+   * If set, width for the EndDoubleLabel will be set to this number.
+   *
+   * The default is 58, set it to the widest the label can go, so that
+   * the Slider on the left doesn't shrink or grow according to its
+   * current value.
+   */
+  labelWidth?: number;
 };
 
 type ListItemSliderState = {
@@ -52,15 +61,17 @@ export class ListItemSlider extends React.PureComponent<ListItemSliderProps, Lis
   }
 
   render() {
+    const { endLabelTitle, endLabelSubtitle, labelWidth, sliderProps } = this.props;
+
     return (
       <View style={styles.Wrapper}>
         <View style={styles.Slider}>
-          <Slider {...this.props.sliderProps} onChange={this.onSliderChange} />
+          <Slider {...sliderProps} onChange={this.onSliderChange} />
         </View>
-        <View style={styles.Label}>
+        <View style={labelWidth ? [styles.Label, { width: labelWidth }] : styles.Label}>
           <EndDoubleLabel
-            label={this.props.endLabelTitle}
-            subtitle={this.props.endLabelSubtitle}
+            label={endLabelTitle}
+            subtitle={endLabelSubtitle}
             labelColor={this.state.initialValue === this.state.currentValue ? undefined : 'brand'}
           />
         </View>
