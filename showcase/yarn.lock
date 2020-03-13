@@ -4360,10 +4360,10 @@ react-native-typography@1.4.1:
   resolved "https://registry.yarnpkg.com/react-native-typography/-/react-native-typography-1.4.1.tgz#2d05cb5935a2f7fdb6b43bbde93d60f1324578e3"
   integrity sha512-dc9Zfs4jUdq4ygx4/KwO6jKTERBu6cRrfPJGntw/pA+D6BMjlWfMNuhZ/69vf4Zpsnt9s4AGe+Z/V1QFYaCXAA==
 
-react-native-urbi-ui@0.1.34:
-  version "0.1.33"
-  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.1.33.tgz#675dfb3598c817b1ffa6d75a35483ddd503bba7d"
-  integrity sha512-bxzsD5rvPgzI5hMzKlroe75xfiKM8ioDS+z01PP4+9nLG5K5KHXebbzzxJCF5UcOzrQ4KLG8oztx5j9ulMotAg==
+react-native-urbi-ui@0.1.36:
+  version "0.1.36"
+  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.1.36.tgz#b36b8ca37cda5e42c99fa932c9a7fc2b11e2db8a"
+  integrity sha512-sO+Qb4pnZigug6ZNfGf0ao0xLQO9bL4hdBvAEzOb9g5+lgxdQd0kvoewRlbfuFkq5DYRcPxwMwpzWuIeDbg+qQ==
 
 react-native-vector-icons@6.6.0:
   version "6.6.0"
