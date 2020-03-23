@@ -21,6 +21,7 @@ export const colors = {
   zeroAlphaUlisse: 'rgba(255, 255, 255, 0)',
   transparent: 'transparent',
   shadowBorder: 'rgba(0, 0, 0, 0.1)',
+  activeRadar: 'rgba(90, 104, 114, 0.19)',
 };
 
 export const hexToRgba = (hex: string, alpha: number) => {
