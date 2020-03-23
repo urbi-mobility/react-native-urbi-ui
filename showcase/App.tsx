@@ -35,6 +35,7 @@ import PaymentPanel from './screens/PaymentPanel';
 import ProfileHeaders from './screens/ProfileHeaders';
 import PurchasePanel from './screens/PurchasePanel';
 import RadioButtons from './screens/RadioButtons';
+import Search from './screens/Search';
 import SelectionHeaders from './screens/SelectionHeaders';
 import Sliders from './screens/Sliders';
 import Status from './screens/Status';
@@ -118,6 +119,7 @@ const menuEntries = {
   ['Onboarding (single page)']: OnboardingSinglePage,
   ProfileHeaders: ProfileHeaders,
   RadioButtons: RadioButtons,
+  Search: Search,
   SelectionHeaders: SelectionHeaders,
   Sliders: Sliders,
   Status: Status,

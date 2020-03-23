@@ -26,6 +26,7 @@ const buttonEntries = toButtonEntries([
   'ProfileHeaders',
   'PurchasePanel',
   'RadioButtons',
+  'Search',
   'SelectionHeaders',
   'Status',
 ]);
