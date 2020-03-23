@@ -58,7 +58,7 @@ export const SlidersUnmemoized = () => {
         <ListItem content={<Label text="Hello, I'm a title" />} end={<EndLabel label="label" />} />
       )}
       {renderComponent(
-        'ListItemSlider (min 11, max 888, step 50, initial 250)',
+        'ListItemSlider (min 11, max 888, step 50, initial 250 w/sep)',
         <ListItemSlider
           sliderProps={{
             min: 11,
@@ -69,6 +69,7 @@ export const SlidersUnmemoized = () => {
           }}
           endLabelTitle={endLabelTitle2}
           endLabelSubtitle="Radius"
+          withSeparator
         />
       )}
     </ScrollView>

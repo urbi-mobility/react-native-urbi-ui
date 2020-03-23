@@ -3,8 +3,12 @@ import { StyleSheet, View, ViewStyle } from 'react-native';
 import { EndDoubleLabel } from 'src/molecules/end/EndDoubleLabel';
 import { Slider, SliderProps } from 'src/molecules/Slider';
 import { onIOS } from 'src/utils/const';
+import { SeparatorStyle } from './ListItem';
 
 const styles = StyleSheet.create({
+  SeparatorWrapper: {
+    flex: 1,
+  },
   Wrapper: {
     flex: 1,
     flexDirection: 'row',
@@ -21,6 +25,7 @@ const styles = StyleSheet.create({
     flexGrow: 0,
     width: 58,
   },
+  Separator: SeparatorStyle,
 });
 
 type ListItemSliderProps = {
@@ -35,6 +40,7 @@ type ListItemSliderProps = {
    * current value.
    */
   labelWidth?: number;
+  withSeparator?: boolean;
 };
 
 type ListItemSliderState = {
@@ -51,6 +57,7 @@ export class ListItemSlider extends React.PureComponent<ListItemSliderProps, Lis
     };
 
     this.onSliderChange = this.onSliderChange.bind(this);
+    this.renderSlider = this.renderSlider.bind(this);
   }
 
   onSliderChange(value: number) {
@@ -60,7 +67,7 @@ export class ListItemSlider extends React.PureComponent<ListItemSliderProps, Lis
     }
   }
 
-  render() {
+  renderSlider() {
     const { endLabelTitle, endLabelSubtitle, labelWidth, sliderProps } = this.props;
 
     return (
@@ -76,6 +83,19 @@ export class ListItemSlider extends React.PureComponent<ListItemSliderProps, Lis
           />
         </View>
       </View>
+    );
+  }
+
+  render() {
+    const { withSeparator } = this.props;
+
+    return withSeparator ? (
+      <View style={styles.SeparatorWrapper}>
+        {this.renderSlider()}
+        <View style={styles.Separator} />
+      </View>
+    ) : (
+      this.renderSlider()
     );
   }
 }

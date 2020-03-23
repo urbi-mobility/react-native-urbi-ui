@@ -4,6 +4,14 @@ import { colors } from 'src/utils/colors';
 import { Icon } from '../utils/const';
 import { MaybeTouchable } from './MaybeTouchable';
 
+export const SeparatorStyle = {
+  height: 1,
+  backgroundColor: colors.ursula,
+  marginLeft: 16,
+  marginRight: 12,
+  borderRadius: 0.5,
+};
+
 export const ListItemStyles = {
   Wrapper: {
     flex: 1,
@@ -30,13 +38,7 @@ export const ListItemStyles = {
     width: 20,
     height: 20,
   } as ImageStyle,
-  Separator: {
-    height: 1,
-    backgroundColor: colors.ursula,
-    marginLeft: 16,
-    marginRight: 12,
-    borderRadius: 0.5,
-  },
+  Separator: SeparatorStyle,
 };
 
 const styles = StyleSheet.create(ListItemStyles);
