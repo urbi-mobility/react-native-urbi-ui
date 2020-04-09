@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { ImageRequireSource, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { ChipGroup } from 'react-native-urbi-ui/components/ChipGroup';
 import { IconGroup } from 'react-native-urbi-ui/components/IconGroup';
 import { ButtonRegular } from 'react-native-urbi-ui/molecules/buttons/ButtonRegular';
 import { ImageToggle } from 'react-native-urbi-ui/molecules/buttons/toggles/ImageToggle';
@@ -13,6 +14,7 @@ import {
   starryEmoji,
   zanyEmoji,
 } from '../utils/ComponentPreview';
+import { colors } from 'react-native-urbi-ui/utils/colors';
 
 const onImageTogglePress = (id: string, active: boolean) =>
   showAlert(`'${id}' is now ${active ? 'active' : 'inactive'}`);
@@ -37,6 +39,16 @@ const iconGroupIcons = [
   imageToggle('thirteenth', pukeEmoji),
   imageToggle('fourteenth', starryEmoji),
 ] as Array<ReactElement<typeof ImageToggle>>;
+
+const chips = [
+  { id: 'm10', props: { label: 'm10', icon: 'subway-small', color: '#feff01' } },
+  { id: 'u2', props: { label: 'u2', icon: 'subway-small', color: '#f42c4f' } },
+  { id: 'u8', props: { label: 'u8', icon: 'subway-small', color: '#0a3c85' } },
+  { id: 's10', props: { label: 's10', icon: 'train-small', color: colors.train } },
+  { id: 're10', props: { label: 're10', icon: 'tram-small', color: colors.tram } },
+  { id: '166', props: { label: '166', icon: 'bus-small', color: colors.bus } },
+  { id: '322', props: { label: '322', icon: 'bus-small', color: colors.bus } },
+];
 
 const IconGroups = () => {
   // for this example we'll just use array indices as component ids
@@ -89,6 +101,7 @@ const IconGroups = () => {
           <ButtonRegular buttonStyle="brand" label="reset" onPress={onResetPress} />
         </View>
       )}
+      {renderComponent('ChipGroup', <ChipGroup chips={chips} onActiveChanged={() => null} />)}
     </ScrollView>
   );
 };

@@ -41,6 +41,7 @@ const childrenWithBackground = (props: MaybeTouchableProps) => {
 const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
   const {
     backgroundColor,
+    borderRadius,
     exactHeight,
     margin,
     marginTop,
@@ -68,6 +69,8 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
               flexGrow: 1,
               flexShrink: 0,
               backgroundColor,
+              borderRadius,
+              overflow: onIOS ? undefined : 'hidden',
             }
           : onIOS
           ? withStyle(props)
@@ -90,6 +93,8 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
           marginTop,
           marginBottom,
           backgroundColor,
+          borderRadius,
+          overflow: onIOS ? undefined : 'hidden',
         }}
       >
         {touchable}

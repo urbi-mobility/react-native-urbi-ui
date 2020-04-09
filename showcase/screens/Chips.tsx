@@ -4,6 +4,9 @@ import { Chip } from 'react-native-urbi-ui/molecules/Chip';
 import { ChipLarge } from 'react-native-urbi-ui/molecules/ChipLarge';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { renderComponent } from '../utils/ComponentPreview';
+import { showAlert } from 'react-native-urbi-ui/utils/functions';
+
+const on166Press = () => showAlert('die beste Linie 🤟');
 
 class Chips extends React.PureComponent<any> {
   render() {
@@ -29,7 +32,7 @@ class Chips extends React.PureComponent<any> {
         )}
         {renderComponent(
           'ChipLarge',
-          <ChipLarge label="166" icon="bus-small" color={colors.bus} />
+          <ChipLarge label="166" icon="bus-small" color={colors.bus} onPress={on166Press} />
         )}
         {renderComponent(
           'ChipLarge',

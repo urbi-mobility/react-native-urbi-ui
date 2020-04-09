@@ -1,5 +1,6 @@
 import { ImageRequireSource, RegisteredStyle, ViewStyle } from 'react-native';
 import { fontStyles } from '../../utils/fonts';
+import { ChipLargeProps } from '../ChipLarge';
 
 export type ButtonStyle =
   | 'default'
