@@ -11,6 +11,7 @@ import { EndDoubleLabel } from 'react-native-urbi-ui/molecules/end/EndDoubleLabe
 import { EndDoubleLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndDoubleLabelAndIcon';
 import { EndLabel } from 'react-native-urbi-ui/molecules/end/EndLabel';
 import { EndLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndLabelAndIcon';
+import { EndRealTime } from 'react-native-urbi-ui/molecules/end/EndRealTime';
 import { placeholder, renderComponent } from '../utils/ComponentPreview';
 import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
 import { showLongAlert, showAlert } from 'react-native-urbi-ui/utils/functions';
@@ -24,6 +25,13 @@ class ListItems extends React.PureComponent<any> {
   render() {
     return (
       <ScrollView>
+        {renderComponent(
+          'ListItem (w/real time)',
+          <ListItem
+            content={<Label text="to Hermannplatz" />}
+            end={<EndRealTime label="2" subtitle="min" />}
+          />
+        )}
         {renderComponent('ListItemPlaceholder', <ListItemPlaceholder lines={1} />)}
         {renderComponent('ListItemPlaceholder (two lines)', <ListItemPlaceholder lines={2} />)}
         {renderComponent(

@@ -1,17 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle, TextStyle } from 'react-native';
 import { colors } from '../../utils/colors';
 import { registeredTextStyle } from '../../utils/textStyles';
 
-type EndDoubleLabelProps = {
+export interface EndDoubleLabelProps {
   label: string;
   labelColor?: keyof typeof colors;
   subtitle: string;
   subtitleColor?: keyof typeof colors;
   style?: ViewStyle;
-};
+}
 
-const styles = StyleSheet.create({
+export const endDoubleLabelStyles = {
   Wrapper: {
     height: 40,
     justifyContent: 'center',
@@ -19,17 +19,19 @@ const styles = StyleSheet.create({
     flexBasis: 'auto',
     flexGrow: 0,
     flexShrink: 1,
-  },
+  } as ViewStyle,
   Text: {
     textAlign: 'right',
-  },
-});
+  } as TextStyle,
+};
 
-const labelStyle = {
+const styles = StyleSheet.create(endDoubleLabelStyles);
+
+export const labelStyle = {
   ...registeredTextStyle('titleBold', colors.uma, 'EndDoubleLabel'),
   ...styles.Text,
 };
-const subtitleStyle = {
+export const subtitleStyle = {
   ...registeredTextStyle('body', colors.uto, 'EndDoubleLabelSubtitle'),
   ...styles.Text,
 };
