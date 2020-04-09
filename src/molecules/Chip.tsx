@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
     borderRadius: 7,
     height: 14,
-    backgroundColor: colors.tertiary,
+    backgroundColor: colors.tertiary, // default bgState maps to this
   } as ViewStyle,
   Text: registeredTextStyle('micro', colors.ulisse, 'chip-text'),
 });
