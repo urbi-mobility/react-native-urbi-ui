@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   } as ViewStyle,
   ScrollViewWrapper: {
-    height: 22,
-    maxHeight: 22,
+    height: 36,
+    maxHeight: 36,
   } as ViewStyle,
   ScrollView: {
     flex: 1,

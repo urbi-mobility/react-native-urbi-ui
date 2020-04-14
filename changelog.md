@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- `components/ChipGroup` made scrollview 36dp in height, so that the bottom scrollbar doesn't show over its content.
+
 ## [0.1.38 - 2020-04-09]
 
 ### Added

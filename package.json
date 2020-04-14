@@ -1,6 +1,6 @@
 {
   "name": "react-native-urbi-ui",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "description": "Urbi's UI library",
   "license": "Apache-2.0",
   "main": "index.js",
