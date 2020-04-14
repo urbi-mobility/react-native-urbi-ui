@@ -2,6 +2,9 @@ import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ButtonAndLabel } from 'react-native-urbi-ui/components/ButtonAndLabel';
 import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+import { ChipAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/ChipAndDoubleLabel';
+import { ChipAndLabel } from 'react-native-urbi-ui/molecules/content/ChipAndLabel';
+import { ChipOverLabel } from 'react-native-urbi-ui/molecules/content/ChipOverLabel';
 import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel';
 import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
 import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
@@ -26,6 +29,36 @@ class Content extends React.PureComponent<any> {
   render() {
     return (
       <ScrollView>
+        {renderComponent(
+          'ChipAndLabel',
+          <ChipAndLabel
+            chip={{ label: 'U2', color: '#f42c4f', icon: 'subway-small' }}
+            label="Oh Berlin"
+          />
+        )}
+        {renderComponent(
+          'ChipAndLabel (w/body)',
+          <ChipAndLabel
+            chip={{ label: 'U2', color: '#f42c4f', icon: 'subway-small' }}
+            label="Oh Berlin"
+            labelStyle="body"
+          />
+        )}
+        {renderComponent(
+          'ChipOverLabel',
+          <ChipOverLabel
+            chip={{ label: 'U2', color: '#f42c4f', icon: 'subway-small' }}
+            label="Oh Berlin"
+          />
+        )}
+        {renderComponent(
+          'ChipAndDoubleLabel',
+          <ChipAndDoubleLabel
+            topLabel="Hey I'm on top"
+            chip={{ label: 'U2', color: '#f42c4f', icon: 'subway-small' }}
+            bottomLabel="Hello from down here"
+          />
+        )}
         {renderComponent(
           'Purchase',
           <Purchase

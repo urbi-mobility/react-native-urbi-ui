@@ -2,19 +2,18 @@ import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
-import { Icon, onIOS } from 'src/utils/const';
+import { Icon } from 'src/utils/const';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
-    alignSelf: 'flex-start', // the only way to make sure that the element won't grow
     paddingHorizontal: 6,
     borderRadius: 11,
     height: 22,
   } as ViewStyle,
   IconAndText: {
     flexDirection: 'row',
-    alignItems: 'baseline',
+    alignItems: 'center',
   },
   Icon: {
     marginRight: 4,
