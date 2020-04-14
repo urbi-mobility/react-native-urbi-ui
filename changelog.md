@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- `components/ChipGroup` made scrollview 36dp in height, so that the bottom scrollbar doesn't show over its content.
+- `components/ChipGroup` updated scrollview so it takes the whole height of the component, updated logic so that it now enables all toggles when the last active toggle is tapped.
 
 ## [0.1.38 - 2020-04-09]
 
