@@ -4,19 +4,22 @@ import { ListItem } from 'react-native-urbi-ui/components/ListItem';
 import { ListItemCompact } from 'react-native-urbi-ui/components/ListItemCompact';
 import { ListItemLarge } from 'react-native-urbi-ui/components/ListItemLarge';
 import { ListItemPlaceholder } from 'react-native-urbi-ui/components/ListItemPlaceholder';
+import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
+import { ChipAndLabel } from 'react-native-urbi-ui/molecules/content/ChipAndLabel';
 import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel';
 import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
 import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
+import { Label } from 'react-native-urbi-ui/molecules/content/Label';
 import { EndDoubleLabel } from 'react-native-urbi-ui/molecules/end/EndDoubleLabel';
 import { EndDoubleLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndDoubleLabelAndIcon';
 import { EndLabel } from 'react-native-urbi-ui/molecules/end/EndLabel';
 import { EndLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndLabelAndIcon';
 import { EndRealTime } from 'react-native-urbi-ui/molecules/end/EndRealTime';
-import { placeholder, renderComponent } from '../utils/ComponentPreview';
-import { IconButtonRegular } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonRegular';
-import { showLongAlert, showAlert } from 'react-native-urbi-ui/utils/functions';
-import { Label } from 'react-native-urbi-ui/molecules/content/Label';
 import { colors } from 'react-native-urbi-ui/utils/colors';
+import { showAlert, showLongAlert } from 'react-native-urbi-ui/utils/functions';
+import { placeholder, renderComponent } from '../utils/ComponentPreview';
+import { ChipOverLabel } from 'react-native-urbi-ui/molecules/content/ChipOverLabel';
+import { ChipAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/ChipAndDoubleLabel';
 
 const onListItemPress = () => setTimeout(() => showAlert('clicked on list item 200ms ago'), 200);
 const onButtonPress = () => showLongAlert('clicked on button');
@@ -26,9 +29,50 @@ class ListItems extends React.PureComponent<any> {
     return (
       <ScrollView>
         {renderComponent(
+          'ListItemChip (w/ChipOverLabel)',
+          <ListItemLarge
+            content={
+              <ChipOverLabel
+                chip={{ label: 'U3', color: colors.subway, icon: 'subway-small' }}
+                label="to WhateverStraße"
+              />
+            }
+            end={<EndLabel label="Something" />}
+          />
+        )}
+        {renderComponent(
+          'ListItemChip (w/ChipAndDoubleLabel)',
+          <ListItemLarge
+            content={
+              <ChipAndDoubleLabel
+                chip={{ label: 'U3', color: colors.subway, icon: 'subway-small' }}
+                topLabel="No idea what goes here"
+                bottomLabel="to WhateverStraße"
+              />
+            }
+            end={<EndLabel label="Something" />}
+          />
+        )}
+        {renderComponent(
+          'ListItemChip (w/ChipOverLabel, no End)',
+          <ListItemLarge
+            content={
+              <ChipOverLabel
+                chip={{ label: 'U3', color: colors.subway, icon: 'subway-small' }}
+                label="to WhateverStraße"
+              />
+            }
+          />
+        )}
+        {renderComponent(
           'ListItem (w/real time)',
           <ListItem
-            content={<Label text="to Hermannplatz" />}
+            content={
+              <ChipAndLabel
+                chip={{ label: 'U3', color: colors.subway, icon: 'subway-small' }}
+                label="to Hermannplatz"
+              />
+            }
             end={<EndRealTime label="2" subtitle="min" />}
           />
         )}
