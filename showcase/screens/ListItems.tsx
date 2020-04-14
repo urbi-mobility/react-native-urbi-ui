@@ -65,15 +65,28 @@ class ListItems extends React.PureComponent<any> {
           />
         )}
         {renderComponent(
-          'ListItem (w/real time)',
-          <ListItem
+          'ListItemChip (w/ChipOverLabel and real time)',
+          <ListItemLarge
             content={
-              <ChipAndLabel
+              <ChipOverLabel
                 chip={{ label: 'U3', color: colors.subway, icon: 'subway-small' }}
-                label="to Hermannplatz"
+                label="to WhateverStraße"
               />
             }
             end={<EndRealTime label="2" subtitle="min" />}
+          />
+        )}
+        {renderComponent(
+          'ListItemChip (w/ChipAndDoubleLabel and real time)',
+          <ListItemLarge
+            content={
+              <ChipAndDoubleLabel
+                chip={{ label: 'U3', color: colors.subway, icon: 'subway-small' }}
+                topLabel="No idea what goes here"
+                bottomLabel="to WhateverStraße"
+              />
+            }
+            end={<EndRealTime label="5" subtitle="min" />}
           />
         )}
         {renderComponent('ListItemPlaceholder', <ListItemPlaceholder lines={1} />)}

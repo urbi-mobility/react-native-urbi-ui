@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.40 - 2020-04-14]
+
+### Added
+
+- added more `ListItemChip` examples to the showcase app (components/ListItems).
+
+### Fixed
+
+- fixed cropped items in `components/ChipGroup`, and added 4dp top padding.
+
 ## [0.1.39 - 2020-04-14]
 
 ### Added

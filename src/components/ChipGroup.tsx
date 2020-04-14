@@ -6,17 +6,20 @@ import { ChipToggle } from 'src/molecules/buttons/toggles/ChipToggle';
 const styles = StyleSheet.create({
   Wrapper: {
     flex: 1,
-    height: 42,
-    minHeight: 42,
+    height: 46,
+    minHeight: 46,
   } as ViewStyle,
   ScrollView: {
     flex: 1,
-    height: 42,
-    minHeight: 42,
-    paddingTop: 4,
-    paddingLeft: 16,
-    paddingBottom: 16,
+    height: 46,
+    minHeight: 46,
   } as ViewStyle,
+  ScrollViewContent: {
+    paddingTop: 8,
+    paddingBottom: 16,
+    paddingLeft: 16,
+    paddingRight: 4,
+  },
   ScrollViewItem: {
     marginRight: 8,
   },
@@ -83,7 +86,11 @@ export class ChipGroup extends React.PureComponent<ChipGroupProps, ChipGroupStat
   render() {
     return (
       <View style={styles.Wrapper}>
-        <ScrollView style={styles.ScrollView} horizontal>
+        <ScrollView
+          style={styles.ScrollView}
+          contentContainerStyle={styles.ScrollViewContent}
+          horizontal
+        >
           {this.props.chips.map((chip) => (
             <View key={`chip-${chip.id}`} style={styles.ScrollViewItem}>
               <ChipToggle

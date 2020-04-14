@@ -65,6 +65,7 @@ const IconGroups = () => {
 
   return (
     <ScrollView>
+      {renderComponent('ChipGroup', <ChipGroup chips={chips} onActiveChanged={() => null} />)}
       {renderComponent('IconGroup (8 icons)', <IconGroup icons={iconGroupIcons.slice(0, 8)} />)}
       {renderComponent('IconGroup (12 icons)', <IconGroup icons={iconGroupIcons.slice(0, 12)} />)}
       {renderComponent('IconGroup (14 icons)', <IconGroup icons={iconGroupIcons} />)}
@@ -101,7 +102,6 @@ const IconGroups = () => {
           <ButtonRegular buttonStyle="brand" label="reset" onPress={onResetPress} />
         </View>
       )}
-      {renderComponent('ChipGroup', <ChipGroup chips={chips} onActiveChanged={() => null} />)}
     </ScrollView>
   );
 };
