@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- `ChipGroup` is now scrolled to the beginning on `componentDidUpdate()` when its content changes.
+
 ### Fixed
 
 - state in `ChipGroup` is now reset on `componentDidUpdate()`, too.

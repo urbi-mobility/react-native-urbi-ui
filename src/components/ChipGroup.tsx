@@ -47,17 +47,23 @@ const getStateFromProps = (props: ChipGroupProps) => ({
 });
 
 export class ChipGroup extends React.PureComponent<ChipGroupProps, ChipGroupState> {
+  private scrollView: React.RefObject<ScrollView>;
+
   constructor(props: ChipGroupProps) {
     super(props);
 
     this.state = getStateFromProps(props);
 
     this.toggleActive = this.toggleActive.bind(this);
+
+    this.scrollView = React.createRef();
   }
 
   componentDidUpdate(prevProps: ChipGroupProps) {
     if (prevProps.chips !== this.props.chips) {
       this.setState(getStateFromProps(this.props));
+      if (this.scrollView.current)
+        this.scrollView.current.scrollTo({ x: 0, y: 0, animated: false });
     }
   }
 
@@ -93,6 +99,7 @@ export class ChipGroup extends React.PureComponent<ChipGroupProps, ChipGroupStat
     return (
       <View style={styles.Wrapper}>
         <ScrollView
+          ref={this.scrollView}
           style={styles.ScrollView}
           contentContainerStyle={styles.ScrollViewContent}
           horizontal
