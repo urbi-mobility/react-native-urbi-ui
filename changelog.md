@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.41 - 2020-04-15]
+
 ### Changed
 
 - `ChipGroup` is now scrolled to the beginning on `componentDidUpdate()` when its content changes.
