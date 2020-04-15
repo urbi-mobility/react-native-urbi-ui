@@ -78,17 +78,15 @@ export class ChipGroup extends React.PureComponent<ChipGroupProps, ChipGroupStat
         newChipStates[k] = active.length < chips.length;
       });
       newChipStates[id] = true;
-      this.setState({ chipStates: newChipStates });
-      this.props.onActiveChanged([id]);
     } else {
       newChipStates[id] = isActive;
-      this.setState({ chipStates: newChipStates });
-      this.props.onActiveChanged(
-        Object.entries(newChipStates)
-          .filter(([_, v]) => v)
-          .map(([k]) => k)
-      );
     }
+    this.setState({ chipStates: newChipStates });
+    this.props.onActiveChanged(
+      Object.entries(newChipStates)
+        .filter(([_, v]) => v)
+        .map(([k]) => k)
+    );
   }
 
   render() {

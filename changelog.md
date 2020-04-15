@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - state in `ChipGroup` is now reset on `componentDidUpdate()`, too.
+- `onActiveChanged()` callback in `ChipGroup` now mirrors the new toggling logic.
+- added more padding right to `ChipLarge` so that text looks centered within the chip.
 
 ## [0.1.40 - 2020-04-14]
 

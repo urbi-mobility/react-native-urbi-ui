@@ -7,7 +7,8 @@ import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
-    paddingHorizontal: 6,
+    paddingLeft: 6,
+    paddingRight: 10,
     borderRadius: 11,
     height: 22,
   } as ViewStyle,
