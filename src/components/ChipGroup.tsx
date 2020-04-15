@@ -39,18 +39,26 @@ type ChipGroupState = {
   chipStates: { [id: string]: boolean };
 };
 
+const getStateFromProps = (props: ChipGroupProps) => ({
+  chipStates: props.chips.reduce((prev, cp) => {
+    prev[cp.id] = true;
+    return prev;
+  }, {} as { [id: string]: boolean }),
+});
+
 export class ChipGroup extends React.PureComponent<ChipGroupProps, ChipGroupState> {
   constructor(props: ChipGroupProps) {
     super(props);
 
-    this.state = {
-      chipStates: props.chips.reduce((prev, cp) => {
-        prev[cp.id] = true;
-        return prev;
-      }, {} as { [id: string]: boolean }),
-    };
+    this.state = getStateFromProps(props);
 
     this.toggleActive = this.toggleActive.bind(this);
+  }
+
+  componentDidUpdate(prevProps: ChipGroupProps) {
+    if (prevProps.chips !== this.props.chips) {
+      this.setState(getStateFromProps(this.props));
+    }
   }
 
   toggleActive(id: string, isActive: boolean) {

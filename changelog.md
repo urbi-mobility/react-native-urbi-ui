@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- state in `ChipGroup` is now reset on `componentDidUpdate()`, too.
+
 ## [0.1.40 - 2020-04-14]
 
 ### Added
