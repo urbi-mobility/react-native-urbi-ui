@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     marginTop: 2,
+    marginRight: 80, // TODO find a better way to cut text
     alignItems: 'center',
     height: 22,
     minHeight: 22,
@@ -69,7 +70,10 @@ export const ChipAndDoubleLabelUnmemoized = (props: ChipAndDoubleLabelProps) => 
     </Text>
     <View style={styles.Bottom}>
       <ChipLarge {...props.chip} />
-      <Text style={getTextStyle(props.bottomLabelStyle ?? 'body', true, props.bottomLabelColor)}>
+      <Text
+        style={getTextStyle(props.bottomLabelStyle ?? 'body', true, props.bottomLabelColor)}
+        numberOfLines={1}
+      >
         {props.bottomLabel}
       </Text>
     </View>

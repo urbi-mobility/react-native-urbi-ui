@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { colors } from '../../utils/colors';
 import { registeredTextStyle } from '../../utils/textStyles';
 
-type EndLabelProps = {
+export type EndLabelProps = {
   label: string;
   style?: ViewStyle;
-  textColor?: string;
+  textColor?: keyof typeof colors;
 };
 
-const styles = StyleSheet.create({
+export const endLabelStyles = {
   Wrapper: {
     height: 40,
     justifyContent: 'center',
@@ -17,19 +17,20 @@ const styles = StyleSheet.create({
     flexBasis: 'auto',
     flexGrow: 0,
     flexShrink: 1,
-    marginRight: 4,
-  },
+  } as ViewStyle,
   Text: {
     textAlign: 'right',
-  },
-});
+  } as TextStyle,
+};
 
-const textStyle = registeredTextStyle('titleBold', colors.uma, 'EndLabel');
+const styles = StyleSheet.create(endLabelStyles);
+
+export const labelStyle = registeredTextStyle('titleBold', colors.uma, 'EndLabel');
 
 const EndLabelUnmemoized = (props: EndLabelProps) => (
   <View style={[styles.Wrapper, props.style]}>
     <Text
-      style={[textStyle, styles.Text, { color: props.textColor || colors.uma }]}
+      style={[labelStyle, styles.Text, { color: colors[props.textColor] || colors.uma }]}
       numberOfLines={1}
     >
       {props.label}

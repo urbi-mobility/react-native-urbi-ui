@@ -31,6 +31,7 @@ export const labelStyle = {
   ...registeredTextStyle('titleBold', colors.uma, 'EndDoubleLabel'),
   ...styles.Text,
 };
+
 export const subtitleStyle = {
   ...registeredTextStyle('body', colors.uto, 'EndDoubleLabelSubtitle'),
   ...styles.Text,

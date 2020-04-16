@@ -11,11 +11,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - added note about how to launch `watchman` to `README.md`.
 - added metadata to `package.json` (author, contributors, keywords).
+- added `molecules/end/EndRealTime`, the one-line version of the (now renamed) `molecules/end/EndRealTimeDouble`.
 
 ### Fixed
 
-- crop text in `ChipOverLabel` (with hellipsis) if it's too long, add `20dp` margin right.
+- crop text in `ChipOverLabel` and `ChipDoubleLabel` (with hellipsis) if it's too long, add `20dp` margin right.
 - centered `ChipLarge` _juuuuust_ right.
+- removed ghost `4dp` right padding from `EndLabel`
 
 ## [0.1.41 - 2020-04-15]
 
