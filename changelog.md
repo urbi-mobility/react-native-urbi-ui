@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- `colors` change `ughina` value (because design).
+- `ListItemTextInput` change placeholder color to `ursula` (also because design).
+- `SearchBar` invert `ulisse` and `ukko` in light version (...also because design).
+
+## [0.1.42 - 2020-04-16]
+
 ### Added
 
 - added note about how to launch `watchman` to `README.md`.

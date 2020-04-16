@@ -14,7 +14,7 @@ export const colors = {
   error: '#f42c4f',
   uma: '#152934',
   uto: '#5a6872',
-  ughina: '#8897a2',
+  ughina: '#98a6b1',
   ursula: '#c5ced3',
   ukko: '#f7f8fa',
   ulisse: '#ffffff',

@@ -139,7 +139,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             onFocus={this.onFocus}
             value={value}
             placeholder={placeholder || label || name}
-            placeholderTextColor={colors.ughina}
+            placeholderTextColor={colors.ursula}
             keyboardType={keyboardTypes[type]}
             textContentType={textType}
             secureTextEntry={!showPassword}
