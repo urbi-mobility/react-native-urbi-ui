@@ -50,11 +50,12 @@ Run `yarn install` to install all dependencies, and `yarn build` to generate the
 
 ## Using the showcase app to preview changes to the library
 
-Because the metro bundler doesn't support regular `npm link`s (see [this issue][1]), we need to rely on [wml][2] to actually copy all files from the library `dist` folder to `showcase/node_modules/react-native-urbi-ui` whenever they change.
+Because the metro bundler doesn't support regular `npm link`s (see [this issue][1]), we need to rely on [wml][2] (which in turn relies on [watchman][3] to actually copy all files from the library `dist` folder to `showcase/node_modules/react-native-urbi-ui` whenever they change.
 
 The setup works as follows:
 
     # from the repo top-level folder
+    watchman watch dist
     cd showcase
     yarn install
     cd ..
@@ -79,3 +80,4 @@ Inside of it, add this:
 
 [1]: https://github.com/facebook/metro/issues/1
 [2]: https://github.com/wix/wml
+[3]: https://github.com/facebook/watchman

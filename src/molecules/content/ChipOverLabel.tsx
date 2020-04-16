@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     marginTop: 4,
+    marginRight: 20,
   },
 });
 
@@ -46,7 +47,9 @@ export const ChipOverLabelUnmemoized = (props: ChipOverLabelProps) => (
     <View style={styles.ChipWrapper}>
       <ChipLarge {...props.chip} />
     </View>
-    <Text style={getTextStyle(props)}>{props.label}</Text>
+    <Text style={getTextStyle(props)} numberOfLines={1}>
+      {props.label}
+    </Text>
   </View>
 );
 

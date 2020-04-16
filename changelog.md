@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- added note about how to launch `watchman` to `README.md`.
+- added metadata to `package.json` (author, contributors, keywords).
+
+### Fixed
+
+- crop text in `ChipOverLabel` (with hellipsis) if it's too long, add `20dp` margin right.
+- centered `ChipLarge` _juuuuust_ right.
+
 ## [0.1.41 - 2020-04-15]
 
 ### Changed
