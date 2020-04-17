@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.43 - 2020-04-17]
+
 ### Changed
 
-- `colors` change `ughina` value (because design).
-- `ListItemTextInput` change placeholder color to `ursula` (also because design).
-- `SearchBar` invert `ulisse` and `ukko` in light version (...also because design).
+- `colors` changed `ughina` value (because design).
+- `ListItemTextInput` changed placeholder color to `ursula` (also because design).
+- `SearchBar` inverted `ulisse` and `ukko` in light version (...also because design).
 
 ## [0.1.42 - 2020-04-16]
 
