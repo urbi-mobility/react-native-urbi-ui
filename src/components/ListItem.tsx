@@ -87,7 +87,13 @@ const renderListItem = (props: ListItemProps) => (
 
 export const maybeAddSeparator = (props: ListItemProps, renderFn: (props: ListItemProps) => any) =>
   props.withSeparator ? (
-    <View style={styles.Wrapper}>
+    <View
+      style={
+        props.backgroundColor
+          ? [styles.Wrapper, { backgroundColor: props.backgroundColor }]
+          : styles.Wrapper
+      }
+    >
       {renderFn(props)}
       <View style={styles.Separator} />
     </View>

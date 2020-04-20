@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `ListItem` fixed separator background color to match the one passed in props
+
 ## [0.1.43 - 2020-04-17]
 
 ### Changed
