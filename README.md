@@ -6,17 +6,19 @@ A set of React Native components that compose Urbi's Design System.
 
 This is an alpha version of the release, use it at your own risk!
 
-## Usage
+## Installation
 
-Make sure you have all `peerDependencies` installed, and import components/molecules from their folders, e.g.:
+Install the library by running:
 
-    import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+    yarn add react-native-urbi-ui
+    # or npm install react-native-urbi-ui
 
-Every component is exported as either a `React.PureComponent` or as a memoized stateless component (using `React.memo()`). In some cases, unmemoized versions are available, and they're exported using the `Unmemoized` suffix. Those are usually useful when their type is needed in typescript to specify props (e.g., `button: ReactElement<typeof ButtonUnmemoized>)`).
+Then, install all of its peer dependencies:
 
-The design system makes use of an icon font which you must include in your app. The font can be installed by copying the `showcase/android/app/src/main/assets/fonts/urbi.ttf` file into your own app's `android/app/src/main/assets/fonts` folder (create it if it doesn't exist), and by adding that same file to your iOS project's resources, making sure it's copied in the `Copy resources` build phase.
+    yarn add @react-native-community/slider date-fns formik react-native-dialogs react-native-formik react-native-gesture-handler react-native-linear-gradient react-native-modal-datetime-picker react-native-reanimated react-native-typography react-native-vector-icons
+    # or npm install the same things
 
-All components/molecules come with their own Typescript definitions. However, if you're using Typescript, you might want to adjust the `compilerOptions.paths` field inside your `tsconfig.json` to include these lines:
+If you're using Typescript, you might want to add this to your `tsconfig.json` file:
 
     {
         "compilerOptions": {
@@ -34,13 +36,34 @@ All components/molecules come with their own Typescript definitions. However, if
 
 that way, `tsc` will look for platform-specific definition files, which it wouldn't otherwise.
 
-## Showcase
+### Android
 
-An example react native app that showcases all components/molecules can be found in the `showcase` folder. To make it work, you first have to build the library by running `yarn build` on the top-level folder of this project; then, `cd` into the `showcase` folder, and run:
+The library relies on your app embedding Android's `Roboto-Regular.ttf` and `Roboto-Medium.ttf` (so that it looks the same regardless of what the device has set as system font).
 
-    yarn install
-    yarn start
-    yarn android # or yarn ios
+If you don't have these 2 files in your project already, create an `android/app/src/main/assets/fonts` folder and save those files there. You can get the files [from Google Fonts][4], or you can download them [from our showcase app's own `fonts` folder][5].
+
+Then, install our icon font by copying it to the same folder as the one holding the Roboto files. On a Unix system:
+
+    # from your project's main folder, where node_modules is
+    cp node_modules/react-native-urbi-ui/urbi.ttf android/app/src/main/assets/fonts
+
+### iOS
+
+Copy our icon font and add it as one of your project's resources. You can find the font inside:
+
+    node_modules/react-native-urbi-ui/urbi.ttf
+
+Once copied to your project (e.g., inside the `ios` folder as a top-level file, like our showcase app does), update your XCode settings to include `urbi.ttf` in the `Copy resources` build phase.
+
+## Usage
+
+Import components/molecules from their folders, e.g.:
+
+    import { ButtonCompact } from 'react-native-urbi-ui/molecules/buttons/ButtonCompact';
+
+Every component is exported as either a `React.PureComponent` or as a memoized stateless component (using `React.memo()`). In some cases, unmemoized versions are available, and they're exported using the `Unmemoized` suffix, but you can generally use the component without the `Unmemoized` suffix.
+
+Check out [our showcase app][6] for examples on how to use our molecules and components.
 
 # Development
 
@@ -81,3 +104,6 @@ Inside of it, add this:
 [1]: https://github.com/facebook/metro/issues/1
 [2]: https://github.com/wix/wml
 [3]: https://github.com/facebook/watchman
+[4]: https://fonts.google.com/specimen/Roboto
+[5]: https://github.com/urbi-mobility/react-native-urbi-ui/tree/master/showcase/android/app/src/main/assets/fonts
+[6]: https://github.com/urbi-mobility/react-native-urbi-ui/tree/master/showcase

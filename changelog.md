@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.1 - 2020-04-21]
+
+### Changed
+
+- `fonts` - use embedded Roboto fonts on Android so that the app looks the same regardless of the system font in use (**Read the updated install instructions on the `README.md` file!**)
+
 ### Fixed
 
 - `ListItem` fixed separator background color to match the one passed in props
