@@ -24,7 +24,7 @@ import IconGroups from './screens/IconGroups';
 import Images from './screens/Images';
 import ListButtons from './screens/ListButtons';
 import ListItems from './screens/ListItems';
-import Modal from './screens/Modal';
+import Modals from './screens/Modals';
 import Molecules from './screens/Molecules';
 import Notes from './screens/Notes';
 import Notifications from './screens/Notifications';
@@ -109,7 +109,7 @@ const menuEntries = {
   Images: Images,
   ListButtons: ListButtons,
   ListItems: ListItems,
-  Modal: Modal,
+  ['Modals / Snackbars']: Modals,
   PaymentPanel: PaymentPanel,
   Molecules: Molecules,
   Notes: Notes,

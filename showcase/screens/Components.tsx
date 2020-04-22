@@ -19,7 +19,7 @@ const buttonEntries = toButtonEntries([
   'Form components',
   'IconGroups',
   'ListItems',
-  'Modal',
+  'Modals / Snackbars',
   'Notifications',
   'Onboarding',
   'PaymentPanel',

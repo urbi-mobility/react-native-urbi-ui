@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.2 - 2020-04-22]
+
+### Added
+
+- added `components/Snackbar` - a new component to use snackbars on both Android and iOS. Test it on the showcase app in `components/Modals / Snackbars`
+
 ## [0.2.1 - 2020-04-21]
 
 ### Changed
