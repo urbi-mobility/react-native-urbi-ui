@@ -7,6 +7,12 @@ Launch it in your emulator / on your device by running:
     # from the top-level folder of the react-native-urbi-ui repo
     cd showcase
     yarn install
+
+    # if you're not interested in iOS, skip the next 2 steps
+    cd ios
+    pod install
+
+    # finally, launch the metro server, and the app
     yarn start
     yarn android # or yarn ios
 

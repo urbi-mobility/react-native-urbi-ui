@@ -1,8 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewStyle, Animated, Easing } from 'react-native';
+import {
+  Animated,
+  Easing,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -105,13 +112,21 @@ const Action = ({
 );
 
 export class SnackbarView extends React.PureComponent<SnackbarViewProps, SnackbarViewState> {
+  static options = {
+    overlay: {
+      interceptTouchOutside: false,
+    },
+  };
+
   private timeoutHandle?: number;
   private translateY: Animated.Value;
 
   constructor(props: SnackbarViewProps) {
     super(props);
 
-    const initialY = props.message.action?.onNewLine ? 106 : props.message.secondLine ? 68 : 48;
+    const initialY =
+      (props.message.bottomMargin ?? 0) +
+      (props.message.action?.onNewLine ? 106 : props.message.secondLine ? 68 : 48);
     this.translateY = new Animated.Value(initialY);
 
     this.state = {

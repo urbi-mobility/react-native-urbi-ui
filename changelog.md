@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `components/SnackbarView` - added options to support react-native-navigation, and considered `props.bottomMargin` for the animations
+
 ## [0.2.2 - 2020-04-22]
 
 ### Added
