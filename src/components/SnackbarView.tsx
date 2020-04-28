@@ -160,7 +160,11 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
   }
 
   componentWillUnmount() {
-    if (this.timeoutHandle) clearTimeout(this.timeoutHandle);
+    if (this.timeoutHandle) {
+      clearTimeout(this.timeoutHandle);
+      // call the callback without animations
+      this.props.onHide();
+    }
   }
 
   onActionPress() {

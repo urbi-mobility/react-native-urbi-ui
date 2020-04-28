@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
-- `components/SnackbarView` - added options to support react-native-navigation, and considered `props.bottomMargin` for the animations
+- `components/SnackbarView` - added options to support react-native-navigation, and considered `props.bottomMargin` for the animations; calling onHide() on componentWillUnmount if there's an active timeout.
 
 ## [0.2.2 - 2020-04-22]
 
