@@ -5,11 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.2.3 - 2020-04-28]
 
 ### Fixed
 
 - `components/SnackbarView` - added options to support react-native-navigation, and considered `props.bottomMargin` for the animations; calling onHide() on componentWillUnmount if there's an active timeout.
+- `components/Search` - added workaround for nested touchables in `react-native-gesture-handler`
 
 ## [0.2.2 - 2020-04-22]
 

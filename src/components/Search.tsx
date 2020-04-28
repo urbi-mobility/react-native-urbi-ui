@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
   },
   SearchBox: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
     borderRadius: 22,
     paddingLeft: 8,
     paddingRight: 8,
@@ -96,25 +98,25 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
                   labelColor={backgroundColor === 'uma' ? colors.ulisse : colors.uma}
                   smallIcon
                 />
-                {leftmostAction && (
-                  <IconButtonCompact
-                    buttonStyle="secondary"
-                    icon={leftmostAction.icon}
-                    onPress={this.onActionPress('left')}
-                    colorOverride={this.state.leftActionToggled ? colors.brand : colors.primary}
-                  />
-                )}
-                {rightmostAction && (
-                  <IconButtonCompact
-                    buttonStyle="secondary"
-                    icon={rightmostAction.icon}
-                    onPress={this.onActionPress('right')}
-                    colorOverride={this.state.rightActionToggled ? colors.brand : colors.primary}
-                  />
-                )}
               </View>
             </View>
           </TouchableWithoutFeedback>
+          {leftmostAction && (
+            <IconButtonCompact
+              buttonStyle="secondary"
+              icon={leftmostAction.icon}
+              onPress={this.onActionPress('left')}
+              colorOverride={this.state.leftActionToggled ? colors.brand : colors.primary}
+            />
+          )}
+          {rightmostAction && (
+            <IconButtonCompact
+              buttonStyle="secondary"
+              icon={rightmostAction.icon}
+              onPress={this.onActionPress('right')}
+              colorOverride={this.state.rightActionToggled ? colors.brand : colors.primary}
+            />
+          )}
         </View>
       </View>
     );
