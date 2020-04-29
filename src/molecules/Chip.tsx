@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   Text: registeredTextStyle('micro', colors.ulisse, 'chip-text'),
 });
 
-type ChipProps = {
+export type ChipProps = {
   label: string;
   bgState: 'default' | 'success' | 'error';
 };

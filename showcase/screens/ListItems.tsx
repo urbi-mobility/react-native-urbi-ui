@@ -9,6 +9,8 @@ import { DoubleLabel } from 'react-native-urbi-ui/molecules/content/DoubleLabel'
 import { IconAndDoubleLabel } from 'react-native-urbi-ui/molecules/content/IconAndDoubleLabel';
 import { IconAndLabel } from 'react-native-urbi-ui/molecules/content/IconAndLabel';
 import { Label } from 'react-native-urbi-ui/molecules/content/Label';
+import { EndChipLarge } from 'react-native-urbi-ui/molecules/end/EndChipLarge';
+import { EndChipLargeAndIcon } from 'react-native-urbi-ui/molecules/end/EndChipLargeAndIcon';
 import { EndDoubleLabel } from 'react-native-urbi-ui/molecules/end/EndDoubleLabel';
 import { EndDoubleLabelAndIcon } from 'react-native-urbi-ui/molecules/end/EndDoubleLabelAndIcon';
 import { EndLabel } from 'react-native-urbi-ui/molecules/end/EndLabel';
@@ -28,6 +30,26 @@ class ListItems extends React.PureComponent<any> {
   render() {
     return (
       <ScrollView>
+        {renderComponent(
+          'ListItem (w/EndChipLarge)',
+          <ListItem
+            content={<Label text="Hello, I'm a label" />}
+            end={<EndChipLarge chip={{ label: '€123', color: colors.brand }} />}
+          />
+        )}
+        {renderComponent(
+          'ListItem (w/EndChipLarge and icon)',
+          <ListItem
+            content={<Label text="Hello, I'm a label" />}
+            end={
+              <EndChipLargeAndIcon
+                chip={{ label: '€123', color: colors.brand }}
+                icon="disclosure-small"
+                iconColor={colors.primary}
+              />
+            }
+          />
+        )}
         {renderComponent(
           'ListItemChip (w/ChipOverLabel)',
           <ListItemLarge
