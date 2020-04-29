@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.4 - 2020-04-29]
+
 ### Added
 
 - `molecules/end/EndChip` and `molecules/end/EndChipAndLabel` (internal ref: UR-1612). Test them on the showcase app in `components/ListItems`
