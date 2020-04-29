@@ -20,7 +20,7 @@ export const getWindowHeight = (hasNotch: boolean) =>
     : Dimensions.get('window').height;
 
 export const getTabBarHeight = (hasNotch: boolean) =>
-  onIOS ? 48 + (getWindowHeight(hasNotch) > 800 ? 34 : 0) : 56 + (getWindowHeight(hasNotch) > 800 ? 14 : 0);
+  onIOS ? 48 + (hasNotch ? 34 : 0) : 56 + (hasNotch ? 14 : 0);
 
 export const IPHONE_X_HOME_AREA_HEIGHT = 34;
 

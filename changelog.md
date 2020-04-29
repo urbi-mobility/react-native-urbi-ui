@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `utils/const` fixed `getTabBarHeight` function
+
 ## [0.2.4 - 2020-04-29]
 
 ### Added
