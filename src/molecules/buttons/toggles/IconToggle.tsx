@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { styles } from '../../../molecules/buttons/ButtonStyles';
 import { IconButton } from '../../../molecules/buttons/iconButtons/IconButton';
 import { sizes } from '../../../molecules/buttons/iconButtons/IconButtonRegular';
 import { ToggleProps } from '../../../molecules/buttons/types';
 import { colors } from '../../../utils/colors';
-import { LoadingCircle } from 'src/molecules/animations/LoadingCircle';
+import { onIOS } from 'src/utils/const';
 
 type ToggleState = {
   active: boolean;
@@ -73,7 +73,7 @@ export class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
     ) : (
       <View style={[registeredStyles.Wrapper, { backgroundColor: computedStyle.backgroundColor }]}>
         {this.props.loading ? (
-          <LoadingCircle size={sizes.innerIconSize - 4} color={computedStyle.color} />
+          <ActivityIndicator size={onIOS ? 'small' : 'large'} color={computedStyle.color} />
         ) : (
           <IconButton
             buttonStyle={buttonStyle}
