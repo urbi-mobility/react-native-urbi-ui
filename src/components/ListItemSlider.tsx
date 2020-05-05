@@ -19,11 +19,11 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   Slider: {
     flex: 1,
-    marginRight: onIOS ? 8 : 0,
+    marginRight: onIOS ? 4 : 0,
   },
   Label: {
     flexGrow: 0,
-    width: 58,
+    width: onIOS ? 62 : 58,
   },
   Separator: SeparatorStyle,
 });
@@ -35,9 +35,9 @@ type ListItemSliderProps = {
   /**
    * If set, width for the EndDoubleLabel will be set to this number.
    *
-   * The default is 58, set it to the widest the label can go, so that
-   * the Slider on the left doesn't shrink or grow according to its
-   * current value.
+   * The default is 58 on Android, and 62 on iOS; set it to the widest
+   * the label can go, so that the Slider on the left doesn't shrink or
+   * grow according to its current value.
    */
   labelWidth?: number;
   withSeparator?: boolean;

@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - `utils/const` fixed `getTabBarHeight` function
+- updated default `ListItemSlider` right-hand side label width so that it's not cut on iOS by default
 
 ## [0.2.4 - 2020-04-29]
 
