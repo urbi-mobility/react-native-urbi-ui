@@ -15,7 +15,7 @@ Install the library by running:
 
 Then, install all of its peer dependencies:
 
-    yarn add @react-native-community/slider date-fns formik react-native-dialogs react-native-formik react-native-gesture-handler react-native-linear-gradient react-native-modal-datetime-picker react-native-reanimated react-native-typography react-native-vector-icons
+    yarn add @react-native-community/slider date-fns formik react-native-dialogs react-native-formik react-native-gesture-handler react-native-linear-gradient react-native-modal-datetime-picker react-native-reanimated react-native-typography react-native-vector-icons react-native-svg
     # or npm install the same things
 
 If you're using Typescript, you might want to add this to your `tsconfig.json` file:

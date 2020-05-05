@@ -3,6 +3,7 @@ import { StyleSheet, Text as TextView, View, YellowBox } from 'react-native';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { createAppContainer, NavigationRouteConfig } from 'react-navigation';
 import { createStackNavigator, NavigationStackScreenProps } from 'react-navigation-stack';
+import Animations from './screens/Animations';
 import ButtonList, { toButtonEntries } from './components/ButtonList';
 import packageJson from './package.json';
 import BannerSlider from './screens/BannerSlider';
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
 });
 
 const menuEntries = {
+  Animations,
   BannerSlider: BannerSlider,
   ButtonGroup: ButtonGroup,
   Buttons: Buttons,

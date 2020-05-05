@@ -14,21 +14,8 @@ import {
   renderComponent,
 } from '../utils/ComponentPreview';
 
-const onFilterPress = (id: string, active: boolean) => {
-  categoryFilters.find((f) => f.id === id)!.active = active;
-  showAlert(`'${id}' is now ${active ? 'active' : 'inactive'}`, "Look at me, I'm the Toast now");
-};
-
 const onImageTogglePress = (id: string, active: boolean) =>
   showAlert(`'${id}' is now ${active ? 'active' : 'inactive'}`);
-
-const categoryFilters = [
-  { id: 'car', icon: 'car', active: false },
-  { id: 'scooter', icon: 'scooter', active: false },
-  { id: 'kickscooter', icon: 'kickscooter', active: false },
-  { id: 'bike', icon: 'bike', active: true },
-  { id: 'public_transport', icon: 'public_transport', active: true },
-];
 
 const styles = StyleSheet.create({
   WithWhiteBackground: {
@@ -47,13 +34,61 @@ const ToggleWithBackground = (
   </View>
 );
 
-class Toggles extends React.PureComponent<any> {
+type ToggleButtonState = {
+  active: boolean;
+  id: string;
+  icon: string;
+  loading?: boolean;
+};
+
+type TogglesState = {
+  car: ToggleButtonState;
+  scooter: ToggleButtonState;
+  kickscooter: ToggleButtonState;
+  bike: ToggleButtonState;
+  public_transport: ToggleButtonState;
+};
+
+class Toggles extends React.PureComponent<{}, TogglesState> {
+  constructor(props: {}) {
+    super(props);
+
+    this.state = {
+      car: { id: 'car', icon: 'car', active: false, loading: false },
+      scooter: { id: 'scooter', icon: 'scooter', active: false },
+      kickscooter: { id: 'kickscooter', icon: 'kickscooter', active: false },
+      bike: { id: 'bike', icon: 'bike', active: true },
+      ['public_transport']: { id: 'public_transport', icon: 'public_transport', active: true },
+    };
+
+    this.onFilterPress = this.onFilterPress.bind(this);
+  }
+
+  onFilterPress(k: string, active: boolean) {
+    const id = k as keyof TogglesState;
+    this.setState<never>({ [id]: { ...this.state[id], loading: true } });
+    setTimeout(() => {
+      this.setState<never>({ [id]: { ...this.state[id], loading: false } });
+      showAlert(
+        `'${id}' is now ${active ? 'active' : 'inactive'}`,
+        "Look at me, I'm the Toast now"
+      );
+    }, 500 + Math.random() * 4000);
+  }
+
   render() {
     return (
       <ScrollView>
         {renderComponent(
           'IconToggle',
-          <IconToggle icon="car" id="car" setActive={onFilterPress} active />
+          <IconToggle
+            icon="car"
+            id="car"
+            setActive={this.onFilterPress}
+            managed
+            active={this.state.car.active}
+            loading={this.state.car.loading}
+          />
         )}
         {renderComponent(
           'ImageToggle',
@@ -72,8 +107,8 @@ class Toggles extends React.PureComponent<any> {
         {renderComponent(
           'FilterGroup',
           <FilterGroup
-            filterButtons={categoryFilters}
-            onFilterToggle={onFilterPress}
+            filterButtons={Object.values(this.state)}
+            onFilterToggle={this.onFilterPress}
             onLastButtonClick={onButtonPress}
           />
         )}

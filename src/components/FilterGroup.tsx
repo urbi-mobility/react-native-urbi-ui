@@ -3,7 +3,7 @@ import { StyleSheet, View, ViewStyle } from 'react-native';
 import { IconButtonRegular } from '../molecules/buttons/iconButtons/IconButtonRegular';
 import { IconToggle } from '../molecules/buttons/toggles/IconToggle';
 
-type FilterButton = { id: string; icon: string; active?: boolean };
+type FilterButton = { id: string; icon: string; active?: boolean; loading?: boolean };
 
 type FilterGroupProps = {
   filterButtons: FilterButton[];
@@ -34,6 +34,7 @@ const buttons = (props: FilterGroupProps) =>
       active={b.active || false}
       setActive={props.onFilterToggle}
       managed={props.managed}
+      loading={b.loading}
     />
   ));
 

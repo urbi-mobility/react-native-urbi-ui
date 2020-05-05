@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `molecules/animations/LoadingCircle` new loading animation made with `react-native-reanimated` and (the newly added) `react-native-svg`
+
+### Changed
+
+- added loading animation to `FilterGroup` when the `manage` prop is set
+
 ### Fixed
 
 - `utils/const` fixed `getTabBarHeight` function

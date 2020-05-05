@@ -9,6 +9,7 @@ class Molecules extends React.PureComponent<NavigationStackScreenProps> {
 }
 
 const buttonEntries = toButtonEntries([
+  'Animations',
   'Buttons',
   'CardHeaders',
   'Chips',
