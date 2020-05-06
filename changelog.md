@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.5 - 2020-05-06]
+
 ### Added
 
 - `molecules/animations/LoadingCircle` new loading animation made with `react-native-reanimated` and (the newly added) `react-native-svg`
