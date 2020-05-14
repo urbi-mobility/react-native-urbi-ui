@@ -29,6 +29,7 @@ const buttonEntries = toButtonEntries([
   'Search',
   'SelectionHeaders',
   'Status',
+  'Tooltips',
 ]);
 
 export default Components;

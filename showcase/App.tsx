@@ -43,6 +43,7 @@ import Status from './screens/Status';
 import Steppers from './screens/Steppers';
 import Text from './screens/Text';
 import Toggles from './screens/Toggles';
+import Tooltips from './screens/Tooltips';
 import Typography from './screens/Typography';
 
 // see https://github.com/kmagiera/react-native-gesture-handler/pull/657
@@ -128,6 +129,7 @@ const menuEntries = {
   Steppers: Steppers,
   Text: Text,
   Toggles: Toggles,
+  Tooltips: Tooltips,
   Typography: Typography,
 };
 

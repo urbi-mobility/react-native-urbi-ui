@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `components/Tooltip` and its companion `components/TooltipContainer`. Can be used directly, or with the `WithTooltip` HOC, also inside `components/Tooltip` (internal ref: UR-1686)
+
 ### Fixed
 
 - `components/Snackbar` crop long lines of text when an action is shown, and also when the action is on a line by itself (internal ref: UR-1663)
