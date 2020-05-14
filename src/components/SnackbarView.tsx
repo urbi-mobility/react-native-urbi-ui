@@ -11,6 +11,9 @@ import {
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
+const textStyle = registeredTextStyle('body', colors.ulisse, 'snackbartext');
+const actionTextStyle = registeredTextStyle('button', colors.ulisse, 'snackbaraction');
+
 const styles = StyleSheet.create({
   Wrapper: {
     zIndex: 666,
@@ -31,11 +34,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.tertiary,
   },
   Action: {
+    flex: 0,
+    flexBasis: 'auto',
     flexGrow: 0,
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 8,
+  },
+  TextWithAction: {
+    ...textStyle,
+    flexGrow: 1,
+    flexShrink: 1,
   },
   SingleLineWrapper: {
     height: 48,
@@ -59,6 +69,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  TextThreeLines: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingRight: 16,
+  },
   ThreeLineActionContainer: {
     flexDirection: 'row-reverse',
   },
@@ -80,9 +95,6 @@ export interface SnackbarMessage {
   secondLine?: string;
   action?: SnackbarAction;
 }
-
-const textStyle = registeredTextStyle('body', colors.ulisse, 'snackbartext');
-const actionTextStyle = registeredTextStyle('button', colors.ulisse, 'snackbaraction');
 
 export type SnackbarViewProps = {
   message: SnackbarMessage;
@@ -184,9 +196,11 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
 
   renderSingleLine() {
     const { action, firstLine, textColor } = this.props.message;
+    const s = action ? styles.TextWithAction : textStyle;
+    const tStyle = textColor ? [s, { color: textColor }] : s;
     return (
       <View style={styles.SingleLineWrapper}>
-        <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={1}>
+        <Text style={tStyle} numberOfLines={1}>
           {firstLine}
         </Text>
         {action ? <Action text={action.text} onPress={this.onActionPress} /> : null}
@@ -215,7 +229,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
     const { action, firstLine, secondLine, textColor } = this.props.message;
     return (
       <View style={styles.ThreeLineWrapper}>
-        <View style={styles.TextTwoLines}>
+        <View style={styles.TextThreeLines}>
           <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={1}>
             {firstLine}
           </Text>

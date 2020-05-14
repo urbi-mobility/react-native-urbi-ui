@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `components/Snackbar` crop long lines of text when an action is shown, and also when the action is on a line by itself (internal ref: UR-1663)
+
 ## [0.2.5 - 2020-05-06]
 
 ### Added
