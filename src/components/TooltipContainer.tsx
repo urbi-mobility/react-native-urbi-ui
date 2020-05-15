@@ -25,9 +25,14 @@ type TooltipContainerState = {
   tooltip?: TooltipProps;
 };
 
-export class TooltipContainer extends React.PureComponent<{}, TooltipContainerState>
+type TooltipContainerProps = {
+  backgroundColor?: string;
+};
+
+export class TooltipContainer
+  extends React.PureComponent<TooltipContainerProps, TooltipContainerState>
   implements ITooltipContainer {
-  constructor(props: {}) {
+  constructor(props: TooltipContainerProps) {
     super(props);
 
     this.state = { height: 0, fadeAnimation: new Animated.Value(0) };
@@ -51,8 +56,9 @@ export class TooltipContainer extends React.PureComponent<{}, TooltipContainerSt
   }
 
   hideTooltip() {
+    const onHide = this.state.tooltip?.onHide;
     this.setState({ tooltip: undefined, fadeAnimation: new Animated.Value(0) }, () =>
-      this.state.tooltip?.onHide()
+      onHide ? onHide() : null
     );
   }
 
@@ -66,7 +72,11 @@ export class TooltipContainer extends React.PureComponent<{}, TooltipContainerSt
 
     return (
       <View
-        style={styles.Wrapper}
+        style={
+          this.props.backgroundColor
+            ? [styles.Wrapper, { backgroundColor: this.props.backgroundColor }]
+            : styles.Wrapper
+        }
         onLayout={this.onLayout}
         pointerEvents={tooltip?.show ? 'auto' : 'none'}
       >
