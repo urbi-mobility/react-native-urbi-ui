@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - `components/Snackbar` crop long lines of text when an action is shown, and also when the action is on a line by itself (internal ref: UR-1663)
+- `components/Onboarding` add more props to try and make the ScrollView actually paginate
 
 ## [0.2.5 - 2020-05-06]
 

@@ -7,13 +7,13 @@ import {
   LayoutChangeEvent,
   NativeScrollEvent,
   NativeSyntheticEvent,
+  ScrollView,
   StyleSheet,
   Text,
   TextStyle,
   View,
   ViewStyle,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
 import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from '../components/FloatingButtonLayout';
@@ -140,6 +140,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
             decelerationRate="fast"
             snapToInterval={pageWidth}
             snapToAlignment="start"
+            pagingEnabled
             horizontal
           >
             {pages.map((p, i) => renderOnboardingPage(p, i, titleLowercase, pageWidth))}
