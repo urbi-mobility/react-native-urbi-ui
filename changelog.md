@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.7 - 2020-05-18]
+
 ### Fixed
 
 - `components/Snackbar` queuing multiple snackbars works again when Snackbars are dismissed because of their actions being pressed
+
+## [0.2.6 - 2020-05-15]
 
 ### Added
 
