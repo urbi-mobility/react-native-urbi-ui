@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `components/Snackbar` queuing multiple snackbars works again when Snackbars are dismissed because of their actions being pressed
+
 ### Added
 
 - `components/Tooltip` and its companion `components/TooltipContainer`. Can be used directly, or with the `WithTooltip` HOC, also inside `components/Tooltip` (internal ref: UR-1686)

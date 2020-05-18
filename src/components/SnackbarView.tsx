@@ -103,6 +103,7 @@ export type SnackbarViewProps = {
 
 type SnackbarViewState = {
   initialY: number;
+  skipOnHide: boolean;
 };
 
 const Action = ({
@@ -143,6 +144,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
 
     this.state = {
       initialY,
+      skipOnHide: false,
     };
 
     this.getSnackbarStyle = this.getSnackbarStyle.bind(this);
@@ -175,7 +177,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
     if (this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
       // call the callback without animations
-      this.props.onHide();
+      if (!this.state.skipOnHide) this.props.onHide();
     }
   }
 
@@ -183,6 +185,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
     const { message, onHide } = this.props;
     if (this.timeoutHandle) clearTimeout(this.timeoutHandle);
     message.action?.onPress();
+    this.setState({ skipOnHide: true });
     requestAnimationFrame(onHide);
   }
 
