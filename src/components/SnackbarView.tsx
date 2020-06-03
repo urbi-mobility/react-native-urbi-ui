@@ -17,6 +17,7 @@ const actionTextStyle = registeredTextStyle('button', colors.ulisse, 'snackbarac
 const styles = StyleSheet.create({
   Wrapper: {
     zIndex: 666,
+    flex: 1,
     position: 'absolute',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -30,17 +31,15 @@ const styles = StyleSheet.create({
     maxWidth: 500,
     alignSelf: 'center',
     overflow: 'hidden',
-    paddingLeft: 16,
     backgroundColor: colors.tertiary,
   },
   Action: {
     flex: 0,
     flexBasis: 'auto',
     flexGrow: 0,
-    padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 8,
+    marginLeft: 16,
   },
   TextWithAction: {
     ...textStyle,
@@ -48,33 +47,22 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   SingleLineWrapper: {
-    height: 48,
+    flex: 1,
+    padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  TwoLineWrapper: {
-    height: 68,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  ThreeLineWrapper: {
-    height: 106,
-    paddingBottom: 8,
-  },
-  TextOneLine: {
+  ActionOnNewLineWrapper: {
     flex: 1,
+    padding: 16,
   },
-  TextTwoLines: {
+  TextWithActionOnNewLine: {
     flex: 1,
     justifyContent: 'center',
-  },
-  TextThreeLines: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingRight: 16,
   },
   ThreeLineActionContainer: {
+    marginTop: 12,
     flexDirection: 'row-reverse',
   },
 });
@@ -91,8 +79,7 @@ export interface SnackbarMessage {
   hideDelayMillis?: number;
   backgroundColor?: string;
   textColor?: string;
-  firstLine: string;
-  secondLine?: string;
+  message: string;
   action?: SnackbarAction;
 }
 
@@ -138,8 +125,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
     super(props);
 
     const initialY =
-      (props.message.bottomMargin ?? 0) +
-      (props.message.action?.onNewLine ? 106 : props.message.secondLine ? 68 : 48);
+      (props.message.bottomMargin ?? 0) + (props.message.action?.onNewLine ? 106 : 68);
     this.translateY = new Animated.Value(initialY);
 
     this.state = {
@@ -149,8 +135,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
 
     this.getSnackbarStyle = this.getSnackbarStyle.bind(this);
     this.renderSingleLine = this.renderSingleLine.bind(this);
-    this.renderTwoLines = this.renderTwoLines.bind(this);
-    this.renderThreeLines = this.renderThreeLines.bind(this);
+    this.renderWithActionOnNewLine = this.renderWithActionOnNewLine.bind(this);
     this.onActionPress = this.onActionPress.bind(this);
   }
 
@@ -198,46 +183,26 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
   }
 
   renderSingleLine() {
-    const { action, firstLine, textColor } = this.props.message;
+    const { action, message, textColor } = this.props.message;
     const s = action ? styles.TextWithAction : textStyle;
     const tStyle = textColor ? [s, { color: textColor }] : s;
     return (
       <View style={styles.SingleLineWrapper}>
-        <Text style={tStyle} numberOfLines={1}>
-          {firstLine}
+        <Text style={tStyle} numberOfLines={2}>
+          {message}
         </Text>
         {action ? <Action text={action.text} onPress={this.onActionPress} /> : null}
       </View>
     );
   }
 
-  renderTwoLines() {
-    const { action, firstLine, secondLine, textColor } = this.props.message;
+  renderWithActionOnNewLine() {
+    const { action, message, textColor } = this.props.message;
     return (
-      <View style={styles.TwoLineWrapper}>
-        <View style={styles.TextTwoLines}>
-          <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={1}>
-            {firstLine}
-          </Text>
-          <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={1}>
-            {secondLine}
-          </Text>
-        </View>
-        {action ? <Action text={action.text} onPress={this.onActionPress} /> : null}
-      </View>
-    );
-  }
-
-  renderThreeLines() {
-    const { action, firstLine, secondLine, textColor } = this.props.message;
-    return (
-      <View style={styles.ThreeLineWrapper}>
-        <View style={styles.TextThreeLines}>
-          <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={1}>
-            {firstLine}
-          </Text>
-          <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={1}>
-            {secondLine}
+      <View style={styles.ActionOnNewLineWrapper}>
+        <View style={styles.TextWithActionOnNewLine}>
+          <Text style={textColor ? [textStyle, { color: textColor }] : textStyle} numberOfLines={2}>
+            {message}
           </Text>
         </View>
         <View style={styles.ThreeLineActionContainer}>
@@ -248,7 +213,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
   }
 
   render() {
-    const { action, bottomMargin, secondLine } = this.props.message;
+    const { action, bottomMargin } = this.props.message;
 
     return (
       <Animated.View
@@ -259,11 +224,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
         }}
       >
         <View style={this.getSnackbarStyle()}>
-          {action?.onNewLine
-            ? this.renderThreeLines()
-            : secondLine
-            ? this.renderTwoLines()
-            : this.renderSingleLine()}
+          {action?.onNewLine ? this.renderWithActionOnNewLine() : this.renderSingleLine()}
         </View>
       </Animated.View>
     );

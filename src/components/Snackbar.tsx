@@ -40,12 +40,12 @@ export class Snackbar {
     }
   }
 
-  show(text: string, secondLine?: string) {
-    this.showCustom({ firstLine: text, secondLine });
+  show(text: string) {
+    this.showCustom({ message: text });
   }
 
-  showWithAction(text: string, action: SnackbarAction, secondLine?: string) {
-    this.showCustom({ firstLine: text, secondLine, action });
+  showWithAction(text: string, action: SnackbarAction) {
+    this.showCustom({ message: text, action });
   }
 
   showCustom(message: SnackbarMessage) {

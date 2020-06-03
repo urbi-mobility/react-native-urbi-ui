@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.8 - 2020-06-03]
+
+### Fixed
+
+- `components/Snackbar` ditched the whole `firstLine`/`secondLine` implementation in favor of a more useful single `message` prop, which takes care of ellipsizing text if needed
+
 ## [0.2.7 - 2020-05-18]
 
 ### Fixed

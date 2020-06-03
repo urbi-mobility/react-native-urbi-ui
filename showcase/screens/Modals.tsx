@@ -22,13 +22,16 @@ const snackbarTests = {
       onPress: onButtonPress,
     }),
   singleLongLineWithAction: (snackbar: Snackbar) =>
-    snackbar.showWithAction('Single-line message with a very long message and action,', {
-      text: 'ACTION',
-      onPress: onButtonPress,
-    }),
+    snackbar.showWithAction(
+      'Single-line message with a very long message and action, which should get cut at some point, right?',
+      {
+        text: 'ACTION',
+        onPress: onButtonPress,
+      }
+    ),
   singleLineWithColors: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine: 'Single-line with fanciness.',
+      message: 'Single-line with fanciness.',
       backgroundColor: colors.uto,
       textColor: colors.ukko,
       action: {
@@ -39,7 +42,7 @@ const snackbarTests = {
     }),
   sixSecondDelay: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine: 'Single-line message with action.',
+      message: 'Single-line message with action.',
       hideDelayMillis: 6000,
       action: {
         text: 'ACTION',
@@ -48,13 +51,11 @@ const snackbarTests = {
     }),
   twoLines: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine: 'Two-line message',
-      secondLine: 'without action.',
+      message: 'Two-line message\nwithout action.',
     }),
   twoLinesWithAction: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine: 'Two-line message',
-      secondLine: 'with action.',
+      message: 'Two-line message\nwith action.',
       action: {
         text: 'ACTION',
         onPress: onButtonPress,
@@ -62,9 +63,8 @@ const snackbarTests = {
     }),
   twoLongLinesWithAction: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine:
-        'Two-line message with a lot of stuff in it, that should get cropped at some point',
-      secondLine: 'with action, and also a second line that is very long indeed',
+      message:
+        'Two-line message with a lot of stuff in it, that should get cropped at some point, with action, and a very long message indeed.',
       action: {
         text: 'ACTION',
         onPress: onButtonPress,
@@ -72,8 +72,7 @@ const snackbarTests = {
     }),
   threeLines: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine: 'Two-line message',
-      secondLine: 'with action.',
+      message: 'Two-line message\nwith action.',
       action: {
         text: 'LONGER ACTION TEXT',
         onPress: onButtonPress,
@@ -82,8 +81,8 @@ const snackbarTests = {
     }),
   threeLongLines: (snackbar: Snackbar) =>
     snackbar.showCustom({
-      firstLine: 'Two-line very long message that should get cropped at some point',
-      secondLine: 'with action, and a second line that is also very long and should be cropped.',
+      message:
+        'Two-line very long message that should get cropped at some point, with action, and a description that is very long indeed.',
       action: {
         text: 'LONGER ACTION TEXT',
         onPress: onButtonPress,
