@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.10 - 2020-06-05]
+
 ### Fixed
 
 - `components/FloatingButtonLayout` fixed issues with keyboard sometimes (and especially on some devices) not pushing/dragging the floating button with it
