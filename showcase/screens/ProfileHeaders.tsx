@@ -3,7 +3,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { AccountHeader } from 'react-native-urbi-ui/components/profileHeaders/AccountHeader';
 import { ProfileAndTrips } from 'react-native-urbi-ui/components/profileHeaders/ProfileAndTrips';
 import { ProfilePic } from 'react-native-urbi-ui/components/profileHeaders/ProfilePic';
-import { IconButtonCompact } from 'react-native-urbi-ui/molecules/buttons/iconButtons/IconButtonCompact';
 import { Status } from 'react-native-urbi-ui/molecules/content/Status';
 import { colors } from 'react-native-urbi-ui/utils/colors';
 import { onPressShowNotYet } from 'react-native-urbi-ui/utils/functions';
@@ -12,6 +11,7 @@ import {
   placeholder,
   renderComponent,
   userAvaterPlaceholder,
+  carPlaceholder,
 } from '../utils/ComponentPreview';
 
 class ProfileHeaders extends React.PureComponent<any> {
@@ -67,14 +67,15 @@ class ProfileHeaders extends React.PureComponent<any> {
           />
         )}
         {renderComponent(
-          'ProfilePic',
-          <ProfilePic
-            image={userAvaterPlaceholder}
-            button={
-              <IconButtonCompact
-                buttonStyle="default"
-                icon="fav-small"
-                onPress={onPressShowNotYet}
+          'AccountHeader (with wallet and crop)',
+          <AccountHeader
+            image={require('../assets/fernsehturm.jpg')}
+            status={
+              <Status
+                title="Hey Name!"
+                content="€20 credit in your wallet"
+                titleColor={colors.uma}
+                contentColor={colors.brand}
               />
             }
             onPress={onPressShowNotYet}
@@ -82,20 +83,35 @@ class ProfileHeaders extends React.PureComponent<any> {
           />
         )}
         {renderComponent(
-          'ProfilePic without button or onPress',
-          <ProfilePic image={userAvaterPlaceholder} flexExpand />
+          'ProfilePic',
+          <ProfilePic
+            image={userAvaterPlaceholder}
+            onPress={onPressShowNotYet}
+            withCameraIcon
+            flexExpand
+          />
         )}
         {renderComponent(
-          'ProfileAndTrips',
-          <ProfileAndTrips
-            image={fiftyByFiftyWhitePlaceholder}
-            status={<Status title="Hey there!" content="Create your profile" />}
-            sectionTitle="This month"
-            left={{ title: 'trips', value: '2' }}
-            center={{ title: 'minutes', value: '12' }}
-            right={{ title: 'costs', value: '€15' }}
+          'ProfilePic (cropped tall image)',
+          <ProfilePic
+            image={require('../assets/fernsehturm.jpg')}
             onPress={onPressShowNotYet}
+            withCameraIcon
+            flexExpand
           />
+        )}
+        {renderComponent(
+          'ProfilePic (cropped wide image)',
+          <ProfilePic
+            image={require('../assets/dome.jpg')}
+            onPress={onPressShowNotYet}
+            withCameraIcon
+            flexExpand
+          />
+        )}
+        {renderComponent(
+          'ProfilePic without button or onPress',
+          <ProfilePic image={userAvaterPlaceholder} flexExpand />
         )}
       </ScrollView>
     );

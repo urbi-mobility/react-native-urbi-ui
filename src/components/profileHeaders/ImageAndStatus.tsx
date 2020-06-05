@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   Image: {
     height: 50,
     width: 50,
+    borderRadius: 25,
     marginRight: 16,
   },
 });
@@ -26,7 +27,7 @@ export const ImageAndStatusUnmemoized = (props: ImageAndStatusProps) => (
       source={
         typeof props.image === 'string' ? { uri: withPixelDensity(props.image) } : props.image
       }
-      resizeMode="contain"
+      resizeMode="cover"
       style={styles.Image}
     />
     {props.status}

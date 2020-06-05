@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.9 - 2020-06-05]
+
+### Changed
+
+- `components/profileHeaders/ProfilePic` turned camera button into a view (that looks like a button), making the whole area of the profile pic tappable. Using `cover` and cropping profile pics to a circle.
+
 ## [0.2.8 - 2020-06-03]
 
 ### Fixed
