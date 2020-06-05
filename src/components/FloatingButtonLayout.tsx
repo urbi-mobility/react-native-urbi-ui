@@ -61,7 +61,7 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   private deltaY: Animated.Value<number>;
   private showListener: EmitterSubscription | undefined;
   private hideListener: EmitterSubscription | undefined;
-  private pendingShowEvents = 0;
+  private keyboardDisplayed = false;
 
   constructor(props: FloatingButtonLayoutProps) {
     super(props);
@@ -84,12 +84,13 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   UNSAFE_componentWillUnmount() {
     if (this.showListener) this.showListener.remove();
     if (this.hideListener) this.hideListener.remove();
-    this.pendingShowEvents = 0;
+    this.keyboardDisplayed = false;
   }
 
   onKeyboardShow(event: KeyboardEvent) {
     const { fixedPosition, countBottomTabs, hasNotch } = this.props;
-    if (!fixedPosition && (onIOS || !this.pendingShowEvents)) {
+    if (!fixedPosition && (onIOS || !this.keyboardDisplayed)) {
+      this.keyboardDisplayed = true;
       const newDeltaY =
         event.endCoordinates.screenY -
         Dimensions.get('window').height +
@@ -101,13 +102,12 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
         easing: Easing.linear,
       }).start();
     }
-    this.pendingShowEvents++;
   }
 
   onKeyboardHide(event: KeyboardEvent) {
-    this.pendingShowEvents--;
     const { fixedPosition } = this.props;
-    if (!fixedPosition && (onIOS || !this.pendingShowEvents)) {
+    if (!fixedPosition && (onIOS || this.keyboardDisplayed)) {
+      this.keyboardDisplayed = false;
       Animated.timing(this.deltaY, {
         duration: event?.duration || ANDROID_EVT_DURATION,
         toValue: 0,
