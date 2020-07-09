@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- `molecules/Slider` added event throttling
+
 ### Fixed
 
 - `molecules/Slider` fixed slider active area being too large on iOS

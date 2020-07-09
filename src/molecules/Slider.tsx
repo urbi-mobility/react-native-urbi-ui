@@ -19,16 +19,20 @@ const styles = StyleSheet.create({
   },
 });
 
-export type SliderProps = {
+export interface SliderProps {
   initialValue: number;
   min: number;
   max: number;
   onChange?: (value: number) => any;
   onSlidingComplete?: (value: number) => any;
   step?: number;
-};
+}
 
-const NativeSlider = (props: SliderProps) => (
+interface NativeSliderProps extends SliderProps {
+  value: number;
+}
+
+const NativeSlider = (props: NativeSliderProps) => (
   <RNSlider
     style={styles.Slider}
     minimumValue={props.min}
@@ -43,13 +47,52 @@ const NativeSlider = (props: SliderProps) => (
   />
 );
 
-export const SliderUnmemoized = (props: SliderProps) =>
-  onIOS ? (
-    <View style={styles.Wrapper}>
-      <NativeSlider {...props} />
-    </View>
-  ) : (
-    <NativeSlider {...props} />
-  );
+type SliderState = {
+  latestValue: number;
+  value: number;
+};
 
-export const Slider = React.memo(SliderUnmemoized);
+export class Slider extends React.PureComponent<SliderProps, SliderState> {
+  private timerHandle: number | undefined;
+
+  constructor(props: SliderProps) {
+    super(props);
+    this.state = { latestValue: props.initialValue, value: props.initialValue };
+    this.throttledUpdate = this.throttledUpdate.bind(this);
+    this.updateValue = this.updateValue.bind(this);
+  }
+
+  throttledUpdate(value: number) {
+    if (onIOS) {
+      this.setState({ latestValue: value });
+      if (!this.timerHandle) {
+        this.timerHandle = setTimeout(this.updateValue, 60);
+      }
+    } else {
+      this.setState({ value });
+      this.props.onChange?.(value);
+    }
+  }
+
+  updateValue() {
+    this.timerHandle = undefined;
+    this.setState({ value: this.state.latestValue });
+    this.props.onChange?.(this.state.latestValue);
+  }
+
+  componentWillUnmount() {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+    }
+  }
+
+  render() {
+    return onIOS ? (
+      <View style={styles.Wrapper}>
+        <NativeSlider {...this.props} value={this.state.value} onChange={this.throttledUpdate} />
+      </View>
+    ) : (
+      <NativeSlider {...this.props} value={this.state.value} onChange={this.throttledUpdate} />
+    );
+  }
+}
