@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.11 - 2020-07-09]
+
 ### Changed
 
 - `molecules/Slider` added event throttling
