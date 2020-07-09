@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- `molecules/Slider` fixed slider active area being too large on iOS
+
 ## [0.2.10 - 2020-06-05]
 
 ### Fixed
