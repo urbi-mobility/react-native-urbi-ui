@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 const small = registeredTextStyle('small', colors.primary, 'detailsmall');
 const body = registeredTextStyle('body', colors.uto, 'detailmicro');
-const title1 = registeredTextStyle('title1', colors.brand, 'bodybrand');
+const title1 = registeredTextStyle('title1', colors.uma, 'bodybrand');
 
 
 export type PurchaseProps = {
