@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.3.1 - 2020-07-16]
+
+### Added
+
+- `utils/colors` added function to override design system colors
+
+### Changed
+
+- `components/PurchasePanel` replace price color to `colors.uma`
 
 ## [0.2.11 - 2020-07-09]
 
