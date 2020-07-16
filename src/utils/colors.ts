@@ -1,10 +1,3 @@
-export const urbiPink = '#ec008b';
-export const urbiGrayPink = '#e090be';
-export const buttonGray = 'rgba(0, 0, 0, 0.6)';
-export const lightGray = 'rgba(0, 0, 0, 0.4)';
-export const brandSemitransparent = 'rgba(236, 0, 139, 0.5)';
-export const successSemitransparent = 'rgba(12, 199, 0, 0.6)';
-
 export const colors = {
   brand: '#ec008b',
   primary: '#467189',
@@ -30,6 +23,17 @@ export const colors = {
   train: '#223daa',
   tram: '#00a388',
   subway: '#980056',
+};
+
+/**
+ * Replaces colors in the design system with the argument ones.
+ * Must be called at the very top of your index.js (or equivalent)
+ * @param overrides the colors that you want to override
+ */
+export const overrideColors = (overrides: Partial<typeof colors>) => {
+  Object.entries(overrides).forEach(([k, v]) => {
+    colors[k] = v;
+  });
 };
 
 export const hexToRgba = (hex: string, alpha: number) => {
