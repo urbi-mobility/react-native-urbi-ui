@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { IconButtonRegular } from '../molecules/buttons/iconButtons/IconButtonRegular';
 import { IconToggle } from '../molecules/buttons/toggles/IconToggle';
+import { colors } from '../utils/colors';
 
 type FilterButton = { id: string; icon: string; active?: boolean; loading?: boolean };
 
@@ -11,6 +12,7 @@ type FilterGroupProps = {
   onLastButtonClick: () => void;
   style?: ViewStyle;
   managed?: boolean; // whether the state of filters is managed through props
+  activeLastButton?: boolean;
 };
 
 const styles = StyleSheet.create({
@@ -46,7 +48,11 @@ const FilterGroupUnmemoized = (props: FilterGroupProps) => {
       style={[styles.Wrapper, props.style, { maxWidth }]}
     >
       {buttons(props)}
-      <IconButtonRegular buttonStyle="primary" icon="taxi" onPress={props.onLastButtonClick} />
+      <IconButtonRegular
+        buttonStyle={props.activeLastButton ? 'brand' : 'primary'}
+        icon="taxi"
+        onPress={props.onLastButtonClick}
+      />
     </View>
   );
 };
