@@ -15,6 +15,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - `components/PurchasePanel` replace price color to `colors.uma`
 
+### Added
+
+- `utils/colors` added function to override design system colors
+
+### Changed
+
+- `components/PurchasePanel` replace price color to `colors.uma`
+
 ## [0.2.11 - 2020-07-09]
 
 ### Changed
