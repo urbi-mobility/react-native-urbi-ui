@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.2 - 2020-07-20]
+
+### Added
+
+- `components/FilterGroup` - added option to override last button's color
+
+### Fixed
+
+- `molecules/ItemSeparator` - added `useNativeDriver` flag to animation, so that RN stops complaining about it
+
 ## [0.3.1 - 2020-07-16]
 
 ### Added
