@@ -46,6 +46,7 @@ export class ItemSeparator extends React.PureComponent<ItemSeparatorProps, ItemS
         duration: 250,
         easing: Easing.inOut(Easing.ease),
         toValue: 1,
+        useNativeDriver: true,
       }).start(() => this.setState({ currentBg: nextProps.backgroundColor! }));
     }
   }
