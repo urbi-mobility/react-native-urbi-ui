@@ -3222,9 +3222,9 @@ lodash.throttle@^4.1.1:
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.5, lodash@^4.3.0:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -4439,10 +4439,10 @@ react-native-typography@1.4.1:
   resolved "https://registry.yarnpkg.com/react-native-typography/-/react-native-typography-1.4.1.tgz#2d05cb5935a2f7fdb6b43bbde93d60f1324578e3"
   integrity sha512-dc9Zfs4jUdq4ygx4/KwO6jKTERBu6cRrfPJGntw/pA+D6BMjlWfMNuhZ/69vf4Zpsnt9s4AGe+Z/V1QFYaCXAA==
 
-react-native-urbi-ui@0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.2.10.tgz#e488c316c2f4d42547865b9251015313d59f048a"
-  integrity sha512-BVziYmU3R/d1o4NqMRavB1NWgAzAyNF/NKT8lVfRUoVxv9VgElzZcJo8ZfDva+orFuPm5Is0vtDbzbfBFZMKFg==
+react-native-urbi-ui@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.3.1.tgz#a459d9bc1a7732cabe1152e31b59151de243631f"
+  integrity sha512-Zs/bedZQW6i+IayZE4++yvRply6P8jBvL97BM0H8D9VChu4HBSBt7xAPfJhX5c26KIo6mFeO68YBgxA3xVEmeg==
 
 react-native-vector-icons@6.6.0:
   version "6.6.0"
