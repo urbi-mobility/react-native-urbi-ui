@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.3.2 - 2020-07-20]
+## Unreleased
+
+### Added
+
+- `components/FilterGroup` - added option to leave out the last button, and make icon configurable via prop
+
+### Fixed
+
+- `molecules/ItemSeparator` - set `useNativeDriver` to `false`, as the `backgroundColor` prop cannot be animated natively
+
+## [0.3.2 - 2020-07-20 => do not use]
 
 ### Added
 

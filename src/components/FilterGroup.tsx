@@ -8,11 +8,10 @@ type FilterButton = { id: string; icon: string; active?: boolean; loading?: bool
 
 type FilterGroupProps = {
   filterButtons: FilterButton[];
+  lastButton?: { active: boolean; icon: string; onPress: () => any };
   onFilterToggle: (id: string, active: boolean) => void;
-  onLastButtonClick: () => void;
-  style?: ViewStyle;
   managed?: boolean; // whether the state of filters is managed through props
-  activeLastButton?: boolean;
+  style?: ViewStyle;
 };
 
 const styles = StyleSheet.create({
@@ -41,18 +40,23 @@ const buttons = (props: FilterGroupProps) =>
   ));
 
 const FilterGroupUnmemoized = (props: FilterGroupProps) => {
-  const maxWidth = props.filterButtons.length * (40 + 28) + 40 /* taxi */ + 16 * 2 /* padding */;
+  const maxWidth =
+      props.filterButtons.length * (40 + 28) +
+      (props.lastButton /* taxi */ ? 40 : 0) +
+      16 * 2 /* padding */;
   return (
     <View
       // tslint:disable-next-line:jsx-no-multiline-js
       style={[styles.Wrapper, props.style, { maxWidth }]}
     >
       {buttons(props)}
-      <IconButtonRegular
-        buttonStyle={props.activeLastButton ? 'brand' : 'primary'}
-        icon="taxi"
-        onPress={props.onLastButtonClick}
-      />
+      {props.lastButton ? (
+        <IconButtonRegular
+          buttonStyle={props.lastButton.active ? 'brand' : 'primary'}
+          icon={props.lastButton.icon}
+          onPress={props.lastButton.onPress}
+        />
+      ) : null}
     </View>
   );
 };

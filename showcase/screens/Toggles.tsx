@@ -109,7 +109,14 @@ class Toggles extends React.PureComponent<{}, TogglesState> {
           <FilterGroup
             filterButtons={Object.values(this.state)}
             onFilterToggle={this.onFilterPress}
-            onLastButtonClick={onButtonPress}
+            lastButton={{ active: false, icon: 'taxi', onPress: onButtonPress }}
+          />
+        )}
+        {renderComponent(
+          'FilterGroup (w/o last button)',
+          <FilterGroup
+            filterButtons={Object.values(this.state)}
+            onFilterToggle={this.onFilterPress}
           />
         )}
       </ScrollView>
