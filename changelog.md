@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.3 - 2020-07-22]
+
 ### Added
 
 - `components/FilterGroup` - added option to leave out the last button, and make icon configurable via prop
