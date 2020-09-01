@@ -37,3 +37,5 @@ const pixelRatios: { [ratio: string]: string } = {
 };
 
 export const pixelDensity = pixelRatios[pixelRatio.toString()];
+
+export const topBarHeight = onIOS ? 44 : 126;

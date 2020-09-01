@@ -93,7 +93,7 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
               <View style={styles.Label}>
                 <IconAndLabel
                   icon={leftIcon}
-                  iconColor={colors.primary}
+                  iconColor={backgroundColor === 'uma' ? colors.ulisse : colors.primary}
                   label={label ?? ''}
                   labelColor={backgroundColor === 'uma' ? colors.ulisse : colors.uma}
                   smallIcon
@@ -106,7 +106,13 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
               buttonStyle="secondary"
               icon={leftmostAction.icon}
               onPress={this.onActionPress('left')}
-              colorOverride={this.state.leftActionToggled ? colors.brand : colors.primary}
+              colorOverride={
+                this.state.leftActionToggled
+                  ? colors.brand
+                  : backgroundColor === 'uma'
+                  ? colors.ulisse
+                  : colors.primary
+              }
             />
           )}
           {rightmostAction && (
@@ -114,7 +120,13 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
               buttonStyle="secondary"
               icon={rightmostAction.icon}
               onPress={this.onActionPress('right')}
-              colorOverride={this.state.rightActionToggled ? colors.brand : colors.primary}
+              colorOverride={
+                this.state.rightActionToggled
+                  ? colors.brand
+                  : backgroundColor === 'uma'
+                  ? colors.ulisse
+                  : colors.primary
+              }
             />
           )}
         </View>

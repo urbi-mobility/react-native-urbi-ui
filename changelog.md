@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+### Added
+
+- `utils/const` - added `topBarHeight` with the height of the navigation bar (`topBar` in `react-native-navigation`)
+
+### Changed
+
+- `components/Search` - changed icons color to `ulisse` when the background color is dark
+
 ## [0.3.3 - 2020-07-22]
 
 ### Added
