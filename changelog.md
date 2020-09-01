@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.4 - 2020-09-01]
+
 ### Added
 
 - `utils/const` - added `topBarHeight` with the height of the navigation bar (`topBar` in `react-native-navigation`)
