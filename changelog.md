@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - `components/Search` - changed icons color to `ulisse` when the background color is dark
+- `components/PaymentPanel`, `components/FloatingButtonLayout` - renamed `countBottomTabs` to `accountForBottomTabs`
+- `components/OnboardingSinglePage` - explicitely set `position: 'absolute'` for view, hoping to solve the issue with `react-native-navigation` / `react-native-gesture-handler` of transparent modals
 
 ## [0.3.3 - 2020-07-22]
 

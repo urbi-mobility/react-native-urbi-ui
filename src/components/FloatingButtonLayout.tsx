@@ -51,7 +51,7 @@ type FloatingButtonLayoutProps = {
   onIphoneX: boolean;
   hasNotch: boolean;
   noGradient?: boolean;
-  countBottomTabs?: boolean;
+  accountForBottomTabs?: boolean;
   fixedPosition?: boolean;
 };
 
@@ -88,13 +88,13 @@ export class FloatingButtonLayout extends React.Component<FloatingButtonLayoutPr
   }
 
   onKeyboardShow(event: KeyboardEvent) {
-    const { fixedPosition, countBottomTabs, hasNotch } = this.props;
+    const { fixedPosition, accountForBottomTabs, hasNotch } = this.props;
     if (!fixedPosition && (onIOS || !this.keyboardDisplayed)) {
       this.keyboardDisplayed = true;
       const newDeltaY =
         event.endCoordinates.screenY -
         Dimensions.get('window').height +
-        (onIOS || !countBottomTabs ? 0 : getTabBarHeight(hasNotch));
+        (onIOS || !accountForBottomTabs ? 0 : getTabBarHeight(hasNotch));
 
       Animated.timing(this.deltaY, {
         duration: event?.duration || ANDROID_EVT_DURATION,
