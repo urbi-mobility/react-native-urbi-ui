@@ -76,6 +76,7 @@ type OnboardingProps = {
   titleStyle?: TextStyle;
   contentStyle?: TextStyle;
   titleLowercase?: boolean;
+  updateParentIndex?: (index: number) => void;
 };
 
 type OnboardingState = {
@@ -125,12 +126,15 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
 
   onScrollEnd(e: NativeSyntheticEvent<NativeScrollEvent>) {
     const offset = e.nativeEvent.contentOffset.x;
-    this.setState({ currentPageIndex: Math.floor(offset / this.state.pageWidth) });
+    const newPageIndex = Math.floor(offset / this.state.pageWidth);
+    this.setState({ currentPageIndex: newPageIndex });
+    this.props.updateParentIndex?.(newPageIndex);
   }
 
   scrollPage(direction: ScrollDirection, index: number) {
     const { pageWidth } = this.state;
-    this.scrollViewRef.current.scrollTo({ x: index * pageWidth });
+    this.scrollViewRef.current.scrollTo({ x: direction * index * pageWidth });
+    this.setState({ currentPageIndex: index - 1 });
   }
 
   render() {
