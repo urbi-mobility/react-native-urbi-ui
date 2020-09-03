@@ -132,7 +132,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
   scrollToPage(index: number) {
     const { pageWidth } = this.state;
     this.scrollViewRef.current.scrollTo({ x: index * pageWidth });
-    this.setState({ currentPageIndex: index - 1 });
+    this.setState({ currentPageIndex: index });
   }
 
   render() {
