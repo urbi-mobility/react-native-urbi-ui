@@ -84,8 +84,6 @@ type OnboardingState = {
   pageWidth: number;
 };
 
-type ScrollDirection = 1 | -1;
-
 export const renderOnboardingPage = (
   page: OnboardingPage,
   index: number,
@@ -131,9 +129,9 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
     this.props.updateParentIndex?.(newPageIndex);
   }
 
-  scrollPage(direction: ScrollDirection, index: number) {
+  scrollToPage(index: number) {
     const { pageWidth } = this.state;
-    this.scrollViewRef.current.scrollTo({ x: direction * index * pageWidth });
+    this.scrollViewRef.current.scrollTo({ x: index * pageWidth });
     this.setState({ currentPageIndex: index - 1 });
   }
 

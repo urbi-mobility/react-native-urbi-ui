@@ -45,7 +45,7 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingScreenSt
   next() {
     const { index } = this.state;
     const endReached = index === pages.length - 1;
-    this.onboardingComponent?.current?.scrollPage(1, index + 2);
+    this.onboardingComponent?.current?.scrollToPage(index + 2);
     this.setState({ index: index + 1 });
     if (endReached) this.props.navigation.navigate('Onboarding (single page)');
   }
