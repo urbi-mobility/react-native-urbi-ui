@@ -52,7 +52,6 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingScreenSt
 
   updateIndex(index: number) {
     this.setState({ index });
-    console.log('this.state.index', this.state.index);
   }
 
   render() {
