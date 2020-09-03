@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.5 - 2020-09-03]
+
 ### Added
 
 - `components/Onboarding` - added `updateParentIndex` and `scrollPage` to allow different CTA Button Handlers (UR-2082)
