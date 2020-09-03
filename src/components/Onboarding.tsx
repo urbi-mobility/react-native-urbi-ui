@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import {
   Dimensions,
   Image,
@@ -76,6 +76,7 @@ type OnboardingProps = {
   titleStyle?: TextStyle;
   contentStyle?: TextStyle;
   titleLowercase?: boolean;
+  updateParentIndex?: (index: number) => void;
 };
 
 type OnboardingState = {
@@ -108,11 +109,13 @@ export const renderOnboardingPage = (
 };
 
 export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
+  private scrollViewRef = createRef<ScrollView>();
   constructor(props: OnboardingProps) {
     super(props);
     this.state = { currentPageIndex: 0, pageWidth: Dimensions.get('window').width };
     this.onLayout = this.onLayout.bind(this);
     this.onScrollEnd = this.onScrollEnd.bind(this);
+    this.scrollViewRef = createRef();
   }
 
   onLayout(e: LayoutChangeEvent) {
@@ -121,7 +124,15 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
 
   onScrollEnd(e: NativeSyntheticEvent<NativeScrollEvent>) {
     const offset = e.nativeEvent.contentOffset.x;
-    this.setState({ currentPageIndex: Math.floor(offset / this.state.pageWidth) });
+    const newPageIndex = Math.floor(offset / this.state.pageWidth);
+    this.setState({ currentPageIndex: newPageIndex });
+    this.props.updateParentIndex?.(newPageIndex);
+  }
+
+  scrollToPage(index: number) {
+    const { pageWidth } = this.state;
+    this.scrollViewRef.current.scrollTo({ x: index * pageWidth });
+    this.setState({ currentPageIndex: index });
   }
 
   render() {
@@ -133,6 +144,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
       <View style={styles.Wrapper}>
         {pages.length > 1 ? (
           <ScrollView
+            ref={this.scrollViewRef}
             style={styles.Wrapper}
             onLayout={this.onLayout}
             onMomentumScrollEnd={this.onScrollEnd}
