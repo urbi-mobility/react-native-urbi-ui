@@ -62,7 +62,7 @@ class Onboarding extends React.PureComponent<OnboardingProps, OnboardingScreenSt
       <OnboardingComponent
         ref={this.onboardingComponent}
         cta={{
-          label: endReached ? 'close' : 'check last',
+          label: endReached ? 'close' : 'check next',
           onPress: () => this.next(),
         }}
         pages={pages}
