@@ -34,7 +34,7 @@ export type ChipLargeProps = {
    */
   colorIsLight?: boolean;
   onPress?: () => any;
-  containerStyle?: { paddingLeft: number; paddingRight: number };
+  containerStyle?: ViewStyle;
 };
 
 const renderChip = (
@@ -42,10 +42,10 @@ const renderChip = (
   darkText: boolean,
   label: string,
   icon?: ImageRequireSource | string,
-  containerStyle?: ChipLargeProps['containerStyle']
+  containerStyle?: ViewStyle
 ) => {
   return (
-    <View style={[styles.Wrapper, { backgroundColor: color }, containerStyle]}>
+    <View style={[styles.Wrapper, { backgroundColor: color }, { ...containerStyle }]}>
       {icon ? (
         <View style={styles.IconAndText}>
           {renderImageOrIcon(20, icon, darkText ? colors.uma : colors.ulisse, styles.Icon)}
