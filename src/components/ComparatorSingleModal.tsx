@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, ImageSourcePropType, Text, StyleSheet, View } from 'react-native';
+import { Image, ImageRequireSource, Text, StyleSheet, View } from 'react-native';
+import { ListItemLarge } from 'src/components/ListItemLarge';
 import { colors } from 'src/utils/colors';
 import { ChipLarge } from 'src/molecules/ChipLarge';
 
@@ -11,14 +12,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'space-evenly',
-    backgroundColor: 'red',
     paddingLeft: 10,
   },
   ChipWrapper: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: 'blue',
   },
   ProviderImage: {
     width: 20,
@@ -26,17 +25,22 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   VehicleModel: {
+    fontSize: 11,
     marginLeft: 6,
+    color: colors.uto,
+  },
+  ComparatorDistance: {
+    fontSize: 11,
     color: colors.uto,
   },
 });
 
 type ComparatorProps = {
-  topLabel: ReactNode;
+  topLabel: string;
   distance: number;
   model: string;
   bottomLabel: string;
-  image: ImageSourcePropType;
+  image: ImageRequireSource;
 };
 
 const ComparatorSingleModalUnmemoized = ({
@@ -46,22 +50,33 @@ const ComparatorSingleModalUnmemoized = ({
   bottomLabel,
   image,
 }: ComparatorProps) => (
-  <View style={styles.ComparatorWrapper}>
-    <Text>{topLabel}</Text>
-    <View style={styles.ChipWrapper}>
-      <ChipLarge
-        label=""
-        color={colors.transparent}
-        icon="walk"
-        colorIsLight={true}
-        containerStyle={{ paddingLeft: 0, paddingRight: 0 }}
-      />
-      <Text>{distance} +</Text>
-      <Image style={styles.ProviderImage} resizeMethod="scale" source={image} />
-      <Text style={styles.VehicleModel}>{model}</Text>
-    </View>
-    <Text>{bottomLabel}</Text>
-  </View>
+  <ListItemLarge
+    content={
+      <View style={styles.ComparatorWrapper}>
+        <Text>{topLabel}</Text>
+        <View style={styles.ChipWrapper}>
+          <ChipLarge
+            label=""
+            color={colors.transparent}
+            icon="walk"
+            colorIsLight={true}
+            containerStyle={{ paddingLeft: 0, paddingRight: 0 }}
+          />
+          <Text style={styles.ComparatorDistance}>{distance} +</Text>
+          <ChipLarge
+            label=""
+            color={colors.transparent}
+            containerStyle={{ paddingLeft: 4, paddingRight: 0 }}
+            icon={image!}
+          />
+          <Text style={styles.VehicleModel}>{model}</Text>
+        </View>
+        <Text>{bottomLabel}</Text>
+      </View>
+    }
+    end={<Text>END</Text>}
+  />
 );
 
 export const ComparatorSingleModal = React.memo(ComparatorSingleModalUnmemoized);
+// <Image style={styles.ProviderImage} resizeMethod="scale" source={image!} />

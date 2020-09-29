@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { ImageRequireSource, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
 import { registeredTextStyle } from 'src/utils/textStyles';
+import { renderImageOrIcon } from 'src/components/ListItem';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
 
 export type ChipLargeProps = {
   label: string;
-  icon?: string;
+  icon?: ImageRequireSource | string;
   color: string;
   /**
    * If specified, forces text to be dark (can be used to skip color lightness computation
@@ -40,19 +41,14 @@ const renderChip = (
   color: string,
   darkText: boolean,
   label: string,
-  icon?: string,
+  icon?: ImageRequireSource | string,
   containerStyle?: ChipLargeProps['containerStyle']
 ) => {
   return (
     <View style={[styles.Wrapper, { backgroundColor: color }, containerStyle]}>
       {icon ? (
         <View style={styles.IconAndText}>
-          <Icon
-            style={styles.Icon}
-            name={icon}
-            size={20}
-            color={darkText ? colors.uma : colors.ulisse}
-          />
+          {renderImageOrIcon(20, icon, darkText ? colors.uma : colors.ulisse, styles.Icon)}
           <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
         </View>
       ) : (

@@ -1,5 +1,13 @@
 import React from 'react';
-import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
+import {
+  Image,
+  ImageRequireSource,
+  ImageStyle,
+  StyleSheet,
+  StyleProp,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { colors } from 'src/utils/colors';
 import { Icon } from '../utils/const';
 import { MaybeTouchable } from './MaybeTouchable';
@@ -66,10 +74,11 @@ const Content = (props: ListItemProps) => {
 export const renderImageOrIcon = (
   size: number,
   image?: ImageRequireSource | string,
-  iconColor?: string
+  iconColor?: string,
+  style?: StyleProp<ViewStyle>
 ) => {
   if (typeof image === 'string') {
-    return <Icon name={image!} size={size} color={iconColor} />;
+    return <Icon name={image!} size={size} color={iconColor} style={style!} />;
   } else return <Image source={image!} style={styles.Action} />;
 };
 
