@@ -1,8 +1,7 @@
 import React from 'react';
-import { ImageRequireSource, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
-import { Icon } from 'src/utils/const';
 import { registeredTextStyle } from 'src/utils/textStyles';
 import { renderImageOrIcon } from 'src/components/ListItem';
 
@@ -43,20 +42,18 @@ const renderChip = (
   label: string,
   icon?: ImageRequireSource | string,
   containerStyle?: ViewStyle
-) => {
-  return (
-    <View style={[styles.Wrapper, { backgroundColor: color }, { ...containerStyle }]}>
-      {icon ? (
-        <View style={styles.IconAndText}>
-          {renderImageOrIcon(20, icon, darkText ? colors.uma : colors.ulisse, styles.Icon)}
-          <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
-        </View>
-      ) : (
+) => (
+  <View style={[styles.Wrapper, { backgroundColor: color }, { ...containerStyle }]}>
+    {icon ? (
+      <View style={styles.IconAndText}>
+        {renderImageOrIcon(20, icon, darkText ? colors.uma : colors.ulisse, styles.Icon)}
         <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
-      )}
-    </View>
-  );
-};
+      </View>
+    ) : (
+      <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
+    )}
+  </View>
+);
 
 const ChipLargeUnmemoized = (props: ChipLargeProps) => {
   const { color, colorIsLight, icon, label, onPress, containerStyle } = props;

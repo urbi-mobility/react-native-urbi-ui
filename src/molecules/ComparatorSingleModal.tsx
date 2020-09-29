@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ViewStyle, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 import { colors } from 'src/utils/colors';
 
@@ -22,11 +22,6 @@ const styles = StyleSheet.create({
 type ComparatorSingleModalProps = {
   chip: ChipLargeProps;
   bottomLabel: string;
-  /**
-   * The style for the bottom text label, default is 'body'.
-   */
-  bottomLabelStyle?: 'title' | 'body' | 'minDurationStyle';
-  bottomLabelColor?: keyof typeof colors;
 };
 
 export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProps) => (
