@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
@@ -33,28 +33,37 @@ export type ChipLargeProps = {
    */
   colorIsLight?: boolean;
   onPress?: () => any;
+  containerStyle?: { paddingLeft: number; paddingRight: number };
 };
 
-const renderChip = (color: string, darkText: boolean, label: string, icon?: string) => (
-  <View style={[styles.Wrapper, { backgroundColor: color }]}>
-    {icon ? (
-      <View style={styles.IconAndText}>
-        <Icon
-          style={styles.Icon}
-          name={icon}
-          size={20}
-          color={darkText ? colors.uma : colors.ulisse}
-        />
+const renderChip = (
+  color: string,
+  darkText: boolean,
+  label: string,
+  icon?: string,
+  containerStyle?: ChipLargeProps['containerStyle']
+) => {
+  return (
+    <View style={[styles.Wrapper, { backgroundColor: color }, containerStyle]}>
+      {icon ? (
+        <View style={styles.IconAndText}>
+          <Icon
+            style={styles.Icon}
+            name={icon}
+            size={20}
+            color={darkText ? colors.uma : colors.ulisse}
+          />
+          <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
+        </View>
+      ) : (
         <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
-      </View>
-    ) : (
-      <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
-    )}
-  </View>
-);
+      )}
+    </View>
+  );
+};
 
 const ChipLargeUnmemoized = (props: ChipLargeProps) => {
-  const { color, colorIsLight, icon, label, onPress } = props;
+  const { color, colorIsLight, icon, label, onPress, containerStyle } = props;
   const darkText = colorIsLight ?? isLight(color);
   return onPress ? (
     <View style={{ flex: 1, alignItems: 'center' }}>
@@ -63,7 +72,7 @@ const ChipLargeUnmemoized = (props: ChipLargeProps) => {
       </MaybeTouchable>
     </View>
   ) : (
-    renderChip(color, darkText, label, icon)
+    renderChip(color, darkText, label, icon, containerStyle)
   );
 };
 
