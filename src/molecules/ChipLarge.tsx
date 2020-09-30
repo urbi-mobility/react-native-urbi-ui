@@ -1,9 +1,17 @@
 import React from 'react';
-import { ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import {
+  StyleProp,
+  Image,
+  ImageRequireSource,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
-import { renderImageOrIcon } from 'src/components/ListItem';
+import { Icon } from '../utils/const';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -18,6 +26,10 @@ const styles = StyleSheet.create({
   },
   Icon: {
     marginRight: 4,
+  },
+  Image: {
+    height: 20,
+    width: 20,
   },
   Text: registeredTextStyle('titleBold', colors.ulisse, 'chip-text'),
   TextDark: registeredTextStyle('titleBold', colors.uma, 'chip-text-dark'),
@@ -36,6 +48,26 @@ export type ChipLargeProps = {
   containerStyle?: ViewStyle;
 };
 
+const renderImageOrIcon = (
+  image: ImageRequireSource | string,
+  darkText: boolean,
+  style: StyleProp<ViewStyle>
+) => {
+  switch (image) {
+    case 'walk':
+      return <Icon name={image} size={20} color={colors.uto} />;
+  }
+
+  switch (typeof image) {
+    case 'string':
+      return (
+        <Icon name={image} size={20} color={darkText ? colors.uma : colors.ulisse} style={style} />
+      );
+    default:
+      return <Image source={image} style={styles.Image} />;
+  }
+};
+
 const renderChip = (
   color: string,
   darkText: boolean,
@@ -46,7 +78,7 @@ const renderChip = (
   <View style={[styles.Wrapper, { backgroundColor: color }, { ...containerStyle }]}>
     {icon ? (
       <View style={styles.IconAndText}>
-        {renderImageOrIcon(20, icon, darkText ? colors.uma : colors.ulisse, styles.Icon)}
+        {renderImageOrIcon(icon, darkText, styles.Icon)}
         <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
       </View>
     ) : (
