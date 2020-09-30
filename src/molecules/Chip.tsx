@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ViewStyle, Text } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle, Text } from 'react-native';
 import { registeredTextStyle } from 'src/utils/textStyles';
 import { colors } from 'src/utils/colors';
 
@@ -17,17 +17,24 @@ const styles = StyleSheet.create({
 export type ChipProps = {
   label: string;
   bgState: 'default' | 'success' | 'error';
+  alignSelf?: 'flex-start' | 'flex-end';
 };
 
-export const ChipUnmemoized = (props: ChipProps) => (
-  <View
-    style={
-      props.bgState === 'default'
-        ? styles.Wrapper
-        : [styles.Wrapper, { backgroundColor: colors[props.bgState] }]
-    }
-  >
-    <Text style={styles.Text}>{props.label.toUpperCase()}</Text>
+const getWrapperStyle = (
+  labelStyle: ChipProps['bgState'],
+  alignSelf: ChipProps['alignSelf']
+): StyleProp<ViewStyle> => {
+  switch (labelStyle) {
+    case 'default':
+      return [styles.Wrapper, { alignSelf }];
+    default:
+      return [styles.Wrapper, { alignSelf, backgroundColor: colors[labelStyle] }];
+  }
+};
+
+export const ChipUnmemoized = ({ label, bgState, alignSelf }: ChipProps) => (
+  <View style={getWrapperStyle(bgState, alignSelf)}>
+    <Text style={styles.Text}>{label.toUpperCase()}</Text>
   </View>
 );
 
