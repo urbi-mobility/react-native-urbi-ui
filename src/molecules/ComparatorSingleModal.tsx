@@ -26,7 +26,7 @@ type ComparatorSingleModalProps = {
 
 export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProps) => (
   <View style={styles.ChipWrapper}>
-    <ChipLarge label="" {...props.chip} />
+    <ChipLarge label="" color={colors.transparent} colorIsLight={true} {...props.chip} />
     <Text style={styles.DurationText} numberOfLines={1}>
       {props.bottomLabel}
     </Text>
