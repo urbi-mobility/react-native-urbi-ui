@@ -5,18 +5,31 @@ import { colors } from 'src/utils/colors';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
-  Wrapper: {
+  PathWrapper: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
   },
-  DurationText: {
-    color: colors.uto,
-    fontSize: 11,
+  ContainerStyle: {
     paddingLeft: 0,
     paddingRight: 0,
     marginLeft: 0,
-    marginTop: 0,
+    marginRight: 2,
+    marginTop: 4,
+  },
+  ComparatorWrapper: {
+    height: 72,
+    paddingLeft: 10,
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+  },
+  ChipWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
   },
 });
 
@@ -25,18 +38,49 @@ type ComparatorSingleModalProps = {
   bottomLabel: string;
 };
 
-export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProps) => (
-  <View style={styles.Wrapper}>
-    <ChipLarge label="" color={colors.transparent} colorIsLight={true} {...props.chip} />
+type PathProp = {
+  icon: string | ImageRequireSource;
+  bottomLabel: string;
+};
+
+const comparatorSingleModalProps: PathProp[] = [
+  {
+    icon: 'walk',
+    bottomLabel: '14 +',
+  },
+  {
+    icon: require('./ic_acciona.png'),
+    bottomLabel: 'VEHICLE MODEL',
+  },
+];
+
+const Path = (props: PathProp) => (
+  <View style={styles.PathWrapper}>
+    <ChipLarge
+      label=""
+      color={colors.transparent}
+      colorIsLight={true}
+      icon={props.icon}
+      containerStyle={styles.ContainerStyle}
+    />
     <Text
-      style={[
-        registeredTextStyle('micro' as keyof UrbiFontStyles),
-        { ...props.chip?.containerStyle },
-      ]}
+      style={[registeredTextStyle('micro' as keyof UrbiFontStyles), styles.ContainerStyle]}
       numberOfLines={1}
     >
       {props.bottomLabel}
     </Text>
+  </View>
+);
+
+export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProps) => (
+  <View style={styles.ComparatorWrapper}>
+    <Text style={[registeredTextStyle('title' as keyof UrbiFontStyles)]}>00 min</Text>
+    <View style={styles.ChipWrapper}>
+      {comparatorSingleModalProps.map((props) => (
+        <Path {...props} />
+      ))}
+    </View>
+    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>Arrival at 12:00</Text>
   </View>
 );
 
