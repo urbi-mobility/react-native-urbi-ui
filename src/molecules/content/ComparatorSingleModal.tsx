@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { ImageRequireSource, StyleSheet, View, ViewStyle, StyleProp, Text } from 'react-native';
 import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 import { colors } from 'src/utils/colors';
+import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
-  ChipWrapper: {
+  Wrapper: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
@@ -25,9 +26,15 @@ type ComparatorSingleModalProps = {
 };
 
 export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProps) => (
-  <View style={styles.ChipWrapper}>
+  <View style={styles.Wrapper}>
     <ChipLarge label="" color={colors.transparent} colorIsLight={true} {...props.chip} />
-    <Text style={styles.DurationText} numberOfLines={1}>
+    <Text
+      style={[
+        registeredTextStyle('micro' as keyof UrbiFontStyles),
+        { ...props.chip?.containerStyle },
+      ]}
+      numberOfLines={1}
+    >
       {props.bottomLabel}
     </Text>
   </View>
