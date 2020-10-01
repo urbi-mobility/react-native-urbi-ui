@@ -34,11 +34,15 @@ type ComparatorSingleModalProp = {
   bottomLabel: string;
 };
 
-export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProp) => (
+export const ComparatorSingleModalUnmemoized = ({
+  title,
+  content,
+  bottomLabel,
+}: ComparatorSingleModalProp) => (
   <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
-    <Text style={styles.Title}>{props.title}</Text>
-    <View style={styles.Content}>{props.content}</View>
-    <Text style={styles.BottomLabel}>{props.bottomLabel}</Text>
+    <Text style={styles.Title}>{title}</Text>
+    <View style={styles.Content}>{content}</View>
+    <Text style={styles.BottomLabel}>{bottomLabel}</Text>
   </View>
 );
 

@@ -24,11 +24,11 @@ type ComparatorProps = {
   bottomLabel: JSX.Element;
 };
 
-export const ComparatorUnmemoized = (props: ComparatorProps) => (
+export const ComparatorUnmemoized = ({ title, content, bottomLabel }: ComparatorProps) => (
   <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
-    <Text style={styles.Title}>{props.title}</Text>
-    <View style={styles.Content}>{props.content}</View>
-    <View style={styles.BottomPanel}>{props.bottomLabel}</View>
+    <Text style={styles.Title}>{title}</Text>
+    <View style={styles.Content}>{content}</View>
+    <View style={styles.BottomPanel}>{bottomLabel}</View>
   </View>
 );
 
