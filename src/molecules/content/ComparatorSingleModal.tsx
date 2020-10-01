@@ -5,7 +5,7 @@ import { colors } from 'src/utils/colors';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
-  PathWrapper: {
+  PathToDestinationWrapper: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
@@ -33,29 +33,8 @@ const styles = StyleSheet.create({
   },
 });
 
-type ComparatorSingleModalProps = {
-  chip: ChipLargeProps;
-  bottomLabel: string;
-};
-
-type PathProp = {
-  icon: string | ImageRequireSource;
-  bottomLabel: string;
-};
-
-const comparatorSingleModalProps: PathProp[] = [
-  {
-    icon: 'walk',
-    bottomLabel: '14 +',
-  },
-  {
-    icon: require('./ic_acciona.png'),
-    bottomLabel: 'VEHICLE MODEL',
-  },
-];
-
-const Path = (props: PathProp) => (
-  <View style={styles.PathWrapper}>
+const PathToDestination = (props: ContentProp) => (
+  <View style={styles.PathToDestinationWrapper}>
     <ChipLarge
       label=""
       color={colors.transparent}
@@ -72,12 +51,17 @@ const Path = (props: PathProp) => (
   </View>
 );
 
-export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProps) => (
+type ContentProp = {
+  icon: string | ImageRequireSource;
+  bottomLabel: string;
+};
+
+export const ComparatorSingleModalUnmemoized = ({ content }: { content: ContentProp[] }) => (
   <View style={styles.ComparatorWrapper}>
     <Text style={[registeredTextStyle('title' as keyof UrbiFontStyles)]}>00 min</Text>
     <View style={styles.ChipWrapper}>
-      {comparatorSingleModalProps.map((props) => (
-        <Path {...props} />
+      {content.map((props: ContentProp) => (
+        <PathToDestination {...props} />
       ))}
     </View>
     <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>Arrival at 12:00</Text>
