@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { colors } from 'src/utils/colors';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
-  ComparatorWrapper: {
+  Wrapper: {
     height: 72,
     paddingLeft: 10,
     display: 'flex',
@@ -12,13 +11,15 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'column',
   },
-  ChipWrapper: {
+  Title: registeredTextStyle('title' as keyof UrbiFontStyles),
+  Content: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
     flexDirection: 'row',
   },
   BottomLabel: {
+    ...registeredTextStyle('body' as keyof UrbiFontStyles),
     marginTop: 4,
   },
 });
@@ -30,12 +31,10 @@ type ComparatorSingleModalProp = {
 };
 
 export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProp) => (
-  <View style={styles.ComparatorWrapper}>
-    <Text style={[registeredTextStyle('title' as keyof UrbiFontStyles)]}>{props.title}</Text>
-    <View style={styles.ChipWrapper}>{props.content}</View>
-    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles), styles.BottomLabel]}>
-      {props.bottomLabel}
-    </Text>
+  <View style={styles.Wrapper}>
+    <Text style={styles.Title}>{props.title}</Text>
+    <View style={styles.Content}>{props.content}</View>
+    <Text style={styles.BottomLabel}>{props.bottomLabel}</Text>
   </View>
 );
 
