@@ -11,13 +11,12 @@ const styles = StyleSheet.create({
     height: 14,
     backgroundColor: colors.tertiary, // default bgState maps to this
   } as ViewStyle,
-  Text: registeredTextStyle('micro', colors.ulisse, 'chip-text'),
 });
 
 export type ChipProps = {
   label: string;
-  bgState: 'default' | 'success' | 'error';
-  alignSelf?: 'flex-start' | 'flex-end';
+  bgState: 'default' | 'success' | 'error' | 'ulisse';
+  alignSelf?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
 };
 
 const getWrapperStyle = (
@@ -32,9 +31,18 @@ const getWrapperStyle = (
   }
 };
 
+const getTextStyle = (labelStyle: ChipProps['bgState']) => {
+  switch (labelStyle) {
+    case 'ulisse':
+      return registeredTextStyle('micro', colors.uto, 'chip-text');
+    default:
+      return registeredTextStyle('micro', colors.ulisse, 'chip-text');
+  }
+};
+
 export const ChipUnmemoized = ({ label, bgState, alignSelf }: ChipProps) => (
   <View style={getWrapperStyle(bgState, alignSelf)}>
-    <Text style={styles.Text}>{label.toUpperCase()}</Text>
+    <Text style={getTextStyle(bgState)}>{label.toUpperCase()}</Text>
   </View>
 );
 
