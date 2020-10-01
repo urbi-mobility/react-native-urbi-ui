@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Image,
-  ImageRequireSource,
-  ImageStyle,
-  StyleSheet,
-  StyleProp,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
 import { colors } from 'src/utils/colors';
 import { Icon } from '../utils/const';
 import { MaybeTouchable } from './MaybeTouchable';
