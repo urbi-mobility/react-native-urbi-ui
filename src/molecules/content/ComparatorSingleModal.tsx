@@ -54,7 +54,7 @@ const PathToDestination = (props: ContentProp) => (
 type ComparatorSingleModalProp = {
   title: string;
   content: ContentProp[];
-  body: string;
+  bottomLabel: string;
 };
 
 type ContentProp = {
@@ -70,7 +70,7 @@ export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProp
         <PathToDestination {...props} />
       ))}
     </View>
-    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>{props.body}</Text>
+    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>{props.bottomLabel}</Text>
   </View>
 );
 
