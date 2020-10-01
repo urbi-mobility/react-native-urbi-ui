@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type ComparatorSingleModalProp = {
+type ComparatorSingleModalProps = {
   title: string;
   content: JSX.Element;
   bottomLabel: string;
@@ -38,7 +38,7 @@ export const ComparatorSingleModalUnmemoized = ({
   title,
   content,
   bottomLabel,
-}: ComparatorSingleModalProp) => (
+}: ComparatorSingleModalProps) => (
   <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
     <Text style={styles.Title}>{title}</Text>
     <View style={styles.Content}>{content}</View>
