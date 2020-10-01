@@ -3,18 +3,22 @@ import { View, Text, StyleSheet } from 'react-native';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
-  ComparatorBodyWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginTop: 8,
-  },
-  EndWrapper: {
+  Wrapper: {
     height: 72,
     display: 'flex',
     alignItems: 'flex-end',
     justifyContent: 'flex-start',
     flexDirection: 'column',
   },
+  BottomPanel: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  LineSpacing: {
+    marginBottom: 8,
+    marginTop: 8,
+  },
+  Title: registeredTextStyle('titleBold' as keyof UrbiFontStyles),
 });
 
 type ComparatorProps = {
@@ -24,10 +28,10 @@ type ComparatorProps = {
 };
 
 export const ComparatorUnmemoized = (props: ComparatorProps) => (
-  <View style={styles.EndWrapper}>
-    <Text style={registeredTextStyle('titleBold' as keyof UrbiFontStyles)}>{props.title}</Text>
-    <View style={{ marginTop: 8 }}>{props.content}</View>
-    <View style={styles.ComparatorBodyWrapper}>{props.bottomLabel}</View>
+  <View style={styles.Wrapper}>
+    <Text style={styles.Title}>{props.title}</Text>
+    <View style={styles.LineSpacing}>{props.content}</View>
+    <View style={styles.BottomPanel}>{props.bottomLabel}</View>
   </View>
 );
 
