@@ -74,11 +74,10 @@ const Content = (props: ListItemProps) => {
 export const renderImageOrIcon = (
   size: number,
   image?: ImageRequireSource | string,
-  iconColor?: string,
-  style?: StyleProp<ViewStyle>
+  iconColor?: string
 ) => {
   if (typeof image === 'string') {
-    return <Icon name={image!} size={size} color={iconColor} style={style!} />;
+    return <Icon name={image!} size={size} color={iconColor} />;
   } else return <Image source={image!} style={styles.Action} />;
 };
 
