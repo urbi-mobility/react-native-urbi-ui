@@ -1,7 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
-import { comparatorStyles } from '../content/ComparatorSingleModal';
+
+export const comparatorStyles = StyleSheet.create({
+  Wrapper: {
+    height: 72,
+    display: 'flex',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+  },
+});
 
 const styles = StyleSheet.create({
   Wrapper: {
