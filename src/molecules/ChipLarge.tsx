@@ -27,10 +27,6 @@ const styles = StyleSheet.create({
   Icon: {
     marginRight: 4,
   },
-  Image: {
-    height: 20,
-    width: 20,
-  },
   Text: registeredTextStyle('titleBold', colors.ulisse, 'chip-text'),
   TextDark: registeredTextStyle('titleBold', colors.uma, 'chip-text-dark'),
 });
@@ -64,7 +60,7 @@ const renderImageOrIcon = (
         <Icon name={image} size={20} color={darkText ? colors.uma : colors.ulisse} style={style} />
       );
     default:
-      return <Image source={image} style={styles.Image} />;
+      return <Image source={image} style={{ width: 20, height: 20 }} />;
   }
 };
 
