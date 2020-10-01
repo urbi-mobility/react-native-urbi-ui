@@ -26,8 +26,8 @@ type ComparatorProps = {
 export const ComparatorUnmemoized = (props: ComparatorProps) => (
   <View style={styles.EndWrapper}>
     <Text style={registeredTextStyle('titleBold' as keyof UrbiFontStyles)}>{props.title}</Text>
-    <View style={{ marginTop: 8 }}></View>
-    <View style={styles.ComparatorBodyWrapper}>{props.content}</View>
+    <View style={{ marginTop: 8 }}>{props.content}</View>
+    <View style={styles.ComparatorBodyWrapper}>{props.bottomLabel}</View>
   </View>
 );
 
