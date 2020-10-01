@@ -1,22 +1,9 @@
 import React from 'react';
-import { ImageRequireSource, StyleSheet, View, ViewStyle, StyleProp, Text } from 'react-native';
-import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
+import { StyleSheet, View, Text } from 'react-native';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
-  PathToDestinationWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  ContainerStyle: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    marginLeft: 0,
-    marginRight: 2,
-    marginTop: 4,
-  },
   ComparatorWrapper: {
     height: 72,
     paddingLeft: 10,
@@ -31,46 +18,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'row',
   },
+  BottomLabel: {
+    marginTop: 4,
+  },
 });
-
-const PathToDestination = (props: ContentProp) => (
-  <View style={styles.PathToDestinationWrapper}>
-    <ChipLarge
-      label=""
-      color={colors.transparent}
-      colorIsLight={true}
-      icon={props.icon}
-      containerStyle={styles.ContainerStyle}
-    />
-    <Text
-      style={[registeredTextStyle('micro' as keyof UrbiFontStyles), styles.ContainerStyle]}
-      numberOfLines={1}
-    >
-      {props.bottomLabel}
-    </Text>
-  </View>
-);
 
 type ComparatorSingleModalProp = {
   title: string;
-  content: ContentProp[];
-  bottomLabel: string;
-};
-
-type ContentProp = {
-  icon: string | ImageRequireSource;
+  content: JSX.Element;
   bottomLabel: string;
 };
 
 export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProp) => (
   <View style={styles.ComparatorWrapper}>
     <Text style={[registeredTextStyle('title' as keyof UrbiFontStyles)]}>{props.title}</Text>
-    <View style={styles.ChipWrapper}>
-      {props.content.map((props) => (
-        <PathToDestination {...props} />
-      ))}
-    </View>
-    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>{props.bottomLabel}</Text>
+    <View style={styles.ChipWrapper}>{props.content}</View>
+    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles), styles.BottomLabel]}>
+      {props.bottomLabel}
+    </Text>
   </View>
 );
 
