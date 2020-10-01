@@ -1,15 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
+import { comparatorStyles } from '../content/ComparatorSingleModal';
 
 const styles = StyleSheet.create({
   Wrapper: {
-    height: 72,
-    paddingLeft: 10,
-    display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    flexDirection: 'column',
   },
   Title: registeredTextStyle('title' as keyof UrbiFontStyles),
   Content: {
@@ -31,7 +27,7 @@ type ComparatorSingleModalProp = {
 };
 
 export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProp) => (
-  <View style={styles.Wrapper}>
+  <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
     <Text style={styles.Title}>{props.title}</Text>
     <View style={styles.Content}>{props.content}</View>
     <Text style={styles.BottomLabel}>{props.bottomLabel}</Text>
