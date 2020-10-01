@@ -51,20 +51,26 @@ const PathToDestination = (props: ContentProp) => (
   </View>
 );
 
+type ComparatorSingleModalProp = {
+  title: string;
+  content: ContentProp[];
+  body: string;
+};
+
 type ContentProp = {
   icon: string | ImageRequireSource;
   bottomLabel: string;
 };
 
-export const ComparatorSingleModalUnmemoized = ({ content }: { content: ContentProp[] }) => (
+export const ComparatorSingleModalUnmemoized = (props: ComparatorSingleModalProp) => (
   <View style={styles.ComparatorWrapper}>
-    <Text style={[registeredTextStyle('title' as keyof UrbiFontStyles)]}>00 min</Text>
+    <Text style={[registeredTextStyle('title' as keyof UrbiFontStyles)]}>{props.title}</Text>
     <View style={styles.ChipWrapper}>
-      {content.map((props: ContentProp) => (
+      {props.content.map((props) => (
         <PathToDestination {...props} />
       ))}
     </View>
-    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>Arrival at 12:00</Text>
+    <Text style={[registeredTextStyle('body' as keyof UrbiFontStyles)]}>{props.body}</Text>
   </View>
 );
 
