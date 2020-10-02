@@ -9,25 +9,25 @@ const styles = StyleSheet.create({
   },
   Title: registeredTextStyle('titleBold' as keyof UrbiFontStyles),
   Content: {
-    marginBottom: 8,
     marginTop: 8,
   },
   BottomPanel: {
     display: 'flex',
     flexDirection: 'row',
+    marginTop: 8,
   },
 });
 
 type ComparatorProps = {
   title: string;
-  content: JSX.Element;
-  bottomLabel: JSX.Element;
+  content?: JSX.Element;
+  bottomLabel?: JSX.Element;
 };
 
 export const ComparatorUnmemoized = ({ title, content, bottomLabel }: ComparatorProps) => (
   <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
     <Text style={styles.Title}>{title}</Text>
-    <View style={styles.Content}>{content}</View>
+    {content && <View style={styles.Content}>{content}</View>}
     <View style={styles.BottomPanel}>{bottomLabel}</View>
   </View>
 );
