@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
 });
 
 type ComparatorSingleModalProps = {
-  title: string;
   content: JSX.Element;
-  bottomLabel: string;
+  title: string;
+  bottomLabel?: string;
 };
 
 export const ComparatorSingleModalUnmemoized = ({
