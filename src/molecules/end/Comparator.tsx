@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 import { comparatorStyles } from '../content/ComparatorSingleModal';
+import { Chip, ChipProps } from 'src/molecules/Chip';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -20,14 +21,18 @@ const styles = StyleSheet.create({
 
 type ComparatorProps = {
   title: string;
-  content?: JSX.Element;
+  content?: ChipProps;
   bottomLabel?: JSX.Element;
 };
 
 export const ComparatorUnmemoized = ({ title, content, bottomLabel }: ComparatorProps) => (
   <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
     <Text style={styles.Title}>{title}</Text>
-    {content && <View style={styles.Content}>{content}</View>}
+    {content?.label && (
+      <View style={styles.Content}>
+        <Chip alignSelf="flex-end" label={content.label} bgState={content.bgState} />
+      </View>
+    )}
     <View style={styles.BottomPanel}>{bottomLabel}</View>
   </View>
 );
