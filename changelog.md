@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+### Added 
+- `content/ComparatorSingleModal` and `end/Comparator` components
+
+### Changed
+- `components/ListItemLarge` - adding `height` prop to `ListItemLarge` with default value 70
+- `molecules/Chip` - adding `alignSelf` prop to `Chip` with default value `flex-start`
+- `molecules/Chip` - adding `getTextStyle` and `getWrapperStyle` in `Chip` to customize text and container
+- `molecules/ChipLarge` - adding `containerStyle` prop to `ChipLarge` to change container paddings and margins
+- `molecules/ChipLarge` - changing `icon` prop type and adding `renderImageOrIcon` in `ChipLarge` to allow rendering Images and not only Icons
+
 ## [0.3.5 - 2020-09-03]
 
 ### Added
