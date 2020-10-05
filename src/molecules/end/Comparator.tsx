@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Icon } from 'src/utils/const';
 import { Chip, ChipProps } from 'src/molecules/Chip';
 import { comparatorStyles } from 'src/molecules/content/ComparatorSingleModal';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
@@ -17,15 +18,49 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 8,
   },
+  ComparatorBodyMargin: {
+    marginRight: 2,
+  },
 });
 
-type ComparatorProps = {
+export type EndComparatorProps = {
   title: string;
   content?: ChipProps;
-  bottomLabel?: JSX.Element;
+  bottomLabel?: EndComparatorLabelType;
 };
 
-export const ComparatorUnmemoized = ({ title, content, bottomLabel }: ComparatorProps) => (
+type EndComparatorLabelType = {
+  icons?: IconType[];
+  text?: string;
+};
+
+type IconType = {
+  name: string;
+  color: string;
+};
+
+const renderIcon = (icon: IconType) => {
+  return (
+    <View style={styles.ComparatorBodyMargin}>
+      <Icon name={icon.name} color={icon.color} size={20} />
+    </View>
+  );
+};
+
+const renderText = (textBody: string) => {
+  return (
+    <Text
+      style={[
+        { ...registeredTextStyle('body' as keyof UrbiFontStyles) },
+        styles.ComparatorBodyMargin,
+      ]}
+    >
+      {textBody}
+    </Text>
+  );
+};
+
+export const ComparatorUnmemoized = ({ title, content, bottomLabel }: EndComparatorProps) => (
   <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
     <Text style={styles.Title}>{title}</Text>
     {content?.label && (
@@ -33,7 +68,10 @@ export const ComparatorUnmemoized = ({ title, content, bottomLabel }: Comparator
         <Chip alignSelf="flex-end" label={content.label} bgState={content.bgState} />
       </View>
     )}
-    <View style={styles.BottomPanel}>{bottomLabel}</View>
+    <View style={styles.BottomPanel}>
+      {bottomLabel?.icons && bottomLabel.icons.map((icon) => renderIcon(icon))}
+      {bottomLabel?.text && renderText(bottomLabel.text)}
+    </View>
   </View>
 );
 
