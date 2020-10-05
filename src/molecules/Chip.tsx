@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle, Text } from 'react-native';
+import { FlexStyle, StyleProp, StyleSheet, View, ViewStyle, Text } from 'react-native';
 import { registeredTextStyle } from 'src/utils/textStyles';
 import { colors } from 'src/utils/colors';
 
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 export type ChipProps = {
   label: string;
   bgState: 'default' | 'success' | 'error' | 'ulisse';
-  alignSelf?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
+  alignSelf?: FlexStyle['alignSelf'];
 };
 
 const getWrapperStyle = (
