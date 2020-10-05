@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
+import { Icon } from 'src/utils/const';
 import { registeredTextStyle } from 'src/utils/textStyles';
-import { Icon } from '../utils/const';
 
 const styles = StyleSheet.create({
   Wrapper: {
