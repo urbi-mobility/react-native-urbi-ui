@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   StyleProp,
+  FlexStyle,
   Image,
   ImageRequireSource,
   StyleSheet,
@@ -31,6 +32,17 @@ const styles = StyleSheet.create({
   TextDark: registeredTextStyle('titleBold', colors.uma, 'chip-text-dark'),
 });
 
+type containerStyle = {
+  paddingLeft?: FlexStyle['paddingLeft'];
+  paddingRight?: FlexStyle['paddingRight'];
+  paddingTop?: FlexStyle['paddingTop'];
+  paddingBottom?: FlexStyle['paddingBottom'];
+  marginLeft?: FlexStyle['marginLeft'];
+  marginRight?: FlexStyle['marginRight'];
+  marginTop?: FlexStyle['marginTop'];
+  marginBottom?: FlexStyle['marginBottom'];
+};
+
 export type ChipLargeProps = {
   label: string;
   icon?: ImageRequireSource | string;
@@ -41,7 +53,7 @@ export type ChipLargeProps = {
    */
   colorIsLight?: boolean;
   onPress?: () => any;
-  containerStyle?: ViewStyle;
+  containerStyle?: containerStyle;
 };
 
 const renderImageOrIcon = (
