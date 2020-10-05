@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
-import { comparatorStyles } from '../content/ComparatorSingleModal';
 import { Chip, ChipProps } from 'src/molecules/Chip';
+import { comparatorStyles } from 'src/molecules/content/ComparatorSingleModal';
+import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
