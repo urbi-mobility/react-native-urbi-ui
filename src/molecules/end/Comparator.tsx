@@ -42,7 +42,7 @@ type IconType = {
 const renderIcon = (icon: IconType, index: number) => {
   return (
     <View key={index} style={styles.ComparatorBodyMargin}>
-      <Icon name={icon.name} color={icon.color} size={20} />
+      <Icon name={`${icon.name}-small`} color={icon.color} size={20} />
     </View>
   );
 };
