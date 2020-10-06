@@ -39,9 +39,9 @@ type IconType = {
   color: string;
 };
 
-const renderIcon = (icon: IconType) => {
+const renderIcon = (icon: IconType, index: number) => {
   return (
-    <View style={styles.ComparatorBodyMargin}>
+    <View key={index} style={styles.ComparatorBodyMargin}>
       <Icon name={icon.name} color={icon.color} size={20} />
     </View>
   );
@@ -69,7 +69,7 @@ export const ComparatorUnmemoized = ({ title, content, bottomLabel }: EndCompara
       </View>
     )}
     <View style={styles.BottomPanel}>
-      {bottomLabel?.icons && bottomLabel.icons.map((icon) => renderIcon(icon))}
+      {bottomLabel?.icons && bottomLabel.icons.map((icon, index) => renderIcon(icon, index))}
       {bottomLabel?.text && renderText(bottomLabel.text)}
     </View>
   </View>
