@@ -72,7 +72,7 @@ const renderImageOrIcon = (
         <Icon name={image} size={20} color={darkText ? colors.uma : colors.ulisse} style={style} />
       );
     default:
-      return <Image source={image} style={{ width: 20, height: 20 }} />;
+      return <Image source={image} style={{ width: 22, height: 22 }} />;
   }
 };
 
