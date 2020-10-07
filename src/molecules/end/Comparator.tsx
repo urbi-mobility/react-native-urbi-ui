@@ -8,7 +8,6 @@ import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 const styles = StyleSheet.create({
   Wrapper: {
     alignItems: 'flex-end',
-    overflow: 'hidden',
     width: '40%',
   },
   Title: registeredTextStyle('titleBold' as keyof UrbiFontStyles),
