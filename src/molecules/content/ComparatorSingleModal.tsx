@@ -14,6 +14,8 @@ export const comparatorStyles = StyleSheet.create({
 const styles = StyleSheet.create({
   Wrapper: {
     alignItems: 'flex-start',
+    overflow: 'hidden',
+    width: '60%',
   },
   Title: registeredTextStyle('title' as keyof UrbiFontStyles),
   Content: {
