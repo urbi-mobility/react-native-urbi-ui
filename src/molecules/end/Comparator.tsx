@@ -18,8 +18,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginTop: 8,
+    flexWrap: 'nowrap',
   },
   ComparatorBodyMargin: {
+    flexShrink: 1000,
     marginRight: 2,
   },
 });
@@ -51,6 +53,7 @@ const renderIcon = (icon: IconType, index: number) => {
 const renderText = (textBody: string) => {
   return (
     <Text
+      numberOfLines={1}
       style={[
         { ...registeredTextStyle('body' as keyof UrbiFontStyles) },
         styles.ComparatorBodyMargin,
