@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 
 export type ChipProps = {
   label: string;
-  bgState: 'default' | 'success' | 'error' | 'ulisse';
+  bgState: 'default' | 'success' | 'error' | 'ulisse' | 'brand';
   alignSelf?: FlexStyle['alignSelf'];
 };
 
