@@ -2,11 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'src/utils/const';
 import { Chip, ChipProps } from 'src/molecules/Chip';
-import { comparatorStyles } from 'src/molecules/content/ComparatorSingleModal';
+import { layoutStyle } from 'src/molecules/content/ComparatorSingleModal';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
+    height: 72,
+    ...layoutStyle.ColumnJustifyStart,
     alignItems: 'flex-end',
     width: '40%',
   },
@@ -17,8 +19,8 @@ const styles = StyleSheet.create({
   BottomPanel: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: 8,
     flexWrap: 'nowrap',
+    marginTop: 8,
   },
   ComparatorBodyMargin: {
     flexShrink: 1000,
@@ -65,7 +67,7 @@ const renderText = (textBody: string) => {
 };
 
 export const ComparatorUnmemoized = ({ title, content, bottomLabel }: EndComparatorProps) => (
-  <View style={[comparatorStyles.Wrapper, styles.Wrapper]}>
+  <View style={styles.Wrapper}>
     <Text style={styles.Title}>{title}</Text>
     {content?.label && (
       <View style={styles.Content}>
