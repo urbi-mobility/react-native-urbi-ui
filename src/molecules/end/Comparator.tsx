@@ -13,9 +13,7 @@ const styles = StyleSheet.create({
     width: '40%',
   },
   Title: registeredTextStyle('titleBold' as keyof UrbiFontStyles),
-  Content: {
-    marginTop: 8,
-  },
+  Content: { marginTop: 8 },
   BottomPanel: {
     display: 'flex',
     flexDirection: 'row',
@@ -56,10 +54,10 @@ const renderText = (textBody: string) => {
   return (
     <Text
       numberOfLines={1}
-      style={[
-        { ...registeredTextStyle('body' as keyof UrbiFontStyles) },
-        styles.ComparatorBodyMargin,
-      ]}
+      style={{
+        ...registeredTextStyle('body' as keyof UrbiFontStyles),
+        ...styles.ComparatorBodyMargin,
+      }}
     >
       {textBody}
     </Text>
