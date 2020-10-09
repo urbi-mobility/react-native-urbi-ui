@@ -2,13 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'src/utils/const';
 import { Chip, ChipProps } from 'src/molecules/Chip';
-import { layoutStyle } from 'src/molecules/content/ComparatorSingleModal';
+import { layoutStyles } from 'src/utils/styles';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
     height: 72,
-    ...layoutStyle.ColumnJustifyStart,
+    ...layoutStyles.ColumnJustifyStart,
     alignItems: 'flex-end',
     width: '40%',
   },

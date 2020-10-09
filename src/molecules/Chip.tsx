@@ -19,19 +19,19 @@ export type ChipProps = {
 };
 
 const getWrapperStyle = (
-  labelStyle: ChipProps['bgState'],
+  bgState: ChipProps['bgState'],
   alignSelf: ChipProps['alignSelf']
 ): StyleProp<ViewStyle> => {
-  switch (labelStyle) {
+  switch (bgState) {
     case 'default':
       return [styles.Wrapper, { alignSelf }];
     default:
-      return [styles.Wrapper, { alignSelf, backgroundColor: colors[labelStyle] }];
+      return [styles.Wrapper, { alignSelf, backgroundColor: colors[bgState] }];
   }
 };
 
-const getTextStyle = (labelStyle: ChipProps['bgState']) => {
-  switch (labelStyle) {
+const getTextStyle = (bgState: ChipProps['bgState']) => {
+  switch (bgState) {
     case 'ulisse':
       return registeredTextStyle('micro', colors.uto, 'chip-text');
     default:

@@ -24,6 +24,10 @@ export const ListItemLargeStyles = {
 
 const styles = StyleSheet.create(ListItemLargeStyles);
 
+interface ListItemLargeProps extends ListItemProps {
+  height?: number;
+}
+
 const withStyle = (props: ListItemLargeProps) => {
   const { icon, content, end } = props;
   return end || icon
@@ -34,10 +38,7 @@ const withStyle = (props: ListItemLargeProps) => {
 };
 
 const getCustomStyle = (height: number) => {
-  return {
-    ...styles.ListItemWrapper,
-    height,
-  };
+  return { ...styles.ListItemWrapper, height };
 };
 
 const renderListItem = (props: ListItemLargeProps) => (
@@ -55,10 +56,6 @@ const renderListItem = (props: ListItemLargeProps) => (
     </View>
   </MaybeTouchable>
 );
-
-interface ListItemLargeProps extends ListItemProps {
-  height?: number;
-}
 
 export const ListItemLargeUnmemoized = (props: ListItemLargeProps) =>
   maybeAddSeparator(props, renderListItem);

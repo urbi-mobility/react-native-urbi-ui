@@ -1,32 +1,18 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
-
-export const layoutStyle = StyleSheet.create({
-  ColumnJustifyStart: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-  },
-  RowAlignCenter: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  noPaddings: { paddingLeft: 0, paddingRight: 0 },
-  margins: { marginRight: 2, marginTop: 4 },
-});
+import { layoutStyles } from 'src/utils/styles';
 
 const styles = StyleSheet.create({
   Wrapper: {
     height: 72,
-    ...layoutStyle.ColumnJustifyStart,
+    ...layoutStyles.ColumnJustifyStart,
     alignItems: 'flex-start',
     width: '60%',
   },
   Title: registeredTextStyle('title' as keyof UrbiFontStyles),
   Content: {
-    ...layoutStyle.RowAlignCenter,
+    ...layoutStyles.RowAlignCenter,
     justifyContent: 'flex-start',
   },
   BottomLabel: {
