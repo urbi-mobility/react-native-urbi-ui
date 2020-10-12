@@ -24,11 +24,7 @@ export const ListItemLargeStyles = {
 
 const styles = StyleSheet.create(ListItemLargeStyles);
 
-interface ListItemLargeProps extends ListItemProps {
-  height?: number;
-}
-
-const withStyle = (props: ListItemLargeProps) => {
+const withStyle = (props: ListItemProps) => {
   const { icon, content, end } = props;
   return end || icon
     ? React.cloneElement(content, {
@@ -37,17 +33,9 @@ const withStyle = (props: ListItemLargeProps) => {
     : content;
 };
 
-const getCustomStyle = (height: number) => {
-  return { ...styles.ListItemWrapper, height };
-};
-
-const renderListItem = (props: ListItemLargeProps) => (
-  <MaybeTouchable
-    onPress={props.onPress}
-    backgroundColor={props.backgroundColor}
-    exactHeight={props.height}
-  >
-    <View style={getCustomStyle(props.height)}>
+const renderListItem = (props: ListItemProps) => (
+  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor} exactHeight={70}>
+    <View style={styles.ListItemWrapper}>
       {withStyle(props)}
       {props.icon
         ? renderImageOrIcon(props.size ? props.size : 20, props.icon, props.iconColor)
@@ -57,11 +45,7 @@ const renderListItem = (props: ListItemLargeProps) => (
   </MaybeTouchable>
 );
 
-export const ListItemLargeUnmemoized = (props: ListItemLargeProps) =>
+export const ListItemLargeUnmemoized = (props: ListItemProps) =>
   maybeAddSeparator(props, renderListItem);
-
-ListItemLargeUnmemoized.defaultProps = {
-  height: 70,
-};
 
 export const ListItemLarge = React.memo(ListItemLargeUnmemoized);
