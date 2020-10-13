@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
 
 export type ChipProps = {
   label: string;
-  bgState: 'default' | 'success' | 'error' | 'ulisse' | 'brand';
+  bgState: 'default' | 'success' | 'error';
+  bgColor?: 'ulisse' | 'brand';
   alignSelf?: FlexStyle['alignSelf'];
 };
 
@@ -23,19 +24,17 @@ const chipTextOnUlisse = registeredTextStyle('micro', colors.uto, 'chip-text-uli
 
 const getWrapperStyle = (
   bgState: ChipProps['bgState'],
-  alignSelf: ChipProps['alignSelf']
+  alignSelf: ChipProps['alignSelf'],
+  bgColor?: ChipProps['bgColor']
 ): StyleProp<ViewStyle> => {
-  switch (bgState) {
-    case 'default':
-      return [styles.Wrapper, { alignSelf }];
-    default:
-      return [styles.Wrapper, { alignSelf, backgroundColor: colors[bgState] }];
-  }
+  if (bgState === 'default') return [styles.Wrapper, { alignSelf }];
+  if (bgColor) return [styles.Wrapper, { alignSelf, backgroundColor: colors[bgColor] }];
+  return [styles.Wrapper, { alignSelf, backgroundColor: colors[bgState] }];
 };
 
-export const ChipUnmemoized = ({ label, bgState, alignSelf }: ChipProps) => (
-  <View style={getWrapperStyle(bgState, alignSelf)}>
-    <Text style={bgState === 'ulisse' ? chipTextOnUlisse : chipText}>{label.toUpperCase()}</Text>
+export const ChipUnmemoized = ({ label, bgState, alignSelf, bgColor }: ChipProps) => (
+  <View style={getWrapperStyle(bgState, alignSelf, bgColor)}>
+    <Text style={bgColor === 'ulisse' ? chipTextOnUlisse : chipText}>{label.toUpperCase()}</Text>
   </View>
 );
 
