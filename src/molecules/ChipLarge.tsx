@@ -58,19 +58,12 @@ const renderImageOrIcon = (
   darkText: boolean,
   style: StyleProp<ViewStyle>
 ) => {
-  switch (image) {
-    case 'walk':
-      return <Icon name={image} size={20} color={colors.uto} />;
-  }
-
-  switch (typeof image) {
-    case 'string':
-      return (
-        <Icon name={image} size={20} color={darkText ? colors.uma : colors.ulisse} style={style} />
-      );
-    default:
-      return <Image source={image} style={{ width: 22, height: 22 }} />;
-  }
+  if (image === 'walk') return <Icon name={image} size={20} color={colors.uto} />;
+  return typeof image === 'string' ? (
+    <Icon name={image} size={20} color={darkText ? colors.uma : colors.ulisse} style={style} />
+  ) : (
+    <Image source={image} style={{ width: 22, height: 22 }} />
+  );
 };
 
 const renderChip = (
