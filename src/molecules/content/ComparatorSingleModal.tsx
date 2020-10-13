@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
+import { registeredTextStyle } from 'src/utils/textStyles';
 import { layoutStyles } from 'src/utils/styles';
 
 const styles = StyleSheet.create({
@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     width: '60%',
   },
-  Title: registeredTextStyle('title' as keyof UrbiFontStyles),
+  Title: registeredTextStyle('title'),
   Content: {
     ...layoutStyles.RowAlignCenter,
     justifyContent: 'flex-start',
   },
   BottomLabel: {
-    ...registeredTextStyle('body' as keyof UrbiFontStyles),
+    ...registeredTextStyle('body'),
     marginTop: 4,
   },
 });

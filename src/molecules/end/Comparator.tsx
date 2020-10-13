@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Icon } from 'src/utils/const';
 import { Chip, ChipProps } from 'src/molecules/Chip';
 import { layoutStyles } from 'src/utils/styles';
-import { registeredTextStyle, UrbiFontStyles } from 'src/utils/textStyles';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     width: '40%',
   },
-  Title: registeredTextStyle('titleBold' as keyof UrbiFontStyles),
+  Title: registeredTextStyle('titleBold'),
   Content: { marginTop: 8 },
   BottomPanel: {
     display: 'flex',
@@ -55,7 +55,7 @@ const renderText = (textBody: string) => {
     <Text
       numberOfLines={1}
       style={{
-        ...registeredTextStyle('body' as keyof UrbiFontStyles),
+        ...registeredTextStyle('body'),
         ...styles.ComparatorBodyMargin,
       }}
     >
