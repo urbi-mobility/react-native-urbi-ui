@@ -73,7 +73,7 @@ export const ComparatorUnmemoized = ({ title, content, bottomLabel }: EndCompara
       </View>
     )}
     <View style={styles.BottomPanel}>
-      {bottomLabel?.icons && bottomLabel.icons.map((icon, index) => renderIcon(icon, index))}
+      {bottomLabel?.icons?.map((icon, index) => renderIcon(icon, index))}
       {bottomLabel?.text && renderText(bottomLabel.text)}
     </View>
   </View>
