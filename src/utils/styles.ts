@@ -10,6 +10,4 @@ export const layoutStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  noPaddings: { paddingLeft: 0, paddingRight: 0 },
-  margins: { marginRight: 2, marginTop: 4 },
 });
