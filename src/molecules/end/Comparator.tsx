@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   ComparatorBodyMargin: {
-    flexShrink: 1000,
+    flexShrink: 1,
     marginRight: 2,
   },
 });
