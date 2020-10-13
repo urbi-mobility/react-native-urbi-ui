@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleProp,
-  FlexStyle,
   Image,
   ImageRequireSource,
   StyleSheet,
@@ -27,18 +26,18 @@ const styles = StyleSheet.create({
   },
   Text: registeredTextStyle('titleBold', colors.ulisse, 'chip-text'),
   TextDark: registeredTextStyle('titleBold', colors.uma, 'chip-text-dark'),
+  noPadding: {
+    paddingLeft: 0,
+    paddingRight: 0,
+    marginLeft: 0,
+    marginRight: 2,
+    marginTop: 4,
+  },
+  topLeftMargins: {
+    marginRight: 2,
+    marginTop: 4,
+  },
 });
-
-type containerStyle = {
-  paddingLeft?: FlexStyle['paddingLeft'];
-  paddingRight?: FlexStyle['paddingRight'];
-  paddingTop?: FlexStyle['paddingTop'];
-  paddingBottom?: FlexStyle['paddingBottom'];
-  marginLeft?: FlexStyle['marginLeft'];
-  marginRight?: FlexStyle['marginRight'];
-  marginTop?: FlexStyle['marginTop'];
-  marginBottom?: FlexStyle['marginBottom'];
-};
 
 export type ChipLargeProps = {
   label: string;
@@ -50,7 +49,7 @@ export type ChipLargeProps = {
    */
   colorIsLight?: boolean;
   onPress?: () => any;
-  containerStyle?: containerStyle;
+  containerStyle?: 'noPadding' | 'topLeftMargins';
 };
 
 const renderImageOrIcon = (
@@ -71,9 +70,14 @@ const renderChip = (
   darkText: boolean,
   label: string,
   icon?: ImageRequireSource | string,
-  containerStyle?: ViewStyle
+  containerStyle?: 'noPadding' | 'topLeftMargins'
 ) => (
-  <View style={{ ...styles.Wrapper, ...containerStyle, backgroundColor: color }}>
+  <View
+    style={[
+      { ...styles.Wrapper, backgroundColor: color },
+      containerStyle && { ...styles[containerStyle] },
+    ]}
+  >
     {icon ? (
       <View style={{ ...layoutStyles.RowAlignCenter }}>
         {renderImageOrIcon(icon, darkText, styles.Icon)}
