@@ -11,8 +11,8 @@ import {
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors, isLight } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
-import { registeredTextStyle } from 'src/utils/textStyles';
 import { layoutStyles } from 'src/utils/styles';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
     borderRadius: 11,
     height: 22,
   } as ViewStyle,
+  IconAndText: {
+    ...layoutStyles.RowAlignCenter,
+  },
   Icon: {
     marginRight: 4,
   },
@@ -32,9 +35,6 @@ const styles = StyleSheet.create({
   topLeftMargins: {
     marginRight: 2,
     marginTop: 4,
-  },
-  ChipContainer: {
-    ...layoutStyles.RowAlignCenter,
   },
 });
 
@@ -78,7 +78,7 @@ const renderChip = (
     ]}
   >
     {icon ? (
-      <View style={styles.ChipContainer}>
+      <View style={styles.IconAndText}>
         {renderImageOrIcon(icon, darkText, styles.Icon)}
         <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
       </View>
