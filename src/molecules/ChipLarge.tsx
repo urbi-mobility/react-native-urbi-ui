@@ -27,11 +27,7 @@ const styles = StyleSheet.create({
   Text: registeredTextStyle('titleBold', colors.ulisse, 'chip-text'),
   TextDark: registeredTextStyle('titleBold', colors.uma, 'chip-text-dark'),
   noPadding: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    marginLeft: 0,
-    marginRight: 2,
-    marginTop: 4,
+    ...layoutStyles.SingleModalContainer,
   },
   topLeftMargins: {
     marginRight: 2,
