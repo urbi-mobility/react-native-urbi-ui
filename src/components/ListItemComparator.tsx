@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ListItemProps, maybeAddSeparator } from '../components/ListItem';
-import { ListItemLargeStyles } from '../components/ListItemLarge';
-import { MaybeTouchable } from '../components/MaybeTouchable';
+import { ListItemProps, maybeAddSeparator } from 'src/components/ListItem';
+import { ListItemLargeStyles } from 'src/components/ListItemLarge';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
 
 const styles = StyleSheet.create(ListItemLargeStyles);
 
