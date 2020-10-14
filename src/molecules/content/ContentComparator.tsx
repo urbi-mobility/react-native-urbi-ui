@@ -28,12 +28,9 @@ const styles = StyleSheet.create({
   ContentWrapper: {
     ...layoutStyles.RowAlignCenter,
     width: wrapperWidth,
-  },
-  RowAlignCenter: { ...layoutStyles.RowAlignCenter },
-  Content: {
-    ...layoutStyles.RowAlignCenter,
     justifyContent: 'flex-start',
   },
+  RowAlignCenter: { ...layoutStyles.RowAlignCenter },
   BottomLabel: {
     ...registeredTextStyle('body'),
     marginTop: 4,
@@ -60,12 +57,8 @@ type ContentComparatorState = {
 
 export type DirectionsProps = {
   walkingToVehicle: number;
-  providerIcon: string;
   walkingToDestination?: number;
-  vehicleModel?: string;
   directionsList: DirectionItem[];
-  type: string;
-  name: string;
 };
 
 interface DirectionItem {
@@ -150,34 +143,32 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     return (
       <View style={styles.Wrapper}>
         <Text style={styles.Title}>{title}</Text>
-        <View style={styles.Content}>
-          <View style={styles.ContentWrapper}>
-            <ChipLarge {...iconProps} />
-            <Text style={textStyles.Body} numberOfLines={1}>
-              {walkingToVehicle.toString()}
-            </Text>
-            <Text style={textStyles.Body}>+</Text>
-            {list?.map((info, index) => this.renderTransportIcon(info, index))}
-            {directionsList?.length === 1 && (
-              <View style={layoutStyles.SingleModalContainer}>
-                <Chip
-                  alignSelf="center"
-                  label={directionsList[0].type!}
-                  bgColor="ulisse"
-                  bgState="success"
-                />
-              </View>
-            )}
-            {walkingToDestination && (
-              <>
-                <Text style={textStyles.Body}>+</Text>
-                <ChipLarge {...iconProps} />
-                <Text style={textStyles.Body} numberOfLines={1}>
-                  {walkingToDestination.toString()}
-                </Text>
-              </>
-            )}
-          </View>
+        <View style={styles.ContentWrapper}>
+          <ChipLarge {...iconProps} />
+          <Text style={textStyles.Body} numberOfLines={1}>
+            {walkingToVehicle.toString()}
+          </Text>
+          <Text style={textStyles.Body}>+</Text>
+          {list?.map((info, index) => this.renderTransportIcon(info, index))}
+          {directionsList?.length === 1 && (
+            <View style={layoutStyles.SingleModalContainer}>
+              <Chip
+                alignSelf="center"
+                label={directionsList[0].type!}
+                bgColor="ulisse"
+                bgState="success"
+              />
+            </View>
+          )}
+          {walkingToDestination && (
+            <>
+              <Text style={textStyles.Body}>+</Text>
+              <ChipLarge {...iconProps} />
+              <Text style={textStyles.Body} numberOfLines={1}>
+                {walkingToDestination.toString()}
+              </Text>
+            </>
+          )}
         </View>
         <Text style={styles.BottomLabel}>{bottomLabel}</Text>
       </View>
