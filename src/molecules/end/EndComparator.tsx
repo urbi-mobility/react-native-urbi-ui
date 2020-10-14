@@ -26,6 +26,13 @@ const styles = StyleSheet.create({
   },
 });
 
+const textStyles = StyleSheet.create({
+  Body: {
+    ...registeredTextStyle('body'),
+    ...styles.EndComparatorBodyMargin,
+  },
+});
+
 export type EndComparatorProps = {
   title: string;
   content?: ChipProps;
@@ -52,13 +59,7 @@ const renderIcon = (icon: IconType, index: number) => {
 
 const renderText = (textBody: string) => {
   return (
-    <Text
-      numberOfLines={1}
-      style={{
-        ...registeredTextStyle('body'),
-        ...styles.EndComparatorBodyMargin,
-      }}
-    >
+    <Text numberOfLines={1} style={textStyles.Body}>
       {textBody}
     </Text>
   );

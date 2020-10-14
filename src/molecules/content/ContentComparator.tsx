@@ -13,6 +13,10 @@ import { Chip } from 'src/molecules/Chip';
 import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 import { colors } from 'src/utils/colors';
 
+const LIST_ITEM_LARGE_PADDING = 28;
+const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
+const WALK_ICONS_WIDTH = 102;
+
 const styles = StyleSheet.create({
   Wrapper: {
     height: 72,
@@ -21,6 +25,11 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   Title: registeredTextStyle('title'),
+  ContentWrapper: {
+    ...layoutStyles.RowAlignCenter,
+    width: wrapperWidth,
+  },
+  RowAlignCenter: { ...layoutStyles.RowAlignCenter },
   Content: {
     ...layoutStyles.RowAlignCenter,
     justifyContent: 'flex-start',
@@ -38,10 +47,6 @@ const textStyles = StyleSheet.create({
     color: colors.uto,
   },
 });
-
-const LIST_ITEM_LARGE_PADDING = 28;
-const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
-const WALK_ICONS_WIDTH = 102;
 
 export type ContentComparatorProps = {
   content: DirectionsProps;
@@ -118,7 +123,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     return (
       <View
         onLayout={shouldCheckLayout ? this.onLayout : undefined}
-        style={{ ...layoutStyles.RowAlignCenter }}
+        style={styles.RowAlignCenter}
         key={index}
       >
         {showPlusIcon && <Text style={textStyles.Body}>+</Text>}
@@ -146,7 +151,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       <View style={styles.Wrapper}>
         <Text style={styles.Title}>{title}</Text>
         <View style={styles.Content}>
-          <View style={{ ...layoutStyles.RowAlignCenter, width: wrapperWidth }}>
+          <View style={styles.ContentWrapper}>
             <ChipLarge {...iconProps} />
             <Text style={textStyles.Body} numberOfLines={1}>
               {walkingToVehicle.toString()}

@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
     marginRight: 2,
     marginTop: 4,
   },
+  ChipContainer: {
+    ...layoutStyles.RowAlignCenter,
+  },
 });
 
 export type ChipLargeProps = {
@@ -75,7 +78,7 @@ const renderChip = (
     ]}
   >
     {icon ? (
-      <View style={{ ...layoutStyles.RowAlignCenter }}>
+      <View style={styles.ChipContainer}>
         {renderImageOrIcon(icon, darkText, styles.Icon)}
         <Text style={darkText ? styles.TextDark : styles.Text}>{label.toUpperCase()}</Text>
       </View>
