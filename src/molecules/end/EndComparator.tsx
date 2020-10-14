@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flexWrap: 'nowrap',
     marginTop: 8,
   },
-  ComparatorBodyMargin: {
+  EndComparatorBodyMargin: {
     flexShrink: 1,
     marginRight: 2,
   },
@@ -44,7 +44,7 @@ type IconType = {
 
 const renderIcon = (icon: IconType, index: number) => {
   return (
-    <View key={index} style={styles.ComparatorBodyMargin}>
+    <View key={index} style={styles.EndComparatorBodyMargin}>
       <Icon name={`${icon.name}-small`} color={icon.color} size={20} />
     </View>
   );
@@ -56,7 +56,7 @@ const renderText = (textBody: string) => {
       numberOfLines={1}
       style={{
         ...registeredTextStyle('body'),
-        ...styles.ComparatorBodyMargin,
+        ...styles.EndComparatorBodyMargin,
       }}
     >
       {textBody}
@@ -64,7 +64,7 @@ const renderText = (textBody: string) => {
   );
 };
 
-export const ComparatorUnmemoized = ({ title, content, bottomLabel }: EndComparatorProps) => (
+export const EndComparatorUnmemoized = ({ title, content, bottomLabel }: EndComparatorProps) => (
   <View style={styles.Wrapper}>
     <Text style={styles.Title}>{title}</Text>
     {content?.label && (
@@ -79,4 +79,4 @@ export const ComparatorUnmemoized = ({ title, content, bottomLabel }: EndCompara
   </View>
 );
 
-export const Comparator = React.memo(ComparatorUnmemoized);
+export const EndComparator = React.memo(EndComparatorUnmemoized);
