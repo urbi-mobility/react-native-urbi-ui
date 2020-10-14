@@ -43,13 +43,13 @@ const LIST_ITEM_LARGE_PADDING = 28;
 const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
 const WALK_ICONS_WIDTH = 102;
 
-export type ComparatorSingleProps = {
+export type ComparatorModalProps = {
   content: DirectionsProps;
   title: string;
   bottomLabel?: string;
 };
 
-type ComparatorSingleState = {
+type ComparatorModalState = {
   lastIndex: number;
 };
 
@@ -58,22 +58,25 @@ export type DirectionsProps = {
   providerIcon: string;
   walkingToDestination?: number;
   vehicleModel?: string;
-  directionsList?: DirectionItem[];
+  directionsList: DirectionItem[];
   type: string;
   name: string;
 };
 
-interface DirectionItem extends ChipLargeProps {
+interface DirectionItem {
   name: string;
   type?: string;
   isImage?: boolean;
+  icon?: ImageRequireSource | string;
+  color: string;
+  containerStyle?: 'noPadding' | 'topLeftMargins';
 }
 
-class ComparatorSingleModal extends Component<ComparatorSingleProps, ComparatorSingleState> {
+class ComparatorModal extends Component<ComparatorModalProps, ComparatorModalState> {
   prevIcon: undefined | string | ImageRequireSource;
   computedWidth: number;
   prevIndex: number;
-  constructor(props: ComparatorSingleProps) {
+  constructor(props: ComparatorModalProps) {
     super(props);
     const { directionsList } = props.content;
     const defaultIndex = directionsList ? directionsList.length : 0;
@@ -177,4 +180,4 @@ class ComparatorSingleModal extends Component<ComparatorSingleProps, ComparatorS
   }
 }
 
-export default ComparatorSingleModal;
+export default ComparatorModal;
