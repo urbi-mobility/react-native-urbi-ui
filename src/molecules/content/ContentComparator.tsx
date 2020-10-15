@@ -76,7 +76,6 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
   constructor(props: ContentComparatorProps) {
     super(props);
     this.state = { lastIndex: props.content.directionsList.length };
-    this.computedWidth = 0;
     this.prevIcon = undefined;
     this.viewInformation = {};
     this.onLayout = this.onLayout.bind(this);
