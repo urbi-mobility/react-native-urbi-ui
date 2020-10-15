@@ -124,7 +124,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       icon: isImage ? icon : `${icon}-small`,
     };
     return (
-      <View onLayout={true ? this.onLayout : undefined} style={styles.RowAlignCenter} key={index}>
+      <View onLayout={this.onLayout} style={styles.RowAlignCenter} key={index}>
         {showPlusIcon && <Text style={textStyles.Body}>+</Text>}
         <ChipLarge {...chipLargeProps} />
       </View>
@@ -152,9 +152,8 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
         <View style={styles.ContentWrapper}>
           <ChipLarge {...iconProps} />
           <Text style={textStyles.Body} numberOfLines={1}>
-            {walkingToVehicle.toString()}
+            {walkingToVehicle.toString()} +
           </Text>
-          <Text style={textStyles.Body}>+</Text>
           {list?.map((info, index) => this.renderTransportIcon(info, index))}
           {directionsList?.length === 1 && (
             <View style={layoutStyles.SingleModalContainer}>
@@ -168,10 +167,9 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
           )}
           {walkingToDestination && (
             <>
-              <Text style={textStyles.Body}>+</Text>
               <ChipLarge {...iconProps} />
               <Text style={textStyles.Body} numberOfLines={1}>
-                {walkingToDestination.toString()}
+                + {walkingToDestination.toString()}
               </Text>
             </>
           )}
