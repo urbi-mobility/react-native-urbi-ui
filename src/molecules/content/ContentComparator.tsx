@@ -81,15 +81,14 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
   viewInformation: { x?: number };
   constructor(props: ContentComparatorProps) {
     super(props);
-    const { directionsList } = props.content;
-    const defaultIndex = directionsList ? directionsList.length : 0;
-    this.state = { lastIndex: defaultIndex };
+    this.state = { lastIndex: props.content.directionsList.length };
     this.computedWidth = 0;
     this.prevIndex = 0;
     this.prevIcon = undefined;
     this.viewInformation = {};
     this.onLayout = this.onLayout.bind(this);
     this.renderTransportIcon = this.renderTransportIcon.bind(this);
+    this.updateLastIndex = this.updateLastIndex.bind(this);
   }
 
   onLayout({ nativeEvent }: LayoutChangeEvent) {
@@ -103,7 +102,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     if (shouldSetIndex) this.updateLastIndex();
   }
 
-  updateLastIndex = () => {
+  updateLastIndex() {
     const { walkingToDestination } = this.props.content;
     const coordinates = Object.keys(this.viewInformation).sort();
     const availableSpace = !!walkingToDestination
@@ -118,7 +117,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     this.setState({ lastIndex: this.prevIndex });
     this.computedWidth = 0;
     this.prevIndex = 0;
-  };
+  }
 
   renderTransportIcon(info: DirectionItem, index: number) {
     const { color, icon, name } = info;
