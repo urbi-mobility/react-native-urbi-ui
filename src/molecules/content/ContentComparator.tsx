@@ -12,23 +12,26 @@ import { registeredTextStyle } from 'src/utils/textStyles';
 import { Chip } from 'src/molecules/Chip';
 import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 import { colors } from 'src/utils/colors';
+import { onIOS } from 'src/utils/const';
 
 const LIST_ITEM_LARGE_PADDING = 28;
 const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
-const WALK_ICONS_WIDTH = 102;
+const WALK_ICONS_WIDTH = onIOS ? 125 : 102;
 
 const styles = StyleSheet.create({
   Wrapper: {
     height: 72,
     ...layoutStyles.ColumnJustifyStart,
     alignItems: 'flex-start',
-    width: '60%',
+    width: wrapperWidth,
+    backgroundColor: 'red',
   },
   Title: registeredTextStyle('title'),
   ContentWrapper: {
     ...layoutStyles.RowAlignCenter,
     width: wrapperWidth,
     justifyContent: 'flex-start',
+    backgroundColor: 'yellow',
   },
   RowAlignCenter: { ...layoutStyles.RowAlignCenter },
   BottomLabel: {
@@ -74,6 +77,8 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
   prevIcon: undefined | string | ImageRequireSource;
   computedWidth: number;
   prevIndex: number;
+  lastIndex: number;
+  viewInformation: { x?: number };
   constructor(props: ContentComparatorProps) {
     super(props);
     const { directionsList } = props.content;
@@ -82,30 +87,43 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     this.computedWidth = 0;
     this.prevIndex = 0;
     this.prevIcon = undefined;
+    this.viewInformation = {};
     this.onLayout = this.onLayout.bind(this);
     this.renderTransportIcon = this.renderTransportIcon.bind(this);
   }
 
   onLayout({ nativeEvent }: LayoutChangeEvent) {
-    this.computedWidth += nativeEvent.layout.width;
-    this.prevIndex = this.prevIndex + 1;
-    const availableSpace = !!this.props.content.walkingToDestination
-      ? wrapperWidth - WALK_ICONS_WIDTH
-      : wrapperWidth - WALK_ICONS_WIDTH / 2;
-    const containerLimitReached = this.computedWidth > availableSpace;
-    if (containerLimitReached) {
-      this.setState({ lastIndex: this.prevIndex });
-      this.prevIcon = undefined;
-    }
+    const { directionsList } = this.props.content;
+    const { lastIndex } = this.state;
+    const { x, width } = nativeEvent.layout;
+    this.viewInformation[x] = width;
+    const coordinates = Object.keys(this.viewInformation).sort();
+    const shouldSetIndex =
+      (lastIndex && coordinates.length) === directionsList?.length && lastIndex > 2;
+    if (shouldSetIndex) this.updateLastIndex();
   }
 
+  updateLastIndex = () => {
+    const { walkingToDestination } = this.props.content;
+    const coordinates = Object.keys(this.viewInformation).sort();
+    const availableSpace = !!walkingToDestination
+      ? wrapperWidth - WALK_ICONS_WIDTH
+      : wrapperWidth - WALK_ICONS_WIDTH / 2;
+    let index = 0;
+    while (this.computedWidth < availableSpace) {
+      this.computedWidth += this.viewInformation[coordinates[index]];
+      index += 1;
+      this.prevIndex += 1;
+    }
+    this.setState({ lastIndex: this.prevIndex });
+    this.computedWidth = 0;
+    this.prevIndex = 0;
+  };
+
   renderTransportIcon(info: DirectionItem, index: number) {
-    const { lastIndex } = this.state;
     const { color, icon, name } = info;
-    const { directionsList } = this.props.content;
     const showPlusIcon = this.prevIcon && this.prevIcon !== icon;
     this.prevIcon = icon;
-    const shouldCheckLayout = lastIndex === directionsList?.length && lastIndex > 2;
     const isImage = typeof icon === 'number';
     const chipLargeProps: ChipLargeProps = {
       containerStyle: isImage ? 'noPadding' : 'topLeftMargins',
@@ -114,11 +132,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       icon: isImage ? icon : `${icon}-small`,
     };
     return (
-      <View
-        onLayout={shouldCheckLayout ? this.onLayout : undefined}
-        style={styles.RowAlignCenter}
-        key={index}
-      >
+      <View onLayout={true ? this.onLayout : undefined} style={styles.RowAlignCenter} key={index}>
         {showPlusIcon && <Text style={textStyles.Body}>+</Text>}
         <ChipLarge {...chipLargeProps} />
       </View>
