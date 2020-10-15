@@ -60,7 +60,7 @@ const renderImageOrIcon = (
   return typeof image === 'string' ? (
     <Icon name={image} size={20} color={darkText ? colors.uma : colors.ulisse} style={style} />
   ) : (
-    <Image source={image} style={{ width: 22, height: 22 }} />
+    <Image resizeMethod="scale" source={image} style={{ width: 22, height: 22 }} />
   );
 };
 
