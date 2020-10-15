@@ -72,16 +72,16 @@ interface DirectionItem {
 }
 
 class ContentComparator extends Component<ContentComparatorProps, ContentComparatorState> {
-  prevIcon: undefined | string | ImageRequireSource;
+  prevIcon?: string | ImageRequireSource;
   computedWidth: number;
-  prevIndex: number;
+  index: number;
   lastIndex: number;
   viewInformation: { x?: number };
   constructor(props: ContentComparatorProps) {
     super(props);
     this.state = { lastIndex: props.content.directionsList.length };
     this.computedWidth = 0;
-    this.prevIndex = 0;
+    this.index = 0;
     this.prevIcon = undefined;
     this.viewInformation = {};
     this.onLayout = this.onLayout.bind(this);
@@ -107,13 +107,13 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       ? wrapperWidth - WALK_ICONS_WIDTH
       : wrapperWidth - WALK_ICONS_WIDTH / 2;
     while (this.computedWidth < availableSpace) {
-      this.computedWidth += this.viewInformation[coordinates[this.prevIndex]];
-      this.prevIndex += 1;
+      this.computedWidth += this.viewInformation[coordinates[this.index]];
+      this.index += 1;
     }
-    this.setState({ lastIndex: this.prevIndex });
+    this.setState({ lastIndex: this.index });
     this.prevIcon = undefined;
     this.computedWidth = 0;
-    this.prevIndex = 0;
+    this.index = 0;
   }
 
   renderTransportIcon(info: DirectionItem, index: number) {
