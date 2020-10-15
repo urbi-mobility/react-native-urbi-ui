@@ -15,7 +15,7 @@ import { colors } from 'src/utils/colors';
 
 const LIST_ITEM_LARGE_PADDING = 28;
 const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
-const WALK_ICONS_WIDTH = 130;
+const WALK_ICONS_WIDTH = 102;
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     width: wrapperWidth,
     justifyContent: 'flex-start',
   },
-  RowAlignCenter: { ...layoutStyles.RowAlignCenter },
   BottomLabel: {
     ...registeredTextStyle('body'),
     marginTop: 4,
@@ -89,8 +88,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     const { x, width } = nativeEvent.layout;
     this.viewInformation[x] = width;
     const coordinates = Object.keys(this.viewInformation).sort();
-    const shouldSetIndex =
-      (lastIndex && coordinates.length) === directionsList?.length && lastIndex > 2;
+    const shouldSetIndex = (lastIndex && coordinates.length) === directionsList.length;
     if (shouldSetIndex) this.updateLastIndex();
   }
 
@@ -101,17 +99,18 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       ? wrapperWidth - WALK_ICONS_WIDTH
       : wrapperWidth - WALK_ICONS_WIDTH / 2;
     let index = 0;
-    let computedWidth = 0;
+    let computedWidth = this.viewInformation[coordinates[index]];
     while (computedWidth < availableSpace) {
-      computedWidth += this.viewInformation[coordinates[index]];
-      index += 1;
+      computedWidth += this.viewInformation[coordinates[(index += 1)]];
     }
     this.setState({ lastIndex: index });
     this.prevIcon = undefined;
   }
 
   renderTransportIcon(info: DirectionItem, index: number) {
-    const { color, icon, name } = info;
+    const { directionsList } = this.props.content;
+    const { color, icon, name, type } = info;
+    const { lastIndex } = this.state;
     const showPlusIcon = this.prevIcon && this.prevIcon !== icon;
     this.prevIcon = icon;
     const isImage = typeof icon === 'number';
@@ -121,10 +120,20 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       label: isImage ? '' : name,
       icon: isImage ? icon : `${icon}-small`,
     };
+    const flexShrink = lastIndex === 0 ? 1 : 0;
     return (
-      <View onLayout={this.onLayout} style={styles.RowAlignCenter} key={index}>
+      <View
+        onLayout={this.onLayout}
+        style={{ ...layoutStyles.RowAlignCenter, flexShrink }}
+        key={index}
+      >
         {showPlusIcon && <Text style={textStyles.Body}>+</Text>}
         <ChipLarge {...chipLargeProps} />
+        {directionsList.length === 1 && (
+          <View style={{ ...layoutStyles.SingleModalContainer, flexShrink }}>
+            <Chip alignSelf="center" label={type} bgColor="ulisse" bgState="success" />
+          </View>
+        )}
       </View>
     );
   }
@@ -153,16 +162,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
             {walkingToVehicle.toString()} +
           </Text>
           {list?.map((info, index) => this.renderTransportIcon(info, index))}
-          {directionsList?.length === 1 && (
-            <View style={layoutStyles.SingleModalContainer}>
-              <Chip
-                alignSelf="center"
-                label={directionsList[0].type!}
-                bgColor="ulisse"
-                bgState="success"
-              />
-            </View>
-          )}
+          {lastIndex === 0 && this.renderTransportIcon(directionsList[0], 0)}
           {walkingToDestination && (
             <>
               <ChipLarge {...iconProps} />
