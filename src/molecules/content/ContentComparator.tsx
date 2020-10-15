@@ -16,7 +16,7 @@ import { onIOS } from 'src/utils/const';
 
 const LIST_ITEM_LARGE_PADDING = 28;
 const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
-const WALK_ICONS_WIDTH = onIOS ? 125 : 102;
+const WALK_ICONS_WIDTH = onIOS ? 130 : 102;
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -115,6 +115,7 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       this.prevIndex += 1;
     }
     this.setState({ lastIndex: this.prevIndex });
+    this.prevIcon = undefined;
     this.computedWidth = 0;
     this.prevIndex = 0;
   }
