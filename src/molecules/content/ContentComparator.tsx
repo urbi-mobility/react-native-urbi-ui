@@ -106,10 +106,8 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     const availableSpace = !!walkingToDestination
       ? wrapperWidth - WALK_ICONS_WIDTH
       : wrapperWidth - WALK_ICONS_WIDTH / 2;
-    let index = 0;
     while (this.computedWidth < availableSpace) {
-      this.computedWidth += this.viewInformation[coordinates[index]];
-      index += 1;
+      this.computedWidth += this.viewInformation[coordinates[this.prevIndex]];
       this.prevIndex += 1;
     }
     this.setState({ lastIndex: this.prevIndex });
