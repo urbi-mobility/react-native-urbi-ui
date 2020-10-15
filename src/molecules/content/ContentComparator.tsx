@@ -24,14 +24,12 @@ const styles = StyleSheet.create({
     ...layoutStyles.ColumnJustifyStart,
     alignItems: 'flex-start',
     width: wrapperWidth,
-    backgroundColor: 'red',
   },
   Title: registeredTextStyle('title'),
   ContentWrapper: {
     ...layoutStyles.RowAlignCenter,
     width: wrapperWidth,
     justifyContent: 'flex-start',
-    backgroundColor: 'yellow',
   },
   RowAlignCenter: { ...layoutStyles.RowAlignCenter },
   BottomLabel: {
