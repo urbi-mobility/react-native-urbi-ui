@@ -12,11 +12,10 @@ import { registeredTextStyle } from 'src/utils/textStyles';
 import { Chip } from 'src/molecules/Chip';
 import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 import { colors } from 'src/utils/colors';
-import { onIOS } from 'src/utils/const';
 
 const LIST_ITEM_LARGE_PADDING = 28;
 const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
-const WALK_ICONS_WIDTH = onIOS ? 130 : 102;
+const WALK_ICONS_WIDTH = 130;
 
 const styles = StyleSheet.create({
   Wrapper: {
