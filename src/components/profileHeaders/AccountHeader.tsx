@@ -62,7 +62,7 @@ export class AccountHeader extends React.PureComponent<AccountHeaderProps, Accou
         style={this.props.flexExpand ? [styles.Wrapper, { flex: 1 }] : styles.Wrapper}
         elevation={5}
       >
-        <Touchable onPress={this.props.onPress}>
+        <Touchable testID="accountHeaderTouchableTestID" onPress={this.props.onPress}>
           <View style={styles.ContentWrapper}>
             <ImageAndStatus {...this.props} />
           </View>

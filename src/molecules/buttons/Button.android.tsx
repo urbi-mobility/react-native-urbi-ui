@@ -71,13 +71,13 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
       style,
     } = this.props;
     const disabled = buttonStyle === 'disabled';
-
     return (
       <View
         style={[this.styles.Wrapper, style]}
         elevation={backgroundColor === colors.transparent || disabled ? 0 : 2}
       >
         <TouchableNativeFeedback
+          testID={`${label.replace(/\s/g, '').toLowerCase()}ButtonTestID`}
           onLongPress={disabled ? undefined : onLongPress}
           onPress={disabled ? undefined : onPress}
           onPressIn={disabled ? undefined : onPressIn}
