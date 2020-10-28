@@ -68,6 +68,8 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
 
     return (
       <TouchableOpacity
+        accessible={true}
+        accessibilityLabel={`${label.toLowerCase()}`}
         onLongPress={disabled || loading ? undefined : onLongPress}
         onPressIn={disabled || loading ? undefined : onPressIn}
         onPress={disabled || loading ? undefined : onPress}

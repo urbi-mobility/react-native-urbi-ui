@@ -77,6 +77,8 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
         elevation={backgroundColor === colors.transparent || disabled ? 0 : 2}
       >
         <TouchableNativeFeedback
+          accessible={true}
+          accessibilityLabel={`${label.toLowerCase()}`}
           testID={`${label.replace(/\s/g, '').toLowerCase()}ButtonTestID`}
           onLongPress={disabled ? undefined : onLongPress}
           onPress={disabled ? undefined : onPress}
