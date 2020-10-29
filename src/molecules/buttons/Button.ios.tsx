@@ -68,13 +68,13 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
 
     return (
       <TouchableOpacity
-        accessible={true}
-        accessibilityLabel={`${label.toLowerCase()}`}
+        accessibilityLabel={label.toLowerCase()}
         accessibilityRole="button"
         onLongPress={disabled || loading ? undefined : onLongPress}
         onPressIn={disabled || loading ? undefined : onPressIn}
         onPress={disabled || loading ? undefined : onPress}
         style={[this.styles.Button, style, this.getDisabledDependentButtonStyles()]}
+        accessible
       >
         {loading ? (
           <PulsatingDots size={loadingSize} color={loadingColor} />

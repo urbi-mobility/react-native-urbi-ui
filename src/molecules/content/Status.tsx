@@ -25,10 +25,10 @@ const contentStyle = registeredTextStyle('title1', colors.ulisse, 'contenttitle'
 export const StatusUnmemoized = (props: StatusProps) => (
   <View style={[styles.Wrapper, { minWidth: props.minWidth }]}>
     <Text
-      accessible={true}
       accessibilityLabel="Enter your phone number"
       style={props.titleColor ? [titleStyle, { color: props.titleColor }] : titleStyle}
       numberOfLines={1}
+      accessible
     >
       {props.title}
     </Text>
