@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Dimensions,
   ImageRequireSource,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
+  TextStyle,
 } from 'react-native';
 import { layoutStyles } from 'src/utils/styles';
 import { registeredTextStyle } from 'src/utils/textStyles';
@@ -16,6 +17,16 @@ import { colors } from 'src/utils/colors';
 const LIST_ITEM_LARGE_PADDING = 28;
 const wrapperWidth = (Dimensions.get('window').width - LIST_ITEM_LARGE_PADDING) * 0.6;
 const WALK_ICONS_WIDTH = 102;
+
+export const sharedStyles = StyleSheet.create({
+  TopRightMargins: {
+    paddingLeft: 0,
+    paddingRight: 0,
+    marginLeft: 0,
+    marginRight: 2,
+    marginTop: 4,
+  },
+});
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -34,14 +45,10 @@ const styles = StyleSheet.create({
     ...registeredTextStyle('body'),
     marginTop: 4,
   },
-});
-
-const textStyles = StyleSheet.create({
-  Body: {
-    ...layoutStyles.SingleModalContainer,
-    ...registeredTextStyle('micro'),
-    color: colors.uto,
-  },
+  TextBody: {
+    ...sharedStyles.TopRightMargins,
+    ...registeredTextStyle('micro', colors.uto, 'textBody'),
+  } as TextStyle,
 });
 
 export type ContentComparatorProps = {
@@ -66,12 +73,24 @@ interface DirectionItem {
   isImage?: boolean;
   icon?: ImageRequireSource | string;
   color: string;
-  containerStyle?: 'noPadding' | 'topLeftMargins';
+  containerStyle?: ChipLargeProps['containerStyle'];
 }
 
-class ContentComparator extends Component<ContentComparatorProps, ContentComparatorState> {
+const chipProps: ChipLargeProps = {
+  label: '',
+  color: colors.transparent,
+  colorIsLight: true,
+  icon: 'walk',
+  containerStyle: 'topRightMargins',
+};
+
+class ContentComparator extends React.PureComponent<
+  ContentComparatorProps,
+  ContentComparatorState
+> {
   prevIcon?: string | ImageRequireSource;
   viewInformation: { x?: number };
+
   constructor(props: ContentComparatorProps) {
     super(props);
     this.state = { lastIndex: props.content.directionsList.length };
@@ -115,22 +134,23 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
     this.prevIcon = icon;
     const isImage = typeof icon === 'number';
     const chipLargeProps: ChipLargeProps = {
-      containerStyle: isImage ? 'noPadding' : 'topLeftMargins',
+      containerStyle: isImage ? 'topRightMargins' : 'topLeftMargins',
       color: isImage ? colors.transparent : color,
       label: isImage ? '' : name,
       icon: isImage ? icon : `${icon}-small`,
     };
     const flexShrink = lastIndex === 0 ? 1 : 0;
+
     return (
       <View
         onLayout={this.onLayout}
         style={{ ...layoutStyles.RowAlignCenter, flexShrink }}
         key={index}
       >
-        {showPlusIcon && <Text style={textStyles.Body}>+</Text>}
+        {showPlusIcon && <Text style={styles.TextBody}>+</Text>}
         <ChipLarge {...chipLargeProps} />
         {directionsList.length === 1 && (
-          <View style={{ ...layoutStyles.SingleModalContainer, flexShrink }}>
+          <View style={{ ...sharedStyles.TopRightMargins, flexShrink }}>
             <Chip alignSelf="center" label={type} bgColor="ulisse" bgState="success" />
           </View>
         )}
@@ -145,28 +165,22 @@ class ContentComparator extends Component<ContentComparatorProps, ContentCompara
       content: { directionsList, walkingToVehicle, walkingToDestination },
     } = this.props;
     const { lastIndex } = this.state;
-    const list: DirectionItem[] | undefined = directionsList?.slice(0, lastIndex);
-    const iconProps: ChipLargeProps = {
-      label: '',
-      color: colors.transparent,
-      colorIsLight: true,
-      icon: 'walk',
-      containerStyle: 'noPadding',
-    };
+    const list = directionsList?.slice(0, lastIndex);
+
     return (
       <View style={styles.Wrapper}>
         <Text style={styles.Title}>{title}</Text>
         <View style={styles.ContentWrapper}>
-          <ChipLarge {...iconProps} />
-          <Text style={textStyles.Body} numberOfLines={1}>
+          <ChipLarge {...chipProps} />
+          <Text style={styles.TextBody} numberOfLines={1}>
             {walkingToVehicle.toString()} +
           </Text>
           {list?.map((info, index) => this.renderTransportIcon(info, index))}
           {lastIndex === 0 && this.renderTransportIcon(directionsList[0], 0)}
           {walkingToDestination && (
             <>
-              <ChipLarge {...iconProps} />
-              <Text style={textStyles.Body} numberOfLines={1}>
+              <ChipLarge {...chipProps} />
+              <Text style={styles.TextBody} numberOfLines={1}>
                 + {walkingToDestination.toString()}
               </Text>
             </>

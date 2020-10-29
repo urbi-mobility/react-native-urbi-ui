@@ -29,9 +29,6 @@ const styles = StyleSheet.create({
   },
   Text: registeredTextStyle('titleBold', colors.ulisse, 'chip-text'),
   TextDark: registeredTextStyle('titleBold', colors.uma, 'chip-text-dark'),
-  noPadding: {
-    ...layoutStyles.SingleModalContainer,
-  },
   topLeftMargins: {
     marginRight: 2,
     marginTop: 4,
@@ -48,7 +45,7 @@ export type ChipLargeProps = {
    */
   colorIsLight?: boolean;
   onPress?: () => any;
-  containerStyle?: 'noPadding' | 'topLeftMargins';
+  containerStyle?: 'topRightMargins' | 'topLeftMargins';
 };
 
 const renderImageOrIcon = (
@@ -69,7 +66,7 @@ const renderChip = (
   darkText: boolean,
   label: string,
   icon?: ImageRequireSource | string,
-  containerStyle?: 'noPadding' | 'topLeftMargins'
+  containerStyle?: ChipLargeProps['containerStyle']
 ) => (
   <View
     style={[

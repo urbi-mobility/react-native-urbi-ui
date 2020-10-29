@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-### Added 
+### Added
+
 - `content/ComparatorModal`, `end/ContentComparator` and `components/ListItemComparator` components
 
 ### Changed
+
 - `molecules/Chip` - adding `alignSelf` prop to `Chip` with default value `flex-start`
 - `molecules/Chip` - adding `bgColor` prop to `Chip`
 - `molecules/Chip` - adding `getWrapperStyle` in `Chip` to customize container style

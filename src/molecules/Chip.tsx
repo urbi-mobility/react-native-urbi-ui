@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlexStyle, StyleProp, StyleSheet, View, ViewStyle, Text } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle, Text } from 'react-native';
 import { registeredTextStyle } from 'src/utils/textStyles';
 import { colors } from 'src/utils/colors';
 
@@ -16,7 +16,7 @@ export type ChipProps = {
   label: string;
   bgState: 'default' | 'success' | 'error';
   bgColor?: 'ulisse' | 'brand';
-  alignSelf?: FlexStyle['alignSelf'];
+  alignSelf?: 'flex-start' | 'center' | 'flex-end';
 };
 
 const chipText = registeredTextStyle('micro', colors.ulisse, 'chip-text');
