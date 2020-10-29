@@ -4,7 +4,6 @@ import { colors } from '../../utils/colors';
 import { onIOS } from '../../utils/const';
 import { Touchable } from '../Touchable';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
-import { Tooltip } from 'src/components/Tooltip';
 
 export const headerShadowStyle = {
   backgroundColor: colors.ulisse,
@@ -62,7 +61,11 @@ export class AccountHeader extends React.PureComponent<AccountHeaderProps, Accou
         style={this.props.flexExpand ? [styles.Wrapper, { flex: 1 }] : styles.Wrapper}
         elevation={5}
       >
-        <Touchable onPress={this.props.onPress}>
+        <Touchable
+          accessibilityLabel="account header touchable"
+          onPress={this.props.onPress}
+          accessible
+        >
           <View style={styles.ContentWrapper}>
             <ImageAndStatus {...this.props} />
           </View>
