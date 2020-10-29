@@ -1,10 +1,10 @@
 import React from 'react';
 import { ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { Touchable } from '../../components/Touchable';
-import { colors } from '../../utils/colors';
-import { registeredTextStyle } from '../../utils/textStyles';
-import { IconButtonCompact } from '../buttons/iconButtons/IconButtonCompact';
-import { ButtonStyle } from '../buttons/types';
+import { Touchable } from 'src/components/Touchable';
+import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
+import { ButtonStyle } from 'src/molecules/buttons/types';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   WrapperChild: {
@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
 const small = registeredTextStyle('small', colors.primary, 'detailsmall');
 const body = registeredTextStyle('body', colors.uto, 'detailmicro');
 const title1 = registeredTextStyle('title1', colors.uma, 'bodybrand');
-
 
 export type PurchaseProps = {
   detail: string;

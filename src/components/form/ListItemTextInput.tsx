@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, ViewStyle, KeyboardTypeOptions } from 'react-native';
-import { IconButtonCompact } from '../../molecules/buttons/iconButtons/IconButtonCompact';
-import { ItemSeparator } from '../../molecules/ItemSeparator';
-import { SectionsDivider } from '../../molecules/SectionsDivider';
-import { colors } from '../../utils/colors';
-import { onIOS } from '../../utils/const';
-import { fontStyles } from '../../utils/fonts';
+import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
+import { ItemSeparator } from 'src/molecules/ItemSeparator';
+import { SectionsDivider } from 'src/molecules/SectionsDivider';
+import { colors } from 'src/utils/colors';
+import { onIOS } from 'src/utils/const';
+import { fontStyles } from 'src/utils/fonts';
 import UrbiFormComponent, {
   UrbiFormComponentProps,
   UrbiFormComponentState,

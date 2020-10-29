@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { sizes } from '../molecules/buttons/ButtonCompact';
+import { sizes } from 'src/molecules/buttons/ButtonCompact';
 
 const styles = StyleSheet.create({
   Wrapper: {

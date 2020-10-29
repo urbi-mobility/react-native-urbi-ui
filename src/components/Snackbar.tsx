@@ -1,4 +1,4 @@
-import { SnackbarViewProps, SnackbarAction, SnackbarMessage } from './SnackbarView';
+import { SnackbarViewProps, SnackbarAction, SnackbarMessage } from 'src/components/SnackbarView';
 
 export class Snackbar {
   private showFunction: (snackbarViewProps: SnackbarViewProps) => any;

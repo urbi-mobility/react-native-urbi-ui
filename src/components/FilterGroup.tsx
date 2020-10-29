@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { IconButtonRegular } from '../molecules/buttons/iconButtons/IconButtonRegular';
-import { IconToggle } from '../molecules/buttons/toggles/IconToggle';
-import { colors } from '../utils/colors';
+import { IconButtonRegular } from 'src/molecules/buttons/iconButtons/IconButtonRegular';
+import { IconToggle } from 'src/molecules/buttons/toggles/IconToggle';
 
 type FilterButton = { id: string; icon: string; active?: boolean; loading?: boolean };
 

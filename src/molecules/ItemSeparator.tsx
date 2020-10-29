@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
-import { colors } from '../utils/colors';
+import { colors } from 'src/utils/colors';
 
 const styles = StyleSheet.create({
   Wrapper: {

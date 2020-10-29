@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, ActivityIndicator } from 'react-native';
-import { styles } from '../../../molecules/buttons/ButtonStyles';
-import { IconButton } from '../../../molecules/buttons/iconButtons/IconButton';
-import { sizes } from '../../../molecules/buttons/iconButtons/IconButtonRegular';
-import { ToggleProps } from '../../../molecules/buttons/types';
-import { colors } from '../../../utils/colors';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { styles } from 'src/molecules/buttons/ButtonStyles';
+import { IconButton } from 'src/molecules/buttons/iconButtons/IconButton';
+import { sizes } from 'src/molecules/buttons/iconButtons/IconButtonRegular';
+import { ToggleProps } from 'src/molecules/buttons/types';
+import { colors } from 'src/utils/colors';
 import { onIOS } from 'src/utils/const';
 
 type ToggleState = {

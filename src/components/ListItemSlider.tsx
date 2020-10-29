@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
+import { SeparatorStyle } from 'src/components/ListItem';
 import { EndDoubleLabel } from 'src/molecules/end/EndDoubleLabel';
 import { Slider, SliderProps } from 'src/molecules/Slider';
 import { onIOS } from 'src/utils/const';
-import { SeparatorStyle } from './ListItem';
 
 const styles = StyleSheet.create({
   SeparatorWrapper: {

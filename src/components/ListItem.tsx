@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { colors } from 'src/utils/colors';
-import { Icon } from '../utils/const';
-import { MaybeTouchable } from './MaybeTouchable';
+import { Icon } from 'src/utils/const';
 
 export const SeparatorStyle = {
   height: 1,

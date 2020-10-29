@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
-import { Icon } from '../../utils/const';
+import { colors } from 'src/utils/colors';
+import { Icon } from 'src/utils/const';
 
 const styles = StyleSheet.create({
   Touchable: {
@@ -43,7 +43,7 @@ export const CheckboxUnmemoized = (props: CheckboxProps) => (
     ]}
   >
     {props.selected && (
-      <Icon name="checkmark" color={props.selectedColor || colors.ulisse} size={14} />
+      <Icon name="check-small" color={props.selectedColor || colors.ulisse} size={14} />
     )}
   </View>
 );

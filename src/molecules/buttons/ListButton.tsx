@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Touchable } from '../../components/Touchable';
-import { IconButtonCompact } from '../../molecules/buttons/iconButtons/IconButtonCompact';
-import { colors } from '../../utils/colors';
-import { registeredTextStyle } from '../../utils/textStyles';
+import { Touchable } from 'src/components/Touchable';
+import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Touchable: {

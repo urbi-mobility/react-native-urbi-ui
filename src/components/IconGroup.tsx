@@ -8,9 +8,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { ImageToggle, size as IMG_BUTTON_SIZE } from '../molecules/buttons/toggles/ImageToggle';
-import { PageIndicator } from '../molecules/PageIndicator';
-import { onIOS } from '../utils/const';
+import { ImageToggle, size as IMG_BUTTON_SIZE } from 'src/molecules/buttons/toggles/ImageToggle';
+import { PageIndicator } from 'src/molecules/PageIndicator';
+import { onIOS } from 'src/utils/const';
 
 const MIN_ITEM_PADDING = 14;
 const MIN_ITEM_WIDTH = IMG_BUTTON_SIZE + MIN_ITEM_PADDING;

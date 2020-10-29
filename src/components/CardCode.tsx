@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
 import { Clipboard, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { MaybeTouchable } from './MaybeTouchable';
-import { ButtonCompactUnmemoized } from '../molecules/buttons/ButtonCompact';
-import { LinkCompact } from '../molecules/buttons/LinkCompact';
-import { colors } from '../utils/colors';
-import { registeredTextStyle } from '../utils/textStyles';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
+import { ButtonCompactUnmemoized } from 'src/molecules/buttons/ButtonCompact';
+import { LinkCompact } from 'src/molecules/buttons/LinkCompact';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {

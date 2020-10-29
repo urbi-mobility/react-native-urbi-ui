@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActionSheetIOS, View } from 'react-native';
-import { DialogPickerProps } from '../components/types';
+import { DialogPickerProps } from 'src/components/types';
 
 export class DialogPicker extends React.PureComponent<DialogPickerProps> {
   constructor(props: DialogPickerProps) {

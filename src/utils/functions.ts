@@ -1,5 +1,5 @@
 import { Alert, AlertButton, StatusBar, ToastAndroid } from 'react-native';
-import { onIOS, pixelDensity } from './const';
+import { onIOS, pixelDensity } from 'src/utils/const';
 
 export const statusBarHeight = StatusBar.currentHeight || 0;
 

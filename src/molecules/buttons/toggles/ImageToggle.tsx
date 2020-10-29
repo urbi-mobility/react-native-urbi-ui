@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconButton } from '../../../molecules/buttons/iconButtons/IconButton';
-import { colors } from '../../../utils/colors';
+import { IconButton } from 'src/molecules/buttons/iconButtons/IconButton';
+import { colors } from 'src/utils/colors';
 import { IconToggle } from './IconToggle';
 
 export const size = 40;

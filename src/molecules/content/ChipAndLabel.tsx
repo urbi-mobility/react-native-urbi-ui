@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle, Text } from 'react-native';
-import { ChipLarge, ChipLargeProps } from '../../molecules/ChipLarge';
-import { colors } from '../../utils/colors';
-import { registeredTextStyle } from '../../utils/textStyles';
+import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {

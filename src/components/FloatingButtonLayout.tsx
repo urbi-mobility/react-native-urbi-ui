@@ -10,9 +10,9 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, { Easing } from 'react-native-reanimated';
-import { ButtonRegularUnmemoized } from '../molecules/buttons/ButtonRegular';
-import { colors } from '../utils/colors';
-import { IPHONE_X_HOME_AREA_HEIGHT, onIOS, getTabBarHeight } from '../utils/const';
+import { ButtonRegularUnmemoized } from 'src/molecules/buttons/ButtonRegular';
+import { colors } from 'src/utils/colors';
+import { getTabBarHeight, IPHONE_X_HOME_AREA_HEIGHT, onIOS } from 'src/utils/const';
 
 export const BOTTOM_PANEL_HEIGHT = 80;
 const ANDROID_EVT_DURATION = 100;

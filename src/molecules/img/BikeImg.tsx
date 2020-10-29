@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
-import { withPixelDensity } from '../../utils/functions';
+import { withPixelDensity } from 'src/utils/functions';
 
 type BikeImgProps = {
   /**

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { colors } from '../utils/colors';
-import { registeredTextStyle } from '../utils/textStyles';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const fontStyle = registeredTextStyle('title1', colors.ulisse);
 

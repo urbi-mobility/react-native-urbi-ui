@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, ViewStyle, ImageRequireSource, Image } from 'react-native';
-import { ChipLarge, ChipLargeProps } from '../ChipLarge';
+import { Image, ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
+import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 import { colors } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
 

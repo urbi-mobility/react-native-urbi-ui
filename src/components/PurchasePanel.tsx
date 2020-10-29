@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { ButtonCompact } from '../molecules/buttons/ButtonCompact';
-import { PurchaseProps, PurchaseUnmemoized } from '../molecules/content/Purchase';
-import { colors } from '../utils/colors';
+import { ButtonCompact } from 'src/molecules/buttons/ButtonCompact';
+import { PurchaseProps, PurchaseUnmemoized } from 'src/molecules/content/Purchase';
+import { colors } from 'src/utils/colors';
 
 export const purchasePanelHeight = 92;
 const styles = StyleSheet.create({

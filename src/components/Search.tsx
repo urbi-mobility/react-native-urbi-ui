@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import { IconButtonCompact } from '../molecules/buttons/iconButtons/IconButtonCompact';
-import { IconAndLabel } from '../molecules/content/IconAndLabel';
-import { colors } from '../utils/colors';
+import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
+import { IconAndLabel } from 'src/molecules/content/IconAndLabel';
+import { colors } from 'src/utils/colors';
 
 type SearchAction = {
   icon: string;

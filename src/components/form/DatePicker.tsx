@@ -2,12 +2,12 @@ import { format } from 'date-fns';
 import { de, enUS, es, fr, it } from 'date-fns/locale';
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { ItemSeparator } from '../../molecules/ItemSeparator';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-import { SectionsDivider } from '../../molecules/SectionsDivider';
-import { colors } from '../../utils/colors';
-import { fontStyles } from '../../utils/fonts';
-import { Touchable } from '../Touchable';
+import { Touchable } from 'src/components/Touchable';
+import { ItemSeparator } from 'src/molecules/ItemSeparator';
+import { SectionsDivider } from 'src/molecules/SectionsDivider';
+import { colors } from 'src/utils/colors';
+import { fontStyles } from 'src/utils/fonts';
 import { withFormikWrapper } from './Formik';
 import UrbiFormComponent, {
   UrbiFormComponentProps,

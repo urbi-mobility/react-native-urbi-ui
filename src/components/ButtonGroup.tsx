@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { ButtonCompact } from '../molecules/buttons/ButtonCompact';
+import { ButtonCompact } from 'src/molecules/buttons/ButtonCompact';
 
 type ButtonGroupEntry = {
   onPress: () => any;

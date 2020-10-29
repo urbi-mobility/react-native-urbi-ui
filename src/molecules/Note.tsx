@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { MaybeTouchable } from '../components/MaybeTouchable';
-import { colors } from '../utils/colors';
-import { registeredTextStyle } from '../utils/textStyles';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -36,7 +36,11 @@ type NoteProps = {
 const textStyle = registeredTextStyle('micro', colors.ughina, 'note');
 
 export const NoteUnmemoized = (props: NoteProps) => (
-  <MaybeTouchable onPress={props.onPress} withShadow={false} backgroundColor={props.backgroundColor}>
+  <MaybeTouchable
+    onPress={props.onPress}
+    withShadow={false}
+    backgroundColor={props.backgroundColor}
+  >
     <View style={styles.Wrapper}>
       {props.icon && <Image style={styles.Image} source={props.icon} />}
       <Text

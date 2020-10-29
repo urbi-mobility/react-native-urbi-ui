@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
-import { withPixelDensity } from '../../utils/functions';
-import { Touchable } from '../Touchable';
-import { headerShadowStyle, headerHeight } from '../../components/profileHeaders/AccountHeader';
-import { Icon } from '../../utils/const';
+import { headerHeight, headerShadowStyle } from 'src/components/profileHeaders/AccountHeader';
+import { Touchable } from 'src/components/Touchable';
+import { colors } from 'src/utils/colors';
+import { Icon } from 'src/utils/const';
+import { withPixelDensity } from 'src/utils/functions';
 
 const wrapper = {
   ...headerShadowStyle,

@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { ItemSeparator } from '../../molecules/ItemSeparator';
-import { SectionsDivider } from '../../molecules/SectionsDivider';
-import { colors } from '../../utils/colors';
-import { fontStyles } from '../../utils/fonts';
-import { ListItemRadio } from '../ListItemRadio';
+import { ListItemRadio } from 'src/components/ListItemRadio';
+import { SectionsDivider } from 'src/molecules/SectionsDivider';
+import { colors } from 'src/utils/colors';
+import { fontStyles } from 'src/utils/fonts';
 import { withFormikWrapper } from './Formik';
 import UrbiFormComponent, {
   UrbiFormComponentProps,

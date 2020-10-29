@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { MaybeTouchable } from '../components/MaybeTouchable';
-import { CardHeaderUnmemoized, CardHeaderProps } from '../molecules/card/CardHeader';
-import { BikeImgUnmemoized } from '../molecules/img/BikeImg';
-import { VehicleImgUnmemoized } from '../molecules/img/VehicleImg';
-import { colors } from '../utils/colors';
-import { withPixelDensity } from '../utils/functions';
-import { registeredTextStyle } from '../utils/textStyles';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
+import { CardHeaderProps, CardHeaderUnmemoized } from 'src/molecules/card/CardHeader';
+import { BikeImgUnmemoized } from 'src/molecules/img/BikeImg';
+import { VehicleImgUnmemoized } from 'src/molecules/img/VehicleImg';
+import { colors } from 'src/utils/colors';
+import { withPixelDensity } from 'src/utils/functions';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 type CardProps = {
   header: ReactElement<typeof CardHeaderUnmemoized>;

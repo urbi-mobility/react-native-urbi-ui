@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
-import { registeredTextStyle } from '../../utils/textStyles';
-import { IconButtonCompactUnmemoized } from '../buttons/iconButtons/IconButtonCompact';
-import { Chip } from '../Chip';
+import { IconButtonCompactUnmemoized } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
+import { Chip } from 'src/molecules/Chip';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 export type CardHeaderProps = {
   topLabel: string | ReactElement<typeof Chip>;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { ListItemRadio } from '../components/ListItemRadio';
+import { ListItemRadio } from 'src/components/ListItemRadio';
 
 const styles = StyleSheet.create({
   Wrapper: {

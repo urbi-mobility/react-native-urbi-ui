@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Icon } from 'src/utils/const';
+import { StyleSheet, Text, View } from 'react-native';
 import { Chip, ChipProps } from 'src/molecules/Chip';
+import { Icon } from 'src/utils/const';
 import { layoutStyles } from 'src/utils/styles';
 import { registeredTextStyle } from 'src/utils/textStyles';
 

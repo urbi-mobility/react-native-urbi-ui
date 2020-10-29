@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { BikeImgUnmemoized } from '../molecules/img/BikeImg';
-import { SelectionUnmemoized } from '../molecules/img/Selection';
-import { StationImgUnmemoized } from '../molecules/img/StationImg';
-import { VehicleImgUnmemoized } from '../molecules/img/VehicleImg';
+import { BikeImgUnmemoized } from 'src/molecules/img/BikeImg';
+import { SelectionUnmemoized } from 'src/molecules/img/Selection';
+import { StationImgUnmemoized } from 'src/molecules/img/StationImg';
+import { VehicleImgUnmemoized } from 'src/molecules/img/VehicleImg';
 
 type SelectionHeaderProps = {
   content: ReactElement<typeof SelectionUnmemoized>;

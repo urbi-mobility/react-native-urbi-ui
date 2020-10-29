@@ -1,9 +1,9 @@
-import React, { ColgroupHTMLAttributes } from 'react';
+import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { ListItemStyles, renderImageOrIcon } from './ListItem';
-import { ListItemLargeStyles } from './ListItemLarge';
-import { ListItemCompactStyles } from './ListItemCompact';
 import { colors } from 'src/utils/colors';
+import { ListItemStyles } from 'src/components/ListItem';
+import { ListItemCompactStyles } from 'src/components/ListItemCompact';
+import { ListItemLargeStyles } from 'src/components/ListItemLarge';
 
 const sharedStyles = {
   SingleTextLineWrapper: {

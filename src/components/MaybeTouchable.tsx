@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
-import { Touchable } from '../components/Touchable';
-import { colors } from '../utils/colors';
-import { onIOS } from '../utils/const';
+import { Touchable } from 'src/components/Touchable';
+import { colors } from 'src/utils/colors';
+import { onIOS } from 'src/utils/const';
 
 type MaybeTouchableProps = {
   children: JSX.Element;

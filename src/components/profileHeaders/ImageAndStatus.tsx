@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
-import { StatusUnmemoized } from '../../molecules/content/Status';
-import { withPixelDensity } from '../../utils/functions';
+import { StatusUnmemoized } from 'src/molecules/content/Status';
+import { withPixelDensity } from 'src/utils/functions';
 
 const styles = StyleSheet.create({
   Wrapper: {

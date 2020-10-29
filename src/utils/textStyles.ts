@@ -1,7 +1,7 @@
 import { StyleSheet, TextStyle } from 'react-native';
-import { colors } from './colors';
-import { onIOS } from './const';
-import { fontStyles } from './fonts';
+import { colors } from 'src/utils/colors';
+import { onIOS } from 'src/utils/const';
+import { fontStyles } from 'src/utils/fonts';
 
 export type UrbiFontStyles = {
   hero: TextStyle;

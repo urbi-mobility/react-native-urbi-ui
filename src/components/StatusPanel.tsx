@@ -9,11 +9,11 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { Touchable } from '../components/Touchable';
-import { Status, StatusProps } from '../molecules/content/Status';
-import { PageIndicator } from '../molecules/PageIndicator';
-import { colors } from '../utils/colors';
-import { shallowEqual } from '../utils/functions';
+import { Touchable } from 'src/components/Touchable';
+import { Status, StatusProps } from 'src/molecules/content/Status';
+import { PageIndicator } from 'src/molecules/PageIndicator';
+import { colors } from 'src/utils/colors';
+import { shallowEqual } from 'src/utils/functions';
 type StatusPanelProps = {
   pages: StatusProps[];
   onPress?: () => any;

@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
 import { Platform, StyleSheet, Switch, View, ViewStyle } from 'react-native';
-import { ProviderSettingsUnmemoized } from '../components/ProviderSettings';
-import { IconAndLabelUnmemoized } from '../molecules/content/IconAndLabel';
-import { LabelUnmemoized } from '../molecules/content/Label';
-import { colors } from '../utils/colors';
-import { onIOS } from '../utils/const';
+import { ProviderSettingsUnmemoized } from 'src/components/ProviderSettings';
+import { IconAndLabelUnmemoized } from 'src/molecules/content/IconAndLabel';
+import { LabelUnmemoized } from 'src/molecules/content/Label';
+import { colors } from 'src/utils/colors';
+import { onIOS } from 'src/utils/const';
 
 export interface ListItem {
   content:

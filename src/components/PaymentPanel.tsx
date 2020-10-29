@@ -9,14 +9,14 @@ import {
   ViewStyle,
 } from 'react-native';
 import { Transition, Transitioning, TransitioningView } from 'react-native-reanimated';
-import { ButtonRegular } from '../molecules/buttons/ButtonRegular';
-import { LinkCompact } from '../molecules/buttons/LinkCompact';
-import { IconAndLabel } from '../molecules/content/IconAndLabel';
-import { SectionsDivider } from '../molecules/SectionsDivider';
-import { colors } from '../utils/colors';
-import { IPHONE_X_HOME_AREA_HEIGHT } from '../utils/const';
-import { textStyle as makeTextStyle } from '../utils/textStyles';
-import { ListItem } from './ListItem';
+import { ListItem } from 'src/components/ListItem';
+import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
+import { LinkCompact } from 'src/molecules/buttons/LinkCompact';
+import { IconAndLabel } from 'src/molecules/content/IconAndLabel';
+import { SectionsDivider } from 'src/molecules/SectionsDivider';
+import { colors } from 'src/utils/colors';
+import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
+import { textStyle as makeTextStyle } from 'src/utils/textStyles';
 
 const footerMarginBottom = 24;
 

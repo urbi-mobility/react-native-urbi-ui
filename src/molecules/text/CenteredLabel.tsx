@@ -1,7 +1,7 @@
 import React from 'react';
 import { RegisteredStyle, StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
-import { registeredTextStyle } from '../../utils/textStyles';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 type CenteredLabelProps = {
   text: string;

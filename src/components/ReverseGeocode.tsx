@@ -1,5 +1,5 @@
 import React from 'react';
-import { Location } from '../types';
+import { Location } from 'src/types';
 
 type ReverseGeocodedProps = {
   location: Location;

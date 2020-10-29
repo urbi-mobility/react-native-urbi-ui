@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native';
-import { PulsatingDots } from '../../molecules/animations/PulsatingDots';
-import { ExtendedButtonProps } from '../../molecules/buttons/types';
-import { colors } from '../../utils/colors';
-import { textStyle } from '../../utils/textStyles';
+import { PulsatingDots } from 'src/molecules/animations/PulsatingDots';
+import { ExtendedButtonProps } from 'src/molecules/buttons/types';
+import { colors } from 'src/utils/colors';
+import { textStyle } from 'src/utils/textStyles';
 
 export class Button extends React.PureComponent<ExtendedButtonProps> {
   styles: {

@@ -1,5 +1,5 @@
 import { material, robotoWeights } from 'react-native-typography';
-import { UrbiFontStyles } from './textStyles';
+import { UrbiFontStyles } from 'src/utils/textStyles';
 
 export const fontStyles: UrbiFontStyles = {
   hero: {

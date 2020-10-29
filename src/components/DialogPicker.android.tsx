@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import DialogAndroid from 'react-native-dialogs';
-import { DialogPickerProps } from '../components/types';
+import { DialogPickerProps } from 'src/components/types';
 
 export class DialogPicker extends React.PureComponent<DialogPickerProps> {
   UNSAFE_componentWillReceiveProps(nextProps: DialogPickerProps) {

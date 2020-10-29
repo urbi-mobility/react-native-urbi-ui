@@ -15,13 +15,13 @@ import {
   ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from 'src/components/FloatingButtonLayout';
+import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
+import { ButtonStyle } from 'src/molecules/buttons/types';
+import { PageIndicator } from 'src/molecules/PageIndicator';
+import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
-import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from '../components/FloatingButtonLayout';
-import { ButtonRegular } from '../molecules/buttons/ButtonRegular';
-import { ButtonStyle } from '../molecules/buttons/types';
-import { PageIndicator } from '../molecules/PageIndicator';
-import { colors } from '../utils/colors';
-import { registeredTextStyle } from '../utils/textStyles';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 export const onboardingStyles = {
   ImageContainer: {

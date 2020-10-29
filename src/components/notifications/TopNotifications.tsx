@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { Transition, Transitioning, TransitioningView } from 'react-native-reanimated';
-import { Status } from '../../molecules/content/Status';
-import { colors } from '../../utils/colors';
-import { Touchable } from '../Touchable';
+import { Touchable } from 'src/components/Touchable';
+import { Status } from 'src/molecules/content/Status';
+import { colors } from 'src/utils/colors';
 
 const styles = StyleSheet.create({
   Wrapper: {

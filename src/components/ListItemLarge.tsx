@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
-import { ListItemProps, renderImageOrIcon, maybeAddSeparator } from '../components/ListItem';
-import { MaybeTouchable } from '../components/MaybeTouchable';
+import { ListItemProps, maybeAddSeparator, renderImageOrIcon } from 'src/components/ListItem';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
 
 export const ListItemLargeStyles = {
   ListItemWrapper: {

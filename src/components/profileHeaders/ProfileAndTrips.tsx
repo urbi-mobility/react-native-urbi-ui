@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { SectionsDivider } from '../../molecules/SectionsDivider';
-import { colors } from '../../utils/colors';
-import { registeredTextStyle } from '../../utils/textStyles';
-import { MaybeTouchable } from '../MaybeTouchable';
+import { SectionsDivider } from 'src/molecules/SectionsDivider';
+import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
+import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 const paddingStyle = {

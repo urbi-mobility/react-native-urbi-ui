@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react';
 import {
+  LayoutChangeEvent,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
   ViewStyle,
-  LayoutChangeEvent,
 } from 'react-native';
+import { BottomTriangle } from 'src/molecules/BottomTriangle';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
-import { BottomTriangle } from 'src/molecules/BottomTriangle';
 
 const textStyle = registeredTextStyle('body', colors.ulisse, 'tooltip-text');
 

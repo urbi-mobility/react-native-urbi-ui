@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
-import { IconButtonExtendedProps } from '../../../molecules/buttons/types';
-import { colors } from '../../../utils/colors';
-import { Icon } from '../../../utils/const';
+import { IconButtonExtendedProps } from 'src/molecules/buttons/types';
+import { colors } from 'src/utils/colors';
+import { Icon } from 'src/utils/const';
 
 const getEnabledDependentStyles = (props: IconButtonExtendedProps) => {
   const { backgroundColor, noShadow } = props;

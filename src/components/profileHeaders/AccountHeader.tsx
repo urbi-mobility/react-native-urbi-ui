@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
-import { onIOS } from '../../utils/const';
-import { Touchable } from '../Touchable';
+import { Tooltip } from 'src/components/Tooltip';
+import { Touchable } from 'src/components/Touchable';
+import { colors } from 'src/utils/colors';
+import { onIOS } from 'src/utils/const';
 import { ImageAndStatus, ImageAndStatusProps } from './ImageAndStatus';
 
 export const headerShadowStyle = {

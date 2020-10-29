@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { Transition, Transitioning, TransitioningView } from 'react-native-reanimated';
-import { Status } from '../../molecules/content/Status';
-import { colors } from '../../utils/colors';
+import { Status } from 'src/molecules/content/Status';
+import { colors } from 'src/utils/colors';
 import { Notification } from './TopNotifications';
 
 const styles = StyleSheet.create({

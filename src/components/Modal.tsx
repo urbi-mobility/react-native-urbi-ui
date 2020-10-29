@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
-import { StyleSheet, View, ViewStyle, ImageRequireSource, Image, Text } from 'react-native';
-import { DoubleChoice } from './DoubleChoice';
-import { colors } from '../utils/colors';
-import { withPixelDensity } from '../utils/functions';
-import { registeredTextStyle } from '../utils/textStyles';
+import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { DoubleChoice } from 'src/components/DoubleChoice';
 import { Button } from 'src/molecules/buttons/Button';
+import { colors } from 'src/utils/colors';
+import { withPixelDensity } from 'src/utils/functions';
+import { registeredTextStyle } from 'src/utils/textStyles';
 
 const styles = StyleSheet.create({
   Wrapper: {

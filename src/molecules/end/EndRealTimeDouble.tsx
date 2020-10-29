@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { colors } from '../../utils/colors';
+import { colors } from 'src/utils/colors';
 import {
   EndDoubleLabelProps,
   endDoubleLabelStyles,

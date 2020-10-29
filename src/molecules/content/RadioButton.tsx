@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { colors } from '../../utils/colors';
-import { ControlProps } from './Checkbox';
+import { ControlProps } from 'src/molecules/content/Checkbox';
+import { colors } from 'src/utils/colors';
 
 const styles = StyleSheet.create({
   Touchable: {

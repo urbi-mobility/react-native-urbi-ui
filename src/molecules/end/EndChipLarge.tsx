@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
-import { ChipLarge, ChipLargeProps } from '../ChipLarge';
+import { ChipLarge, ChipLargeProps } from 'src/molecules/ChipLarge';
 
 const styles = StyleSheet.create({
   Wrapper: {
