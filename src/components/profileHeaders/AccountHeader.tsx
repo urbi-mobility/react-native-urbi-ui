@@ -57,7 +57,6 @@ export class AccountHeader extends React.PureComponent<AccountHeaderProps, Accou
   }
 
   render() {
-    const accessibilityLabel = 'account header touchable';
     return (
       <View
         style={this.props.flexExpand ? [styles.Wrapper, { flex: 1 }] : styles.Wrapper}
@@ -65,7 +64,7 @@ export class AccountHeader extends React.PureComponent<AccountHeaderProps, Accou
       >
         <Touchable
           accessible={true}
-          accessibilityLabel={accessibilityLabel}
+          accessibilityLabel="account header touchable"
           onPress={this.props.onPress}
         >
           <View style={styles.ContentWrapper}>
