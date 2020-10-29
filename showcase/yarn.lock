@@ -2019,9 +2019,9 @@ domutils@^1.7.0:
     domelementtype "1"
 
 dot-prop@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-4.2.0.tgz#1f19e0c2e1aa0e32797c49799f2837ac6af69c57"
-  integrity sha512-tUMXrxlExSW6U2EXiiKGSBVdYgtV8qlHL+C10TsW4PURY/ic+eaysnSkwB4kA/mBlCyy/IKDJ+Lc3wbWeaXtuQ==
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-4.2.1.tgz#45884194a71fc2cda71cbb4bceb3a4dd2f433ba4"
+  integrity sha512-l0p4+mIuJIua0mhxGoh4a+iNL9bmeK5DvnSVQa6T0OhrVmaEa1XScX5Etc673FePCJOArq/4Pa2cLGODUWTPOQ==
   dependencies:
     is-obj "^1.0.0"
 
@@ -4439,10 +4439,10 @@ react-native-typography@1.4.1:
   resolved "https://registry.yarnpkg.com/react-native-typography/-/react-native-typography-1.4.1.tgz#2d05cb5935a2f7fdb6b43bbde93d60f1324578e3"
   integrity sha512-dc9Zfs4jUdq4ygx4/KwO6jKTERBu6cRrfPJGntw/pA+D6BMjlWfMNuhZ/69vf4Zpsnt9s4AGe+Z/V1QFYaCXAA==
 
-react-native-urbi-ui@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.3.1.tgz#a459d9bc1a7732cabe1152e31b59151de243631f"
-  integrity sha512-Zs/bedZQW6i+IayZE4++yvRply6P8jBvL97BM0H8D9VChu4HBSBt7xAPfJhX5c26KIo6mFeO68YBgxA3xVEmeg==
+react-native-urbi-ui@0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/react-native-urbi-ui/-/react-native-urbi-ui-0.3.5.tgz#f75e5a7e0ba8cca2a6735c2157c350f2c5cedb18"
+  integrity sha512-Tr2NkWYI18iRtCROQv5UG1+QCGlOd+eSCuep3CZ+ZGxN4RDWdNaDgo4/n2HFkUqHBqtXZGbESxsrCtkICzLsfg==
 
 react-native-vector-icons@6.6.0:
   version "6.6.0"
