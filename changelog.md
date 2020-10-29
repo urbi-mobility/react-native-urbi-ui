@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+### Added
+
+- `content/ComparatorModal`, `end/ContentComparator` and `components/ListItemComparator` components
+
+### Changed
+
+- `molecules/Chip` - adding `alignSelf` prop to `Chip` with default value `flex-start`
+- `molecules/Chip` - adding `bgColor` prop to `Chip`
+- `molecules/Chip` - adding `getWrapperStyle` in `Chip` to customize container style
+- `molecules/ChipLarge` - adding `containerStyle` prop to `ChipLarge` to set container style
+- `molecules/ChipLarge` - changing `icon` prop type and adding `renderImageOrIcon` in `ChipLarge` to allow rendering Images and not only Icons
+
 ## [0.3.5 - 2020-09-03]
 
 ### Added
