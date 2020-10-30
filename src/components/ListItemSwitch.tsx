@@ -15,6 +15,7 @@ export interface ListItem {
   enabled: boolean;
   transitioning?: boolean;
   backgroundColor?: string;
+  testID?: string;
 }
 
 const styles = StyleSheet.create({
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const getSwitch = (item: ListItem) =>
-  Platform.select({
+const getSwitch = (item: ListItem) => {
+  return Platform.select({
     ios: (
       <Switch
         style={styles.Switch}
@@ -42,6 +43,9 @@ const getSwitch = (item: ListItem) =>
     ),
     android: (
       <Switch
+        accessible={true}
+        testID={item.testID}
+        accessibilityLabel="switch button"
         style={styles.Switch}
         trackColor={{ true: colors.ughina, false: colors.ursula }}
         // the property does exist, type definitions haven't been updated (if you use the old prop you get a warning)
@@ -51,6 +55,7 @@ const getSwitch = (item: ListItem) =>
       />
     ),
   });
+};
 
 export const ListItemSwitchUnmemoized = (item: ListItem) => (
   <View style={[styles.Row, { backgroundColor: item.backgroundColor }]}>
