@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { Touchable } from 'src/components/Touchable';
-import { ControlProps } from 'src/molecules/content/Checkbox';
 import ControlAndLabel from 'src/molecules/content/ControlAndLabel';
+import { ControlProps } from '../molecules/content/Checkbox';
 
 const styles = StyleSheet.create({
   Touchable: {
