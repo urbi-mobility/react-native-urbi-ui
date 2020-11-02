@@ -62,6 +62,7 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
       opacity,
       noShadow,
       style,
+      testID,
     } = this.props;
 
     const disabled = buttonStyle === 'disabled';
@@ -72,7 +73,7 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
         elevation={backgroundColor === colors.transparent || disabled || noShadow ? 0 : 1}
       >
         <TouchableNativeFeedback
-          testID={`${icon}IconButtonTestID`}
+          testID={testID || `${icon}IconButtonTestID`}
           onLongPress={disabled ? undefined : onLongPress}
           onPress={disabled ? undefined : onPress}
           onPressIn={disabled ? undefined : onPressIn}

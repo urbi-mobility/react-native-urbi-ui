@@ -1,5 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, ViewStyle, KeyboardTypeOptions } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TextInputProps,
+  View,
+  ViewStyle,
+  KeyboardTypeOptions,
+} from 'react-native';
 import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
 import { ItemSeparator } from 'src/molecules/ItemSeparator';
 import { SectionsDivider } from 'src/molecules/SectionsDivider';
@@ -34,6 +42,7 @@ const toTextInputType = (t: ListItemTextInputPropsType) => {
 interface ListItemTextInputProps extends UrbiFormComponentProps<string> {
   type: ListItemTextInputPropsType;
   placeholder?: string;
+  autocompleteType?: TextInputProps['autoCompleteType'];
 }
 
 interface ListItemTextInputState extends UrbiFormComponentState {
@@ -118,7 +127,17 @@ class ListItemTextInputComponent extends UrbiFormComponent<
   }
 
   render() {
-    const { disabled, error, label, name, placeholder, setFieldValue, type, value } = this.props;
+    const {
+      autocompleteType,
+      disabled,
+      error,
+      label,
+      name,
+      placeholder,
+      setFieldValue,
+      type,
+      value,
+    } = this.props;
     const { focused, showPassword } = this.state;
     const textType = toTextInputType(type);
     return (
@@ -130,6 +149,9 @@ class ListItemTextInputComponent extends UrbiFormComponent<
         />
         <View style={styles.TextWrapper}>
           <TextInput
+            testID={`${name}TextInputTestID`}
+            accessible={true}
+            accessibilityLabel={`${placeholder || label || name} Input Field`}
             ref={this.textInput}
             style={styles.TextInput}
             autoCapitalize="none"
@@ -147,6 +169,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             onSubmitEditing={this.onSubmitEditing}
             returnKeyType={this.getReturnKeyType()}
             editable={!(disabled ?? false)}
+            autoCompleteType={autocompleteType ?? autocompleteType}
           />
           {(type === 'password' || type === 'pin') && (
             // tslint:disable-next-line:jsx-no-multiline-js
