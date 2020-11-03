@@ -43,7 +43,7 @@ const getTextStyle = (props: ChipOverLabelProps) =>
     : defaultTextStyles[props.labelStyle ?? 'body'];
 
 export const ChipOverLabelUnmemoized = (props: ChipOverLabelProps) => (
-  <View style={styles.Wrapper}>
+  <View testID="chipOverLabelTestID" style={styles.Wrapper}>
     <View style={styles.ChipWrapper}>
       <ChipLarge {...props.chip} />
     </View>

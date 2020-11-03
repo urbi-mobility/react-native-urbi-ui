@@ -69,6 +69,7 @@ const renderChip = (
   containerStyle?: ChipLargeProps['containerStyle']
 ) => (
   <View
+    testID={`${label}ChipLargeTestID`}
     style={[
       { ...styles.Wrapper, backgroundColor: color },
       containerStyle && { ...styles[containerStyle] },

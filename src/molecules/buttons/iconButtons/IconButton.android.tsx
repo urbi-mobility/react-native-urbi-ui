@@ -66,7 +66,6 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
     } = this.props;
 
     const disabled = buttonStyle === 'disabled';
-
     return (
       <View
         style={[this.styles.Wrapper, style, { opacity }]}
