@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-const getSwitch = (item: ListItem) => {
-  return Platform.select({
+const getSwitch = (item: ListItem) =>
+  Platform.select({
     ios: (
       <Switch
         style={styles.Switch}
@@ -55,7 +55,6 @@ const getSwitch = (item: ListItem) => {
       />
     ),
   });
-};
 
 export const ListItemSwitchUnmemoized = (item: ListItem) => (
   <View style={[styles.Row, { backgroundColor: item.backgroundColor }]}>
