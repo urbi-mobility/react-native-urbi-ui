@@ -70,6 +70,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
       <TouchableOpacity
         accessibilityLabel={label.toLowerCase()}
         accessibilityRole="button"
+        testID={`${label.replace(/\s/g, '').toLowerCase()}ButtonTestID`}
         onLongPress={disabled || loading ? undefined : onLongPress}
         onPressIn={disabled || loading ? undefined : onPressIn}
         onPress={disabled || loading ? undefined : onPress}

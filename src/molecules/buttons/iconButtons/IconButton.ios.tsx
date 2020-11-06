@@ -71,11 +71,13 @@ export class IconButton extends React.PureComponent<IconButtonExtendedProps> {
       onPressIn,
       opacity,
       style,
+      testID,
     } = this.props;
     const disabled = buttonStyle === 'disabled';
 
     return (
       <TouchableOpacity
+        testID={testID || `${icon}IconButtonTestID`}
         onLongPress={disabled ? undefined : onLongPress}
         onPress={disabled ? undefined : onPress}
         onPressIn={disabled ? undefined : onPressIn}
