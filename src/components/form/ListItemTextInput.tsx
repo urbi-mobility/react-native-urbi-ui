@@ -149,7 +149,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
         />
         <View style={styles.TextWrapper}>
           <TextInput
-            testID={`${name}TextInputTestID`}
+            testID={`${name || placeholder || label}TextInputTestID`}
             accessible={true}
             accessibilityLabel={`${placeholder || label || name} Input Field`}
             ref={this.textInput}
