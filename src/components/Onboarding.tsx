@@ -22,8 +22,12 @@ import { PageIndicator } from 'src/molecules/PageIndicator';
 import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
 import { registeredTextStyle } from 'src/utils/textStyles';
+import { OnboardingPageComponent } from 'src/components/OnboardingPageComponent';
 
 export const onboardingStyles = {
+  Wrapper: {
+    flex: 1,
+  } as ViewStyle,
   ImageContainer: {
     flexDirection: 'row',
     maxWidth: Dimensions.get('window').width,
@@ -49,9 +53,6 @@ export const onboardingStyles = {
 
 const styles = StyleSheet.create({
   ...onboardingStyles,
-  Wrapper: {
-    flex: 1,
-  },
   PageIndicator: {
     marginBottom: 12,
   },
@@ -63,10 +64,19 @@ export type CTA = {
   style?: ButtonStyle;
 };
 
+type RemoteImage = {
+  uri: string;
+  width: number;
+  height: number;
+};
+
+export const isRemoteImage = (img: ImageRequireSource | RemoteImage): img is RemoteImage =>
+  (img as any).uri !== undefined;
+
 export type OnboardingPage = {
   title: string;
   content: string;
-  image: ImageRequireSource;
+  image: ImageRequireSource | RemoteImage;
 };
 
 type OnboardingProps = {
@@ -81,38 +91,19 @@ type OnboardingProps = {
 
 type OnboardingState = {
   currentPageIndex: number;
+  imageLoaded: boolean;
   pageWidth: number;
-};
-
-export const renderOnboardingPage = (
-  page: OnboardingPage,
-  index: number,
-  titleLowercase: boolean | undefined,
-  maxWidth?: number
-) => {
-  const { width, height } = Image.resolveAssetSource(page.image);
-  return (
-    <View key={index} style={[styles.Wrapper, { width: maxWidth }]}>
-      <View style={styles.ImageContainer}>
-        <Image
-          source={page.image}
-          style={[styles.Image, { aspectRatio: width / height }]}
-          resizeMode="contain"
-        />
-      </View>
-      <Text style={styles.Title} numberOfLines={2}>
-        {titleLowercase ? page.title : page.title.toUpperCase()}
-      </Text>
-      <Text style={styles.Content}>{page.content}</Text>
-    </View>
-  );
 };
 
 export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingState> {
   private scrollViewRef = createRef<ScrollView>();
   constructor(props: OnboardingProps) {
     super(props);
-    this.state = { currentPageIndex: 0, pageWidth: Dimensions.get('window').width };
+    this.state = {
+      currentPageIndex: 0,
+      pageWidth: Dimensions.get('window').width,
+      imageLoaded: false,
+    };
     this.onLayout = this.onLayout.bind(this);
     this.onScrollEnd = this.onScrollEnd.bind(this);
     this.scrollViewRef = createRef();
@@ -155,10 +146,18 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
             pagingEnabled
             horizontal
           >
-            {pages.map((p, i) => renderOnboardingPage(p, i, titleLowercase, pageWidth))}
+            {pages.map((p, i) => (
+              <OnboardingPageComponent
+                key={i}
+                page={p}
+                index={i}
+                titleLowercase={titleLowercase}
+                maxWidth={pageWidth}
+              />
+            ))}
           </ScrollView>
         ) : (
-          renderOnboardingPage(currentPage, 0, titleLowercase)
+          <OnboardingPageComponent page={currentPage} index={0} titleLowercase={titleLowercase} />
         )}
         <View style={bottomPanelStyles.FloatingBottomPanel}>
           {pages.length > 1 && (

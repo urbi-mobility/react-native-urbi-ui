@@ -8,7 +8,11 @@ const pages = [
     title: "Look at me, I'm a title spanning two lines. Spiffy, uh?",
     content:
       "Oh hai! I'm a 2-page onboarding component. Try swiping to the next page, see what happens.",
-    image: require('../assets/onboarding2.png'),
+    image: {
+      uri: `https://en.urbi.co/assets/images/image06.png?v29718284834061&bust=${Math.random()}`,
+      width: 1095,
+      height: 578,
+    },
   },
   {
     title: 'title label',

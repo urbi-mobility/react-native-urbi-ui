@@ -7,17 +7,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## Added
+
+- `components/Onboarding` - added option to use an external image by passing a `URI`, along with the image's `width` and `height`, show a placeholder while the image is being loaded
+
+## [0.3.6 - 2020-10-30]
+
 ### Added
 
 - `content/ComparatorModal`, `end/ContentComparator` and `components/ListItemComparator` components
 
 ### Changed
 
-- `molecules/Chip` - adding `alignSelf` prop to `Chip` with default value `flex-start`
-- `molecules/Chip` - adding `bgColor` prop to `Chip`
-- `molecules/Chip` - adding `getWrapperStyle` in `Chip` to customize container style
-- `molecules/ChipLarge` - adding `containerStyle` prop to `ChipLarge` to set container style
-- `molecules/ChipLarge` - changing `icon` prop type and adding `renderImageOrIcon` in `ChipLarge` to allow rendering Images and not only Icons
+- `molecules/Chip` - added `alignSelf` prop to `Chip` with default value `flex-start`
+- `molecules/Chip` - added `bgColor` prop to `Chip`
+- `molecules/Chip` - added `getWrapperStyle` in `Chip` to customize container style
+- `molecules/ChipLarge` - added `containerStyle` prop to `ChipLarge` to set container style
+- `molecules/ChipLarge` - changed `icon` prop type and adding `renderImageOrIcon` in `ChipLarge` to allow rendering Images and not only Icons
 
 ## [0.3.5 - 2020-09-03]
 
