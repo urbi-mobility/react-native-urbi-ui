@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.7 - 2020-11-10]
+
 ### Added
 
 - `components/Onboarding` - added option to use an external image by passing a `URI`, along with the image's `width` and `height`, show a placeholder while the image is being loaded
