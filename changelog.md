@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## Added
+### Added
 
 - `components/Onboarding` - added option to use an external image by passing a `URI`, along with the image's `width` and `height`, show a placeholder while the image is being loaded
+
+### Fixed
+
+- `App` - fixed TS compilation, translating absolute paths to relative in `d.ts` files, so that VS Code understands them
 
 ## [0.3.6 - 2020-10-30]
 

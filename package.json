@@ -13,7 +13,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "babel src --out-dir dist --extensions '.ts,.tsx' --copy-files && tsc || true",
+    "build": "babel src --out-dir dist --extensions '.ts,.tsx' --copy-files && ttsc || true",
     "predist": "rm -rf ./dist && npm run build && cp package.json LICENSE README.md showcase/ios/urbi.ttf dist/ ",
     "dist": "cd dist && npm publish",
     "package": "npm run predist && cd dist && npm pack",
@@ -79,6 +79,8 @@
     "react-native-svg": "^12.1.0",
     "react-native-typography": "^1.4.1",
     "react-native-vector-icons": "^6.6.0",
-    "typescript": "^3.7.2"
+    "ttypescript": "^1.5.12",
+    "typescript": "^3.7.2",
+    "typescript-transform-paths": "^2.0.2"
   }
 }
