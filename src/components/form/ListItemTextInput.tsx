@@ -150,8 +150,6 @@ class ListItemTextInputComponent extends UrbiFormComponent<
         <View style={styles.TextWrapper}>
           <TextInput
             testID={`${name || placeholder || label}TextInputTestID`}
-            accessible={true}
-            accessibilityLabel={`${placeholder || label || name} Input Field`}
             ref={this.textInput}
             style={styles.TextInput}
             autoCapitalize="none"
@@ -169,7 +167,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             onSubmitEditing={this.onSubmitEditing}
             returnKeyType={this.getReturnKeyType()}
             editable={!(disabled ?? false)}
-            autoCompleteType={autocompleteType ?? autocompleteType}
+            autoCompleteType={autocompleteType}
           />
           {(type === 'password' || type === 'pin') && (
             // tslint:disable-next-line:jsx-no-multiline-js

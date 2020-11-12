@@ -43,9 +43,7 @@ const getSwitch = (item: ListItem) =>
     ),
     android: (
       <Switch
-        accessible={true}
         testID={item.testID}
-        accessibilityLabel="switch button"
         style={styles.Switch}
         trackColor={{ true: colors.ughina, false: colors.ursula }}
         // the property does exist, type definitions haven't been updated (if you use the old prop you get a warning)
