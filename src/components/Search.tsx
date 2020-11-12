@@ -88,7 +88,7 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
     return (
       <View style={styles.Wrapper}>
         <View style={[styles.SearchBox, { backgroundColor: bg }]}>
-          <TouchableWithoutFeedback accessibilityRole="search" onPress={onPress}>
+          <TouchableWithoutFeedback testID="searchTestID" onPress={onPress}>
             <View style={{ flex: 1 }}>
               <View style={styles.Label}>
                 <IconAndLabel
