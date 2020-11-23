@@ -1,7 +1,44 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { OnboardingPage, isRemoteImage, onboardingStyles } from 'src/components/Onboarding';
+import {
+  Dimensions,
+  Image,
+  ImageStyle,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { colors } from 'src/utils/colors';
+import { registeredTextStyle } from 'src/utils/textStyles';
+import { isRemoteImage, OnboardingPage } from './types';
+
+export const onboardingStyles = {
+  Wrapper: {
+    flex: 1,
+  } as ViewStyle,
+  ImageContainer: {
+    flexDirection: 'row',
+    maxWidth: Dimensions.get('window').width,
+  } as ViewStyle,
+  Image: {
+    marginBottom: 24,
+    flex: 1,
+    width: null,
+    height: null,
+  } as ImageStyle,
+  Title: {
+    ...registeredTextStyle('button'),
+    marginHorizontal: 24,
+    marginBottom: 16,
+    textAlign: 'center',
+  } as TextStyle,
+  Content: {
+    ...registeredTextStyle('body'),
+    marginHorizontal: 24,
+    textAlign: 'center',
+  } as TextStyle,
+};
 
 const styles = StyleSheet.create({
   Placeholder: {

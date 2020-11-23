@@ -1,55 +1,22 @@
 import React, { createRef } from 'react';
 import {
   Dimensions,
-  Image,
-  ImageRequireSource,
-  ImageStyle,
   LayoutChangeEvent,
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
   StyleSheet,
-  Text,
   TextStyle,
   View,
-  ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from 'src/components/FloatingButtonLayout';
+import { OnboardingPageComponent, onboardingStyles } from 'src/components/OnboardingPageComponent';
 import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
-import { ButtonStyle } from 'src/molecules/buttons/types';
 import { PageIndicator } from 'src/molecules/PageIndicator';
 import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
-import { registeredTextStyle } from 'src/utils/textStyles';
-import { OnboardingPageComponent } from 'src/components/OnboardingPageComponent';
-
-export const onboardingStyles = {
-  Wrapper: {
-    flex: 1,
-  } as ViewStyle,
-  ImageContainer: {
-    flexDirection: 'row',
-    maxWidth: Dimensions.get('window').width,
-  } as ViewStyle,
-  Image: {
-    marginBottom: 24,
-    flex: 1,
-    width: null,
-    height: null,
-  } as ImageStyle,
-  Title: {
-    ...registeredTextStyle('button'),
-    marginHorizontal: 24,
-    marginBottom: 16,
-    textAlign: 'center',
-  } as TextStyle,
-  Content: {
-    ...registeredTextStyle('body'),
-    marginHorizontal: 24,
-    textAlign: 'center',
-  } as TextStyle,
-};
+import { CTA, OnboardingPage } from './types';
 
 const styles = StyleSheet.create({
   ...onboardingStyles,
@@ -57,27 +24,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 });
-
-export type CTA = {
-  label: string;
-  onPress: () => any;
-  style?: ButtonStyle;
-};
-
-type RemoteImage = {
-  uri: string;
-  width: number;
-  height: number;
-};
-
-export const isRemoteImage = (img: ImageRequireSource | RemoteImage): img is RemoteImage =>
-  (img as any).uri !== undefined;
-
-export type OnboardingPage = {
-  title: string;
-  content: string;
-  image: ImageRequireSource | RemoteImage;
-};
 
 type OnboardingProps = {
   cta?: CTA;

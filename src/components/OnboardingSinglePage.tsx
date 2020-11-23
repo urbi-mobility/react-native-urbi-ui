@@ -3,11 +3,11 @@ import { StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from 'src/components/FloatingButtonLayout';
-import { CTA, OnboardingPage } from 'src/components/Onboarding';
 import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
 import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
 import { OnboardingPageComponent } from 'src/components/OnboardingPageComponent';
+import { CTA, OnboardingPage } from './types';
 
 const styles = StyleSheet.create({
   Wrapper: {
