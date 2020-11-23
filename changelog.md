@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.8 - 2020-11-23]
+
 ### Added
 
 - `components/form/ListItemTextInput` - added `multiline` prop, to enable multiline text inputs (internal ref [UR-2455](https://urbimobility.atlassian.net/browse/UR-2455))
