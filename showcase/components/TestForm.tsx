@@ -26,6 +26,7 @@ export type FormValues = {
   password: string;
   dateOfBirth: Date;
   gender?: 'm' | 'f' | 'non_binary';
+  notes: string;
 };
 
 const validationSchema = yup.object().shape({
@@ -77,6 +78,7 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
         <ListItemTextInput name="password" type="password" focusable />
         <DatePicker mode="date" name="dateOfBirth" label="date of birth" locale="en" focusable />
         <RadioButtonsForm name="gender" label="gender" buttons={genderButtons} focusable />
+        <ListItemTextInput name="notes" type="text" multiline focusable />
         <View style={styles.Button}>
           <ButtonCompact buttonStyle="primary" label="submit" onPress={p.handleSubmit} />
         </View>
@@ -88,7 +90,12 @@ class TestForm extends React.PureComponent<TestFormProps, TestFormState> {
     return (
       <View style={styles.Wrapper} onLayout={this.onLayout}>
         <Formik
-          initialValues={{ username: '', password: '', dateOfBirth: new Date('1984-02-24') }}
+          initialValues={{
+            username: '',
+            password: '',
+            dateOfBirth: new Date('1984-02-24'),
+            notes: '',
+          }}
           onSubmit={this.props.handleSubmit}
           validationSchema={validationSchema}
         >

@@ -41,6 +41,7 @@ const toTextInputType = (t: ListItemTextInputPropsType) => {
 
 interface ListItemTextInputProps extends UrbiFormComponentProps<string> {
   type: ListItemTextInputPropsType;
+  multiline?: boolean;
   placeholder?: string;
   autocompleteType?: TextInputProps['autoCompleteType'];
 }
@@ -132,6 +133,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
       disabled,
       error,
       label,
+      multiline,
       name,
       placeholder,
       setFieldValue,
@@ -158,6 +160,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             onBlur={this.onBlur}
             onFocus={this.onFocus}
             value={value}
+            multiline={multiline ?? false}
             placeholder={placeholder || label || name}
             placeholderTextColor={colors.ursula}
             keyboardType={keyboardTypes[type]}
