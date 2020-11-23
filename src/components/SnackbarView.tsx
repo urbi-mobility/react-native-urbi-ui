@@ -188,7 +188,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
     const tStyle = textColor ? [s, { color: textColor }] : s;
     return (
       <View style={styles.SingleLineWrapper}>
-        <Text style={tStyle} numberOfLines={2}>
+        <Text testID="snackbarTextTestID" style={tStyle} numberOfLines={2}>
           {message}
         </Text>
         {action ? <Action text={action.text} onPress={this.onActionPress} /> : null}

@@ -45,6 +45,7 @@ export interface IconButtonProps {
   onLongPress?: () => any;
   onPressIn?: () => any;
   iconSizeOverride?: number;
+  testID?: string;
 }
 
 export interface IconButtonExtendedProps extends IconButtonProps {

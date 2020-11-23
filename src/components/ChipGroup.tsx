@@ -97,7 +97,7 @@ export class ChipGroup extends React.PureComponent<ChipGroupProps, ChipGroupStat
 
   render() {
     return (
-      <View style={styles.Wrapper}>
+      <View testID="chipGroupTestID" style={styles.Wrapper}>
         <ScrollView
           ref={this.scrollView}
           style={styles.ScrollView}

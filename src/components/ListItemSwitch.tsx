@@ -15,6 +15,7 @@ export interface ListItem {
   enabled: boolean;
   transitioning?: boolean;
   backgroundColor?: string;
+  testID?: string;
 }
 
 const styles = StyleSheet.create({
@@ -42,6 +43,7 @@ const getSwitch = (item: ListItem) =>
     ),
     android: (
       <Switch
+        testID={item.testID || 'listItemSwitchTestID'}
         style={styles.Switch}
         trackColor={{ true: colors.ughina, false: colors.ursula }}
         // the property does exist, type definitions haven't been updated (if you use the old prop you get a warning)

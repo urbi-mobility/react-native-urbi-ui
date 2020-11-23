@@ -33,6 +33,7 @@ type ProviderSettingsProps = {
 
 const getLoginButton = (props: ProviderSettingsProps) => (
   <IconButtonCompact
+    testID={`${props.providerName}IconButtonTestID`}
     buttonStyle="default"
     icon="login-small"
     onPress={props.onLoginPress!}
