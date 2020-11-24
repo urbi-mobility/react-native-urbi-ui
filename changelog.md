@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - `molecules/end/EndIcon` - added new molecule to be added as `end` prop in `ListItem`s
+- `molecules/content/Label` - added `numberOfLines` prop to support 2-line labels
 
 ## [0.3.8 - 2020-11-23]
 
