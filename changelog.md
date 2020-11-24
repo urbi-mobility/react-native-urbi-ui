@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.9 - 2020-11-24]
+
 ### Added
 
 - `molecules/end/EndIcon` - added new molecule to be added as `end` prop in `ListItem`s
