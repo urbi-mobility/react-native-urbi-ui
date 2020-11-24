@@ -30,6 +30,13 @@ class Content extends React.PureComponent<any> {
     return (
       <ScrollView>
         {renderComponent(
+          'Label (2 lines)',
+          <Label
+            text="Hello, I'm an incredibly long title, and I should be trimmed at some point. Also, I span over two lines! How cool is that?"
+            numberOfLines={2}
+          />
+        )}
+        {renderComponent(
           'ChipAndLabel',
           <ChipAndLabel
             chip={{ label: 'U2', color: '#f42c4f', icon: 'subway-small' }}
