@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## [0.3.10 - 2020-11-27]
+## [0.3.11 - 2020-11-27]
 
 ### Changed
 
 - icon font is no longer part of the library, added instructions as to how to include it on the README
+
+**NOTE**: version 0.3.10 was published by mistake without typescript definitions!
 
 ## [0.3.9 - 2020-11-24]
 
