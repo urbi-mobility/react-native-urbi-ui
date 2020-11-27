@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [0.3.10 - 2020-11-27]
+
 ### Changed
 
 - icon font is no longer part of the library, added instructions as to how to include it on the README
