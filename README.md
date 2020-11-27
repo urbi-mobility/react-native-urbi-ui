@@ -13,10 +13,30 @@ Install the library by running:
     yarn add react-native-urbi-ui
     # or npm install react-native-urbi-ui
 
+### Peer dependencies
+
 Then, install all of its peer dependencies:
 
     yarn add @react-native-community/slider date-fns formik react-native-dialogs react-native-formik react-native-gesture-handler react-native-linear-gradient react-native-modal-datetime-picker react-native-reanimated react-native-typography react-native-vector-icons react-native-svg
     # or npm install the same things
+
+### Icon font
+
+You need to add the icon font definition file to a folder named `assets/json` in your project's root folder. The file needs to be called `urbi-font.json`. This is used by the `Icon` component defined in the `const.ts` file, which is imported by many other components. You also need a file named `urbi.ttf` inside the native part of your project (see instructions below for Android and iOS). If you want to use our icon font, you can copy it from the Showcase App:
+
+    # from your project's root
+    mkdir -p assets/json
+    cp node_modules/react-native-urbi-ui/urbi-font.json assets/json
+    # then for Android
+    cp node_modules/react-native-urbi-ui/urbi.ttf android/app/src/main/assets/fonts
+
+To add the font on iOS, copy our icon font file and add it as one of your project's resources. It's the same font that's used on Android, so you can find it inside:
+
+    node_modules/react-native-urbi-ui/urbi.ttf
+
+Once copied to your project (e.g., inside the `ios` folder as a top-level file, like our showcase app does), update your XCode settings to include `urbi.ttf` in the `Copy resources` build phase.
+
+### Typescript
 
 If you're using Typescript, you might want to add this to your `tsconfig.json` file:
 
@@ -36,24 +56,11 @@ If you're using Typescript, you might want to add this to your `tsconfig.json` f
 
 that way, `tsc` will look for platform-specific definition files, which it wouldn't otherwise.
 
-### Android
+### Android fonts
 
 The library relies on your app embedding Android's `Roboto-Regular.ttf` and `Roboto-Medium.ttf` (so that it looks the same regardless of what the device has set as system font).
 
 If you don't have these 2 files in your project already, create an `android/app/src/main/assets/fonts` folder and save those files there. You can get the files [from Google Fonts][4], or you can download them [from our showcase app's own `fonts` folder][5].
-
-Then, install our icon font by copying it to the same folder as the one holding the Roboto files. On a Unix system:
-
-    # from your project's main folder, where node_modules is
-    cp node_modules/react-native-urbi-ui/urbi.ttf android/app/src/main/assets/fonts
-
-### iOS
-
-Copy our icon font and add it as one of your project's resources. You can find the font inside:
-
-    node_modules/react-native-urbi-ui/urbi.ttf
-
-Once copied to your project (e.g., inside the `ios` folder as a top-level file, like our showcase app does), update your XCode settings to include `urbi.ttf` in the `Copy resources` build phase.
 
 ## Usage
 

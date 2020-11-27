@@ -1,6 +1,5 @@
 import { Dimensions, PixelRatio, Platform, StatusBar } from 'react-native';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from 'src/assets/json/urbi-font.json';
 import { colors } from 'src/utils/colors';
 
 export const onIOS = Platform.OS === 'ios';
@@ -24,7 +23,7 @@ export const getTabBarHeight = (hasNotch: boolean) =>
 
 export const IPHONE_X_HOME_AREA_HEIGHT = 34;
 
-export const Icon = createIconSetFromIcoMoon(icoMoonConfig);
+export const Icon = createIconSetFromIcoMoon(require('../../../assets/json/urbi-font.json'));
 
 const pixelRatio = PixelRatio.get();
 
