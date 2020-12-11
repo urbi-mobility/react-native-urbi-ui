@@ -112,7 +112,12 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
             horizontal
           >
             {this.props.pages.map((s, i) => (
-              <Touchable key={i} style={styles.Touchable} onPress={this.props.onPress}>
+              <Touchable
+                testID="statusPanelTestID"
+                key={i}
+                style={styles.Touchable}
+                onPress={this.props.onPress}
+              >
                 <Status key={`page-${i}`} {...s} minWidth={this.state.scrollViewWidth} />
               </Touchable>
             ))}
