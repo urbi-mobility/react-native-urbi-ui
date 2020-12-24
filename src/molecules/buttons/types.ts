@@ -64,6 +64,7 @@ export interface ToggleProps {
   setActive: (id: string, isActive: boolean) => void;
   id: string;
   icon: string | ImageRequireSource;
+  testID?: string;
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   managed?: boolean; // whether the state of this button is managed through props
   loading?: boolean;
