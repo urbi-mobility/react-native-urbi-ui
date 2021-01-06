@@ -14,6 +14,7 @@ import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from 'src/components/FloatingB
 import { OnboardingPageComponent, onboardingStyles } from 'src/components/OnboardingPageComponent';
 import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
 import { PageIndicator } from 'src/molecules/PageIndicator';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
 import { CTA, OnboardingPage } from './types';
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type OnboardingProps = {
+interface OnboardingProps extends Testable {
   cta?: CTA;
   pages: OnboardingPage[];
   onIphoneX: boolean;
@@ -33,7 +34,7 @@ type OnboardingProps = {
   contentStyle?: TextStyle;
   titleLowercase?: boolean;
   updateParentIndex?: (index: number) => void;
-};
+}
 
 type OnboardingState = {
   currentPageIndex: number;
@@ -73,7 +74,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
   }
 
   render() {
-    const { cta, onIphoneX, pages, titleLowercase } = this.props;
+    const { cta, onIphoneX, pages, testID, titleLowercase } = this.props;
     const { currentPageIndex, pageWidth } = this.state;
     const currentPage = pages[currentPageIndex];
 
@@ -127,6 +128,7 @@ export class Onboarding extends React.PureComponent<OnboardingProps, OnboardingS
                 buttonStyle={cta.style ?? 'primary'}
                 label={cta.label}
                 onPress={cta.onPress}
+                testID={testID}
               />
             </LinearGradient>
           )}

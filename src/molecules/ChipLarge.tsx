@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-  StyleProp,
   Image,
   ImageRequireSource,
+  StyleProp,
   StyleSheet,
   Text,
   View,
   ViewStyle,
 } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
+import { Testable } from 'src/types';
 import { colors, isLight } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
 import { layoutStyles } from 'src/utils/styles';
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export type ChipLargeProps = {
+export interface ChipLargeProps extends Testable {
   label: string;
   icon?: ImageRequireSource | string;
   color: string;
@@ -46,7 +47,7 @@ export type ChipLargeProps = {
   colorIsLight?: boolean;
   onPress?: () => any;
   containerStyle?: 'topRightMargins' | 'topLeftMargins';
-};
+}
 
 const renderImageOrIcon = (
   image: ImageRequireSource | string,
@@ -87,11 +88,11 @@ const renderChip = (
 );
 
 const ChipLargeUnmemoized = (props: ChipLargeProps) => {
-  const { color, colorIsLight, icon, label, onPress, containerStyle } = props;
+  const { color, colorIsLight, icon, label, onPress, containerStyle, testID } = props;
   const darkText = colorIsLight ?? isLight(color);
   return onPress ? (
     <View style={{ flex: 1, alignItems: 'center' }}>
-      <MaybeTouchable onPress={onPress} exactHeight={22} borderRadius={11}>
+      <MaybeTouchable onPress={onPress} exactHeight={22} borderRadius={11} testID={testID}>
         {renderChip(color, darkText, label, icon)}
       </MaybeTouchable>
     </View>

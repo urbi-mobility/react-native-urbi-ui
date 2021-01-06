@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+### Added
+
+- added `testID` to all components containing touchable items on any type
+
+### Changed
+
+- bumped `ini` dep (dependabot)
+- **non-backwards-compatible** replaced `IconButtonTestID` with `LoginTestID` in `ProviderSettings` (so that `InfoTestID` can be used for the other touchable inside the component)
+
 ## [0.3.11 - 2020-11-27]
 
 ### Changed
@@ -219,7 +228,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
-- crop text in `ChipOverLabel` and `ChipDoubleLabel` (with hellipsis) if it's too long, add `20dp` margin right.
+- crop text in `ChipOverLabel` and `ChipDoubleLabel` (with ellipsis) if it's too long, add `20dp` margin right.
 - centered `ChipLarge` _juuuuust_ right.
 - removed ghost `4dp` right padding from `EndLabel`
 

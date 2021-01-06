@@ -63,7 +63,7 @@ export class AccountHeader extends React.PureComponent<AccountHeaderProps, Accou
         elevation={5}
       >
         <Touchable
-          testID="accountHeaderTouchableTestID"
+          testID={this.props.testID ?? 'accountHeaderTouchableTestID'}
           accessibilityLabel="account header touchable"
           onPress={this.props.onPress}
           accessible

@@ -87,7 +87,7 @@ class DatePickerComponent extends UrbiFormComponent<Date, DatePickerProps, DateP
   }
 
   render() {
-    const { error, label, locale, mode, name, value } = this.props;
+    const { error, label, locale, mode, name, testID, value } = this.props;
     const { focused, showPicker } = this.state;
 
     return (
@@ -97,7 +97,7 @@ class DatePickerComponent extends UrbiFormComponent<Date, DatePickerProps, DateP
           backgroundColor="transparent"
           labelColor={focused ? colors.primary : colors.ughina}
         />
-        <Touchable onPress={this.showPicker} style={styles.Wrapper}>
+        <Touchable onPress={this.showPicker} style={styles.Wrapper} testID={testID}>
           <Text ref={this.datePicker} style={styles.DateLabel}>
             {format(value, mode === 'date' ? 'PP' : 'p', { locale: locales[locale] })}
           </Text>

@@ -137,6 +137,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
       name,
       placeholder,
       setFieldValue,
+      testID,
       type,
       value,
     } = this.props;
@@ -151,7 +152,7 @@ class ListItemTextInputComponent extends UrbiFormComponent<
         />
         <View style={styles.TextWrapper}>
           <TextInput
-            testID={`${name || placeholder || label}TextInputTestID`}
+            testID={`${testID ?? name ?? placeholder ?? label}TextInputTestID`}
             ref={this.textInput}
             style={styles.TextInput}
             autoCapitalize="none"

@@ -1,4 +1,5 @@
 import { ImageRequireSource, RegisteredStyle, ViewStyle } from 'react-native';
+import { Testable } from 'src/types';
 import { fontStyles } from 'src/utils/fonts';
 
 export type ButtonStyle =
@@ -9,7 +10,7 @@ export type ButtonStyle =
   | 'switched-off'
   | 'brand';
 
-export interface ButtonProps {
+export interface ButtonProps extends Testable {
   label: string;
   onPress: () => any;
   buttonStyle: ButtonStyle;
@@ -59,12 +60,11 @@ export interface IconButtonExtendedProps extends IconButtonProps {
   opacity?: number;
 }
 
-export interface ToggleProps {
+export interface ToggleProps extends Testable {
   active: boolean;
   setActive: (id: string, isActive: boolean) => void;
   id: string;
   icon: string | ImageRequireSource;
-  testID?: string;
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   managed?: boolean; // whether the state of this button is managed through props
   loading?: boolean;

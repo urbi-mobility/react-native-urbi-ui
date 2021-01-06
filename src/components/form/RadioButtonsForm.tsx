@@ -68,7 +68,7 @@ class RadioButtonsFormComponent extends UrbiFormComponent<
   }
 
   render() {
-    const { error, label, name } = this.props;
+    const { error, label, name, testID } = this.props;
     return (
       <View style={styles.Wrapper} ref={this.radio} onLayout={this.onLayout}>
         <SectionsDivider label={label ?? name} backgroundColor="transparent" />
@@ -80,6 +80,7 @@ class RadioButtonsFormComponent extends UrbiFormComponent<
             subtitle={b.subtitle}
             selected={this.state.selectedIndex === i}
             onPress={this.onRadioSelect}
+            testID={testID}
           />
         ))}
         <Text style={styles.Error} numberOfLines={1}>

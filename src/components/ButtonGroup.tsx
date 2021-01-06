@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ButtonCompact } from 'src/molecules/buttons/ButtonCompact';
+import { Testable } from 'src/types';
 
-type ButtonGroupEntry = {
+interface ButtonGroupEntry extends Testable {
   onPress: () => any;
   onLongPress?: () => any;
   label: string;
   active: boolean;
-};
+}
 
 type ButtonGroupProps = {
   buttons: ButtonGroupEntry[];
@@ -40,6 +41,7 @@ const ButtonGroupUnmemoized = (props: ButtonGroupProps) => (
         label={b.label}
         onLongPress={b.onLongPress}
         onPress={b.onPress}
+        testID={b.testID}
       />
     ))}
   </View>

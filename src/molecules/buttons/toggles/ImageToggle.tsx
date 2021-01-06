@@ -10,7 +10,7 @@ export class ImageToggle extends IconToggle {
     const { active } = this.state;
     return (
       <IconButton
-        testID={this.props.testID ? this.props.testID : 'imageToggleTestID'}
+        testID={this.props.testID ?? 'imageToggleTestID'}
         onPress={this.toggleState}
         // we set a button style, but it's overridden explicitly here
         buttonStyle="default"

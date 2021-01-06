@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
+import { Testable } from 'src/types';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -7,13 +8,13 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-type ClickableProps = {
+interface ClickableProps extends Testable {
   children: ReactNode;
   onClick: () => any;
-};
+}
 
 export const ClickableUnmemoized = (props: ClickableProps) => (
-  <TouchableOpacity style={styles.Wrapper} onPress={props.onClick}>
+  <TouchableOpacity style={styles.Wrapper} onPress={props.onClick} testID={props.testID}>
     {props.children}
   </TouchableOpacity>
 );

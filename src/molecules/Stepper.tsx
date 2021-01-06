@@ -27,6 +27,8 @@ type StepperProps = {
   onValueChange: (newValue: number) => any;
   min?: number;
   max?: number;
+  increaseButtonTestID?: string;
+  decreaseButtonTestID?: string;
 };
 
 export const StepperUnmemoized = (props: StepperProps) => (
@@ -35,6 +37,7 @@ export const StepperUnmemoized = (props: StepperProps) => (
       buttonStyle={props.value === props.min ? 'disabled' : 'default'}
       icon="minus-small"
       onPress={onValueChange(props, 'decrease')}
+      testID={props.decreaseButtonTestID}
     />
     <Text style={props.value === props.defaultValue ? defaultNumberStyle : numberStyle}>
       {props.value}
@@ -43,6 +46,7 @@ export const StepperUnmemoized = (props: StepperProps) => (
       buttonStyle={props.value === props.max ? 'disabled' : 'default'}
       icon="plus-small"
       onPress={onValueChange(props, 'increase')}
+      testID={props.increaseButtonTestID}
     />
   </View>
 );

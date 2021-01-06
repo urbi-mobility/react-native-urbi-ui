@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
 import { StatusUnmemoized } from 'src/molecules/content/Status';
+import { Testable } from 'src/types';
 import { withPixelDensity } from 'src/utils/functions';
 
 const styles = StyleSheet.create({
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export interface ImageAndStatusProps {
+export interface ImageAndStatusProps extends Testable {
   image: ImageRequireSource | string;
   status: React.ReactElement<typeof StatusUnmemoized>;
 }

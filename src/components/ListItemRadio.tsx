@@ -23,7 +23,7 @@ export const ListItemRadioUnmemoized = (props: ListItemRadioProps) => {
   const onLinePress = () => props.onPress(props.id, true);
   return (
     <View style={styles.Touchable}>
-      <Touchable style={styles.Wrapper} onPress={onLinePress}>
+      <Touchable style={styles.Wrapper} onPress={onLinePress} testID={props.testID}>
         <ControlAndLabel {...props} control="radiobutton" />
       </Touchable>
     </View>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
 import { Touchable } from 'src/components/Touchable';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { onIOS } from 'src/utils/const';
 
-type MaybeTouchableProps = {
+interface MaybeTouchableProps extends Testable {
   children: JSX.Element;
   onPress?: () => any;
   borderRadius?: number;
@@ -14,7 +15,7 @@ type MaybeTouchableProps = {
   withShadow?: boolean;
   backgroundColor?: string;
   exactHeight?: number;
-};
+}
 
 const withStyle = (props: MaybeTouchableProps) =>
   ({
@@ -77,6 +78,7 @@ const MaybeTouchableUnmemoized = (props: MaybeTouchableProps) => {
           : { flex: 1, backgroundColor }
       }
       onPress={onPress}
+      testID={props.testID}
     >
       {childrenWithBackground(props)}
     </Touchable>

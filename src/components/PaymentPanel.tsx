@@ -14,6 +14,7 @@ import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
 import { LinkCompact } from 'src/molecules/buttons/LinkCompact';
 import { IconAndLabel } from 'src/molecules/content/IconAndLabel';
 import { SectionsDivider } from 'src/molecules/SectionsDivider';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
 import { textStyle as makeTextStyle } from 'src/utils/textStyles';
@@ -82,14 +83,14 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-type CardProperty = {
+interface CardProps extends Testable {
   haveCard: boolean;
   labelCard: string;
   imageCard?: ImageRequireSource;
   onCardPress?: () => any;
-};
+}
 
-type PaymentPanelProps = {
+interface PaymentPanelProps extends Testable {
   show: boolean;
   loading: boolean;
   onCancelPress: () => any;
@@ -97,13 +98,13 @@ type PaymentPanelProps = {
   nameShop: string;
   price: string;
   paymentTitle: string;
-  cardProperty: CardProperty;
+  card: CardProps;
   buttonTitle: string;
   cancel: string;
   buttonOnPress: () => any;
   onIphoneX: boolean;
   accountForBottomTabs?: boolean;
-};
+}
 
 const transition = (
   <Transition.In type="slide-bottom" durationMs={150} interpolation="easeIn" propagation="bottom" />
@@ -148,16 +149,17 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
               <SectionsDivider label={props.paymentTitle} backgroundColor={colors.ulisse} />
               <View style={styles.PaymentMethodWrapper}>
                 <ListItem
-                  onPress={props.cardProperty.onCardPress}
+                  onPress={props.card.onCardPress}
                   content={
                     <IconAndLabel
-                      image={props.cardProperty.imageCard}
-                      label={props.cardProperty.labelCard}
+                      image={props.card.imageCard}
+                      label={props.card.labelCard}
                       labelColor={colors.uma}
                     />
                   }
                   backgroundColor={colors.ulisse}
                   icon="disclosure-small"
+                  testID={props.card.testID}
                 />
               </View>
               <View
@@ -174,6 +176,7 @@ export const PaymentPanelUnmemoized = (props: PaymentPanelProps) => {
                   buttonStyle="primary"
                   label={props.buttonTitle}
                   onPress={props.buttonOnPress}
+                  testID={props.testID}
                 />
               </View>
             </View>

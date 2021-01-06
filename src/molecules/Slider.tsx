@@ -1,6 +1,7 @@
 import RNSlider from '@react-native-community/slider';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { onIOS } from 'src/utils/const';
 
@@ -28,7 +29,7 @@ export interface SliderProps {
   step?: number;
 }
 
-interface NativeSliderProps extends SliderProps {
+interface NativeSliderProps extends SliderProps, Testable {
   value: number;
 }
 
@@ -44,6 +45,7 @@ const NativeSlider = (props: NativeSliderProps) => (
     minimumTrackTintColor={colors.primary}
     maximumTrackTintColor={colors.ursula}
     thumbTintColor={onIOS ? colors.ulisse : colors.primary}
+    testID={props.testID}
   />
 );
 

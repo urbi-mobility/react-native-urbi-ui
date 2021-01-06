@@ -33,7 +33,7 @@ type ProviderSettingsProps = {
 
 const getLoginButton = (props: ProviderSettingsProps) => (
   <IconButtonCompact
-    testID={`${props.providerName}IconButtonTestID`}
+    testID={`${props.providerName}LoginTestID`}
     buttonStyle="default"
     icon="login-small"
     onPress={props.onLoginPress!}
@@ -50,7 +50,12 @@ export const ProviderSettingsUnmemoized = (props: ProviderSettingsProps) => (
     />
     <View style={styles.Actions}>
       {props.onLoginPress && getLoginButton(props)}
-      <IconButtonCompact buttonStyle="default" icon="more-info-small" onPress={props.onInfoPress} />
+      <IconButtonCompact
+        buttonStyle="default"
+        icon="more-info-small"
+        onPress={props.onInfoPress}
+        testID={`${props.providerName}InfoTestID`}
+      />
     </View>
   </View>
 );

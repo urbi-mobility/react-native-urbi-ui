@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
 import { IconAndLabel } from 'src/molecules/content/IconAndLabel';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 
 type SearchAction = {
@@ -10,14 +11,16 @@ type SearchAction = {
   onPress?: (toggledOn: boolean, label?: string) => any;
 };
 
-type SearchProps = {
+interface SearchProps extends Testable {
   onPress: () => any;
   backgroundColor: 'ukko' | 'ulisse' | 'uma';
   leftIcon: string;
   rightmostAction?: SearchAction;
   leftmostAction?: SearchAction;
+  rightmostTestID?: string;
+  leftmostTestID?: string;
   label?: string;
-};
+}
 
 type SearchState = {
   rightActionToggled: boolean;
@@ -79,8 +82,11 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
       label,
       leftIcon,
       leftmostAction,
+      leftmostTestID,
       onPress,
       rightmostAction,
+      rightmostTestID,
+      testID,
     } = this.props;
 
     const bg = colors[backgroundColor];
@@ -88,7 +94,7 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
     return (
       <View style={styles.Wrapper}>
         <View style={[styles.SearchBox, { backgroundColor: bg }]}>
-          <TouchableWithoutFeedback testID="searchTestID" onPress={onPress}>
+          <TouchableWithoutFeedback testID={testID ?? 'searchTestID'} onPress={onPress}>
             <View style={{ flex: 1 }}>
               <View style={styles.Label}>
                 <IconAndLabel
@@ -106,6 +112,7 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
               buttonStyle="secondary"
               icon={leftmostAction.icon}
               onPress={this.onActionPress('left')}
+              testID={leftmostTestID}
               colorOverride={
                 this.state.leftActionToggled
                   ? colors.brand
@@ -120,6 +127,7 @@ export class Search extends React.PureComponent<SearchProps, SearchState> {
               buttonStyle="secondary"
               icon={rightmostAction.icon}
               onPress={this.onActionPress('right')}
+              testID={rightmostTestID}
               colorOverride={
                 this.state.rightActionToggled
                   ? colors.brand

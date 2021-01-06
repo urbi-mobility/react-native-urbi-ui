@@ -3,10 +3,11 @@ import { StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import { bottomPanelStyles, BOTTOM_PANEL_HEIGHT } from 'src/components/FloatingButtonLayout';
+import { OnboardingPageComponent } from 'src/components/OnboardingPageComponent';
 import { ButtonRegular } from 'src/molecules/buttons/ButtonRegular';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { IPHONE_X_HOME_AREA_HEIGHT } from 'src/utils/const';
-import { OnboardingPageComponent } from 'src/components/OnboardingPageComponent';
 import { CTA, OnboardingPage } from './types';
 
 const styles = StyleSheet.create({
@@ -23,14 +24,14 @@ const styles = StyleSheet.create({
   },
 });
 
-type OnboardingSinglePageProps = {
+interface OnboardingSinglePageProps extends Testable {
   cta?: CTA;
   page: OnboardingPage;
   onIphoneX: boolean;
   titleStyle?: TextStyle;
   contentStyle?: TextStyle;
   titleLowercase?: boolean;
-};
+}
 
 const OnboardingSingleUnmemoized = (props: OnboardingSinglePageProps) => (
   <View style={styles.Wrapper}>
@@ -54,6 +55,7 @@ const OnboardingSingleUnmemoized = (props: OnboardingSinglePageProps) => (
             buttonStyle={props.cta.style ?? 'primary'}
             label={props.cta.label}
             onPress={props.cta.onPress}
+            testID={props.testID}
           />
         </LinearGradient>
       </View>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { ListItemRadio } from 'src/components/ListItemRadio';
+import { Testable } from 'src/types';
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -8,10 +9,10 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-type RadioButton = {
+interface RadioButton extends Testable {
   label: string;
   subtitle?: string;
-};
+}
 
 type RadioButtonsProps = {
   buttons: RadioButton[];
@@ -49,6 +50,7 @@ export class RadioButtons extends React.PureComponent<RadioButtonsProps, RadioBu
             subtitle={b.subtitle}
             selected={this.state.selectedIndex === i}
             onPress={this.onRadioSelect}
+            testID={b.testID}
           />
         ))}
       </View>

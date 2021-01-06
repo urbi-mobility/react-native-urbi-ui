@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
 });
 
-export interface StatusProps {
+export interface StatusProps extends Testable {
   title: string;
   content: string;
   minWidth?: number;
@@ -25,7 +26,7 @@ const contentStyle = registeredTextStyle('title1', colors.ulisse, 'contenttitle'
 export const StatusUnmemoized = (props: StatusProps) => (
   <View style={[styles.Wrapper, { minWidth: props.minWidth }]}>
     <Text
-      testID="statusTestID"
+      testID={props.testID ?? 'statusTestID'}
       accessibilityLabel="Enter your phone number"
       style={props.titleColor ? [titleStyle, { color: props.titleColor }] : titleStyle}
       numberOfLines={1}

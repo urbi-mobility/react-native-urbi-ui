@@ -12,7 +12,12 @@ const styles = StyleSheet.create({
 });
 
 const renderListItem = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor} exactHeight={96}>
+  <MaybeTouchable
+    onPress={props.onPress}
+    backgroundColor={props.backgroundColor}
+    exactHeight={96}
+    testID={props.testID}
+  >
     <View style={styles.Wrapper}>
       {props.content}
       {props.end}

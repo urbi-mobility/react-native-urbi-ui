@@ -17,3 +17,7 @@ export type PinType =
   | 'scooter'
   | 'station'
   | 'taxi';
+
+export interface Testable {
+  testID?: string;
+}

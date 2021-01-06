@@ -63,6 +63,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
       onPress,
       onPressIn,
       style,
+      testID,
     } = this.props;
     const disabled = buttonStyle === 'disabled';
 
@@ -70,7 +71,7 @@ export class Button extends React.PureComponent<ExtendedButtonProps> {
       <TouchableOpacity
         accessibilityLabel={label.toLowerCase()}
         accessibilityRole="button"
-        testID={`${label.replace(/\s/g, '').toLowerCase()}ButtonTestID`}
+        testID={testID ?? `${label.replace(/\s/g, '').toLowerCase()}ButtonTestID`}
         onLongPress={disabled || loading ? undefined : onLongPress}
         onPressIn={disabled || loading ? undefined : onPressIn}
         onPress={disabled || loading ? undefined : onPress}

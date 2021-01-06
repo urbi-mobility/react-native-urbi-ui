@@ -29,7 +29,11 @@ const withStyle = (props: ListItemProps) => {
 };
 
 const renderListItem = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor}>
+  <MaybeTouchable
+    onPress={props.onPress}
+    backgroundColor={props.backgroundColor}
+    testID={props.testID}
+  >
     <View style={styles.ListItemWrapper}>
       {withStyle(props)}
       {props.end || props.icon

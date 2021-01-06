@@ -12,18 +12,19 @@ import {
 } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { PageIndicator } from 'src/molecules/PageIndicator';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { onIOS } from 'src/utils/const';
 import { ScaledImage } from './ScaledImage';
 
 export const bannerHeight = 116;
 
-type BannerSliderPanelProps = {
+interface BannerSliderPanelProps extends Testable {
   pages: BannerSlideProps[];
   autoSwipeSeconds?: number;
   onPress?: (key: number) => any;
   onPageChange?: (selectedIndex: number) => any;
-};
+}
 
 type BannerSliderPanelState = {
   scrollViewWidth: number;
@@ -147,7 +148,11 @@ export class BannerSlider extends React.PureComponent<
               horizontal
             >
               {this.props.pages.map((s, i) => (
-                <TouchableWithoutFeedback onPress={this.curryWithPage(i)} key={`page-${i}-${s.id}`}>
+                <TouchableWithoutFeedback
+                  onPress={this.curryWithPage(i)}
+                  key={`page-${i}-${s.id}`}
+                  testID={`${this.props.testID ?? 'BannerSliderTouchable'}-${i}`}
+                >
                   <ScaledImage
                     uri={s.url}
                     width={this.state.scrollViewWidth}

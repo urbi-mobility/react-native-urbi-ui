@@ -4,17 +4,18 @@ import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { CardHeaderProps, CardHeaderUnmemoized } from 'src/molecules/card/CardHeader';
 import { BikeImgUnmemoized } from 'src/molecules/img/BikeImg';
 import { VehicleImgUnmemoized } from 'src/molecules/img/VehicleImg';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { withPixelDensity } from 'src/utils/functions';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
-type CardProps = {
+interface CardProps extends Testable {
   header: ReactElement<typeof CardHeaderUnmemoized>;
   image?: ReactElement<typeof VehicleImgUnmemoized> | ReactElement<typeof BikeImgUnmemoized>;
   logo?: ImageRequireSource | string;
   onPress?: () => any;
   description?: string;
-};
+}
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -80,6 +81,7 @@ export const CardUnmemoized = (props: CardProps) => {
       margin={12}
       marginTop={0}
       withShadow={withShadow}
+      testID={props.testID}
     >
       <View style={styles.Wrapper}>
         {getTop(props)}

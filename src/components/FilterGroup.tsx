@@ -2,16 +2,17 @@ import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { IconButtonRegular } from 'src/molecules/buttons/iconButtons/IconButtonRegular';
 import { IconToggle } from 'src/molecules/buttons/toggles/IconToggle';
+import { Testable } from 'src/types';
 
 type FilterButton = { id: string; icon: string; active?: boolean; loading?: boolean };
 
-type FilterGroupProps = {
+interface FilterGroupProps extends Testable {
   filterButtons: FilterButton[];
   lastButton?: { active: boolean; icon: string; onPress: () => any };
   onFilterToggle: (id: string, active: boolean) => void;
   managed?: boolean; // whether the state of filters is managed through props
   style?: ViewStyle;
-};
+}
 
 const styles = StyleSheet.create({
   Wrapper: {
@@ -35,6 +36,7 @@ const buttons = (props: FilterGroupProps) =>
       setActive={props.onFilterToggle}
       managed={props.managed}
       loading={b.loading}
+      testID={`${props.testID ?? 'filterGroupToggle'}-${b.id}`}
     />
   ));
 
@@ -54,6 +56,7 @@ const FilterGroupUnmemoized = (props: FilterGroupProps) => {
           buttonStyle={props.lastButton.active ? 'brand' : 'primary'}
           icon={props.lastButton.icon}
           onPress={props.lastButton.onPress}
+          testID={`${props.testID ?? 'filterGroupToggle'}-last`}
         />
       ) : null}
     </View>

@@ -8,6 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
@@ -74,7 +75,7 @@ export interface SnackbarAction {
   onPress: () => any;
 }
 
-export interface SnackbarMessage {
+export interface SnackbarMessage extends Testable {
   bottomMargin?: number;
   hideDelayMillis?: number;
   backgroundColor?: string;
@@ -97,12 +98,14 @@ const Action = ({
   text,
   textColor,
   onPress,
+  testID,
 }: {
   text: string;
   textColor?: string;
   onPress: () => any;
+  testID?: string;
 }) => (
-  <TouchableWithoutFeedback onPress={onPress}>
+  <TouchableWithoutFeedback onPress={onPress} testID={testID}>
     <View style={styles.Action}>
       <Text style={textColor ? [actionTextStyle, { color: textColor }] : actionTextStyle}>
         {text}
@@ -197,7 +200,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
   }
 
   renderWithActionOnNewLine() {
-    const { action, message, textColor } = this.props.message;
+    const { action, message, testID, textColor } = this.props.message;
     return (
       <View style={styles.ActionOnNewLineWrapper}>
         <View style={styles.TextWithActionOnNewLine}>
@@ -206,7 +209,7 @@ export class SnackbarView extends React.PureComponent<SnackbarViewProps, Snackba
           </Text>
         </View>
         <View style={styles.ThreeLineActionContainer}>
-          <Action text={action!.text} onPress={this.onActionPress} />
+          <Action text={action!.text} onPress={this.onActionPress} testID={testID} />
         </View>
       </View>
     );

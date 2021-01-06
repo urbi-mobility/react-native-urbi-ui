@@ -39,6 +39,7 @@ const getSwitch = (item: ListItem) =>
         trackColor={{ true: colors.uma, false: colors.ukko }}
         value={item.enabled}
         onValueChange={item.onSwitchToggle}
+        testID={item.testID || 'listItemSwitchTestID'}
       />
     ),
     android: (

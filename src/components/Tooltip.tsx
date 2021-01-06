@@ -10,6 +10,7 @@ import {
 import { BottomTriangle } from 'src/molecules/BottomTriangle';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
+import { Testable } from 'src/types';
 
 const textStyle = registeredTextStyle('body', colors.ulisse, 'tooltip-text');
 
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export interface TooltipProps {
+export interface TooltipProps extends Testable {
   anchorY: number;
   anchorYIsFromBottom?: boolean;
   onHide: () => any;
@@ -58,7 +59,7 @@ export interface TooltipContainer {
 
 export const TooltipUnmemoized = (props: TooltipProps) =>
   props.show ? (
-    <TouchableWithoutFeedback onPressIn={props.onHide}>
+    <TouchableWithoutFeedback onPressIn={props.onHide} testID={props.testID}>
       <View style={styles.TooltipWrapper}>
         <View
           style={[

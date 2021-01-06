@@ -3,6 +3,7 @@ import { Clipboard, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
 import { ButtonCompactUnmemoized } from 'src/molecules/buttons/ButtonCompact';
 import { LinkCompact } from 'src/molecules/buttons/LinkCompact';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
@@ -45,13 +46,13 @@ const styles = StyleSheet.create({
   },
 });
 
-type CardCodeProps = {
+interface CardCodeProps extends Testable {
   code: string;
   text: string;
   copyCodeLabel: string;
   button?: ReactElement<typeof ButtonCompactUnmemoized>;
   onCopyPressed?: () => any;
-};
+}
 
 const onCopyPress = (props: CardCodeProps) => {
   return () => {
@@ -66,7 +67,12 @@ export const CardCodeUnmemoized = (props: CardCodeProps) => (
       <View style={styles.CardInner}>
         <View style={styles.CodeWrapper}>
           <Text style={styles.Code}>{props.code}</Text>
-          <LinkCompact text={props.copyCodeLabel} onPress={onCopyPress(props)} center />
+          <LinkCompact
+            text={props.copyCodeLabel}
+            onPress={onCopyPress(props)}
+            testID={props.text}
+            center
+          />
         </View>
         <Text style={styles.Text}>{props.text}</Text>
         {props.button && <View style={styles.ButtonWrapper}>{props.button}</View>}

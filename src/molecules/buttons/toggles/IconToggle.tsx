@@ -67,6 +67,7 @@ export class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
         onPress={this.toggleState}
         icon={this.props.icon}
         style={this.props.style}
+        testID={this.props.testID}
         {...sizes}
         {...computedStyle}
       />
@@ -78,6 +79,7 @@ export class IconToggle extends React.PureComponent<ToggleProps, ToggleState> {
           <IconButton
             buttonStyle={buttonStyle}
             onPress={this.toggleState}
+            testID={this.props.testID}
             icon={this.props.icon}
             style={this.props.style}
             {...sizes}

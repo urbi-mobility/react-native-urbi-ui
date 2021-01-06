@@ -12,13 +12,15 @@ import {
 import { Touchable } from 'src/components/Touchable';
 import { Status, StatusProps } from 'src/molecules/content/Status';
 import { PageIndicator } from 'src/molecules/PageIndicator';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { shallowEqual } from 'src/utils/functions';
-type StatusPanelProps = {
+
+interface StatusPanelProps extends Testable {
   pages: StatusProps[];
   onPress?: () => any;
   onPageChange?: (selectedIndex: number) => any;
-};
+}
 
 type StatusPanelState = {
   scrollViewWidth: number;
@@ -112,7 +114,12 @@ export class StatusPanel extends React.PureComponent<StatusPanelProps, StatusPan
             horizontal
           >
             {this.props.pages.map((s, i) => (
-              <Touchable key={i} style={styles.Touchable} onPress={this.props.onPress}>
+              <Touchable
+                key={i}
+                style={styles.Touchable}
+                onPress={this.props.onPress}
+                testID={`${this.props.testID}-${i}`}
+              >
                 <Status key={`page-${i}`} {...s} minWidth={this.state.scrollViewWidth} />
               </Touchable>
             ))}

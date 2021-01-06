@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, ImageRequireSource, ImageStyle, StyleSheet, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
 
@@ -43,7 +44,7 @@ export const ListItemStyles = {
 
 const styles = StyleSheet.create(ListItemStyles);
 
-export type ListItemProps = {
+export interface ListItemProps extends Testable {
   size?: number;
   content: JSX.Element;
   icon?: ImageRequireSource | string;
@@ -52,7 +53,7 @@ export type ListItemProps = {
   iconColor?: string;
   backgroundColor?: string;
   withSeparator?: boolean;
-};
+}
 
 const Content = (props: ListItemProps) => {
   const { icon, content, end } = props;
@@ -74,7 +75,12 @@ export const renderImageOrIcon = (
 };
 
 const renderListItem = (props: ListItemProps) => (
-  <MaybeTouchable onPress={props.onPress} backgroundColor={props.backgroundColor} exactHeight={56}>
+  <MaybeTouchable
+    onPress={props.onPress}
+    backgroundColor={props.backgroundColor}
+    exactHeight={56}
+    testID={props.testID}
+  >
     <View style={styles.ListItemWrapper}>
       {Content(props)}
       {props.icon

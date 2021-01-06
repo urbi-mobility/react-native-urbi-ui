@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { MaybeTouchable } from 'src/components/MaybeTouchable';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
@@ -25,13 +26,13 @@ const styles = StyleSheet.create({
   },
 });
 
-type NoteProps = {
+interface NoteProps extends Testable {
   icon?: ImageRequireSource;
   text: string;
   onPress?: () => any;
   onDarkBg?: boolean;
   backgroundColor?: string;
-};
+}
 
 const textStyle = registeredTextStyle('micro', colors.ughina, 'note');
 
@@ -40,6 +41,7 @@ export const NoteUnmemoized = (props: NoteProps) => (
     onPress={props.onPress}
     withShadow={false}
     backgroundColor={props.backgroundColor}
+    testID={props.testID}
   >
     <View style={styles.Wrapper}>
       {props.icon && <Image style={styles.Image} source={props.icon} />}

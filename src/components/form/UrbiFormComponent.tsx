@@ -1,8 +1,9 @@
 import React from 'react';
 import { LayoutChangeEvent } from 'react-native';
 import { UrbiFormContextType } from './UrbiForm';
+import { Testable } from 'src/types';
 
-export interface UrbiFormComponentProps<V> {
+export interface UrbiFormComponentProps<V> extends Testable {
   name: string;
   label?: string; // if not set, name will be used
   focusable: boolean;

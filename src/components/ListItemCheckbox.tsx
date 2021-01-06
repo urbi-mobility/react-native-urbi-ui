@@ -38,7 +38,7 @@ export const ListItemCheckboxUnmemoized = (props: ListItemCheckboxProps) => {
   const onLinePress = () => props.onPress(props.id, !props.selected);
   return (
     <View style={styles.Touchable}>
-      <Touchable style={styles.Wrapper} onPress={onLinePress}>
+      <Touchable style={styles.Wrapper} onPress={onLinePress} testID={props.testID}>
         <ControlAndLabel {...props} style={styles.Checkbox} control="checkbox" />
         {props.selected && (
           <View style={styles.SelectedInfo}>

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import { colors } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
+import { Testable } from 'src/types';
 
 const styles = StyleSheet.create({
   Touchable: {
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export interface ControlProps {
+export interface ControlProps extends Testable {
   id: string;
   onPress: (id: string, selected: boolean) => any;
   selected: boolean;

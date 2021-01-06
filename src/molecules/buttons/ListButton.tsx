@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Touchable } from 'src/components/Touchable';
 import { IconButtonCompact } from 'src/molecules/buttons/iconButtons/IconButtonCompact';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { registeredTextStyle } from 'src/utils/textStyles';
 
@@ -25,16 +26,16 @@ const styles = StyleSheet.create({
 
 const textStyle = registeredTextStyle('button');
 
-type ListButtonProps = {
+interface ListButtonProps extends Testable {
   icon: string;
   actionLabel: string;
   onPress: () => any;
   onDarkBackground?: boolean;
-};
+}
 
 export const ListButtonUnmemoized = (props: ListButtonProps) => (
   <View style={{ flex: 1 }}>
-    <Touchable onPress={props.onPress}>
+    <Touchable onPress={props.onPress} testID={props.testID}>
       <View style={styles.Wrapper}>
         <IconButtonCompact
           style={styles.Icon}

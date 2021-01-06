@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, ImageRequireSource, StyleSheet, View, ViewStyle } from 'react-native';
 import { headerHeight, headerShadowStyle } from 'src/components/profileHeaders/AccountHeader';
 import { Touchable } from 'src/components/Touchable';
+import { Testable } from 'src/types';
 import { colors } from 'src/utils/colors';
 import { Icon } from 'src/utils/const';
 import { withPixelDensity } from 'src/utils/functions';
@@ -42,12 +43,12 @@ const styles = StyleSheet.create({
   },
 });
 
-type ProfilePicProps = {
+interface ProfilePicProps extends Testable {
   image: ImageRequireSource | string;
   onPress?: () => any;
   withCameraIcon?: boolean;
   flexExpand?: boolean;
-};
+}
 
 const renderImage = (image: ProfilePicProps['image']) => (
   <Image
