@@ -36,7 +36,6 @@ const buttons = (props: FilterGroupProps) =>
       setActive={props.onFilterToggle}
       managed={props.managed}
       loading={b.loading}
-      testID={`${props.testID ?? 'filterGroupToggle'}-${b.id}`}
     />
   ));
 
@@ -56,7 +55,6 @@ const FilterGroupUnmemoized = (props: FilterGroupProps) => {
           buttonStyle={props.lastButton.active ? 'brand' : 'primary'}
           icon={props.lastButton.icon}
           onPress={props.lastButton.onPress}
-          testID={`${props.testID ?? 'filterGroupToggle'}-last`}
         />
       ) : null}
     </View>
