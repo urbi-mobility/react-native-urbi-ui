@@ -61,7 +61,11 @@ const renderImage = (image: ProfilePicProps['image']) => (
 export const ProfilePicUnmemoized = (props: ProfilePicProps) => (
   <View style={props.flexExpand ? styles.WrapperExpanded : styles.Wrapper} elevation={5}>
     {props.onPress ? (
-      <Touchable onPress={props.onPress} style={styles.ImageWrapper}>
+      <Touchable
+        testID={props.testID ?? 'profilePicTestID'}
+        onPress={props.onPress}
+        style={styles.ImageWrapper}
+      >
         <View style={styles.ImageWrapper}>
           {renderImage(props.image)}
           {props.withCameraIcon && (
