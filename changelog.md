@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - added `testID` to all components containing touchable items on any type
+- `CardHeader` added `titleLines` props
+- `ListItemTextInputPropsType` added news props and type
 
 ### Changed
 

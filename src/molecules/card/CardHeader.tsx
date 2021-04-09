@@ -12,6 +12,7 @@ export type CardHeaderProps = {
   icon?: ReactElement<typeof IconButtonCompactUnmemoized>;
   struckout?: string;
   highlightBigLabel?: boolean;
+  titleLines?: number;
   style?: ViewStyle;
 };
 
@@ -56,7 +57,7 @@ const getTitle = (props: CardHeaderProps) =>
       </Text>
     </View>
   ) : (
-    <Text style={title} numberOfLines={1}>
+    <Text style={title} numberOfLines={props.titleLines ? props.titleLines : 1}>
       {props.title}
     </Text>
   );

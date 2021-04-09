@@ -26,7 +26,9 @@ export type ListItemTextInputPropsType =
   | 'emailAddress'
   | 'password'
   | 'pin'
-  | 'telephoneNumber';
+  | 'telephoneNumber'
+  | 'number';
+
 
 const toTextInputType = (t: ListItemTextInputPropsType) => {
   switch (t) {
@@ -34,6 +36,8 @@ const toTextInputType = (t: ListItemTextInputPropsType) => {
       return 'username';
     case 'pin':
       return 'password';
+    case 'number':
+      return 'postalCode';
     default:
       return t;
   }
@@ -44,6 +48,8 @@ interface ListItemTextInputProps extends UrbiFormComponentProps<string> {
   multiline?: boolean;
   placeholder?: string;
   autocompleteType?: TextInputProps['autoCompleteType'];
+  maxLength?: number;
+  allCaps?: boolean;
 }
 
 interface ListItemTextInputState extends UrbiFormComponentState {
@@ -89,6 +95,8 @@ const keyboardTypes: { [t in ListItemTextInputPropsType]: KeyboardTypeOptions } 
   password: 'default',
   pin: 'number-pad',
   telephoneNumber: 'phone-pad',
+  number: 'number-pad',
+
 };
 
 class ListItemTextInputComponent extends UrbiFormComponent<
@@ -155,11 +163,12 @@ class ListItemTextInputComponent extends UrbiFormComponent<
             testID={`${testID ?? name ?? placeholder ?? label}TextInputTestID`}
             ref={this.textInput}
             style={styles.TextInput}
-            autoCapitalize="none"
+            autoCapitalize={this.props.allCaps ? 'characters' : 'none'}
             autoCorrect={false}
             onChangeText={setFieldValue}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
+            maxLength={this.props.maxLength}
             value={value}
             multiline={multiline ?? false}
             placeholder={placeholder || label || name}
