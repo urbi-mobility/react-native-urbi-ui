@@ -7,14 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
-## [0.3.12 - 2021-07-13]
+### Added
+
+- `CardHeader` added `titleLines` props
+- `ListItemTextInputPropsType` added news props and type
+- `Note` added textColor
+
+## [0.3.12 - 2021-01-06]
 
 ### Added
 
 - added `testID` to all components containing touchable items on any type
-- `CardHeader` added `titleLines` props
-- `ListItemTextInputPropsType` added news props and type
-- `Note` added textColor 
 
 ### Changed
 
