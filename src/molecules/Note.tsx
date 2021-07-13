@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 interface NoteProps extends Testable {
   icon?: ImageRequireSource;
   text: string;
+  textColor?: string;
   onPress?: () => any;
   onDarkBg?: boolean;
   backgroundColor?: string;
@@ -46,7 +47,17 @@ export const NoteUnmemoized = (props: NoteProps) => (
     <View style={styles.Wrapper}>
       {props.icon && <Image style={styles.Image} source={props.icon} />}
       <Text
-        style={[textStyle, styles.Text, { color: props.onDarkBg ? colors.ulisse : colors.ughina }]}
+        style={[
+          textStyle,
+          styles.Text,
+          {
+            color: props.textColor
+              ? props.textColor
+              : props.onDarkBg
+              ? colors.ulisse
+              : colors.ughina,
+          },
+        ]}
       >
         {props.text.toUpperCase()}
       </Text>
